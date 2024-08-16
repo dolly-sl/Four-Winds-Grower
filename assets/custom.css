@@ -715,3 +715,7 @@
   height: 45px!important;
   background:#fff !important;
 }
+
+.boost-sd__search-bar{
+  border-bottom: solid 1px #e3dad0!important;
+}
