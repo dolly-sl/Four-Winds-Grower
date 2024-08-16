@@ -1,9 +1,14 @@
 <header class="m-page_header" id="navbar">
-{% include 'ann_bar' %}  
+  {% include 'ann_bar' %}
   <div class="m-header">
     <nav class="m-nav_top l-container_fake">
       <ul class="m-nav_list">
-        <li class="mobile-right"{% if section.settings.hidewholesale == true %}style="display: none;"{% endif %}>
+        <li
+          class="mobile-right"
+          {% if section.settings.hidewholesale == true %}
+            style="display: none;"
+          {% endif %}
+        >
           <a class="m-nav_link--text" href="{{ settings.wholesale-link }}">Wholesale</a>
         </li>
         <li class="mobile-right">
@@ -11,23 +16,29 @@
         </li>
         <li class="l-float_right">
           <span class="m-nav_announcement">
-            {{ section.settings.nav-announcement }}
+            {{ section.settings['nav-announcement'] }}
           </span>
+        </li>
       </ul>
     </nav>
     {% include 'header-nav-content' %}
     <a class="m-nav_logo{% if template != "index" %} interior{% endif %}" alt="header-icon" href="/" id="nav-logo">
       {% assign old_url = section.settings.logo | img_url: 'master' %}
       {% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '150', options: 'dpr:2' %}{% endcapture %}
-      <img src= "{{ imageboss_url }}" />
+      <img src="{{ imageboss_url }}" alt="{{ section.settings.logo.alt }}">
     </a>
-    <a class="m-nav_logo{% if template != "index" %} interior{% endif %}" alt="header-icon" href="/" id="dummy-nav-logo">
+    <a
+      class="m-nav_logo{% if template != "index" %} interior{% endif %}"
+      alt="header-icon"
+      href="/"
+      id="dummy-nav-logo"
+    >
       {% assign old_url = section.settings.logo | img_url: 'master' %}
       {% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '150', options: 'dpr:2' %}{% endcapture %}
-      <img src={{ imageboss_url }} />
+      <img src="{{ imageboss_url }}" alt="{{ section.settings.logo.alt }}">
     </a>
   </div>
-  {% include 'flyout', currList: section.settings.main-menu %}
+  {% include 'flyout', currList: section.settings['main-menu'] %}
 </header>
 <div id="flyout-overlay" class="flyout-button"></div>
 <div id="scroll-shadow"></div>
@@ -36,92 +47,87 @@
   <div class="collectionHeadRow">
     {% assign old_url = collection.image | img_url: 'master' %}
     {% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '60', options: 'dpr:2' %}{% endcapture %}
-    <img src="{{ imageboss_url }}" alt="header-icon" height="50" class="m-nav_drop-image"/>
-   {% if product.title %}
-    	<h4>{{ collection.title }}</h4>
+    <img src="{{ imageboss_url }}" alt="header-icon" height="50" class="m-nav_drop-image">
+    {% if product.title %}
+      <h4>{{ collection.title }}</h4>
     {% else %}
-        
-    {% if current_tags[0] == NULL %}
-    	<h1>{{ collection.title }}</h1>
-    {% else %}
-   		<h1>{{ collection.title }} - {{ current_tags[0] }}</h1>
-    {% endif %}
-    
-    
+      {% if current_tags[0] == NULL %}
+        <h1>{{ collection.title }}</h1>
+      {% else %}
+        <h1>{{ collection.title }} - {{ current_tags[0] }}</h1>
+      {% endif %}
     {% endif %}
   </div>
-<!--
-  <div class="m-collection-menu">
-    {{secondShopMenu}}
-  </div>
-  <style>
-    .m-collection-menu > .m-nav_link-submenu--shop {
-      background-image:url({{section.settings.shop-menu-bg | img_url: '2000x'}});
-      background-position:center;
-      background-size:cover;
-    }
-  </style>
--->
-
+  <!--
+    <div class="m-collection-menu">
+      {{secondShopMenu}}
+    </div>
+    <style>
+      .m-collection-menu > .m-nav_link-submenu--shop {
+        background-image:url({{section.settings.shop-menu-bg | img_url: '2000x'}});
+        background-position:center;
+        background-size:cover;
+      }
+    </style>
+  -->
 {% endif %}
 
 {% schema %}
-  {
-    "name": "Header",
-    "class": "m-page_header--container",
-    "max_blocks": 4,
-    "settings": [
-      {
-        "type": "image_picker",
-        "id": "logo",
-        "label": "Main Logo"
-      },
-      {
-        "type": "link_list",
-        "id": "main-menu",
-        "label": "Main Menu List"
-      },
-      {
-        "type": "checkbox",
-        "id": "enable-shop",
-        "label": "Use Complicated Shop Menu"
-      },
-      {
-        "type": "image_picker",
-        "id": "shop-menu-bg",
-        "label": "Background for collection page menu"
-      },
-      {
-        "id": "nav-announcement",
-        "type": "text",
-        "label": "Nav Announcement",
-        "default": "10% discount on Orders of $120.00 or more!"
-      },
-	  {
-		"id": "hidewholesale",
-        "type": "checkbox",
-        "label": "Hide Wholesale link?"
-	  }
-    ],
-    "blocks": [
-      {
-        "type": "shop_column",
-        "name": "Shop Column",
-        "settings": [
-          {
-            "type": "collection",
-            "id": "collection-item-one",
-            "label": "Collection #1",
-            "info": "Image used is the collections featured image, links can be changed in Navigation in the Shopify admin."
-          },
-          {
-            "type": "collection",
-            "id": "collection-item-two",
-            "label": "Collection #2"
-          }
-
-        ]
-      }
-    ]
-  }
+{
+  "name": "Header",
+  "class": "m-page_header--container",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Main Logo"
+    },
+    {
+      "type": "link_list",
+      "id": "main-menu",
+      "label": "Main Menu List"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable-shop",
+      "label": "Use Complicated Shop Menu"
+    },
+    {
+      "type": "image_picker",
+      "id": "shop-menu-bg",
+      "label": "Background for collection page menu"
+    },
+    {
+      "id": "nav-announcement",
+      "type": "text",
+      "label": "Nav Announcement",
+      "default": "10% discount on Orders of $120.00 or more!"
+    },
+    {
+      "id": "hidewholesale",
+      "type": "checkbox",
+      "label": "Hide Wholesale link?"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "shop_column",
+      "name": "Shop Column",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection-item-one",
+          "label": "Collection #1",
+          "info": "Image used is the collections featured image, links can be changed in Navigation in the Shopify admin."
+        },
+        {
+          "type": "collection",
+          "id": "collection-item-two",
+          "label": "Collection #2"
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}

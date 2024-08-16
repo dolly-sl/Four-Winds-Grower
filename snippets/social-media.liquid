@@ -1,30 +1,72 @@
-{% if settings.social-facebook != blank %}
-  <a{% if className %} class="{{className}}"{% endif %} target="_blank" href="{{settings.social-facebook}}">
+{% if settings['social-facebook'] != blank %}
+  <a
+    {% if className %}
+      class="{{className}}"
+    {% endif %}
+    target="_blank"
+    href="{{settings.social-facebook}}"
+    title="Facebook"
+  >
     <i class="fa fa-facebook-square"></i>
   </a>
 {% endif %}
-{% if settings.social-instagram != blank %}
-  <a{% if className %} class="{{className}}"{% endif %} target="_blank" href="{{settings.social-instagram}}">
+{% if settings['social-instagram'] != blank %}
+  <a
+    {% if className %}
+      class="{{className}}"
+    {% endif %}
+    target="_blank"
+    href="{{settings.social-instagram}}"
+    title="Instagram"
+  >
     <i class="fa fa-instagram"></i>
   </a>
 {% endif %}
-{% if settings.social-youtube != blank %}
-  <a{% if className %} class="{{className}}"{% endif %} target="_blank" href="{{settings.social-youtube}}">
+{% if settings['social-youtube'] != blank %}
+  <a
+    {% if className %}
+      class="{{className}}"
+    {% endif %}
+    target="_blank"
+    href="{{settings.social-youtube}}"
+    title="Youtube"
+  >
     <i class="fa fa-youtube-square"></i>
   </a>
 {% endif %}
-{% if settings.social-twitter != blank %}
-  <a{% if className %} class="{{className}}"{% endif %} target="_blank" href="{{settings.social-twitter}}">
+{% if settings['social-twitter'] != blank %}
+  <a
+    {% if className %}
+      class="{{className}}"
+    {% endif %}
+    title="Twitter"
+    target="_blank"
+    href="{{settings.social-twitter}}"
+  >
     <i class="fa fa-twitter-square"></i>
   </a>
 {% endif %}
-{% if settings.social-flickr != blank %}
-  <a{% if className %} class="{{className}}"{% endif %} target="_blank" href="{{settings.social-flickr}}">
+{% if settings['social-flickr'] != blank %}
+  <a
+    {% if className %}
+      class="{{className}}"
+    {% endif %}
+    target="_blank"
+    href="{{settings.social-flickr}}"
+    title="Flickr"
+  >
     <i class="fa fa-flickr"></i>
   </a>
 {% endif %}
-{% if settings.social-pinterest != blank %}
-  <a{% if className %} class="{{className}}"{% endif %} target="_blank" href="{{settings.social-pinterest}}">
+{% if settings['social-pinterest'] != blank %}
+  <a
+    {% if className %}
+      class="{{className}}"
+    {% endif %}
+    target="_blank"
+    href="{{settings.social-pinterest}}"
+    title="Pinterest"
+  >
     <i class="fa fa-pinterest-square"></i>
   </a>
 {% endif %}
