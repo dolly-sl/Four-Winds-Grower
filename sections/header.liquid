@@ -25,7 +25,7 @@
     <a class="m-nav_logo{% if template != "index" %} interior{% endif %}" alt="header-icon" href="/" id="nav-logo">
       {% assign old_url = section.settings.logo | img_url: 'master' %}
       {% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '150', options: 'dpr:2' %}{% endcapture %}
-      <img src="{{ imageboss_url }}" alt="{{ imageboss_url.alt }}">
+      <img src="{{ imageboss_url }}" alt="{{ section.settings.logo.alt }}">
     </a>
     <a
       class="m-nav_logo{% if template != "index" %} interior{% endif %}"
@@ -35,7 +35,7 @@
     >
       {% assign old_url = section.settings.logo | img_url: 'master' %}
       {% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '150', options: 'dpr:2' %}{% endcapture %}
-      <img src="{{ imageboss_url }}" alt="{{ imageboss_url.alt }}">
+      <img src="{{ imageboss_url }}" alt="{{ section.settings.logo.alt }}">
     </a>
   </div>
   {% include 'flyout', currList: section.settings['main-menu'] %}
