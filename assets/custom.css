@@ -269,6 +269,14 @@
 .boost-sd__product-info.boost-sd__product-info--left{
   justify-content: center;
 }
+.boost-sd__product-rating .text-m{
+  font-family: avenir-medium, sans-serif!important;
+  font-size: 14px!important;
+  font-weight: 500!important;
+  line-height: normal!important;
+  letter-spacing: normal!important;
+  color: #443e37!important;
+}
 .boost-sd__product-price--default s{
   opacity: 0.5!important;
   order:1;
