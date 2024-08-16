@@ -1,0 +1,13 @@
+<div class="collection-top">
+    {% include 'breadcrumbs' %}
+    <div class="info container">
+      {% if template.name == 'article' %}
+		<h1>{{ article.title }}</h1>
+      {% else %}
+      	<h1>{{ title }}</h1>
+      {% endif %}
+    </div> 
+    {% if submitButton == "true" %}
+    	<a href="/pages/submit-your-story" class="theme-button outline">SUBMIT YOUR STORY</a>
+    {% endif %}
+</div>

@@ -1,0 +1,7 @@
+<ul class="m-footer_menu accordion-list">
+  {% for link in linklists[currList].links %}
+    <li>
+      <a href="{{link.url}}"  class="m-footer_menu-item">{{link.title}}</a>
+    </li>
+  {% endfor %}
+</ul>

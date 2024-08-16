@@ -1,0 +1,37 @@
+{% schema %}
+{
+	"name": "Related Products",
+	"settings": [
+		{
+			"id": "image",
+			"type": "image_picker",
+			"label": "Divider Image"
+		},
+		{
+			"id": "section-title",
+			"type": "text",
+			"label": "Section Title",
+			"default": "Related Products"
+		}
+	]
+}
+{% endschema %}
+
+<section id="related-products">
+	<div class="divider-pic background-parent">
+        
+		<img 
+			{% assign old_url = section.settings.image | img_url: 'master' %}
+			{% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '800', options: 'dpr:2' %}{% endcapture %}
+			src="{{ imageboss_url }}"
+			srcset="{{ imageboss_url }}"
+			data-size="auto"
+			data-srcset="{{ imageboss_url }} 1200w, {{ imageboss_url }} 800w"
+			class="lazyload background" 
+			alt="Related Products Background"/>
+	</div>
+	<h6>{{ section.settings.section-title }}</h6>
+	<div class="container">
+		{% include 'related-products' %}
+	</div>
+</section>

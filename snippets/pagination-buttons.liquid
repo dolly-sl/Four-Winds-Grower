@@ -1,0 +1,13 @@
+<div id="pagination-links">
+	{% if paginate.previous.is_link %}
+	<a href="{{ paginate.previous.url }}">Previous</a>
+	{% endif %}
+
+	{% for part in paginate.parts %}
+	<a href="{{ part.url }}">{{ part.title }}</a>
+	{% endfor %}
+
+	{% if paginate.next.is_link %}
+	<a href="{{ paginate.next.url }}">Next</a>
+	{% endif %}
+</div>

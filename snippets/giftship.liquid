@@ -1,0 +1,22 @@
+	{% assign multishipping = 'false' %}
+
+	{% if template.name == 'cart' %}
+	{% for item in cart.items %}
+	{% for p in item.properties %}
+	{% if p.first == 'Address' %}
+	{% assign multishipping = 'true' %}
+	{% endif %}
+	{% endfor %}
+	{% endfor %}
+	{% endif %}
+
+	{% if multishipping == 'true' and template.name == 'cart' %}
+	<script type="text/javascript">
+		window.location = 'https://{{ request.host }}/a/gs/cart/';
+	</script>
+	<meta http-equiv="refresh" content="0;URL=https://{{ request.host }}/a/gs/cart/" />
+	{% endif %}
+
+	{% if template.name == 'cart' or template.name == 'product' %}<script type="text/javascript" async="" src="https://99418-318755-raikfcquaxqncofqfm.stackpathdns.com/public/assets/js/giftship.js"></script><link rel="stylesheet" type="text/css" href="https://99418-318755-raikfcquaxqncofqfm.stackpathdns.com/public/assets/css/giftship.global.css">{% endif %}
+
+	

@@ -1,0 +1,14 @@
+{% if list.size == 0 %}
+	{% assign thisList = linklists.about-menu %}
+{% else %}
+	{% assign thisList = linklists[list] %}
+{% endif %}
+
+<aside class="interior-side-menu">
+	<h4>{{ thisList.title | replace: ' Side Menu', '' }}</h4>
+	<div class="links">
+	{% for link in thisList.links %}
+		<a href="{{ link.url }}" {% if link.active %} class="active"{% endif %}>{{ link.title }}</a>
+	{% endfor %}
+	</div>
+</aside>

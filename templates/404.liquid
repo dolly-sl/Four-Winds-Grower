@@ -1,0 +1,14 @@
+{% section '404' %}
+
+<script>
+  (function($) {
+    $(window).ready(function() {
+      if (window.location.href.includes('wholesale-api')) {
+        $('.container h1').html('Incorrect Password');
+        $('.container p').html('{{ settings.wrong-password-msg }}');
+      }
+    })
+  })(jQuery);
+</script>
+
+{%- comment -%}smartseo_integration_begin{%- endcomment -%}{{ 'smart-seo-broken-link-detection.js' | asset_url | script_tag }}{%- comment -%}smartseo_integration_end{%- endcomment -%}

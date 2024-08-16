@@ -1,0 +1,14 @@
+{% schema %}
+{
+	"name": "Account Banner",
+	"settings": [
+		{
+			"id": "banner-background",
+			"type": "image_picker",
+			"label": "Banner Background"
+		}
+	]
+}
+{% endschema %}
+
+{% include 'page-banner', background: section.settings.banner-background %}

@@ -1,0 +1,17 @@
+<div class="page-banner background-parent">
+	{% if background %}
+  	{% assign old_url = background  | img_url: 'master' %}
+    {% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '800', options: 'dpr:2' %}{% endcapture %}
+	<img 
+		src="{{ imageboss_url }}"
+		srcset="{{ imageboss_url }}"
+		data-size="auto"
+		data-srcset="{{ imageboss_url }} 1200w, {{ imageboss_url }} 600w"
+		class="lazyload background" 
+		alt="{{ page_title }} Background"/>
+	{% else %}
+  		{% assign old_url = 'default-background.jpg' | asset_url %}
+    	{% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '960', options: 'dpr:2' %}{% endcapture %}
+		<img src="{{ imageboss_url }}" class="background" alt="{{ page_title }} Background">
+	{% endif %}
+</div>

@@ -1,0 +1,125 @@
+{% schema %}
+  {
+    "name": "Wholesale A/B",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "disable-password",
+        "label": "Disable Password On Brick & Mortar"
+      },
+       {
+         "type": "image_picker",
+         "id": "banner-background",
+         "label": "Banner Background",
+         "info": "Optional"
+       },
+       {
+         "type": "text",
+         "id": "section-title",
+         "label": "Page Title"
+       },
+       {
+         "type": "textarea",
+         "id": "body-text",
+         "label": "Body Text"
+       },
+       {
+         "type": "image_picker",
+         "id": "icon-left",
+         "label": "Icon Left"
+       },
+       {
+         "type": "text",
+         "id": "header-left",
+         "label": "Header Left"
+       },
+       {
+         "type": "text",
+         "id": "button-text-left",
+         "label": "Button Text Left"
+       },
+       {
+        "type": "image_picker",
+        "id": "icon-right",
+        "label": "Icon Right"
+      },
+      {
+        "type": "text",
+        "id": "header-right",
+        "label": "Header Right"
+      },
+      {
+        "type": "text",
+        "id": "button-text-right",
+        "label": "Button Text Right"
+      }
+    ]
+  }
+{% endschema %}
+
+{% include 'page-banner', background: section.settings.banner-background %}
+{% include 'interior-title', title: section.settings.section-title %}
+
+<section class="wholesale">
+  <div class="wholesale-inner">
+    <div class="copy-row">
+      <div class="copy-row-inner">
+        <div class="content">   
+          <p>
+            {{ section.settings.body-text }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="cta-row">
+      <div class="cta-row-inner flex">
+        <div class="start">
+          <div class="image-wrapper">
+            <img src="{{ section.settings.icon-left | img_url: 'master' }}" alt="Online Wholesale Icon">
+          </div>
+          <h2>
+            {{ section.settings.header-left }}
+          </h2>
+          <a href="https://four-winds-growers.wholesale.shopifyapps.com/accounts/sign_in" class="btn online-btn ctct-form-button">
+            {{ section.settings.button-text-left }}
+          </a>
+        </div>
+        <div class="divider"></div>
+        <div class="end">
+          <div class="image-wrapper">
+            <img src="{{ section.settings.icon-right | img_url: 'master' }}" alt="Brick and Mortar Wholesale Icon">
+          </div>
+          <h2>
+            {{ section.settings.header-right }}
+          </h2>
+          <a href="https://apps.sbiteam.com/orders/?cid=100155" data-lity class="btn online-btn ctct-form-button">
+            {{ section.settings.button-text-right }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="inline-dialog" class="wholesale-password-dialog lity-hide">
+  <div class="wholesale-password-dialog-inner">
+    <h3>
+      {{ section.settings.header-right }}
+      <form onsubmit="submitpass(event)">
+        <input id="whole-pass" type="password" placeholder="Enter Password">
+        <button type="submit">
+          SIGN IN
+        </button>
+      </form>
+    </h3>
+  </div>
+</section>
+
+<script>
+  function submitpass(event) {
+    event.preventDefault();
+    var pass = document.querySelector('#whole-pass').value;
+
+    window.location.href = '/blogs/wholesale-api/tagged/' + pass.toString();
+  }
+</script>

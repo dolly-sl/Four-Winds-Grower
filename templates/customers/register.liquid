@@ -1,0 +1,32 @@
+{% section 'account-banner' %}
+{% include 'interior-title', title: "SIGN UP" %}
+<section class="account-page">
+    <div class="container" id="account-page">
+        {% form 'create_customer' %}
+            {% if form.errors %}
+                <div class="account-input-div">
+                    {{ form.errors | default_errors }}
+                </div>
+             {% endif %}
+
+            <div class="account-input-div">
+                <input type="text" name="customer[first_name]" id="FirstName" placeholder="First Name">
+            </div>
+            <div class="account-input-div">
+                <input type="text" name="customer[last_name]" id="LastName" placeholder="Last Name">
+            </div>
+            <div class="account-input-div">
+                <input type="text" name="customer[email]" id="Email" placeholder="Email">
+            </div>
+            <div class="account-input-div">
+                <input type="password" name="customer[password]" id="CreatePassword" placeholder="Password">
+            </div>
+            <div class="account-input-div">
+                <button type="submit" class="theme-button">
+                    CREATE AN ACCOUNT
+                </button>
+                <p class="account-switch">Already have an account? <a href="/account/login">Login</a>
+            </div>
+        {% endform %}
+    </div>
+</section>

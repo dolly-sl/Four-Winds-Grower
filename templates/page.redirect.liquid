@@ -1,0 +1,12 @@
+<div id="text">
+{% paginate collections.all.products by 1000 %}
+
+{% for product in collections['all'].products %}
+{{ product.url | remove: "/products/" | replace: "-", " " }}, {{ product.url }}
+{% endfor %}
+{% endpaginate %}
+</div>
+
+<script>
+  console.log(document.getElementById("text").innerHTML);
+</script>

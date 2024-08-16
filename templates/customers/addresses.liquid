@@ -1,0 +1,160 @@
+{% section 'account-banner' %}
+{% include 'interior-title', title: "ADDRESSES" %}
+<section id="my-account" class="account-page">
+    <div class="container">
+        <div class="row">
+            <!-- address form -->
+            <div class="col-md-6">
+                <div class="theme-button" id="add-address">
+                    ADD A NEW ADDRESS
+                </div>
+                <a href="/account" class="address-link">Return to Account Details</a>
+                <section id="address-form" style="display:none;">
+                {% form 'customer_address', customer.new_address %}
+
+                    {% if form.errors %}
+                        <div class="account-input-div" id="address-form-errors">
+                            {{ form.errors | default_errors }}
+                        </div>
+                    {% endif %}
+
+                    <div class="account-input-div">
+                        <input type="text" name="address[first_name]" id="AddressFirstNameNew" value="{{ form.first_name }}" placeholder="First Name">
+                    </div>
+                    <div class="account-input-div">
+                        <input type="text" name="address[last_name]" id="AddressLastNameNew" value="{{ form.last_name }}" placeholder="Last Name">
+                    </div>
+                    <div class="account-input-div">
+                        <input type="text" name="address[company]" id="AddressCompanyNew" value="{{ form.company }}" placeholder="Company">
+                    </div>
+                    <div class="account-input-div">
+                        <input type="text" name="address[address1]" id="AddressAddress1New" value="{{ form.address1 }}" placeholder="Address 1">
+                    </div>
+                    <div class="account-input-div">
+                        <input type="text" name="address[address2]" id="AddressAddress2New" value="{{ form.address2 }}" placeholder="Address 2">
+                    </div>
+                    <div class="account-input-div">
+                        <div class="row">
+                            <div class="col-sm-6 stack-col">
+                                <input type="text" name="address[city]" id="AddressCityNew" value="{{ form.city }}" placeholder="City">
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="select-input">
+                                    <select name="address[country]" id="AddressCountryNew" value="{{ form.country }}">
+                                        <option value="">Country</option>
+                                        {{ country_option_tags }}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="account-input-div">
+                        <input type="text" name="address[province]" id="AddressProvinceNew" value="{{ form.province }}" placeholder="Province">
+                    </div>
+                    <div class="account-input-div">
+                        <div class="row">
+                            <div class="col-sm-6 stack-col">
+                                <input type="text" name="address[zip]" id="AddressZipNew" value="{{ form.zip }}" placeholder="Postal/Zip Code">
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="text" name="address[phone]" id="AddressPhoneNew" value="{{ form.phone }}" placeholder="Phone">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="account-input-div checkbox">
+                        <label>
+                            {{ form.set_as_default_checkbox }}
+                            <p class="default-address-text">Set as default address</p>
+                        </label>
+                    </div>
+                    <div class="account-input-div">
+                        <button type="submit" class="theme-button">
+                            ADD ADDRESS
+                        </button>
+                        <a id="cancel-address-form" class="address-link">Cancel</a>
+                    </div>
+                {% endform %}
+                </section>
+            </div>
+            <div class="col-md-6" id="account-addresses">
+                <h5>Your Addresses</h5>
+                <hr>
+                {% for address in customer.addresses %}
+                    <div class="customer-address">
+                        <p><strong>Address {{forloop.index}} {% if address == customer.default_address %} (default) {% endif %}</strong></p>
+                        {{ address | format_address }}
+                        <a class="edit-address-link">Edit</a>
+                        <span>|</span>
+                        {{ 'Delete' | delete_customer_address_link: address.id }}
+                        <!-- edit form -->
+                        <div class="edit-address" style="display:none;padding-top:20px;">
+                            {% form 'customer_address', address %}
+                                {% if form.errors %}
+                                    <div class="account-input-div" id="address-form-errors">
+                                        {{ form.errors | default_errors }}
+                                    </div>
+                                {% endif %}
+
+                            <div class="account-input-div">
+                                <input type="text" name="address[first_name]" id="AddressFirstNameNew" value="{{ form.first_name }}" placeholder="First Name">
+                            </div>
+                            <div class="account-input-div">
+                                <input type="text" name="address[last_name]" id="AddressLastNameNew" value="{{ form.last_name }}" placeholder="Last Name">
+                            </div>
+                            <div class="account-input-div">
+                                <input type="text" name="address[company]" id="AddressCompanyNew" value="{{ form.company }}" placeholder="Company">
+                            </div>
+                            <div class="account-input-div">
+                                <input type="text" name="address[address1]" id="AddressAddress1New" value="{{ form.address1 }}" placeholder="Address 1">
+                            </div>
+                            <div class="account-input-div">
+                                <input type="text" name="address[address2]" id="AddressAddress2New" value="{{ form.address2 }}" placeholder="Address 2">
+                            </div>
+                            <div class="account-input-div">
+                                <div class="row">
+                                    <div class="col-sm-6 stack-col">
+                                        <input type="text" name="address[city]" id="AddressCityNew" value="{{ form.city }}" placeholder="City">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="select-input">
+                                            <select name="address[country]" id="AddressCountryNew" value="{{ form.country }}">
+                                                <option value="">Country</option>
+                                                {{ country_option_tags }}
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="account-input-div">
+                                <input type="text" name="address[province]" id="AddressProvinceNew" value="{{ form.province }}" placeholder="Province">
+                            </div>
+                            <div class="account-input-div">
+                                <div class="row">
+                                    <div class="col-sm-6 stack-col">
+                                        <input type="text" name="address[zip]" id="AddressZipNew" value="{{ form.zip }}" placeholder="Postal/Zip Code">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" name="address[phone]" id="AddressPhoneNew" value="{{ form.phone }}" placeholder="Phone">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="account-input-div checkbox">
+                                <label>
+                                    {{ form.set_as_default_checkbox }}
+                                    <p class="default-address-text">Set as default address</p>
+                                </label>
+                            </div>
+                            <div class="account-input-div">
+                                <button type="submit" class="theme-button">
+                                    EDIT ADDRESS
+                                </button>
+                                <a class="address-link cancel-edit-address">Cancel</a>
+                            </div>
+                                    {% endform %}
+                                </div>
+                            </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

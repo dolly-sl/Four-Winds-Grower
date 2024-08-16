@@ -1,0 +1,138 @@
+{% schema %}
+{
+	"name": "About Page",
+	"settings": [
+		{
+			"id": "banner-background",
+			"type": "image_picker",
+			"label": "Banner Background"
+		},
+		{
+			"id": "section-title",
+			"type": "text",
+			"label": "Page Title",
+			"default": "family grown for growing families"
+		},
+		{
+			"id": "menu-list",
+			"type": "link_list",
+			"label": "Side Menu Link List"
+		},
+		{
+			"id": "text-block-1",
+			"type": "richtext",
+			"label": "Text Block 1",
+			"info": "Use bold for header text"
+		},
+		{
+			"id": "image-1",
+			"type": "image_picker",
+			"label": "Image 1"
+		},
+		{
+			"id": "text-block-2",
+			"type": "richtext",
+			"label": "Text Block 2",
+			"info": "Use bold for header text"
+		},
+		{
+			"id": "image-2",
+			"type": "image_picker",
+			"label": "Image 2"
+		},
+		{
+			"id": "text-block-3",
+			"type": "richtext",
+			"label": "Text Block 3",
+			"info": "Use bold for header text"
+		},
+		{
+			"id": "text-block-4",
+			"type": "richtext",
+			"label": "Text Block 4",
+			"info": "Use bold for header text"
+		}
+	],
+	"blocks": [
+		{
+			"name": "Team Members",
+			"type": "team",
+			"limit": 12,
+			"settings": [
+				{
+					"id": "image",
+					"type": "image_picker",
+					"label": "Image",
+					"info": "Square crop, you can use shopify's picture editing tools"
+				},
+				{
+					"id": "name",
+					"type": "text",
+					"label": "Name"
+				},
+				{
+					"id": "bio",
+					"type": "textarea",
+					"label": "Bio"
+				}
+			]
+		}
+	]
+}
+{% endschema %}
+
+{% include 'page-banner', background: section.settings.banner-background %}
+{% include 'interior-title', title: section.settings.section-title %}
+<section id="about-page" class="interior-page">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				{% include 'interior-side-menu', list: section.settings.menu-list %}
+			</div>
+			<div class="col-md-9">
+				<article class="text-block">
+					{{ section.settings.text-block-1 | newline_to_br }}
+				</article>
+              {% assign old_url = section.settings.image-1 | img_url: 'master' %}
+			  {% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '600', options: 'dpr:2' %}{% endcapture %}
+				<img src="{{ imageboss_url }}"
+					srcset="{{ imageboss_url }}"
+					data-size="auto"
+					data-srcset="{{ imageboss_url }} 1200w, {{ imageboss_url }} 600w"
+					class="image-block" 
+					alt="{{ section.settings.image-1.alt }} About Growers"/>
+				<article class="text-block">
+					{{ section.settings.text-block-2 | newline_to_br }}
+				</article>
+              	{% assign old_url = section.settings.image-2  | img_url: 'master' %}
+				{% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '600', options: 'dpr:2' %}{% endcapture %}
+				<img src="{{ imageboss_url }}"
+					srcset="{{ imageboss_url }}"
+					data-size="auto"
+					data-srcset="{{ imageboss_url }} 1200w, {{ imageboss_url }} 600w"
+					class="image-block" 
+					alt="{{ section.settings.image-2.alt }} Family Business"/>
+				<article class="text-block">
+					{{ section.settings.text-block-3 | newline_to_br }}
+				</article>
+				<div class="team-members">
+					<h5>MEET THE FAMILY</h5>
+					{% for block in section.blocks %}
+						<div class="member">
+							<div class="pic">
+                              	{% assign old_url =  block.settings.image | img_url: 'master' %}
+								{% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '200', options: 'dpr:2' %}{% endcapture %}
+								<img src="{{ imageboss_url }}" alt="{{ block.settings.name }} Team Member"/>
+							</div>
+							<p class="name">{{ block.settings.name }}</p>
+							<p class="bio">{{ block.settings.bio }}</p>
+						</div>
+					{% endfor %}
+				</div>
+				<article class="text-block">
+					{{ section.settings.text-block-4 | newline_to_br }}
+				</article>
+			</div>
+		</div>
+	</div>
+</section>

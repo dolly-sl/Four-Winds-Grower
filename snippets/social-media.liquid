@@ -1,0 +1,30 @@
+{% if settings.social-facebook != blank %}
+  <a{% if className %} class="{{className}}"{% endif %} target="_blank" href="{{settings.social-facebook}}">
+    <i class="fa fa-facebook-square"></i>
+  </a>
+{% endif %}
+{% if settings.social-instagram != blank %}
+  <a{% if className %} class="{{className}}"{% endif %} target="_blank" href="{{settings.social-instagram}}">
+    <i class="fa fa-instagram"></i>
+  </a>
+{% endif %}
+{% if settings.social-youtube != blank %}
+  <a{% if className %} class="{{className}}"{% endif %} target="_blank" href="{{settings.social-youtube}}">
+    <i class="fa fa-youtube-square"></i>
+  </a>
+{% endif %}
+{% if settings.social-twitter != blank %}
+  <a{% if className %} class="{{className}}"{% endif %} target="_blank" href="{{settings.social-twitter}}">
+    <i class="fa fa-twitter-square"></i>
+  </a>
+{% endif %}
+{% if settings.social-flickr != blank %}
+  <a{% if className %} class="{{className}}"{% endif %} target="_blank" href="{{settings.social-flickr}}">
+    <i class="fa fa-flickr"></i>
+  </a>
+{% endif %}
+{% if settings.social-pinterest != blank %}
+  <a{% if className %} class="{{className}}"{% endif %} target="_blank" href="{{settings.social-pinterest}}">
+    <i class="fa fa-pinterest-square"></i>
+  </a>
+{% endif %}

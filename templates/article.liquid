@@ -1,0 +1,39 @@
+{% if blog.title == "Recipes" %}
+    {% section 'recipes-banner' %}
+{% else %}
+    {% section 'family-tree-banner' %}
+{% endif %}
+<section class="interior-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                {% if blog.title == "Recipes" %}
+                    {% section 'recipes-list' %}
+                {% else %}
+                    {% section 'family-tree-list' %}
+                {% endif %}
+            </div>
+            <div class="col-md-9 article">
+                {% if blog.title == "Recipes" %}
+                    <h1>{{ article.title }}</h1>
+                {% endif %}
+                {% if article.image %}
+              		{% assign old_url = article | img_url: 'master' %}
+					{% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '500', options: 'dpr:2' %}{% endcapture %}
+                    <img 
+                        src="{{ imageboss_url }}"
+                        srcset="{{ imageboss_url }}"
+                        data-size="auto"
+                        data-srcset="{{ imageboss_url }} 1200w, {{ imageboss_url }} 600w"
+                        class="featured" 
+                        alt="{{ article.title }} Featured"/>
+                {% endif %}
+                <article>{{ article.content }}</article>
+                {% if blog.handle == "your-family-tree" %}
+                    <h6>{{ article.title }}</h6>
+                {% endif %}
+            </div>
+          {% include 'addthis' %}
+        </div>
+    </div>
+</section>

@@ -1,0 +1,21 @@
+{% schema %}
+{
+	"name": "Recipes Banner",
+	"settings": [
+		{
+			"id": "banner-background",
+			"type": "image_picker",
+			"label": "Banner Background"
+		},
+		{
+			"id": "section-title",
+			"type": "text",
+			"label": "Page Title",
+			"default": "Instructional Videos"
+		}
+	]
+}
+{% endschema %}
+
+{% include 'page-banner', background: section.settings.banner-background %}
+{% include 'interior-title', title: section.settings.section-title %}

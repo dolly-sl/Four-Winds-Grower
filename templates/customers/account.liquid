@@ -1,0 +1,57 @@
+{% section 'account-banner' %}
+{% include 'interior-title', title: "My Account" %}
+<section id="my-account">
+    <div id="my-account-header">
+        <a href="/account/logout" class="account-signout">Sign Out</a>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6" id="order-history">
+                <h5>Order History</h5>
+                {% if customer.orders.size != 0 %}
+                    {% paginate customer.orders by 15 %}
+
+                    {% for order in customer.orders %}
+                        <div>
+                            <p>Order</p>
+                            <span>{{ order.name }}</span>
+                            <p>Date</p>
+                            <span>{{ order.created_at | date: format: 'month_day_year' }}</span>
+                            <p>Payment Status</p>
+                            <span>{{ order.financial_status_label }}</span>
+                            <p>Fulfillment Status</p>
+                            <span>{{ order.fulfillment_status_label }}</span>
+                            <p>Total</p>
+                            <span>{{ order.total_price | money }}</span>
+                            {% if forloop.last == false %}
+                                <hr>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+
+                    <!-- paginate buttons -->
+                    {% include 'pagination' %}
+
+                    {% endpaginate %}
+                {% else %}
+                    <p id="no-orders">You haven't ordered anything yet!</p>
+                {% endif %}
+            </div>
+            <div class="col-md-6" id="account-addresses">
+                <h5>Account Details</h5>
+                <hr>
+                {% if customer.addresses_count > 0 %}
+                    {% for address in customer.addresses %}
+                        <div class="customer-address">
+                            <p><strong>Address {{forloop.index}} {% if address == customer.default_address %} (default) {% endif %}</strong></p>
+                            {{ address | format_address }}
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>You haven't added any addresses yet!</p>
+                {% endif %}
+                <a href="/account/addresses" class="theme-button">VIEW ADDRESSES</a>
+            </div>
+        </div>
+    </div>
+</section>

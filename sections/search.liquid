@@ -1,0 +1,71 @@
+{% if sp_paginate_by %}{% render 'spurit_po2_collection_template_snippet', paginate_by: sp_paginate_by %}{% endif %}{% schema %}
+{
+	"name": "Search",
+	"settings": [
+		{
+			"id": "banner-background",
+			"type": "image_picker",
+			"label": "Banner Background"
+		},
+		{
+			"id": "section-title",
+			"type": "text",
+			"label": "Page Title",
+			"default": "SEARCH"
+		}
+	]
+}
+{% endschema %}
+{% include 'page-banner', background: section.settings.banner-background %}
+{% include 'interior-title', title: section.settings.section-title %}
+<section id="search-page">
+	<div class="search-options">
+		<div class="container">
+			<div class="col-sm-3">
+
+			</div>
+			<div class="col-sm-6">
+				<form method="get" action="/search">
+					<input type="hidden" name="type" value="product">
+					<input type="text" name="q" placeholder="Search">
+					<button type="submit" class="fa fa-search search-button" value="{{ search.terms }}"></button>
+				</form>
+			</div>
+			<div class="col-sm-3 filter-col">
+				
+			</div>
+		</div>
+	</div>
+	<div class="search-results">
+		{% if search.performed %}
+			{% if search.results_count > 0 %}
+				{% paginate search.results by 24 %}
+				<div class="container">
+					<h6>{{ search.results_count }} {{ search.results_count | pluralize: 'result', 'results' }} found for '{{ search.terms }}'</h6>
+					<div class="row">
+					{% for item in search.results %}
+						<div class="col-xs-12 col-sm-6 col-md-3 product-default">
+	                        {% include 'grid-product', product: item %}
+	                        {% cycle '', '<div class="clear small"></div>', '', '<div class="clear medium"></div>' %}
+	                    </div>
+					{% endfor %}
+					</div>
+					{% if paginate.pages > 1 %}
+					<div class="row">
+						{% include 'pagination-buttons' %}
+					</div>
+					{% endif %}
+				</div>
+				{% assign sp_paginate_by = paginate.page_size %}{% endpaginate %}
+			{% else %}
+				<div class="container">
+					<h3 class="no-search">No results found for '{{ search.terms }}'</h3>
+				</div>
+			{% endif %}
+		{% else %}
+			<div class="container">
+				<h3 class="no-search">Type above to search!</h3>
+			</div>
+		{% endif %}
+	</div>
+</section>

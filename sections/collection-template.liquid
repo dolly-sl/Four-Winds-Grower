@@ -1,0 +1,79 @@
+{% if sp_paginate_by %}{% render 'spurit_po2_collection_template_snippet', paginate_by: sp_paginate_by %}{% endif %}{% schema %}
+  {
+    "name": "Collection(s)",
+    "settings": [
+     
+    ]
+  }
+{% endschema %}
+
+{% paginate collection.products by 32 %}
+
+<section id="collection-page">
+    <div class="collection-top">
+        {% include 'breadcrumbs' %}
+        <div class="info container">
+            {% include 'sort-by', className: "collection-sort" %}
+        </div> 
+        <div class="collection-tags">
+            <div class="container">
+                <a href="{{ collection.url }}" class="tag{% if current_tags %}{% else %} active{% endif %}">
+                    <span>All</span>
+                </a>
+                {% for product_type in collections[collection.handle].all_types %}
+                    {% if product_type  == "Orange"%}
+                        <a href="{{ collection.url }}/{{ product_type | handleize }}" class="tag{% if current_tags[0] == product_type %} active{% endif %}">
+                            <span>{{ product_type }}</span>
+                        </a>
+                    {% endif %}
+                {% endfor %}
+              
+                {% for product_type in collections[collection.handle].all_types %}
+                    {% if product_type  != "" and product_type != "Orange" %}
+                        <a href="{{ collection.url }}/{{ product_type | handleize }}" class="tag{% if current_tags[0] == product_type %} active{% endif %}">
+                            <span>{{ product_type }}</span>
+                        </a>
+                    {% endif %}
+                {% endfor %}
+              </div>
+        </div>
+    </div>
+    <div class="collection-products">
+        <div class="container">
+            <div class="row">
+                {% for product in collection.products %}
+                    <div class="col-xs-12 col-sm-6 col-md-3 product-default">
+                        {% include 'grid-product' %}
+                        {% cycle '', '<div class="clear small"></div>', '', '<div class="clear medium"></div>' %}
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    {% include 'pagination' %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+  .product-sticker {
+  top: 80%;
+  right: 10px;
+    left: unset;
+  position: absolute;
+  background: #E3512F;
+  color: #fff;
+  border: 1px solid #E3512F;
+  border-radius: 150px;
+  text-align: center;
+  line-height: 50px;
+  height: 40px;
+  width: fit-content;
+  line-height: 40px;
+  padding: 0 15px;
+}
+</style>
+
+{% assign sp_paginate_by = paginate.page_size %}{% endpaginate %}

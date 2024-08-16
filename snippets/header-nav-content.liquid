@@ -1,0 +1,43 @@
+<div class="m-header-nav-content">
+  <nav class="m-nav_bottom">
+    {% include 'header-menu', currList: section.settings.main-menu %}
+    <ul class="m-nav_list m-nav_list--actions l-float_right">
+      <li>
+        <form action="/search" class="m-nav_search" method="get">
+          <input type="hidden" name="type" value="product"/>
+          <input type="text" class="m-nav_search--input" name="q" placeholder="search"/>
+          <button type="submit" class="m-nav_search--submit"><i class="fa fa-search"></i></button>
+        </form>
+      </li>
+      <li class="tablet">
+        <a href="/search" class="m-nav_link"><i class="fa fa-search"></i></a>
+      </li>
+      <li>
+        <a class="m-nav_link m-nav_drop-toggle" href="/account"><i class="fa fa-user"></i></a>
+      </li>
+      <li>
+        <a class="m-nav_link m-nav_drop-toggle cart" href="/cart">
+          {% if cart.item_count > 0 %}
+          <div class="cart-count">
+            <span>{{ cart.item_count }}</span>
+          </div>
+          {% endif %}
+          <img src="{{ 'fourwinds-icons_shopping-cart.png' | asset_url }}" alt="shopping-cart" width="42"/>
+          
+        </a>
+      </li>
+      <li class="tablet mobile flyout-button in-navbar">
+        <a href="javascript:;" class="m-nav_link">
+          <div class="custom-menu-icon">
+            <div class="first-bar"></div>
+            <div class="second-bar"></div>
+            <div class="third-bar"></div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <nav class="m-nav_dropdowns nav-dropdowns">
+    {{ dropDownContent }}
+  </nav>
+</div>

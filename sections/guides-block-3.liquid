@@ -1,0 +1,40 @@
+{% schema %}
+{
+	"name": "Guides Block 3",
+	"settings": [
+		{
+			"id": "title",
+			"type": "text",
+			"label": "Title"
+		}
+	],
+	"blocks": [
+		{
+			"name": "PDFs",
+			"type": "pdfs",
+			"settings": [
+				{
+					"id": "title",
+					"type": "text",
+					"label": "Title"
+				},
+				{
+					"id": "file-name",
+					"type": "text",
+					"label": "PDF File Name",
+					"info": "To upload a pdf or other file, go to Settings > Files in the Shopify admin. Reference the files name here."
+				}
+			]
+		}
+	]
+}
+{% endschema %}
+
+<div class="guides-block bottom">
+	<h5>{{ section.settings.title }}</h5>
+	<div class="guides">
+		{% for block in section.blocks %}
+			<a href="{{ block.settings.file-name | file_url }}" target="_blank">{{ block.settings.title }}</a>
+		{% endfor %}
+	</div>
+</div>

@@ -1,0 +1,185 @@
+{% schema %}
+{
+	"name": "Cart Page",
+	"settings": [
+		{
+			"id": "continue-shopping-link",
+			"type": "url",
+			"label": "Continue Shopping Link"
+		},
+		{
+			"id": "checkout-message",
+			"type": "richtext",
+			"label": "Checkout Shipping Message"
+		},
+		{
+			"id": "shipping-link",
+			"type": "url",
+			"label": "Shipping Terms Link"
+		}
+	]
+}
+{% endschema %}
+
+<section id="cart-page">
+	{% include 'breadcrumbs' %}
+	{% if cart.item_count > 0 %}
+		<div class="container">
+			<h4>YOUR CART</h4>
+		</div>
+		<div class="cart-wrapper">
+			<div class="container">
+				<form method="post" action="/cart" id="cart-form">
+					<div id="cart-table">
+						<!-- top row -->
+						<div class="table-row top-row">
+							<div class="cell item-info">ITEM</div>
+							<div class="cell">QUANTITY</div>
+							<div class="cell total">TOTAL</div>
+						</div>
+						<!-- items -->
+						{% for item in cart.items %}
+							{%- assign property_size = item.properties | size -%}
+							<div class="table-row item-row border-row">
+								<div class="cell item-info">
+									<div class="main-info">
+										<div class="pic background-parent">
+                                          	{% assign old_url = item | img_url: 'master' %}
+											{% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '100', options: 'dpr:2' %}{% endcapture %}
+											<img src="{{ imageboss_url }}" alt="lazy-background" class="lazyload background"/>
+										</div>
+										<div class="info">
+											<a href="{{ item.url }}" class="title">{{ item.product.title }}</a>
+											{% for prop in item.properties %}
+												{% if prop.first == "Gift Wrap" and prop.last == "yes" and item.product.title != "Gift Wrap" %}
+													<p class="gift-wrap">+Gift Wrapping</p>
+												{% endif %}
+											{% endfor %}
+											<p>
+											{% for option in item.product.options_with_values %}
+												{% if option.name != "Title" %}
+												{{ option.name }}:
+													{% if forloop.index == 1 %}
+													&nbsp;{{ item.variant.option1 }}<br>
+													{% elsif forloop.index == 2 %}
+													&nbsp;{{ item.variant.option2 }}<br>
+													{% elsif forloop.index == 3 %}
+													&nbsp;{{ item.variant.option3 }}<br>
+													{% endif %}
+												{% endif %}
+											{% endfor %}
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="cell number-cell">
+									<p class="mobile-type">Quantity</p>
+									<input type="number" value="{{ item.quantity }}" name="updates[]" id="updates_{{ item.key }}" data-id="{{ item.key }}" class="default">
+								</div>
+								<div class="cell total">
+									<p class="mobile-type">Total</p>
+									<div>
+										<p>
+                            <script>console.log({{ item |json }});</script>
+											{{ item.line_price | money }}
+										</p>
+										<a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="remove-cart-item">
+											<img src="{{ 'circle-x.png' | asset_url }}" alt="cart" />
+										</a>
+									</div>
+								</div>
+							</div>
+						{% endfor %}
+					</div>
+
+					<div class="cart-total">
+						<div class="left">
+							<a href="" onclick="window.history.go(-1); return false;" class="theme-button outline">
+									CONTINUE SHOPPING
+							</a>
+						</div>
+						<span>SUBTOTAL:</span>
+						<p>{{ cart.total_price | money }}</p>
+					</div>
+
+					<div class="cart-bottom-row">
+						{% if settings.cart_show_notes %}
+								<div class="gift-notes">
+									<label class="body" for="txtboxMultiline">Add a Gift Message</label> 
+									<textarea name="note" class="body" id="txtboxMultiline" maxlength = "140">{{ cart.note }}</textarea> 
+								</div>
+						{% endif %}
+						<div class="cart-col">
+							<div class="shipping-message">
+								<article class="shipping-text-link">{{ section.settings.checkout-message }}</article>
+								<div class="checkbox">
+									<input type="checkbox" name="agree" id="agree" value="No"/>
+                                  <label for="agree"><b>I’ve read &amp; understand the Shipping Terms</b></label>
+									<p id="agree-error" style="display:none;">You must agree to the <a href="{{ section.settings.shipping-link }}">Shipping Terms</a> to checkout!</p>
+								</div>
+							</div>
+
+							<div class="cart-choices bottom">
+								<div>
+									<button type="submit" name="update" class="theme-button">UPDATE</button>
+									<button id="checkoutBtn" type="submit" name="checkout" class="theme-button">
+										CHECKOUT
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	{% else %}
+		<div class="container">
+			<div class="empty-cart">
+				<h3>No items in cart!</h3>
+				<a href="{{ section.settings.continue-shopping-link }}" class="theme-button outline">
+					CONTINUE SHOPPING
+				</a>
+			</div>
+		</div>
+	{% endif %}
+</section>
+
+<script>
+  // check if shipping terms is checked and then enable or disable multi addresses
+  /*$( window ).on( "load", function(){
+  	$('#gs__toggle-shipping').attr("disabled", true);
+  });
+  
+  $('#agree').on('change', function(){
+    let shipterm = document.getElementById("agree").checked
+    if (shipterm === true)
+    {
+      	$('#gs__toggle-shipping').attr("disabled", false);
+    }
+    else { $('#gs__toggle-shipping').attr("disabled", true); }
+  });*/
+  
+  // check if shipping terms is checked and then enable or disable multi addresses
+$(document).ready(function() {
+
+  	//$('#gs__toggle-shipping').attr("disabled", true);
+    $('#checkoutBtn').attr("disabled", true);
+
+  
+  //$('#agree').on('change', function(){
+  $('#agree').change(function() {
+    let shipterm = document.getElementById("agree").checked;
+    
+    if (shipterm === true)
+    {
+      	//$('#gs__toggle-shipping').attr("disabled", false);
+       $('#checkoutBtn').attr("disabled", false);
+    }
+    else { 
+      $('#gs__toggle-shipping').attr("disabled", true); 
+      $('#checkoutBtn').attr("disabled", true);
+    }
+  });
+  
+});
+</script>

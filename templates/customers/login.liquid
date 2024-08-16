@@ -1,0 +1,62 @@
+{% section 'account-banner' %}
+{% include 'interior-title', title: "LOGIN" %}
+<section class="account-page">
+    <div class="container" id="account-page">
+        <div id="form-reset-success" class="account-input-div"></div>
+
+        <!-- Login Form -->
+        <div id="login-form">
+        {% form 'customer_login' %}
+
+            {% if form.errors %}
+                <div class="account-input-div errors">
+                    {{ form.errors | default_errors }}
+                </div>
+             {% endif %}
+
+            <div class="account-input-div">
+                <input type="text" name="customer[email]" placeholder="Email">
+            </div>
+            <div class="account-input-div">
+                <input type="password" name="customer[password]" placeholder="Password">
+            </div>
+            <div class="account-input-div" id="forgot-password">
+                <a href="javascript:;">Forgot your password?</a>
+            </div>
+            <div class="account-input-div">
+                <button type="submit" class="theme-button" style="margin:0;">
+                    LOGIN
+                </button>
+                <p class="account-switch"><em>or</em>&nbsp;<a href="/account/register">Create an Account</a></p>
+            </div>
+        {% endform %}
+        </div>
+
+        <!-- forgot password form -->
+        <div id="forgot-password-form" style="display:none;">
+            {% form 'recover_customer_password' %}
+                {% if form.errors %}
+                    <div class="account-input-div">
+                        {{ form.errors | default_errors }}
+                    </div>
+                {% endif %}
+
+                {% if form.posted_successfully? %}
+                   <span id="successful-post">true</span>
+                {% endif %}
+
+                <div class="account-input-div">
+                    <input type="text" name="email" id="Email" placeholder="Email">
+                </div>
+                <div class="account-input-div">
+                    <p>We'll send you an email to reset your password</p>
+                </div>
+                <div class="account-input-div">
+                    <button type="submit" class="theme-button" style="margin:0;">
+                        SEND EMAIL
+                    </button>
+                </div>
+            {% endform %}
+        </div>
+    </div>
+</section>

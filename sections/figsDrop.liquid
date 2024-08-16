@@ -1,0 +1,84 @@
+{% schema %}
+{
+	"name": "Figs Dropdown",
+	"settings": [
+		{
+			"id": "banner-background",
+			"type": "image_picker",
+			"label": "Banner Background"
+		},
+		{
+			"id": "section-title",
+			"type": "text",
+			"label": "Page Title",
+			"default": "Contact Us"
+		},
+		{
+			"id": "menu-list",
+			"type": "link_list",
+			"label": "Side Menu Link List",
+			"info": "The title is taken from the first word of the link list title. It removes 'Side Menu' from the list title"
+		}
+	],
+	"blocks": [
+		{
+			"name": "Tips",
+			"type": "citrus_tips",
+			"settings": [
+				{
+					"id": "title",
+					"type": "text",
+					"label": "Title"
+				},
+				{
+					"id": "title-tip",
+					"type": "text",
+					"label": "Title Tip"
+				},
+				{
+					"id": "tip",
+					"type": "richtext",
+					"label": "Tip"
+				}
+			]
+		}
+	]
+}
+{% endschema %}
+
+{% include 'page-banner', background: section.settings.banner-background %}
+{% include 'interior-title', title: section.settings.section-title %}
+<section class="interior-page">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				{% include 'interior-side-menu', list: section.settings.menu-list %}
+			</div>
+			<div class="col-md-9">
+				{% for block in section.blocks %}
+					<div class="interior-accordion">
+						<div class="accordion-title">
+							<h6 class="dots left right">{{ block.settings.title }}</h6>
+							<p>{{ block.settings.title-tip }}</p>
+						</div>
+						<div class="accordion-content">
+							<p>{{ block.settings.tip | newline_to_br }}</p>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+          {% include 'addthis' %}
+		</div>
+	</div>
+</section>
+
+<style>
+  @media only screen and (max-width:1010px){
+    .col-md-3{
+      display:none;
+    }
+    .col-md-9{
+      width:100%;
+    }
+  }
+</style>

@@ -1,0 +1,65 @@
+{% if blog.title == "Recipes" %}
+    {% section 'recipes-banner' %}
+{% else %}
+    {% section 'family-tree-banner' %}
+{% endif %}
+<section class="interior-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                {% if blog.title == "Recipes" %}
+                    {% section 'recipes-list' %}
+                {% else %}
+                    {% section 'family-tree-list' %}
+                {% endif %}
+            </div>
+            <div class="col-md-9">
+                {% paginate blog.articles by 12 %}
+                <div class="row">
+               {% if blog.title == "Recipes" %}
+                    {% for article in blog.articles %}
+                        <a href="{{ article.url }}" class="col-sm-6 col-md-4 interior-3-col">
+                            <div class="pic background-parent">
+                              	{% assign old_url = article | img_url: 'master' %}
+								{% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '225', options: 'dpr:2' %}{% endcapture %}
+                                <img src="{{imageboss_url }}" class="background" alt="{{ article.title }}-{{ blog.title }}"/>
+                            </div>
+                            <h6>{{ article.title }}</h6>
+                        </a>
+                        {% cycle '<div class="blog-clear row-divider xs"></div>', '', '<div class="blog-clear row-divider medium"></div>' %}
+                        {% cycle '', '<div class="blog-clear row-divider small"></div>' %}
+                    {% endfor %}
+                {% else %}
+                    {% for article in blog.articles %}
+                        <a href="{{ article.url }}" class="col-sm-6 col-md-4 interior-3-col family-tree">
+                            <div class="pic background-parent">
+                                {% if article.image %}
+                              		{% assign old_url = article | img_url: 'master' %}
+									{% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '225', options: 'dpr:2' %}{% endcapture %}
+                                    <img src="{{ imageboss_url }}" class="background" alt="{{ article.title }}-{{ blog.title }}"/>
+                                {% else %}
+                              		{% assign old_url = 'blog-placeholder.jpg' | asset_url %}
+									{% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '225', options: 'dpr:2' %}{% endcapture %}
+                                    <img src="{{ imageboss_url }}" class="background" alt="{{ article.title }}-{{ blog.title }}"/>
+                                {% endif %}
+                            </div>
+                            {% if article.excerpt.size > 0 %}
+                                <article>{{ article.excerpt }}</article>
+                            {% else %}
+                                <article>{{ article.content | truncatewords: 25 }}</article>
+                            {% endif %}
+                            <span class="read-more">Read More</span>
+                            {% assign splitTitle = article.title | split: '-' %}
+                            <p class="title-name">{{ splitTitle[0] }}</p>
+                            <p class="title-name">{{ splitTitle[1] }}</p>
+                        </a>
+                        {% cycle '<div class="blog-clear row-divider xs"></div>', '', '<div class="blog-clear row-divider medium"></div>' %}
+                        {% cycle '', '<div class="blog-clear row-divider small"></div>' %}
+                    {% endfor %}
+                {% endif %}
+                </div>
+                {% include 'pagination' %}
+                {% endpaginate %}
+        </div>
+    </div>
+</section>

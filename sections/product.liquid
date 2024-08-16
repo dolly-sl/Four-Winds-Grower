@@ -1,0 +1,376 @@
+{% schema %}
+{
+"name": "Product Page",
+"settings": [
+{
+"id": "gift-wrap-price",
+"type": "text",
+"label": "Gift Wrap Price",
+"default": "$2.50"
+}
+]
+}
+{% endschema %}
+
+<section id="product-page">
+  {% include 'breadcrumbs' %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 product-images">
+        <div id="product-pic-container">
+          {% for image in product.images %}
+            <div
+              class="big-image"
+              data-id="{{ image.id }}"
+              {% if forloop.index == 1 %}
+                style="display:block;" data-active="true"
+              {% endif %}
+            >
+              {% assign old_url = image | img_url: 'master' %}
+              {% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '425', options: 'dpr:2' %}{% endcapture %}
+              <img
+                src="{{ imageboss_url }}"
+                {% if forloop.index == 1 %}
+                  alt="big-image" class="active"
+                {% endif %}
+              >
+            </div>
+          {% endfor %}
+        </div>
+        <div class="product-small-pic-container">
+          {% for image in product.images %}
+            <div class="small-image" data-id="{{ image.id }}">
+              {% assign old_url = image | img_url: 'master' %}
+              {% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '75', options: 'dpr:2' %}{% endcapture %}
+              <img src="{{ imageboss_url }}" alt="small-image">
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="col-md-8 product-info">
+        <h1>{{ product.title }}</h1>
+<div class="yotpo yotpo-shoppers-say" data-product-id="{{ product.id }}">&nbsp;</div>
+
+        <div
+          class="yotpo bottomLine"
+          data-product-id="{{ product.id }}"
+        >
+          {%- assign yotpo_offload_content = shop.metafields.yotpo.yotpo_offload_content %}
+          {%- assign time_now = 'now' | date: '%s' %}
+          {%- assign yotpo_live_time = shop.metafields.yotpo.yotpo_live | date: '%s' %}
+          {%- assign diff_seconds_from_live = time_now | minus: yotpo_live_time %}
+          {%- assign yotpo_bottomline_last_updated = product.metafields.yotpo.bottomline_update_time | date: '%s' %}
+          {%- assign diff_seconds_from_last_bottomline_update = time_now | minus: yotpo_bottomline_last_updated %}
+          {%- if yotpo_live_time
+            and diff_seconds_from_live < 86400
+            or yotpo_bottomline_last_updated
+            and diff_seconds_from_last_bottomline_update < 86400
+          -%}
+            {%- assign yotpo_bottomline_obsolete = false %}
+          {%- else %}
+            {%- assign yotpo_bottomline_obsolete = true %}
+          {%- endif %}
+          {%- if yotpo_offload_content == 'yes' and yotpo_bottomline_obsolete != true -%}
+            {{ product.metafields.yotpo.bottomline }}
+          {%- endif %}
+        </div>
+
+        <div class="price">
+          {% if product.compare_at_price > product.price_min %}
+            <h5 id="the-price" style="display: block;">
+              <s>{{ product.compare_at_price | money }}</s>
+            </h5>
+          {% endif %}
+          <h5 id="price-field">{{ product.compare_at_price | money }}</h5>
+          <h6 id="plus-gift-wrap"><em>+</em> {{ section.settings['gift-wrap-price'] }} Gift Wrapping</h6>
+        </div>
+
+        {% unless product.variants[0].title == 'Default Title' %}
+          {% for option in product.options_with_values %}
+            <div class="option-wrapper{% if forloop.first %} first{% endif %}">
+              <label class="option-name">{{ option.name }}</label>
+              <div class="option-input select select-wrapper fake-variant-input">
+                {% for value in option.values %}
+                  <div class="option-input__radio option-input__radio--{{ value | url_param_escape }}">
+                    <label>
+                      <input
+                        type="radio"
+                        name="{{ option.name }}"
+                        value="{{ value | url_param_escape }}"
+                        {% if option.selected_value == value %}
+                          checked
+                        {% endif %}
+                        data-bind="checked: option, event: { change: updateInput }"
+                      >
+                      {{ value }}
+                    </label>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          {% endfor %}
+        {% endunless %}
+
+       {% form 'product', product %}
+          {% unless product.variants[0].title == 'Default Title' %}
+            {% for option in product.options_with_values %}
+              <div
+                style="display: none; opacity: 0;"
+                class="option-wrapper{% if forloop.first %} first{% endif %}"
+                aria-hidden="true"
+              >
+                <label class="option-name">{{ option.name }}</label>
+                <div class="option-input select select-wrapper">
+                  <select class="option-wrapper-select default real-variant-input" data-bind="value: option">
+                    {% for value in option.values %}
+                      <option
+                        value="{{ value | url_param_escape }}"
+                        {% if option.selected_value == value %}
+                          selected="selected"
+                        {% endif %}
+                      >
+                        {{ value }}
+                      </option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+            {% endfor %}
+          {% endunless %}
+
+          <div class="quantity-submit">
+            <div class="float-short">
+              <label class="option-name">Qty</label>
+            </div>
+            <div class="float-long">
+              <input type="number" value="1" name="quantity" class="default">
+              {% comment %}
+                <input type="hidden" name="properties[Gift Wrap]" value="No" id="gift-wrap-prop">
+                <div class="add-checkbox">
+                	<input type="checkbox" name="id" value="1886533976077" id="add-gift-wrap">
+                	<label for="add-gift-wrap">Include Gift Wrapping +
+                		{{ section.settings.gift-wrap-price }}</label>
+                </div>
+              {% endcomment %}
+              {% if product.variants.size <= 1 and product.available == false %}
+                <!-- <div class="theme-button">
+                    SIGN UP
+                </div> -->
+              {% else %}
+                <button type="submit" class="theme-button" id="product-submit">ADD TO CART</button>
+              {% endif %}
+            </div>
+          </div>
+          <!-- hidden variants (actual variants) -->
+          <select id="product-variants-select" name="id" style="display: none !important;">
+            {% for variant in product.variants %}
+              {% if variant.available %}
+                <option
+                  {% if variant == product.selected_or_first_available_variant %}
+                    selected="selected"
+                  {% endif %}
+                  value="{{ variant.id }}"
+                  data-options="{{ variant.option1 | url_param_escape }}{% if variant.option2 %},{{ variant.option2 | url_param_escape }}{% endif %}{% if variant.option3 %}{{ variant.option3 | url_param_escape }}{% endif %}"
+                  data-price="{{ variant.price | money }}"
+                  data-compare-price="{{ variant.compare_at_price | money }}"
+                  data-raw-price="{{ variant.price }}"
+                  data-raw-compare-price="{{ variant.compare_at_price }}"
+                  aviable="true"
+                >
+                  {{ variant.title }} - {{ variant.price | money }}
+                </option>
+              {% else %}
+                <option
+                  {% if variant == product.selected_or_first_available_variant %}
+                    selected="selected"
+                  {% endif %}
+                  value="{{ variant.id }}"
+                  data-options="{{ variant.option1 | url_param_escape }}{% if variant.option2 %},{{ variant.option2 | url_param_escape }}{% endif %}{% if variant.option3 %}{{ variant.option3 | url_param_escape }}{% endif %}"
+                  data-price="{{ variant.price | money }}"
+                  data-compare-price="{{ variant.compare_at_price | money }}"
+                  data-raw-price="{{ variant.price }}"
+                  data-raw-compare-price="{{ variant.compare_at_price }}"
+                  aviable="false"
+                >
+                  {{ variant.title }} - {{ variant.price | money }}
+                </option>
+              {% endif %}
+            {% endfor %}
+          </select>
+
+         {%- if product.gift_card? -%}
+          {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
+     {%- endif -%}
+       {% endform %}
+
+        <div class="product-tabs">
+          {% assign splitContent = product.content | split: 'END-ITEM' %}
+          {% assign firstItemTitle = '' %}
+          {% assign secondItemTitle = '' %}
+          {% assign thirdItemTitle = '' %}
+          {% assign fourthItemTitle = '' %}
+          {% assign firstItemContent = '' %}
+          {% assign secondItemContent = '' %}
+          {% assign thirdItemContent = '' %}
+          {% assign fourthItemContent = '' %}
+
+          {% for content in splitContent %}
+            {% if content.size > 25 %}
+              {% assign splitTitle = content | split: '--' %}
+              {% case forloop.index %}
+                {% when 1 %}
+                  {% assign firstItemTitle = splitTitle[1] %}
+                  {% assign firstItemContent = splitTitle[2] %}
+                {% when 2 %}
+                  {% assign secondItemTitle = splitTitle[1] %}
+                  {% assign secondItemContent = splitTitle[2] %}
+                {% when 3 %}
+                  {% assign thirdItemTitle = splitTitle[1] %}
+                  {% assign thirdItemContent = splitTitle[2] %}
+                {% when 4 %}
+                  {% assign fourthItemTitle = splitTitle[1] %}
+                  {% assign fourthItemContent = splitTitle[2] %}
+              {% endcase %}
+            {% endif %}
+          {% endfor %}
+          <div class="tabs">
+            {% if firstItemTitle.size > 0 %}
+              <div class="tab active" data-tab="{{ firstItemTitle | downcase | handleize }}">
+                {{ firstItemTitle }}
+              </div>
+            {% endif %}
+            {% if secondItemTitle.size > 0 %}
+              <div class="tab" data-tab="{{ secondItemTitle | downcase | handleize }}">{{ secondItemTitle }}</div>
+            {% endif %}
+            {% if thirdItemTitle.size > 0 %}
+              <div class="tab" data-tab="{{ thirdItemTitle | downcase | handleize }}">{{ thirdItemTitle }}</div>
+            {% endif %}
+            {% if fourthItemTitle.size > 0 %}
+              <div class="tab" data-tab="{{ fourthItemTitle | downcase | handleize }}">{{ fourthItemTitle }}</div>
+            {% endif %}
+          </div>
+          <div class="tab-content">
+            {% if firstItemTitle.size > 0 %}
+              <article
+                data-tab="{{ firstItemTitle | downcase | handleize }}"
+                style="display:block;"
+                class="tab-title-content"
+              >
+                {{ firstItemContent }}
+              </article>
+            {% endif %}
+            {% if secondItemTitle.size > 0 %}
+              <article data-tab="{{ secondItemTitle | downcase | handleize }}" class="tab-title-content">
+                {{ secondItemContent }}
+              </article>
+            {% endif %}
+            {% if thirdItemTitle.size > 0 %}
+              <article data-tab="{{ thirdItemTitle | downcase | handleize }}" class="tab-title-content">
+                {{ thirdItemContent }}
+              </article>
+            {% endif %}
+            {% if fourthItemTitle.size > 0 %}
+              <article data-tab="{{ fourthItemTitle | downcase | handleize }}" class="tab-title-content">
+                {{ fourthItemContent }}
+              </article>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Growing Conditions -->
+  {% if product.metafields.c_f.conditions-title != blank %}
+    <div class="product-conditions">
+      <div class="product-condition">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <h4>{{ product.metafields.c_f['conditions-title'] }}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% for i in (1..8) %}
+        {% capture metafieldTitle %}conditions-{{ forloop.index }}-title{% endcapture %}
+        {% if product.metafields.c_f[metafieldTitle] != blank %}
+          <div class="product-condition list">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="condition-title">
+                    {% capture metafieldIcon %}conditions-{{ forloop.index }}-icon{% endcapture %}
+                    {% if product.metafields.c_f[metafieldIcon] != blank -%}
+                      <div class="icon">
+                        <img
+                          src="{{ product.metafields.c_f[metafieldIcon] | file_url }}"
+                          alt="{{metafieldTitle}} Icon"
+                        >
+                      </div>
+                    {%- endif %}
+                    <span>{{ product.metafields.c_f[metafieldTitle] }}</span>
+                    <i class="fa fa-plus plus"></i>
+                    <i class="fa fa-minus minus"></i>
+                  </div>
+                  <div class="condition-description">
+                    {% capture metafieldDescrip %}conditions-{{ forloop.index }}-description{% endcapture %}
+                    <p>{{ product.metafields.c_f[metafieldDescrip] }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% endif %}
+  {% include 'addthis' %}
+
+  {{ 'knockout-punches.js' | asset_url | script_tag }}
+</section>
+
+<script>
+  (function ($) {
+  	var ViewModel = function() {
+  		var self = this;
+  		this.option = ko.observable();
+  		this.showOptions = ko.observable();
+  		this.updateInput = function() {
+  			$('.real-variant-input').trigger('change');
+  		}
+  	}
+
+  	ko.punches.enableAll();
+  	ko.applyBindings(ViewModel);
+  })(jQuery)
+
+     console.log({{ products.variants.size }});
+</script>
+
+<style>
+  .select-wrapper::after {
+  	content: none;
+  }
+
+  #BIS_trigger {
+    float: none !important; 
+  }
+</style>
+
+<script>
+  //On load change url with adding product variant id, then on change it updates the url without reloading the page
+  let mainpath = window.location.pathname;
+  let curvariantID = $('#product-variants-select').find('[selected="selected"]').attr('value');
+  let newpath = mainpath + "?variant=" + curvariantID;
+  history.pushState({id: document.title.toString() }, document.title, newpath);
+  variantID = parseInt(curvariantID);
+  console.log(curvariantID);
+
+  $('.fake-variant-input').on('change', function(){
+    curvariantID = $('#product-variants-select').find('[selected="selected"]').attr('value');
+    newpath = mainpath + "?variant=" + curvariantID;
+  	history.pushState({id: document.title.toString() }, document.title, newpath);
+    curvariantID = parseInt(curvariantID);
+    console.log(curvariantID);;
+  });
+</script>

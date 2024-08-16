@@ -1,0 +1,39 @@
+{% include 'page-banner', background: section.settings.banner-background %}
+{% include 'interior-title', title: page.title %}
+<section class="interior-page">
+	<div class="container">
+	</div>
+  <div></div>
+<div><img src="https://cdn.shopify.com/s/files/1/2336/3219/files/WELCOME_1ST_EMAIL_480x480.png?v=1662508687" alt="" style="display: block; margin-left: auto; margin-right: auto;" /></div>
+<div></div>
+<section class="interior-page">
+<div class="container"></div>
+</section>
+<center></center>
+</section><center>
+  <span style="font-family:sans-serif">
+ <h5>Sign up for our Newsletter and receive 10% off your first purchase:<br><br>
+{% form 'customer' %}
+   <div class="first-name">
+    <label for="first-name">First Name</label>
+    <input type="first-name" name="customer[first-name]" />
+  <div class="last-name">
+    <label for="last-name">Last name</label>
+    <input type="text" name="customer[last_name]" /><br>
+    <br>
+  </div>
+  </div><div class="email">
+    <label for="email">Email</label>
+    <input type="email" name="contact[email]" />
+  </div>
+  <div class="accepts-marketing">
+    <input type="hidden" name="customer[accepts_marketing]" value="false" />
+    <input type="checkbox" name="customer[accepts_marketing]" />
+    <label for="accepts-marketing">Yes, I want to receive promotional emails from Four Winds Growers</label>
+  </div>
+  <div class="submit">
+<button type="submit" class="theme-button">Subscribe</button>
+  </div>
+   {% if form.posted_successfully? %} <script> window.location = "/pages/subscription-complete"; </script> 
+ {% endif %} 
+{% endform %}

@@ -1,0 +1,32 @@
+<nav id="collectionSidebar" class="m-sidebar l-border_all">
+  <div class="m-sidebar_container">
+    {% for link in linklists[section.settings.sidebar_menu].links %}
+      {% assign childList = link.title | handleize %}
+      {% assign childLength = linklists[childList].links | size | plus: 0 %}
+      <div class="m-sidebar_item">
+        <div class="m-sidebar_item--content">
+          <a href="{{link.url}}" class="m-sidebar_item--header{% if childLength > 0 %} has-children{% endif %}">
+            {% if link.type == "collection_link" %}
+              <img src="{{link.object.image | img_url: '100x'}}" class="m-sidebar_item--image" alt="sidebar" />
+            {% endif %}
+            <span class="m-active_underliner">{{link.title}}</span>
+            {% if childLength > 0 %}
+              <div class="m-sidebar_item--icon">
+                {% include 'sleepless-icons', iconRef: "dropdown" %}
+              </div>
+            {% endif %}
+          </a>
+        </div>
+        {% if childLength > 0 %}
+          <div class="m-sidebar_item--childlist">
+            <div class="m-sidebar_item--content">
+              {% for link in linklists[childList].links %}
+                <a href="{{link.url}}" class="m-sidebar_item--link{% if link.active %} is-active{% endif %}">{{link.title}}</a>
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</nav>

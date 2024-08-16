@@ -1,0 +1,142 @@
+{% schema %}
+{
+	"name": "Submit Your Story",
+	"settings": [
+		{
+			"id": "banner-background",
+			"type": "image_picker",
+			"label": "Banner Background"
+		},
+		{
+			"id": "section-title",
+			"type": "text",
+			"label": "Page Title",
+			"default": "SUBMIT YOUR STORY"
+		},
+		{
+			"id": "menu-list",
+			"type": "link_list",
+			"label": "Side Menu Link List",
+			"info": "The title is taken from the first word of the link list title. It removes 'Side Menu' from the list title"
+		},
+		{
+			"id": "top-message",
+			"type": "richtext",
+			"label": "Top Message"
+		}
+	]
+}
+{% endschema %}
+
+{% include 'page-banner', background: section.settings.banner-background %}
+{% include 'interior-title', title: section.settings.section-title %}
+<section id="submit-story" class="interior-page">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				{% include 'interior-side-menu', list: section.settings.menu-list %}
+			</div>
+			<div class="col-md-9">
+				<div class="top-info">
+					<article class="top-message">{{ section.settings.top-message | newline_to_br }}</article>
+				</div>
+				<form class="jotform-form" action="https://submit.jotform.us/submit/73435699084166/" method="post" enctype="multipart/form-data" name="form_73435699084166" id="73435699084166" accept-charset="utf-8">
+				  <input type="hidden" name="formID" value="73435699084166" />
+				  <div class="form-all">
+				    <ul class="form-section page-section">
+				      <li class="form-line jf-required" data-type="control_textbox" id="id_6">
+				        <div id="cid_6" class="form-input-wide jf-required">
+				          <input type="text" id="input_6" name="q6_fullName" data-type="input-textbox" class="form-textbox validate[required] default" value="" data-component="textbox" required="" placeholder="Full Name" />
+				        </div>
+				      </li>
+				      <li class="form-line jf-required" data-type="control_email" id="id_7">
+				        <div id="cid_7" class="form-input-wide jf-required">
+				          <span class="form-sub-label-container" style="vertical-align:top;">
+				            <input type="email" id="input_7" name="q7_email" class="form-textbox validate[required, Email] default" value="" data-component="email" required="" placeholder="Email" />
+				          </span>
+				        </div>
+				      </li>
+				      <li class="form-line jf-required" data-type="control_textbox" id="id_8">
+				        <div id="cid_8" class="form-input-wide jf-required">
+				          <input type="text" id="input_8" name="q8_city" data-type="input-textbox" class="form-textbox validate[required] default" value="" data-component="textbox" required="" placeholder="City"/>
+				        </div>
+				      </li>
+				      <li class="form-line jf-required" data-type="control_textbox" id="id_9">
+				        <div id="cid_9" class="form-input-wide jf-required">
+				          <input type="text" id="input_9" name="q9_state" data-type="input-textbox" class="form-textbox validate[required] default" value="" data-component="textbox" required="" placeholder="State" />
+				        </div>
+				      </li>
+				      <li class="form-line jf-required" data-type="control_textarea" id="id_10">
+				        <div id="cid_10" class="form-input-wide jf-required">
+				          <textarea id="input_10" class="form-textarea validate[required] default" placeholder="Your Story" name="q10_yourStory" cols="40" rows="6" data-component="textarea" required=""></textarea>
+				        </div>
+				      </li>
+				      <li class="form-line file-upload" data-type="control_fileupload" id="id_3">
+				      	<span class="label-type">Photo 1</span>
+				        <label class="form-label form-label-top form-label-auto theme-button outline" id="label_3" for="input_3">Upload a photo</label>
+				        <span class="file-name">No photo chosen</span>
+				        <div id="cid_3" class="form-input-wide">
+				          <div data-wrapper-react="true">
+				            <div data-wrapper-react="true">
+				              <input type="file" id="input_3" name="q3_photo1[]" multiple="" class="form-upload-multiple" data-imagevalidate="yes" data-file-accept="pdf, doc, docx, xls, xlsx, csv, txt, rtf, html, zip, mp3, wma, mpg, flv, avi, jpg, jpeg, png, gif" data-file-maxsize="10854" data-file-minsize="0" data-file-limit="" data-component="fileupload"/>
+				            </div>
+				          </div>
+				        </div>
+				      </li>
+				      <li class="form-line file-upload" data-type="control_fileupload" id="id_4">
+				      	<span class="label-type">Photo 2</span>
+				        <label class="form-label form-label-top form-label-auto theme-button outline" id="label_4" for="input_4">Upload a photo</label>
+				        <span class="file-name">No photo chosen</span>
+				        <div id="cid_4" class="form-input-wide">
+				          <div data-wrapper-react="true">
+				            <div data-wrapper-react="true">
+				              <input type="file" id="input_4" name="q4_photo2[]" multiple="" class="form-upload-multiple" data-imagevalidate="yes" data-file-accept="pdf, doc, docx, xls, xlsx, csv, txt, rtf, html, zip, mp3, wma, mpg, flv, avi, jpg, jpeg, png, gif" data-file-maxsize="10854" data-file-minsize="0" data-file-limit="" data-component="fileupload" />
+				            </div>
+				            <span style="display:none;" class="cancelText">
+				              Cancel
+				            </span>
+				            <span style="display:none;" class="ofText">
+				              of
+				            </span>
+				          </div>
+				        </div>
+				      </li>
+				      <li class="form-line file-upload" data-type="control_fileupload" id="id_5">
+				      	<span class="label-type">Photo 3</span>
+				        <label class="form-label form-label-top form-label-auto theme-button outline" id="label_5" for="input_5">Upload a photo</label>
+				        <span class="file-name">No photo chosen</span>
+				        <div id="cid_5" class="form-input-wide">
+				          <div data-wrapper-react="true">
+				            <div data-wrapper-react="true">
+				              <input type="file" id="input_5" name="q5_photo3[]" multiple="" class="form-upload-multiple" data-imagevalidate="yes" data-file-accept="pdf, doc, docx, xls, xlsx, csv, txt, rtf, html, zip, mp3, wma, mpg, flv, avi, jpg, jpeg, png, gif" data-file-maxsize="10854" data-file-minsize="0" data-file-limit="" data-component="fileupload" />
+				            </div>
+				          </div>
+				        </div>
+				      </li>
+				      <li class="form-line" data-type="control_button" id="id_2">
+				        <div id="cid_2" class="form-input-wide">
+				          <div class="form-buttons-wrapper">
+				            <button id="input_2" type="submit" class="form-submit-button theme-button" data-component="button">
+				              Submit
+				            </button>
+				          </div>
+				        </div>
+				      </li>
+				      <li style="display:none">
+				        Should be Empty:
+				        <input type="text" name="website" value="" />
+				      </li>
+				    </ul>
+				  </div>
+				  <input type="hidden" id="simple_spc" name="simple_spc" value="73435699084166" />
+				  <script type="text/javascript">
+				  document.getElementById("si" + "mple" + "_spc").value = "73435699084166-73435699084166";
+				  </script>
+				  <div class="formFooter-heightMask">
+				  </div>
+				</form>
+				
+			</div>
+		</div>
+	</div>
+</section>

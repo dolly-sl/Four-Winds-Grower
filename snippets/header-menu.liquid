@@ -1,0 +1,67 @@
+<ul class="m-nav_list m-nav_list--main">
+  {% assign dropDownContent = "" %}
+  {% for link in linklists[currList].links %}
+    {% assign childList = link.title | handleize %}
+    {% assign childLength = linklists[childList] | size | plus: 0 %}
+    {% assign currentChildrenContent = "" %}
+    <li>
+      <a class="m-nav_link m-nav_drop-toggle{% if childLength > 0 or link.title == "Shop" %} m-nav_drop--has-children{% endif %}" 
+         href="{{link.url}}"{% if childLength > 0 or link.title == "Shop" %} data-dropdown-id="{{forloop.index}}"{% endif %}>
+         {{link.title}}
+       </a>
+      {% if link.title == "Shop" and section.settings.enable-shop %}
+        {% assign blockCount = section.blocks | size %}
+        {% case blockCount %}
+          {% when 1 %}
+            {% assign widthClass = "col-sm-12" %}
+          {% when 2 %}
+            {% assign widthClass = "col-sm-6" %}
+          {% when 3 %}
+            {% assign widthClass = "col-sm-4" %}
+          {% when 4 %}
+            {% assign widthClass = "col-sm-3" %}
+          {% else %}
+            {% assign widthClass = "" %}
+        {% endcase %}
+		<h1>{{ block.settings.collection-item-one.title }}</h1>
+        {% if widthClass %}
+          {% capture currentChildrenContent %}
+            <div data-dropdown-id="{{forloop.index}}" class="m-nav_link-submenu m-nav_link-submenu--shop nav-dropdown shop">
+              <div class="container">
+                <div class="row">
+                  {% for block in section.blocks %}
+                    <div class="{{widthClass}} m-nav_list">
+                      {% if block.settings.collection-item-one %}
+                        {% include 'header-menu-subsection', currCollection: block.settings.collection-item-one %}
+                      {% endif %}
+                      {% if block.settings.collection-item-two %}
+                        {% include 'header-menu-subsection', currCollection: block.settings.collection-item-two %}
+                      {% endif %}
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          {% endcapture %}
+          {% assign secondShopMenu = currentChildrenContent %}
+        {% endif %}
+      {% else %}
+        {% if childLength > 0 %}
+          {% capture currentChildrenContent %}
+            <div data-dropdown-id="{{forloop.index}}" class="m-nav_link-submenu m-nav_link-submenu--easy nav-dropdown easy">
+              <ul>
+                {% for subLink in linklists[childList].links %}
+                  <li>
+                    <a href="{{subLink.url}}" class="m-nav_sublink">{{subLink.title}}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endcapture %}
+        {% endif %}
+      {% endif %}
+    </li>
+
+    {% assign dropDownContent = dropDownContent | append: currentChildrenContent %}
+  {% endfor %}
+</ul>

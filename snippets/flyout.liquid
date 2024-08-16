@@ -1,0 +1,49 @@
+<aside id="flyout">
+	<div class='flyout-content'>
+	{% for link in linklists[currList].links %}
+		{% assign childList = link.title | handleize %}
+    	{% assign childLength = linklists[childList] | size | plus: 0 %}
+    	{% if link.title == "Shop" %}
+    		<div class="accordion-container">
+    		<div class="accordion-title top-title">
+				<h6>{{ link.title }}</h6>
+			</div>
+			<div class="accordion-content">
+    		{% for block in section.blocks %}
+    			{% if block.settings.collection-item-one %}
+                	{% include 'flyout-shop-content', currCollection: block.settings.collection-item-one %}
+                {% endif %}
+                {% if block.settings.collection-item-two %}
+                    {% include 'flyout-shop-content', currCollection: block.settings.collection-item-two %}
+                {% endif %}
+    		{% endfor %}
+    		</div>
+    		</div>
+    	{% else %}
+    		{% if childLength > 0 %}
+    			<div class="accordion-container">
+    			<div class="accordion-title top-title">
+    				<h6>{{ link.title }}</h6>
+    			</div>
+    			<div class="accordion-content">
+    				{% for subLink in linklists[childList].links %}
+    					<a href="{{ subLink.url }}" class="reg-dropdown-link">
+    						{{ subLink.title }}
+    					</a>
+    				{% endfor %}
+    			</div>
+    			</div>
+    		{% else %}
+    			<a href="{{ link.url }}" class="top-title">{{ link.title }}</a>
+    		{% endif %}
+    	{% endif %}
+	{% endfor %}
+	<div class="mobile-links">
+    		<a href="{{ settings.wholesale-link }}" class="top-title"><h6>Wholesale</h6></a>
+    		<a href="/pages/contact-us" class="top-title"><h6>Contact</h6></a>
+    		<a href="/cart" class="top-title"><h6>Cart</h6></a>
+    		<a href="/search" class="top-title"><h6>Search</h6></a>
+    		<a href="/account" class="top-title"><h6>Account</h6></a>
+    	</div>
+	</div>
+</aside>

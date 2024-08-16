@@ -1,0 +1,61 @@
+<div class="breadcrumbs">
+	<div class="nav-container">
+		{% if template == "collection" %}
+			<a href="/">Home</a><i class="fa fa-angle-right"></i><a href="{{collection.url}}">Shop</a><i class="fa fa-angle-right"></i><span>{{ collection.title }}</span>
+		{% elsif template == "product" %}
+            {% assign fullUrl = collection.url | append: product.url %}
+      		{% if fullUrl contains 'collections' %}
+      			<a href="/">Home</a><i class="fa fa-angle-right"></i><a href="{{collection.url}}">Shop</a><i class="fa fa-angle-right"></i><a href="{{collection.url}}">{{collection.title}}</a><i class="fa fa-angle-right"></i><span>{{product.title}}</span>
+      		{% else %}
+      		<a href="/">Home</a>
+      			<i class="fa fa-angle-right"></i>
+      			<a href="
+                  {% for collection in product.collections limit:1 %}
+                         {% if collection.title != 'Best Sellers' %}
+                         	{{collection.url}}
+                         {% else %}
+                         	{% for collection in product.collections limit:2 %}
+                         		{% if collection.title != 'Best Sellers' %}
+                         			{{collection.url}}
+                         		{% endif %}
+                         	{% endfor %}
+                         {% endif %}
+                  {% endfor %}">Shop</a>
+      			  <i class="fa fa-angle-right"></i>
+      			  <a href="
+                           {% for collection in product.collections limit:1 %}
+                           		{% if collection.title != 'Best Sellers' %}
+                           			{{collection.url}}
+                           		{% else %}
+                           			{% for collection in product.collections limit:2 %}
+                           				{% if collection.title != 'Best Sellers' %}
+                           					{{collection.url}}
+                           				{% endif %}
+                           			{% endfor %}
+                           		{% endif %}
+                           {% endfor %}">{% for collection in product.collections limit:1 %}
+                           		{% if collection.title != 'Best Sellers' %}
+                           			{{collection.title}}
+                           		{% else %}
+                           			{% for collection in product.collections limit:2 %}
+                           				{% if collection.title != 'Best Sellers' %}
+                           					{{collection.title}}
+                           				{% endif %}
+                           			{% endfor %}
+                           		{% endif %}
+                           {% endfor %}</a>
+                           <i class="fa fa-angle-right"></i><span>{{product.title}}</span>
+			{% endif %}
+      	{% elsif template contains "article" %}
+			<a href="/">Home</a><i class="fa fa-angle-right"></i><a href="{{ blog.url }}">{{ blog.title }}</a><i class="fa fa-angle-right"></i><span>{{ article.title }}</span>
+		{% elsif template contains "cart" %}
+			<a href="/">Home</a><i class="fa fa-angle-right"></i><span>Cart</span>
+		{% elsif page.title == "Submit Your Story" %}
+			<a href="/">Home</a><i class="fa fa-angle-right"></i><a href="/blogs/your-family-tree">Your Family Tree</a><i class="fa fa-angle-right"></i><span>Submit Your Story</span>
+		{% elsif template contains 'search'%}
+			<a href="/">Home</a><i class="fa fa-angle-right"></i><span>Search</span>
+		{% else %}
+			<a href="/">Home</a><i class="fa fa-angle-right"></i><span>{{ page_title }}</span>
+		{% endif %}
+	</div>
+</div>
