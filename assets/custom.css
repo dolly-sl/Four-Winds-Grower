@@ -263,7 +263,9 @@
   text-align:center !important;
   display:block !important
 }
-
+.boost-sd__product-price{
+  order: 3;
+}
 .boost-sd__product-price--default s{
   opacity: 0.5!important;
   order:1;
