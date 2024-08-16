@@ -73,6 +73,7 @@
 .boost-sd__refine-by-vertical-refine-by-list{
   display:flex !important;
   flex-wrap:wrap !important;
+  margin-bottom: -10px;
 }
 .boost-sd-right.boost-product-listing-column{
   margin-bottom:0 !important;
