@@ -300,7 +300,7 @@
  display:none !important;  
 }
 .boost-sd__product-label--soldout{
-  padding: 3.5px 10px 2.5px !important;
+  padding: 3.5px 10px 3px !important;
   border-radius: 20px !important;
   background-color: #d30f0f  !important;
 }
