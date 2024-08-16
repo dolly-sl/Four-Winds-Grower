@@ -576,7 +576,7 @@
   box-shadow:none !important;
    border-top: solid 1px #e3dad0!important;
 }
-.boost-sd__instant-search-autocomplete{
+.boost-sd__instant-search-results{
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1)!important;
 }
 @media all and (min-width: 768px) {
