@@ -25,7 +25,8 @@
     <a class="m-nav_logo{% if template != "index" %} interior{% endif %}" alt="header-icon" href="/" id="nav-logo">
       {% assign old_url = section.settings.logo | img_url: 'master' %}
       {% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '150', options: 'dpr:2' %}{% endcapture %}
-      <img src="{{ imageboss_url }}" alt="{{ section.settings.logo.alt }}">
+      {% comment %} <img src="{{ imageboss_url }}" alt="{{ section.settings.logo.alt }}"> {% endcomment %}
+      {{ imageboss_url | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '1200x1200' }}
     </a>
     <a
       class="m-nav_logo{% if template != "index" %} interior{% endif %}"
