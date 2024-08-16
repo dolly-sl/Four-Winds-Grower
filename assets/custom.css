@@ -608,6 +608,9 @@
         padding: 20px !important;
     }
 }
+.boost-sd__instant-search-product-list .grid-view-item__reviews{
+  display: none;
+} 
 .boost-sd__button--close.boost-sd__button--hidden{
    display:none !important;
 }
