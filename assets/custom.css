@@ -666,9 +666,11 @@
     font-size: 10px !important;
     border: 1px solid rgba(82, 72, 60, .33)!important;
   height: 42px;
+  appearance: none !important;
+  -webkit-appearance: none !important;
 }
 
-only screen and (max-width: 991px) {
+@media all and (max-width: 991px) {
     .boost-sd__suggestion-queries-item--mobile-style1 {
         background-color: transparent!important;
         box-shadow: none !important;
