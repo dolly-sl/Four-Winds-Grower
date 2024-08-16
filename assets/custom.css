@@ -745,3 +745,8 @@
 .boost-sd__search-bar{
   border-bottom: solid 1px #e3dad0!important;
 }
+
+.boost-sd__instant-search-results--mobile-style1 .boost-sd__instant-search-autocomplete
+{
+  background-color: #fef9f3 !important;
+}
