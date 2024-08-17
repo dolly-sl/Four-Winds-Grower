@@ -7,7 +7,7 @@
             <div class="m-footer_section--padding">
               {% if section.settings.shop_list %}
                 <div class="m-footer_subsection">
-                  <h4 class="m-footer_subheader">Shop</h4>
+                  <span style="display:block;" class="m-footer_subheader">Shop</span>
                   {% include 'footer-menu', currList: section.settings.shop_list %}
                 </div>
               {% endif %}
@@ -43,19 +43,21 @@
               {% if section.settings.contact_us_phone %}
                 <div class="m-footer_subsection">
                   <h4 class="m-footer_subheader">Phone</h4>
-                  <a href="tel:{{ section.settings.phone-link }}" class="m-footer_menu-item">{{section.settings.contact_us_phone}}</a>
+                  <a href="tel:{{ section.settings.phone-link }}" class="m-footer_menu-item">
+                    {{- section.settings.contact_us_phone -}}
+                  </a>
                 </div>
               {% endif %}
               {% if section.settings.contact_us_email %}
                 <div class="m-footer_subsection">
                   <h4 class="m-footer_subheader">Email</h4>
                   <a class="m-footer_menu-item" href="mailto:{{section.settings.contact_us_email}}">
-                    {{section.settings.contact_us_email}}
+                    {{ section.settings.contact_us_email }}
                   </a>
                 </div>
               {% endif %}
               <div class="m-footer_subsection">
-                {% include 'social-media', className: "m-footer_social" %}
+                {% include 'social-media', className: 'm-footer_social' %}
               </div>
             </div>
           </section>
@@ -64,145 +66,163 @@
     </div>
   </div>
   <section class="m-copyright l-text_center">
-    &copy;{{ 'now' | date: '%Y' }} All Rights Reserved Four Winds Growers&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a rel="nofollow" href="https://shopify.com?ref=sleepless-media">Powered By Shopify</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Web Design by <a href="https://www.sleeplessmedia.com/services/shopify-web-design/" target="_blank">Sleepless Media</a>
+    &copy;{{ 'now' | date: '%Y' }} All Rights Reserved Four Winds
+    Growers&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a
+      rel="nofollow"
+      href="https://shopify.com?ref=sleepless-media"
+      >Powered By Shopify</a
+    >&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Web Design by
+    <a href="https://www.sleeplessmedia.com/services/shopify-web-design/" target="_blank">Sleepless Media</a>
   </section>
 </footer>
 <footer class="footer-mobile">
-    <div class="accordion">
-        {% if section.settings.shop_list %}
-        <div class="m-footer_subsection accordion-container">
-            <h4 class="m-footer_subheader accordion-title">Shop</h4>
-            {% include 'footer-menu', currList: section.settings.shop_list %}
+  <div class="accordion">
+    {% if section.settings.shop_list %}
+      <div class="m-footer_subsection accordion-container">
+        <h4 class="m-footer_subheader accordion-title">Shop</h4>
+        {% include 'footer-menu', currList: section.settings.shop_list %}
+      </div>
+    {% endif %}
+    {% if section.settings.learn_list %}
+      <div class="m-footer_subsection accordion-container">
+        <h4 class="m-footer_subheader accordion-title">Learn</h4>
+        {% include 'footer-menu', currList: section.settings.learn_list %}
+      </div>
+    {% endif %}
+    {% if section.settings.about_list %}
+      <div class="m-footer_subsection accordion-container">
+        <h4 class="m-footer_subheader accordion-title">About</h4>
+        {% include 'footer-menu', currList: section.settings.about_list %}
+      </div>
+    {% endif %}
+    {% if section.settings.general_list %}
+      <div class="m-footer_subsection accordion-container">
+        <h4 class="m-footer_subheader accordion-title">General Info</h4>
+        {% include 'footer-menu', currList: section.settings.general_list %}
+      </div>
+    {% endif %}
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6 mobile">
+        <div class="footer-col-content">
+          <h4 class="m-footer_subheader">For any growing questions:</h4>
+          <p class="m-footer_newsletter--text">cs@fourwindsgrowers.com</p>
+          <!-- Begin Klaviyo Inline Form Code -->
+          <div class="klaviyo-form-T9X5xs"></div>
+          <!-- End Klaviyo Inline From Code -->
+          <!-- Begin Constant Contact Inline Form Code -->
+          <!-- <div class="ctct-inline-form" data-form-id="0537fc81-c886-454e-b6c4-860ff5f61e2b"></div> -->
+          <!-- End Constant Contact Inline Form Code -->
         </div>
-        {% endif %}
-        {% if section.settings.learn_list %}
-            <div class="m-footer_subsection accordion-container">
-              <h4 class="m-footer_subheader accordion-title">Learn</h4>
-              {% include 'footer-menu', currList: section.settings.learn_list %}
+      </div>
+      <div class="col-sm-6 left-col">
+        <div class="footer-col-content">
+          {% if section.settings.contact_us_phone %}
+            <div class="m-footer_subsection">
+              <h4 class="m-footer_subheader">Phone</h4>
+              <a href="tel:{{ section.settings.phone-link }}" class="m-footer_menu-item">
+                {{- section.settings.contact_us_phone -}}
+              </a>
             </div>
           {% endif %}
-          {% if section.settings.about_list %}
-            <div class="m-footer_subsection accordion-container">
-              <h4 class="m-footer_subheader accordion-title">About</h4>
-              {% include 'footer-menu', currList: section.settings.about_list %}
+          {% if section.settings.contact_us_email %}
+            <div class="m-footer_subsection email">
+              <h4 class="m-footer_subheader">Email</h4>
+              <a class="m-footer_menu-item" href="mailto:{{section.settings.contact_us_email}}">
+                {{ section.settings.contact_us_email }}
+              </a>
             </div>
           {% endif %}
-          {% if section.settings.general_list %}
-            <div class="m-footer_subsection accordion-container">
-              <h4 class="m-footer_subheader accordion-title">General Info</h4>
-              {% include 'footer-menu', currList: section.settings.general_list %}
-            </div>
-          {% endif %}
-    </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-6 mobile">
-                <div class="footer-col-content">
-                    <h4 class="m-footer_subheader">For any growing questions: </h4>
-                    <p class="m-footer_newsletter--text">cs@fourwindsgrowers.com</p>
-                <!-- Begin Klaviyo Inline Form Code -->
-                <div class="klaviyo-form-T9X5xs"></div>
-                <!-- End Klaviyo Inline From Code -->    
-                  <!-- Begin Constant Contact Inline Form Code -->
-                   <!--  <div class="ctct-inline-form" data-form-id="0537fc81-c886-454e-b6c4-860ff5f61e2b"></div> -->
-                    <!-- End Constant Contact Inline Form Code -->
-                </div>
-            </div>
-            <div class="col-sm-6 left-col">
-                <div class="footer-col-content">
-                    {% if section.settings.contact_us_phone %}
-                    <div class="m-footer_subsection">
-                      <h4 class="m-footer_subheader">Phone</h4>
-                      <a href="tel:{{ section.settings.phone-link }}" class="m-footer_menu-item">{{section.settings.contact_us_phone}}</a>
-                    </div>
-                  {% endif %}
-                  {% if section.settings.contact_us_email %}
-                    <div class="m-footer_subsection email">
-                      <h4 class="m-footer_subheader">Email</h4>
-                      <a class="m-footer_menu-item" href="mailto:{{section.settings.contact_us_email}}">
-                        {{section.settings.contact_us_email}}
-                      </a>
-                    </div>
-                  {% endif %}
-                  <div class="m-footer_subsection">
-                    {% include 'social-media', className: "m-footer_social" %}
-                  </div>
-                </div>
-            </div>
-            <div class="col-sm-6 tablet">
-                <div class="footer-col-content">
-                    <h4 class="m-footer_subheader">For any growing questions: </h4>
-                    <p class="m-footer_newsletter--text">cs@fourwindsgrowers.com</p>
-                <!-- Begin Klaviyo Inline Form Code -->
-                <div class="klaviyo-form-T9X5xs"></div>
-                <!-- End Klaviyo Inline From Code -->  
-                  <!-- Begin Constant Contact Inline Form Code -->
-                    <!-- <div class="ctct-inline-form" data-form-id="0537fc81-c886-454e-b6c4-860ff5f61e2b"></div> -->
-                    <!-- End Constant Contact Inline Form Code -->
-                </div>
-            </div>
+          <div class="m-footer_subsection">
+            {% include 'social-media', className: 'm-footer_social' %}
+          </div>
         </div>
+      </div>
+      <div class="col-sm-6 tablet">
+        <div class="footer-col-content">
+          <h4 class="m-footer_subheader">For any growing questions:</h4>
+          <p class="m-footer_newsletter--text">cs@fourwindsgrowers.com</p>
+          <!-- Begin Klaviyo Inline Form Code -->
+          <div class="klaviyo-form-T9X5xs"></div>
+          <!-- End Klaviyo Inline From Code -->
+          <!-- Begin Constant Contact Inline Form Code -->
+          <!-- <div class="ctct-inline-form" data-form-id="0537fc81-c886-454e-b6c4-860ff5f61e2b"></div> -->
+          <!-- End Constant Contact Inline Form Code -->
+        </div>
+      </div>
     </div>
-    <section class="m-copyright l-text_center">
+  </div>
+  <section class="m-copyright l-text_center">
     <div class="tablet">
-    &copy;{{ 'now' | date: '%Y' }} All Rights Reserved Four Winds Growers&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a rel="nofollow" href="https://shopify.com?ref=sleepless-media" target="_blank">Powered By Shopify</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Web Design by <a href="https://www.sleeplessmedia.com/services/shopify-web-design/" target="_blank">Sleepless Media</a>
+      &copy;{{ 'now' | date: '%Y' }} All Rights Reserved Four Winds
+      Growers&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a
+        rel="nofollow"
+        href="https://shopify.com?ref=sleepless-media"
+        target="_blank"
+        >Powered By Shopify</a
+      >&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Web Design by
+      <a href="https://www.sleeplessmedia.com/services/shopify-web-design/" target="_blank">Sleepless Media</a>
     </div>
     <div class="mobile">
-        &copy;{{ 'now' | date: '%Y' }} All Rights Reserved Four Winds Growers<br><a rel="nofollow" href="https://shopify.com" target="_blank">Powered By Shopify</a><br>Web Design by <a href="https://www.sleeplessmedia.com/services/shopify-web-design/" target="_blank">Sleepless Media</a>
+      &copy;{{ 'now' | date: '%Y' }} All Rights Reserved Four Winds Growers<br>
+      <a rel="nofollow" href="https://shopify.com" target="_blank">Powered By Shopify</a><br>
+      Web Design by
+      <a href="https://www.sleeplessmedia.com/services/shopify-web-design/" target="_blank">Sleepless Media</a>
     </div>
-   </section>
+  </section>
 </footer>
 
 {% schema %}
-  {
-    "name": "Footer",
-    "settings": [
-      {
-        "type": "link_list",
-        "id": "shop_list",
-        "label": "Shop Menu"
-      },
-      {
-        "type": "link_list",
-        "id": "learn_list",
-        "label": "Learn List"
-      },
-      {
-        "type": "link_list",
-        "id": "about_list",
-        "label": "About List"
-      },
-      {
-        "type": "link_list",
-        "id": "general_list",
-        "label": "General List"
-      },
-      {
-        "type": "text",
-        "id": "contact_us_header",
-        "label": "Contact Us Header"
-      },
-      {
-        "type": "textarea",
-        "id": "contact_us_content",
-        "label": "Contact Us Description"
-      },
-      {
-        "type": "text",
-        "id": "contact_us_phone",
-        "label": "Contact Us Phone"
-      },
-      {
-        "type": "text",
-        "id": "phone-link",
-        "label": "Phone Number Link",
-        "default": "877-449-4637"
-      },
-      {
-        "type": "text",
-        "id": "contact_us_email",
-        "label": "Contact Us Email"
-      }
-    ]
-  }
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "shop_list",
+      "label": "Shop Menu"
+    },
+    {
+      "type": "link_list",
+      "id": "learn_list",
+      "label": "Learn List"
+    },
+    {
+      "type": "link_list",
+      "id": "about_list",
+      "label": "About List"
+    },
+    {
+      "type": "link_list",
+      "id": "general_list",
+      "label": "General List"
+    },
+    {
+      "type": "text",
+      "id": "contact_us_header",
+      "label": "Contact Us Header"
+    },
+    {
+      "type": "textarea",
+      "id": "contact_us_content",
+      "label": "Contact Us Description"
+    },
+    {
+      "type": "text",
+      "id": "contact_us_phone",
+      "label": "Contact Us Phone"
+    },
+    {
+      "type": "text",
+      "id": "phone-link",
+      "label": "Phone Number Link",
+      "default": "877-449-4637"
+    },
+    {
+      "type": "text",
+      "id": "contact_us_email",
+      "label": "Contact Us Email"
+    }
+  ]
+}
 {% endschema %}
