@@ -17,19 +17,19 @@
             <div class="m-footer_section--padding">
               {% if section.settings.learn_list %}
                 <div class="m-footer_subsection">
-                  <h4 class="m-footer_subheader">Learn</h4>
+                  <span style="display:block;" class="m-footer_subheader">Learn</span>
                   {% include 'footer-menu', currList: section.settings.learn_list %}
                 </div>
               {% endif %}
               {% if section.settings.about_list %}
                 <div class="m-footer_subsection">
-                  <h4 class="m-footer_subheader">About</h4>
+                  <span style="display:block;" class="m-footer_subheader">About</span>
                   {% include 'footer-menu', currList: section.settings.about_list %}
                 </div>
               {% endif %}
               {% if section.settings.general_list %}
                 <div class="m-footer_subsection">
-                  <h4 class="m-footer_subheader">General Info</h4>
+                  <span style="display:block;" class="m-footer_subheader">General Info</span>
                   {% include 'footer-menu', currList: section.settings.general_list %}
                 </div>
               {% endif %}
@@ -38,11 +38,11 @@
           <section class="l-table_cell m-footer_section">
             <div class="m-footer_section--padding">
               <div class="m-footer_subsection">
-                <h4 class="m-footer_subheader">CONTACT US:</h4>
+                <span style="display:block;" class="m-footer_subheader">CONTACT US:</span>
               </div>
               {% if section.settings.contact_us_phone %}
                 <div class="m-footer_subsection">
-                  <h4 class="m-footer_subheader">Phone</h4>
+                  <span style="display:block;" class="m-footer_subheader">Phone</span>
                   <a href="tel:{{ section.settings.phone-link }}" class="m-footer_menu-item">
                     {{- section.settings.contact_us_phone -}}
                   </a>
@@ -50,7 +50,7 @@
               {% endif %}
               {% if section.settings.contact_us_email %}
                 <div class="m-footer_subsection">
-                  <h4 class="m-footer_subheader">Email</h4>
+                  <span style="display:block;" class="m-footer_subheader">Email</span>
                   <a class="m-footer_menu-item" href="mailto:{{section.settings.contact_us_email}}">
                     {{ section.settings.contact_us_email }}
                   </a>
@@ -79,25 +79,25 @@
   <div class="accordion">
     {% if section.settings.shop_list %}
       <div class="m-footer_subsection accordion-container">
-        <h4 class="m-footer_subheader accordion-title">Shop</h4>
+        <span style="display:block;" class="m-footer_subheader accordion-title">Shop</span>
         {% include 'footer-menu', currList: section.settings.shop_list %}
       </div>
     {% endif %}
     {% if section.settings.learn_list %}
       <div class="m-footer_subsection accordion-container">
-        <h4 class="m-footer_subheader accordion-title">Learn</h4>
+        <span style="display:block;" class="m-footer_subheader accordion-title">Learn</span>
         {% include 'footer-menu', currList: section.settings.learn_list %}
       </div>
     {% endif %}
     {% if section.settings.about_list %}
       <div class="m-footer_subsection accordion-container">
-        <h4 class="m-footer_subheader accordion-title">About</h4>
+        <span style="display:block;" class="m-footer_subheader accordion-title">About</span>
         {% include 'footer-menu', currList: section.settings.about_list %}
       </div>
     {% endif %}
     {% if section.settings.general_list %}
       <div class="m-footer_subsection accordion-container">
-        <h4 class="m-footer_subheader accordion-title">General Info</h4>
+        <span style="display:block;" class="m-footer_subheader accordion-title">General Info</span>
         {% include 'footer-menu', currList: section.settings.general_list %}
       </div>
     {% endif %}
@@ -106,7 +106,7 @@
     <div class="row">
       <div class="col-sm-6 mobile">
         <div class="footer-col-content">
-          <h4 class="m-footer_subheader">For any growing questions:</h4>
+          <span style="display:block;" class="m-footer_subheader">For any growing questions:</span>
           <p class="m-footer_newsletter--text">cs@fourwindsgrowers.com</p>
           <!-- Begin Klaviyo Inline Form Code -->
           <div class="klaviyo-form-T9X5xs"></div>
@@ -120,7 +120,7 @@
         <div class="footer-col-content">
           {% if section.settings.contact_us_phone %}
             <div class="m-footer_subsection">
-              <h4 class="m-footer_subheader">Phone</h4>
+              <span style="display:block;" class="m-footer_subheader">Phone</span>
               <a href="tel:{{ section.settings.phone-link }}" class="m-footer_menu-item">
                 {{- section.settings.contact_us_phone -}}
               </a>
@@ -128,7 +128,7 @@
           {% endif %}
           {% if section.settings.contact_us_email %}
             <div class="m-footer_subsection email">
-              <h4 class="m-footer_subheader">Email</h4>
+              <span style="display:block;" class="m-footer_subheader">Email</span>
               <a class="m-footer_menu-item" href="mailto:{{section.settings.contact_us_email}}">
                 {{ section.settings.contact_us_email }}
               </a>
@@ -141,7 +141,7 @@
       </div>
       <div class="col-sm-6 tablet">
         <div class="footer-col-content">
-          <h4 class="m-footer_subheader">For any growing questions:</h4>
+          <span style="display:block;" class="m-footer_subheader">For any growing questions:</span>
           <p class="m-footer_newsletter--text">cs@fourwindsgrowers.com</p>
           <!-- Begin Klaviyo Inline Form Code -->
           <div class="klaviyo-form-T9X5xs"></div>
