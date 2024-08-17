@@ -1,5 +1,5 @@
 <section data-section-id="{{ section.id }}" class="m-divider" id="home-text-section">
-  {% assign old_url = section.settings.image  | img_url: 'master' %}
+  {% assign old_url = section.settings.image | img_url: 'master' %}
   {% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '960', options: 'dpr:2' %}{% endcapture %}
   <div class="l-bg_cover" style="background-image:url('{{ imageboss_url }}');">
     <div class="m-divider_overlay" style="opacity:0.{{section.settings.bg-fade}};"></div>
@@ -7,13 +7,13 @@
       <div class="l-table">
         <div class="l-table_row">
           <div class="l-table_cell--vert">
-            <h2 class="m-divider_subtitle">{{section.settings.subtitle}}</h2>
-            <h1 class="m-divider_title">{{section.settings.title}}</h1>
+            <span class="m-divider_subtitle">{{ section.settings.subtitle }}</span>
+            <h1 class="m-divider_title">{{ section.settings.title }}</h1>
             <div class="m-divider_text" style="max-width:{{section.settings.container_width}}px;">
-              {{section.settings.text}}
+              {{ section.settings.text }}
             </div>
             {% if section.settings.button_url %}
-              <a href="{{section.settings.button_url}}" class="m-btn">{{section.settings.button}}</a>
+              <a href="{{section.settings.button_url}}" class="m-btn">{{ section.settings.button }}</a>
             {% endif %}
           </div>
         </div>
@@ -23,69 +23,71 @@
 </section>
 
 {% schema %}
-  {
-    "name": "Text & Image Section",
-    "class": "m-text-divider",
-    "settings": [
-      {
-        "type": "text",
-        "id": "title",
-        "label": "Title",
-        "default": "FULL SIZE FRUIT. FULL SIZE FLAVOR."
-      },
-      {
-        "type": "text",
-        "id": "subtitle",
-        "label": "Sub Title",
-        "default": "SMALL TREES"
-      },
-      {
-        "type": "textarea",
-        "id": "text",
-        "label": "Text",
-        "default": "<p>Four Winds Growers specializes in dwarf and semi-dwarf citrus trees. Trees can be grown in a container, no yard needed! No matter how you grow you're going to get full size fruit with full size flavor!</p>"
-      },
-      {
-        "type": "range",
-        "id": "container_width",
-        "label": "Text Width",
-        "info": "Want to reduce the maximum width for text in this section for better formatting? Assign a maximum-width here.",
-        "default": 680,
-        "min": 400,
-        "max": 680,
-        "step": 5,
-        "unit": "px"
-      },
-      {
-        "type": "text",
-        "id": "button",
-        "label": "Button Label",
-        "default": "Shop For Trees"
-      },
-      {
-        "type": "url",
-        "id": "button_url",
-        "label": "Link URL"
-      },
-      {
-        "type": "image_picker",
-        "id": "image",
-        "label": "Background Image"
-      },
-      {
-        "type": "range",
-        "id": "bg-fade",
-        "min": 0,
-        "max": 99,
-        "step": 1,
-        "unit": "%",
-        "label": "Background Layover Opacity",
-        "default": 50
-      }
-    ],
-    "presets": [{
+{
+  "name": "Text & Image Section",
+  "class": "m-text-divider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "FULL SIZE FRUIT. FULL SIZE FLAVOR."
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Sub Title",
+      "default": "SMALL TREES"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Four Winds Growers specializes in dwarf and semi-dwarf citrus trees. Trees can be grown in a container, no yard needed! No matter how you grow you're going to get full size fruit with full size flavor!</p>"
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "label": "Text Width",
+      "info": "Want to reduce the maximum width for text in this section for better formatting? Assign a maximum-width here.",
+      "default": 680,
+      "min": 400,
+      "max": 680,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "text",
+      "id": "button",
+      "label": "Button Label",
+      "default": "Shop For Trees"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Link URL"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background Image"
+    },
+    {
+      "type": "range",
+      "id": "bg-fade",
+      "min": 0,
+      "max": 99,
+      "step": 1,
+      "unit": "%",
+      "label": "Background Layover Opacity",
+      "default": 50
+    }
+  ],
+  "presets": [
+    {
       "name": "Text & Image Section",
       "category": "Sleepless Media"
-    }]
-  }
+    }
+  ]
+}
 {% endschema %}
