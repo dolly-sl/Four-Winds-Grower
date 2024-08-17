@@ -1,102 +1,108 @@
 <section data-section-id="{{ section.id }}">
   <div class="m-slider_landing">
-    <ul class="m-slider owl-carousel">
+    <div class="m-slider owl-carousel">
       {% for block in section.blocks %}
-        <li class="slide">
+        <div class="slide">
           <div class="m-slide">
-            {% if block.settings.top-image %}
-            {% assign old_url = block.settings.top-image | img_url: 'master' %}
-			{% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '400', options: 'dpr:2' %}{% endcapture %}
-            <img class="m-slide_image--top" src="{{ imageboss_url }}" alt="{{ block.settings.pretitle }} Citrus Fruit Trees"/>
+            {% if block.settings['top-image'] %}
+              {% assign old_url = block.settings['top-image'] | img_url: 'master' %}
+              {% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '400', options: 'dpr:2' %}{% endcapture %}
+              <img
+                class="m-slide_image--top"
+                src="{{ imageboss_url }}"
+                alt="{{ block.settings.pretitle }} Citrus Fruit Trees"
+              >
             {% else %}
-            {% assign old_url = 'fourwinds-slide_oranges.png' | asset_url %}
-			{% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '400', options: 'dpr:2' %}{% endcapture %}
-            <img class="m-slide_image--top" src="{{ imageboss_url }}" alt="{{ block.settings.pretitle }} Citrus"/>
+              {% assign old_url = 'fourwinds-slide_oranges.png' | asset_url %}
+              {% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '400', options: 'dpr:2' %}{% endcapture %}
+              <img class="m-slide_image--top" src="{{ imageboss_url }}" alt="{{ block.settings.pretitle }} Citrus">
             {% endif %}
             <div class="l-table">
               <div class="l-table_row">
                 <div class="l-table_cell--vert">
                   <div class="m-slide_contents l-text_center">
-                    <h2 class="m-slide_subtitle">{{block.settings.pretitle}}</h2>
-                    <h2 class="m-slide_title">{{block.settings.title}}</h2>
+                    <h2 class="m-slide_subtitle">{{ block.settings.pretitle }}</h2>
+                    <h2 class="m-slide_title">{{ block.settings.title }}</h2>
                     <div class="m-slide_content">
-                      {{block.settings.text}}
+                      {{ block.settings.text }}
                     </div>
                     {% if block.settings.link and block.settings.button_text %}
-                      <a href="{{block.settings.link}}" class="m-btn">{{block.settings.button_text}}</a>
+                      <a href="{{block.settings.link}}" class="m-btn">{{ block.settings.button_text }}</a>
                     {% endif %}
                   </div>
                 </div>
               </div>
             </div>
             {% if block.settings.image %}
-            	{% assign old_url =  block.settings.image | img_url: 'master' %}
-				{% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '225', options: 'dpr:2' %}{% endcapture %}
-                <img src="{{ imageboss_url }}" alt="{{ block.settings.title }} Orange" class="home-slider-image"/>
+              {% assign old_url = block.settings.image | img_url: 'master' %}
+              {% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '225', options: 'dpr:2' %}{% endcapture %}
+              <img src="{{ imageboss_url }}" alt="{{ block.settings.title }} Orange" class="home-slider-image">
             {% endif %}
           </div>
-        </li>
+        </div>
       {% endfor %}
-    </ul>
+    </div>
   </div>
 </section>
 
 {% schema %}
-  {
-    "name": "Slider Section",
-    "class": "m-slider_container",
-    "max_blocks": 6,
-    "settings": [],
-    "blocks": [
-      {
-        "type": "image",
-        "name": "Image slide",
-        "settings": [
-          {
-            "type": "image_picker",
-            "id": "top-image",
-            "label": "Top/Corner Image"
-          },
-          {
-            "type": "image_picker",
-            "id": "image",
-            "label": "Bottom Image"
-          },
-          {
-            "type": "text",
-            "id": "pretitle",
-            "label": "pre-Heading",
-            "default": "60 Varieties Of"
-          },
-          {
-            "type": "text",
-            "id": "title",
-            "label": "Heading",
-            "default": "FINE CITRUS TREES ONLINE"
-          },
-          {
-            "type": "textarea",
-            "id": "text",
-            "label": "Text",
-            "default": "<p>These include a selection of rare and unusual Citrus varieties, some of which are not yet available at retail nurseries in California.</p>"
-          },
-          {
-            "type": "text",
-            "id": "button_text",
-            "label": "Button Label",
-            "default": "Shop our Citrus"
-          },
-          {
-            "type": "url",
-            "id": "link",
-            "label": "Slide link"
-          }
-        ]
-      }
-    ],
-    "presets": [{
+{
+  "name": "Slider Section",
+  "class": "m-slider_container",
+  "max_blocks": 6,
+  "settings": [],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "top-image",
+          "label": "Top/Corner Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Bottom Image"
+        },
+        {
+          "type": "text",
+          "id": "pretitle",
+          "label": "pre-Heading",
+          "default": "60 Varieties Of"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "FINE CITRUS TREES ONLINE"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>These include a selection of rare and unusual Citrus varieties, some of which are not yet available at retail nurseries in California.</p>"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Label",
+          "default": "Shop our Citrus"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Slide link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
       "name": "Slider Section",
       "category": "Sleepless Media"
-    }]
-  }
+    }
+  ]
+}
 {% endschema %}
