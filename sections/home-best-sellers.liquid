@@ -1,41 +1,43 @@
 {% include 'spurit_po2_section_snippet', product: null, products: collections[section.settings.collection].products %}
 {% schema %}
 {
-	"name": "Home Best Sellers",
-	"settings": [
-		{
-			"id": "section-sub-title",
-			"type": "text",
-			"label": "Section Sub Title",
-			"default": "Browse Our"
-		},
-		{
-			"id": "section-title",
-			"type": "text",
-			"label": "Section Title",
-			"default": "Best Sellers"
-		},
-		{
-			"id": "collection",
-			"type": "collection",
-			"label": "Collection"
-		}
-	],
-	"presets": [{
+  "name": "Home Best Sellers",
+  "settings": [
+    {
+      "id": "section-sub-title",
+      "type": "text",
+      "label": "Section Sub Title",
+      "default": "Browse Our"
+    },
+    {
+      "id": "section-title",
+      "type": "text",
+      "label": "Section Title",
+      "default": "Best Sellers"
+    },
+    {
+      "id": "collection",
+      "type": "collection",
+      "label": "Collection"
+    }
+  ],
+  "presets": [
+    {
       "name": "Best Sellers Section",
       "category": "Sleepless Media"
-    }]
+    }
+  ]
 }
 {% endschema %}
 
 <section id="home-best-sellers">
-	<div class="container">
-		<h2 class="alt">{{ section.settings.section-sub-title }}</h2>
-		<h4>{{ section.settings.section-title }}</h4>
-		<div class="owl-carousel">
-			{% for product in collections[section.settings.collection].products limit: 12 %}
-				{% include 'grid-product' %}
-			{% endfor %}
-		</div>
-	</div>
+  <div class="container">
+    <h2 class="alt">{{ section.settings['section-sub-title'] }}</h2>
+    <span class="h4">{{ section.settings['section-title'] }}</span>
+    <div class="owl-carousel">
+      {% for product in collections[section.settings.collection].products limit: 12 %}
+        {% include 'grid-product' %}
+      {% endfor %}
+    </div>
+  </div>
 </section>
