@@ -47,6 +47,7 @@
   {%- endif -%}
 
   <!-- Load critical CSS inline if possible -->
+  <link rel="preload" href="{{ 'avenir-medium.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin="anonymous">
    <!-- Inline critical CSS for the largest text element -->
   <style>
     .m-divider_text p {
