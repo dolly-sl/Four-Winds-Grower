@@ -115,7 +115,7 @@
   {% section 'footer' %}
 
   <!-- Defer loading of theme.js -->
-  <script src="{{ 'theme.js' | asset_url }}" defer></script>
+  <script src="{{ 'theme.js' | asset_url }}" async></script>
   {% render 'spurit_po2_theme_snippet' %}
 
   <style>
