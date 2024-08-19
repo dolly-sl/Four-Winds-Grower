@@ -2,7 +2,7 @@
   {% assign old_url = section.settings.image | img_url: 'master' %}
   {% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '960', options: 'dpr:2' %}{% endcapture %}
   
-  <div class="l-bg_cover lazy-bg" style="background-image:url('{{ imageboss_url }}');">
+  <div class="l-bg_cover lazy-bg" data-bg="background-image:url('{{ imageboss_url }}');" >
     <div class="m-divider_overlay" style="opacity:0.{{section.settings.bg-fade}};"></div>
     <div class="container l-text_center">
       <div class="l-table">
