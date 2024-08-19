@@ -75,22 +75,7 @@
 
   {{ content_for_header }}
   
-  <!-- Hotjar Tracking Code for Fourwinds Growers -->
-  <script>
-      (function(h,o,t,j,a,r){
-          h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-          h._hjSettings={hjid:3895542,hjsv:6};
-          a=o.getElementsByTagName('head')[0];
-          r=o.createElement('script');r.async=1;
-          r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-          a.appendChild(r);
-      })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-  </script>
-  
-  <!-- Yotpo -->
-  <script type="text/javascript">
-	(function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/iViOFkB7KvjIO4sZd5vGpPlWKwjAUzShOGGZvbra/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();
-  </script>
+ 
  {% include 'giftship' %} 
 {% render 'hs-cart-drawer' %}
 	{%- if dropinblog == 1 -%}{{ dropinblog_head_bottom }}{%- endif -%}
