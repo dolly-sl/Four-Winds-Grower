@@ -15,7 +15,7 @@
             {% else %}
               {% assign old_url = 'fourwinds-slide_oranges.png' | asset_url %}
               {% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '400', options: 'dpr:2' %}{% endcapture %}
-              <img class="m-slide_image--top" src="{{ imageboss_url }}" alt="{{ block.settings.pretitle }} Citrus">
+              <img class="m-slide_image--top" data-src="{{ imageboss_url }}" alt="{{ block.settings.pretitle }} Citrus">
             {% endif %}
             <div class="l-table">
               <div class="l-table_row">
@@ -36,7 +36,7 @@
             {% if block.settings.image %}
               {% assign old_url = block.settings.image | img_url: 'master' %}
               {% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '225', options: 'dpr:2' %}{% endcapture %}
-              <img src="{{ imageboss_url }}" alt="{{ block.settings.title }} Orange" class="home-slider-image">
+              <img  data-src="{{ imageboss_url }}" alt="{{ block.settings.title }} Orange" class="home-slider-image">
             {% endif %}
           </div>
         </div>

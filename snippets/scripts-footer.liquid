@@ -21,12 +21,17 @@
 	(function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/iViOFkB7KvjIO4sZd5vGpPlWKwjAUzShOGGZvbra/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();
   </script>
 
-  <script>
-  // Lazy load background images using Intersection Observer
+ <script>
+  // Lazy load images and background images using Intersection Observer
   document.addEventListener("DOMContentLoaded", function() {
+    // Select all elements with data-bg for background images
     const lazyBackgrounds = document.querySelectorAll("[data-bg]");
 
+    // Select all img elements with data-src for regular images
+    const lazyImages = document.querySelectorAll("img[data-src]");
+
     if ("IntersectionObserver" in window) {
+      // Observer for lazy loading background images
       let lazyBackgroundObserver = new IntersectionObserver(function(entries, observer) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
@@ -40,10 +45,30 @@
       lazyBackgrounds.forEach(function(lazyBackground) {
         lazyBackgroundObserver.observe(lazyBackground);
       });
+
+      // Observer for lazy loading img elements
+      let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            let lazyImage = entry.target;
+            lazyImage.src = lazyImage.dataset.src;
+            lazyImage.removeAttribute('data-src'); // Remove data-src attribute after loading
+            lazyImageObserver.unobserve(lazyImage);
+          }
+        });
+      });
+
+      lazyImages.forEach(function(lazyImage) {
+        lazyImageObserver.observe(lazyImage);
+      });
     } else {
       // Fallback for browsers that don't support Intersection Observer
       lazyBackgrounds.forEach(function(lazyBackground) {
         lazyBackground.style.backgroundImage = `url('${lazyBackground.dataset.bg}')`;
+      });
+
+      lazyImages.forEach(function(lazyImage) {
+        lazyImage.src = lazyImage.dataset.src;
       });
     }
   });
