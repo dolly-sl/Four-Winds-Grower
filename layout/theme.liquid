@@ -55,7 +55,7 @@
       color: #fff;
       line-height: 30px;
       font-size: 18px;
-      font-family: avenir-medium, sans-serif;
+    font-family: Arial, sans-serif; /* Use a system font for testing */
     }
 
     @media (max-width: 767px) {
@@ -96,7 +96,7 @@
   {% endif %}
 
   <!-- Use async or defer for non-critical JS -->
-  <script src="{{ 'vendor.js' | asset_url }}" defer></script>
+  <script src="{{ 'vendor.js' | asset_url }}" async></script>
   {{ 'lity.css' | asset_url | stylesheet_tag }}
 
   {{ content_for_header }}
