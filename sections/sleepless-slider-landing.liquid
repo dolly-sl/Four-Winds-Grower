@@ -9,7 +9,7 @@
               {% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '400', options: 'dpr:2' %}{% endcapture %}
               <img
                 class="m-slide_image--top"
-                src="{{ imageboss_url }}"
+                data-src="{{ imageboss_url }}"
                 alt="{{ block.settings.pretitle }} Citrus Fruit Trees"
               >
             {% else %}
