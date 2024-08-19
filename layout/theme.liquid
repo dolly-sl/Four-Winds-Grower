@@ -50,6 +50,7 @@
   <link rel="preload" href="{{ 'avenir-medium.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin="anonymous">
    <!-- Inline critical CSS for the largest text element -->
   <style>
+  
     .m-divider_text p {
       color: #fff;
       line-height: 30px;
@@ -64,11 +65,11 @@
       }
     }
 
-    @media (max-width: 450px) {
-      p {
-        font-size: 12px;
-      }
-    }
+      @font-face {
+  font-family: 'avenir-medium';
+  src: url('{{ 'avenir-medium.woff2' | asset_url }}') format('woff2');
+  font-display: swap;
+}
   </style>
   {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
   {{ 'custom.css' | asset_url | stylesheet_tag }}
