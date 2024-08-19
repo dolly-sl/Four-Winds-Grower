@@ -46,32 +46,7 @@
     {% include 'social-meta-tags' %}
   {%- endif -%}
 
-  <!-- Preload important fonts -->
-  <link rel="preload" href="{{ 'avenirnext-medium.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin="anonymous">
-
-  <!-- Inline critical CSS for the largest text element -->
-  <style>
-    .m-divider_text p {
-      color: #fff;
-      line-height: 30px;
-      font-size: 18px;
-      font-family: arial, sans-serif;
-    }
-
-    @media (max-width: 767px) {
-      .m-divider_text p {
-        font-size: 15px;
-        line-height: 22px;
-      }
-    }
-
-    @font-face {
-      font-family: 'avenir-medium';
-      src: url('{{ 'avenirnext-medium.woff2' | asset_url }}') format('woff2');
-      font-display: swap;
-    }
-  </style>
-
+ 
   <!-- Load essential CSS normally -->
   {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
   {%  comment %}
