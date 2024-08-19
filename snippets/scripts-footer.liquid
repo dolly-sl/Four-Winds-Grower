@@ -73,6 +73,7 @@
     }
   });
 </script>
-
+ {% if template contains 'collection' %}
 {{ 'custom.css' | asset_url | stylesheet_tag }}
+   {%  endif %}
 
