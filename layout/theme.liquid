@@ -47,6 +47,28 @@
   {%- endif -%}
 
   <!-- Load critical CSS inline if possible -->
+   <!-- Inline critical CSS for the largest text element -->
+  <style>
+    .m-divider_text p {
+      color: #fff;
+      line-height: 30px;
+      font-size: 18px;
+      font-family: avenir-medium, sans-serif;
+    }
+
+    @media (max-width: 767px) {
+      .m-divider_text p {
+        font-size: 15px;
+        line-height: 22px;
+      }
+    }
+
+    @media (max-width: 450px) {
+      p {
+        font-size: 12px;
+      }
+    }
+  </style>
   {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
   {{ 'custom.css' | asset_url | stylesheet_tag }}
   <link rel="stylesheet" href="{{ '_sleepless.ongoing.scss.css' | asset_url }}">
