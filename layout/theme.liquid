@@ -66,8 +66,9 @@
 
   <script src="{{ 'vendor.js' | asset_url }}" async></script>
   {{ 'lity.css' | asset_url | stylesheet_tag }}
-  <script src="{{ 'lity.js' | asset_url }}" defer></script>
+  
   {% comment %}
+  <script src="{{ 'lity.js' | asset_url }}" defer></script>
   {{ 'lity.js' | asset_url | script_tag }}
   {% endcomment %}
   {{ 'custom.css' | asset_url | stylesheet_tag }}
