@@ -3,11 +3,11 @@
       {% if product.featured_image %}
       	{% assign old_url = product.featured_image | img_url: 'master' %}
     	{% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '300', options: 'dpr:2' %}{% endcapture %}
-        <img src="{{ imageboss_url}}" class="lazyload background" alt="{{ product.title }}"/>
+        <img data-src="{{ imageboss_url }}" class="lazyload background" alt="{{ product.title }}"/>
       {% else %}
       	{% assign old_url = "https://cdn.shopify.com/s/files/1/2336/3219/files/citrus-no-image-available.jpg?17706093781375664629" %}
     	{% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '300', options: 'dpr:2' %}{% endcapture %}
-        <img src="{{ imageboss_url }}" class="lazyload background" alt="{{ product.title }}"/>
+        <img data-src="{{ imageboss_url }}" class="lazyload background" alt="{{ product.title }}"/>
       {% endif %}
       {% if product.available == false %}
 		<div class="product-sticker" style="text-transform: uppercase;">   
