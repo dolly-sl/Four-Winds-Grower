@@ -96,7 +96,7 @@
   {% endif %}
 
   <!-- Use async or defer for non-critical JS -->
-  <script src="{{ 'vendor.js' | asset_url }}" async></script>
+  <script src="{{ 'vendor.js' | asset_url }}" defer></script>
   {{ 'lity.css' | asset_url | stylesheet_tag }}
 
   {{ content_for_header }}
