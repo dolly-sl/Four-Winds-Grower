@@ -51,6 +51,11 @@
 
   <!-- Inline critical CSS for the largest text element -->
   <style>
+       @font-face {
+      font-family: 'avenir-medium';
+      src: url('{{ 'avenirnext-medium.woff2' | asset_url }}') format('woff2');
+      font-display: swap;
+    }
     .m-divider_text p {
       color: #fff;
       line-height: 30px;
@@ -65,11 +70,7 @@
       }
     }
 
-    @font-face {
-      font-family: 'avenir-medium';
-      src: url('{{ 'avenirnext-medium.woff2' | asset_url }}') format('woff2');
-      font-display: swap;
-    }
+ 
   </style>
 
   <!-- Load essential CSS normally -->
