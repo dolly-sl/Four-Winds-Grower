@@ -47,7 +47,7 @@
   {%- endif -%}
 
   <!-- Preload important fonts -->
-  <link rel="preload" href="{{ 'avenirnext-medium.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="{{ 'avenir-medium.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin="anonymous">
 
   <!-- Inline critical CSS for the largest text element -->
   <style>
@@ -55,7 +55,7 @@
       color: #fff;
       line-height: 30px;
       font-size: 18px;
-      font-family: arial, sans-serif;
+      font-family: avenir-medium, sans-serif;
     }
 
     @media (max-width: 767px) {
@@ -67,14 +67,14 @@
 
     @font-face {
       font-family: 'avenir-medium';
-      src: url('{{ 'avenirnext-medium.woff2' | asset_url }}') format('woff2');
+      src: url('{{ 'avenir-medium.woff2' | asset_url }}') format('woff2');
       font-display: swap;
     }
   </style>
 
   <!-- Load essential CSS normally -->
   {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
-  
+  {{ 'custom.css' | asset_url | stylesheet_tag }}
   <link rel="stylesheet" href="{{ '_sleepless.ongoing.scss.css' | asset_url }}">
 
   <script>
@@ -96,7 +96,7 @@
   {% endif %}
 
   <!-- Use async or defer for non-critical JS -->
-  <script src="{{ 'vendor.js' | asset_url }}" async></script>
+  <script src="{{ 'vendor.js' | asset_url }}" defer></script>
   {{ 'lity.css' | asset_url | stylesheet_tag }}
 
   {{ content_for_header }}
@@ -115,7 +115,7 @@
   {% section 'footer' %}
 
   <!-- Defer loading of theme.js -->
-  <script src="{{ 'theme.js' | asset_url }}" async></script>
+  <script src="{{ 'theme.js' | asset_url }}" defer></script>
   {% render 'spurit_po2_theme_snippet' %}
 
   <style>
