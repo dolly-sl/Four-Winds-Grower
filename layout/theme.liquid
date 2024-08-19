@@ -74,9 +74,8 @@
 
   <!-- Load essential CSS normally -->
   {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
-  {%  comment %}
+  {{ 'custom.css' | asset_url | stylesheet_tag }}
   <link rel="stylesheet" href="{{ '_sleepless.ongoing.scss.css' | asset_url }}">
-  {% endcomment %}
 
   <script>
     document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
