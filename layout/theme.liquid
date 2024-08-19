@@ -46,11 +46,11 @@
     {% include 'social-meta-tags' %}
   {%- endif -%}
 
-  <!-- Load critical CSS inline if possible -->
+  <!-- Preload important fonts -->
   <link rel="preload" href="{{ 'avenir-medium.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin="anonymous">
-   <!-- Inline critical CSS for the largest text element -->
+
+  <!-- Inline critical CSS for the largest text element -->
   <style>
-  
     .m-divider_text p {
       color: #fff;
       line-height: 30px;
@@ -65,15 +65,17 @@
       }
     }
 
-      @font-face {
-  font-family: 'avenir-medium';
-  src: url('{{ 'avenir-medium.woff2' | asset_url }}') format('woff2');
-  font-display: swap;
-}
+    @font-face {
+      font-family: 'avenir-medium';
+      src: url('{{ 'avenir-medium.woff2' | asset_url }}') format('woff2');
+      font-display: swap;
+    }
   </style>
-  {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
-  {{ 'custom.css' | asset_url | stylesheet_tag }}
-  <link rel="stylesheet" href="{{ '_sleepless.ongoing.scss.css' | asset_url }}">
+
+  <!-- Defer non-critical CSS -->
+  <link rel="stylesheet" href="{{ 'theme.scss.css' | asset_url }}" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="{{ 'custom.css' | asset_url }}" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="{{ '_sleepless.ongoing.scss.css' | asset_url }}" media="print" onload="this.media='all'">
 
   <script>
     document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
@@ -96,8 +98,6 @@
   <!-- Use async or defer for non-critical JS -->
   <script src="{{ 'vendor.js' | asset_url }}" async></script>
   {{ 'lity.css' | asset_url | stylesheet_tag }}
-  <!-- Consider inlining critical JS or moving to footer if possible -->
-  <!-- {{ 'lity.js' | asset_url | script_tag }} -->
 
   {{ content_for_header }}
 
@@ -107,50 +107,49 @@
 </head>
 
 <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
-
   
   {% section 'header' %}
 
-    {{ content_for_layout }}
+  {{ content_for_layout }}
 
   {% section 'footer' %}
 
+  <!-- Defer loading of theme.js -->
+  <script src="{{ 'theme.js' | asset_url }}" defer></script>
+  {% render 'spurit_po2_theme_snippet' %}
 
-  <script src="{{ 'theme.js' | asset_url }}"></script>
-{% render 'spurit_po2_theme_snippet' %}
   <style>
-    .spurit-po-wrapper{
-    	float: right;
+    .spurit-po-wrapper {
+      float: right;
     }
-    @media (max-width: 600px){
-      .spurit-po-wrapper{
-    float: none;
-				display: block;
-      	    height: 70px;
+    @media (max-width: 600px) {
+      .spurit-po-wrapper {
+        float: none;
+        display: block;
+        height: 70px;
       }
-      .design-pre-order-template-wrapper{
-       
-      	display: block !important;
+      .design-pre-order-template-wrapper {
+        display: block !important;
       }
-      
-    
     }
-    </style>
+  </style>
 
-{% comment %}
-{% include 'swymSnippet' %}
-{% endcomment %} 
+  <!-- Lazy load non-essential scripts -->
+  {% comment %}
+  {% include 'swymSnippet' %}
+  {% endcomment %}
 
-
-<!-- **BEGIN** Hextom QAB Integration // Main Include - DO NOT MODIFY -->
-    {% render 'hextom_qab_main', product: product, customer: customer %}
-    <!-- **END** Hextom QAB Integration // Main Include - DO NOT MODIFY -->
-{% render 'hs-cart-drawer-subscriptions' %}
-   {% render 'scripts-footer' %}
+  <!-- Hextom QAB Integration -->
+  {% render 'hextom_qab_main', product: product, customer: customer %}
+  {% render 'hs-cart-drawer-subscriptions' %}
+  {% render 'scripts-footer' %}
 </body>
 </html>
+
 <script>
- /* $(document).ready(function() {
+  // Example of deferring non-critical JavaScript
+  /*
+  $(document).ready(function() {
     $('.cart').click(function(e) {
       e.preventDefault();
       window.location.href = "/cart/";
