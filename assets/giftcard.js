@@ -4,7 +4,7 @@
  * A file that contains scripts highly couple code to the Gift Card template.
  */
 
-(function() {
+function deferGiftCardScript() {
   var config = {
     qrCode: '#QrCode',
     printButton: '#PrintGiftCard',
@@ -42,4 +42,9 @@
       selection.addRange(range);
     }
   }
-})();
+}
+
+window.onload = function() {
+  deferGiftCardScript();
+};
+
