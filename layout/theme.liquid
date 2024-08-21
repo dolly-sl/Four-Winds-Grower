@@ -1,163 +1,187 @@
 <!doctype html>
-<!--[if IE 9]> <html class="ie9 no-js supports-no-cookies" lang="{{ shop.locale }}"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js supports-no-cookies" lang="{{ shop.locale }}"> <!--<![endif]-->
-<head>
-  {%- if dropinblog == 1 -%}{{ dropinblog_head_top }}{%- endif -%}
-  {%- comment -%}smartseo_integration_begin{%- endcomment -%}
-  {% include 'smartseo' %}
-  {%- comment -%}smartseo_integration_end{%- endcomment -%}
+  <!--[if IE 9]> <html class="ie9 no-js supports-no-cookies" lang="{{ shop.locale }}"> <![endif]-->
+  <!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js supports-no-cookies" lang="{{ shop.locale }}"> <!--<![endif]-->
+  <head>
+    {%- if dropinblog == 1 -%}{{ dropinblog_head_top }}{%- endif -%}
+    {%- comment -%}smartseo_integration_begin{%- endcomment -%}
+    {% include 'smartseo' %}
+    {%- comment -%}smartseo_integration_end{%- endcomment -%}
+    
+    <meta name="p:domain_verify" content="b879f8ce03498e3ced7b7d9e18e37818"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="canonical" href="{{ canonical_url }}">
   
-  <meta name="p:domain_verify" content="b879f8ce03498e3ced7b7d9e18e37818"/>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="canonical" href="{{ canonical_url }}">
-
-  {% if settings.favicon != blank %}
-    <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
-  {% endif %}
-
-  {% capture seo_title %}
-    {{ page_title }}
-    {% if current_tags %}
-      {%- assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
+    {% if settings.favicon != blank %}
+      <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
     {% endif %}
-    {% if current_page != 1 %}
-      &ndash; {{ 'general.meta.page' | t: page: current_page }}
+  
+    {% capture seo_title %}
+      {{ page_title }}
+      {% if current_tags %}
+        {%- assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
+      {% endif %}
+      {% if current_page != 1 %}
+        &ndash; {{ 'general.meta.page' | t: page: current_page }}
+      {% endif %}
+      {% unless page_title contains shop.name %}
+        &ndash; {{ shop.name }}
+      {% endunless %}
+    {% endcapture %}
+    {% if template contains 'index' %}
+      {% assign seo_title = settings.home-seo-title %}
     {% endif %}
-    {% unless page_title contains shop.name %}
-      &ndash; {{ shop.name }}
-    {% endunless %}
-  {% endcapture %}
-  {% if template contains 'index' %}
-    {% assign seo_title = settings.home-seo-title %}
-  {% endif %}
-  {%- comment smartseo_integration_begin_meta_data -%}<title>{{ seo_title }}</title>{%- endcomment smartseo_integration_end_meta_data -%}
-
-  {% if page_description %}
-    {%- comment smartseo_integration_begin_meta_data -%}<meta name="description" content="{{ page_description | escape }}">{%- endcomment smartseo_integration_end_meta_data -%}
-  {% else %}
-    {%- comment smartseo_integration_begin_meta_data -%}<meta name="description" content="{{ settings.seo-description }}">{%- endcomment smartseo_integration_end_meta_data -%}
-  {% endif %}
-
-  {%- if dropinblog == 1 -%}
-    {{ dropinblog_head_social }}
-  {%- else -%}
-    {% include 'social-meta-tags' %}
-  {%- endif -%}
-
-  <!-- Preload important fonts -->
-  <link rel="preload" href="{{ 'avenirnext-medium.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin="anonymous">
-
-  <!-- Inline critical CSS for the largest text element -->
-  <style>
-    .m-divider_text p {
-      color: #fff;
-      line-height: 30px;
-      font-size: 18px;
-      font-family: avenir-medium, sans-serif;
-    }
-
-    @media (max-width: 767px) {
+    {%- comment smartseo_integration_begin_meta_data -%}<title>{{ seo_title }}</title>{%- endcomment smartseo_integration_end_meta_data -%}
+  
+    {% if page_description %}
+      {%- comment smartseo_integration_begin_meta_data -%}<meta name="description" content="{{ page_description | escape }}">{%- endcomment smartseo_integration_end_meta_data -%}
+    {% else %}
+      {%- comment smartseo_integration_begin_meta_data -%}<meta name="description" content="{{ settings.seo-description }}">{%- endcomment smartseo_integration_end_meta_data -%}
+    {% endif %}
+  
+    {%- if dropinblog == 1 -%}
+      {{ dropinblog_head_social }}
+    {%- else -%}
+      {% include 'social-meta-tags' %}
+    {%- endif -%}
+  
+    <!-- Preload important fonts -->
+    <link rel="preload" href="{{ 'avenirnext-medium.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin="anonymous">
+  
+    <!-- Inline critical CSS for the largest text element -->
+    <style>
       .m-divider_text p {
-        font-size: 15px;
-        line-height: 22px;
+        color: #fff;
+        line-height: 30px;
+        font-size: 18px;
+        font-family: avenir-medium, sans-serif;
       }
-    }
-
-    @font-face {
-      font-family: 'avenir-medium';
-      src: url('{{ 'avenirnext-medium.woff2' | asset_url }}') format('woff2');
-      font-display: swap;
-    }
-  </style>
-
-  <!-- Load essential CSS normally -->
-  {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
   
-  <link rel="stylesheet" href="{{ '_sleepless.ongoing.scss.css' | asset_url }}">
-
-  <script>
-    document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
-
-    window.theme = {
-      strings: {
-        addToCart: {{ 'products.product.add_to_cart' | t | json }},
-        soldOut: {{ 'products.product.sold_out' | t | json }},
-        unavailable: {{ 'products.product.unavailable' | t | json }}
-      },
-      moneyFormat: {{ shop.money_format | json }}
-    };
-  </script>
-
-  {% if template.directory == 'customers' %}
-    <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer></script><!--<![endif]-->
-    <!--[if lte IE 9]><script src="{{ 'shopify_common.js' | shopify_asset_url }}"></script><![endif]-->
-  {% endif %}
-
-  <!-- Use async or defer for non-critical JS -->
-  <script src="{{ 'vendor.js' | asset_url }}" defer></script>
-  {{ 'lity.css' | asset_url | stylesheet_tag }}
-
-  {{ content_for_header }}
-
-  {% include 'giftship' %}
-  {% render 'hs-cart-drawer' %}
-  {%- if dropinblog == 1 -%}{{ dropinblog_head_bottom }}{%- endif -%}
-</head>
-
-<body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
+      @media (max-width: 767px) {
+        .m-divider_text p {
+          font-size: 15px;
+          line-height: 22px;
+        }
+      }
   
-  {% section 'header' %}
-
-  {{ content_for_layout }}
-
-  {% section 'footer' %}
-
-  <!-- Defer loading of theme.js -->
-  <script src="{{ 'theme.js' | asset_url }}" defer></script>
-  {% render 'spurit_po2_theme_snippet' %}
-
-  <style>
-    .spurit-po-wrapper {
-      float: right;
-    }
-    @media (max-width: 600px) {
+      @font-face {
+        font-family: 'avenir-medium';
+        src: url('{{ 'avenirnext-medium.woff2' | asset_url }}') format('woff2');
+        font-display: swap;
+      }
+    </style>
+  
+    <!-- Inline other critical CSS -->
+    <style>
+      /* Example of critical CSS for above-the-fold content */
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'avenir-medium', sans-serif;
+      }
+      header {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+      }
+      nav a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 15px;
+      }
+    </style>
+  
+    <!-- Load essential CSS normally -->
+    {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
+  
+    <!-- Defer non-critical CSS -->
+    <link rel="preload" href="{{ '_sleepless.ongoing.scss.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ '_sleepless.ongoing.scss.css' | asset_url }}"></noscript>
+  
+    <script>
+      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+  
+      window.theme = {
+        strings: {
+          addToCart: {{ 'products.product.add_to_cart' | t | json }},
+          soldOut: {{ 'products.product.sold_out' | t | json }},
+          unavailable: {{ 'products.product.unavailable' | t | json }}
+        },
+        moneyFormat: {{ shop.money_format | json }}
+      };
+    </script>
+  
+    {% if template.directory == 'customers' %}
+      <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer></script><!--<![endif]-->
+      <!--[if lte IE 9]><script src="{{ 'shopify_common.js' | shopify_asset_url }}"></script><![endif]-->
+    {% endif %}
+  
+    <!-- Use async or defer for non-critical JS -->
+    <script src="{{ 'vendor.js' | asset_url }}" defer></script>
+    {{ 'lity.css' | asset_url | stylesheet_tag }}
+  
+    {{ content_for_header }}
+  
+    {% include 'giftship' %}
+    {% render 'hs-cart-drawer' %}
+    {%- if dropinblog == 1 -%}{{ dropinblog_head_bottom }}{%- endif -%}
+  </head>
+  
+  <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
+    
+    {% section 'header' %}
+  
+    {{ content_for_layout }}
+  
+    {% section 'footer' %}
+  
+    <!-- Defer loading of theme.js -->
+    <script src="{{ 'theme.js' | asset_url }}" defer></script>
+    {% render 'spurit_po2_theme_snippet' %}
+  
+    <style>
       .spurit-po-wrapper {
-        float: none;
-        display: block;
-        height: 70px;
+        float: right;
       }
-      .design-pre-order-template-wrapper {
-        display: block !important;
+      @media (max-width: 600px) {
+        .spurit-po-wrapper {
+          float: none;
+          display: block;
+          height: 70px;
+        }
+        .design-pre-order-template-wrapper {
+          display: block !important;
+        }
       }
-    }
-  </style>
-
-  <!-- Lazy load non-essential scripts -->
-  {% comment %}
-  {% include 'swymSnippet' %}
-  {% endcomment %}
-
-  <!-- Hextom QAB Integration -->
-  {% render 'hextom_qab_main', product: product, customer: customer %}
-  {% render 'hs-cart-drawer-subscriptions' %}
-  {% render 'scripts-footer' %}
-</body>
-</html>
-
-<script>
-  // Example of deferring non-critical JavaScript
-  /*
-  $(document).ready(function() {
-    $('.cart').click(function(e) {
-      e.preventDefault();
-      window.location.href = "/cart/";
+    </style>
+  
+    <!-- Lazy load non-essential scripts -->
+    {% comment %}
+    {% include 'swymSnippet' %}
+    {% endcomment %}
+  
+    <!-- Hextom QAB Integration -->
+    {% render 'hextom_qab_main', product: product, customer: customer %}
+    {% render 'hs-cart-drawer-subscriptions' %}
+    {% render 'scripts-footer' %}
+  </body>
+  </html>
+  
+  <script>
+    // Example of deferring non-critical JavaScript
+    /*
+    $(document).ready(function() {
+      $('.cart').click(function(e) {
+        e.preventDefault();
+        window.location.href = "/cart/";
+      });
+      $('#product-submit').click(function(e) {
+        e.preventDefault();
+        window.location.href = "/cart/";
+      });
     });
-    $('#product-submit').click(function(e) {
-      e.preventDefault();
-      window.location.href = "/cart/";
-    });
-  });
-  */
-</script>
+    */
+  </script>
+  
