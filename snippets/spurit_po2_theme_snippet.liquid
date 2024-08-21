@@ -1,21 +1,21 @@
 <script>
-    if(!window.PomFirstLoad){
-        if(typeof(Spurit) === 'undefined'){
+    if (!window.PomFirstLoad) {
+        if (typeof(Spurit) === 'undefined') {
             var Spurit = {};
         }
-        if(!Spurit.Preorder2){
+        if (!Spurit.Preorder2) {
             Spurit.Preorder2 = {};
         }
-        if(!Spurit.Preorder2.snippet){
-        Spurit.Preorder2.snippet = {};
+        if (!Spurit.Preorder2.snippet) {
+            Spurit.Preorder2.snippet = {};
         }
-        if(!Spurit.Preorder2.snippet.products){
-        Spurit.Preorder2.snippet.products = {};
+        if (!Spurit.Preorder2.snippet.products) {
+            Spurit.Preorder2.snippet.products = {};
         }
         Spurit.Preorder2.snippet.shopHash = '3ed975b79859d43b2d7d2f793c0fdd92';
         Spurit.Preorder2.snippet.cacheTimestamp = 1698290824;
 
-        if(typeof(Spurit.globalSnippet) === 'undefined'){
+        if (typeof(Spurit.globalSnippet) === 'undefined') {
             Spurit.globalSnippet = {
                 shop_currency: '{{ shop.currency }}',
                 money_format: '{{ shop.money_format }}',
@@ -40,21 +40,24 @@
                     {% render 'spurit_po2_product_details_snippet', product: product %}
                 {% endfor %}
             {% endpaginate %}
-        {%endif%}
+        {% endif %}
     }
 </script>
 
 <script>
-  (function() {
-    setTimeout(() => document.querySelector('body').classList.add('spo-loaded'), 5000)
-  })();
+    (function() {
+        setTimeout(() => document.querySelector('body').classList.add('spo-loaded'), 5000);
+    })();
 </script>
 
-    <script>
-        if(!window.PomFirstLoad){
-            window.PomFirstLoad = true;
+<script>
+    if (!window.PomFirstLoad) {
+        window.PomFirstLoad = true;
+        window.addEventListener('load', function() {
             let script = document.createElement("script");  // create a script DOM node
             script.src = "https://amaicdn.com/preorder2/common.js";  // set its src to the provided URL
+            script.defer = true;  // defer the loading
             document.head.appendChild(script);
-        }
-    </script>
+        });
+    }
+</script>
