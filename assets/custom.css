@@ -468,7 +468,7 @@
   .boost-sd__filter-tree-toggle-button{
   order:-1 !important;
      display:flex !important;
-  justify-content:flex-start  !important;
+  justify-content:space-between  !important;
   padding:13.5px 15px !important;
   border: solid 1px #e3dad0!important;
   background-color: #fef9f3!important;
