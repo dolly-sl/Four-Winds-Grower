@@ -1,5 +1,4 @@
-function deferJS() {
-  $(document).ready(function() {
+$(document).ready(function() {
     function checkCitrus() {
       // Configuration
       var noCitrusStates = ["FL", "TX", "AZ"];
@@ -42,8 +41,3 @@ function deferJS() {
         }
     })
   });
-}
-
-window.onload = function() {
-  deferJS();
-};
