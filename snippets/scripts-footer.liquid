@@ -1,3 +1,6 @@
+<!-- Defer loading of theme.js -->
+  <script src="{{ 'theme.js' | asset_url }}" async></script>
+ {{ 'lity.css' | asset_url | stylesheet_tag }}
 <!-- Begin Constant Contact Active Forms -->
 <script> var _ctct_m = "eaa3c7b16a02fe767b8ea372dc801904"; </script>
 <script id="signupScript" src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>
