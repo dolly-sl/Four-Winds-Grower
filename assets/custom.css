@@ -322,7 +322,7 @@
 .boost-sd__button--show-on-hover{
  display:none !important;  
 }
-.boost-sd__product-label{
+.boost-sd__product-label,.boost-sd__suggestion-queries-item-badge{
   padding: 3.5px 10px 3px !important;
   border-radius: 20px !important;
 }
@@ -331,7 +331,7 @@
   border-radius: 20px !important;
   background-color: #d30f0f  !important;
 }
-.boost-sd__product-label-text, .boost-sd__product-label-text span{
+.boost-sd__product-label-text, .boost-sd__product-label-text span, .boost-sd__suggestion-queries-item-badge span{
    font-family: avenir-medium, sans-serif!important;
   font-size: 12px!important;
   font-weight: 500!important;
