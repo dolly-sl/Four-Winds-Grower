@@ -322,6 +322,10 @@
 .boost-sd__button--show-on-hover{
  display:none !important;  
 }
+.boost-sd__product-label{
+  padding: 3.5px 10px 3px !important;
+  border-radius: 20px !important;
+}
 .boost-sd__product-label--soldout{
   padding: 3.5px 10px 3px !important;
   border-radius: 20px !important;
@@ -752,3 +756,6 @@
 {
   background-color: #fef9f3 !important;
 }
+
+
+oost-sd__product-label--sale
