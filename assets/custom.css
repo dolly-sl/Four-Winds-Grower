@@ -765,6 +765,7 @@
 .yotpo-stars {
   padding-right: 5px !important;
 }
-.yotpo .yotpo-bottomline .yotpo-icon-star, .yotpo .yotpo-bottomline .yotpo-icon-half-star, .yotpo .yotpo-bottomline .yotpo-icon-empty-star {
+.yotpo .yotpo-bottomline .yotpo-icon-star, .yotpo .yotpo-bottomline .yotpo-icon-half-star, .yotpo .yotpo-bottomline .yotpo-icon-empty-star,
+.yotpo .yotpo-icon-default-star:before, .yotpo .yotpo-icon-star:before {
   color: #e57634 !important;
-}
+} 
