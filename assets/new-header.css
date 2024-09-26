@@ -102,7 +102,7 @@ header
 header .header-wrapper .col-sm-3 {
   width: 25% !important;
 }
-header .header-wrapper .m-nav_link-submenu {
+header .header-wrapper .m-nav_link-submenu.m-nav_link-submenu--shop {
   padding: 0 !important;
 }
 header .header-wrapper .ipad-none {
