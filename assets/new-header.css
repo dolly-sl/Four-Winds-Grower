@@ -1,0 +1,258 @@
+header .header-wrapper .top-nav ul {
+  display: flex;
+  justify-content: space-between;
+}
+header .header-wrapper .top-nav li:last-child a {
+  margin-right: 0;
+}
+header .header-wrapper .m-nav_bottom .fa-user:before {
+  display: none;
+}
+header .header-wrapper .m-nav_bottom .fa-user:before {
+  display: none;
+}
+header .header-wrapper .m-nav_bottom .fa-user {
+  width: 23px;
+  height: 23px;
+  background: url(icon-account.svg) no-repeat center/100%;
+  top: 6px;
+  position: relative;
+}
+.header-wrapper .m-nav_logo {
+  width: 120px;
+}
+header .header-wrapper .m-nav_link-submenu ul li a {
+  text-transform: capitalize !important;
+  font-size: 14px !important;
+  font-family: avenir-medium, sans-serif !important;
+  line-height: 1.1 !important;
+}
+header .header-wrapper .m-nav_link-submenu ul li {
+  margin-bottom: 20px;
+}
+header .header-wrapper .m-nav_link-submenu ul li:last-child {
+  margin-bottom: 0;
+}
+header .header-wrapper .nav-dropdowns .nav-dropdown.m-nav_link-submenu--easy {
+  border-right: 1px solid #e3dad0;
+  border-bottom: 1px solid #e3dad0;
+  border-left: 1px solid #e3dad0;
+  max-width: 250px;
+  box-shadow: none;
+}
+header .header-wrapper .m-nav_link:after {
+  display: none;
+}
+header .header-wrapper .m-nav_link {
+  border-bottom: 1px solid #e3dad0;
+}
+header .header-wrapper .m-nav_link-submenu--shop .container {
+  padding: 0 40px;
+  width: 100%;
+}
+header .header-wrapper .m-nav_link-submenu--shop .container .row .m-nav_list {
+  border-right: 1px solid #e3dad0;
+  padding: 40px 40px;
+}
+header
+  .header-wrapper
+  .m-nav_link-submenu--shop
+  .container
+  .row
+  .m-nav_list:last-child {
+  border-right: 0;
+}
+header
+  .header-wrapper
+  .m-nav_link-submenu--shop
+  .container
+  .row
+  .m-nav_sublist {
+  border-top: 0 !important;
+  margin-top: 0px;
+  padding-top: 15px !important;
+}
+header
+  .header-wrapper
+  .m-nav_link-submenu--shop
+  .container
+  .row
+  .m-nav_sublist
+  ul
+  li {
+  margin-bottom: 10px;
+}
+header .header-wrapper .m-nav_link-submenu ul li.shop-all a {
+  font-family: Savu-Bold !important;
+  font-size: 16px !important;
+  align-self: stretch;
+  line-height: 24px !important;
+  letter-spacing: 0.8px;
+}
+header .header-wrapper .m-nav_link-submenu ul li.shop-all a:hover {
+  text-decoration: underline !important;
+}
+header
+  .header-wrapper
+  .m-nav_link-submenu--shop
+  .m-nav_drop-section
+  + .m-nav_drop-section {
+  margin-top: 40px !important;
+}
+header .header-wrapper .col-sm-3 {
+  width: 25% !important;
+}
+header .header-wrapper .m-nav_link-submenu.m-nav_link-submenu--shop {
+  padding: 0 !important;
+}
+header .header-wrapper .ipad-none {
+  display: inline-block;
+}
+/* header responsive  */
+@media (max-width: 991px) {
+  header .header-wrapper .top-nav {
+    display: none;
+  }
+  header .header-wrapper .ipad-none {
+    display: none !important;
+  }
+  header .header-wrapper .m-nav_logo {
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+  }
+  header .header-wrapper .m-nav_list--actions.l-float_right {
+    float: none;
+    display: flex;
+    justify-content: space-between;
+  }
+  header .header-wrapper .m-nav_bottom {
+    height: 82px !important;
+  }
+  header .header-wrapper .m-nav_list--actions.l-float_right li .m-nav_link {
+    height: 100% !important;
+    padding: 20px !important;
+    line-height: normal;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  header .header-wrapper .m-nav_list--actions.l-float_right li {
+    /* max-width: 82px; */
+    width: 100px;
+    height: 82px;
+  }
+  header
+    .header-wrapper
+    .m-nav_list--actions.l-float_right
+    li
+    a
+    .custom-menu-icon {
+    display: flex;
+    width: 42px;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* top: 0; */
+  }
+  header .header-wrapper .custom-menu-icon div {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  header .header-wrapper .m-nav_list--actions.l-float_right li.flyout-button {
+    border-right: 1px solid #e3dad0;
+  }
+  header .header-wrapper .cart img {
+    height: 42px;
+    object-fit: contain;
+  }
+  header
+    .header-wrapper
+    .m-nav_list--actions.l-float_right
+    li.flyout-button.active
+    .custom-menu-icon
+    div {
+    margin-bottom: 5px;
+  }
+  header #flyout.mobile-menu {
+    left: 0;
+    right: auto;
+    height: 100vh !important;
+  }
+  header #flyout.mobile-menu .mobile-link {
+    background: #f9f2e8;
+  }
+  header #flyout.mobile-menu .top-title {
+    padding: 20px !important;
+  }
+  header #flyout.mobile-menu .top-title h6 {
+    text-align: left !important;
+    font-size: 14px !important;
+  }
+  header #flyout.mobile-menu .top-title:before {
+    display: none;
+  }
+  header #flyout.mobile-menu .top-title:after {
+    content: "";
+    width: 16px;
+    height: 18px;
+    background: url(icon-arrow-dropdown.svg) no-repeat center/100%;
+  }
+  header #flyout.mobile-menu .top-title.active:after {
+    transform: rotate(180deg);
+    opacity: 1 !important;
+    top: calc(50% - 6px);
+  }
+  header #flyout.mobile-menu .search {
+    padding: 20px;
+    border-bottom: 1px solid #e3dad0;
+  }
+  header #flyout.mobile-menu .m-nav_search {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: 45px;
+  }
+  header #flyout.mobile-menu .m-nav_search input {
+    height: 45px;
+  }
+  #flyout.mobile-menu .accordion-title.top-title.active {
+    position: absolute !important;
+    top: 0;
+    background: white;
+    width: 100%;
+    left: 0;
+  }
+  #flyout.mobile-menu .accordion-content {
+    position: absolute;
+    top: 61px;
+    background: white;
+    height: 100vh;
+    z-index: 10;
+    width: 100%;
+    left: 0;
+  }
+  #flyout.mobile-menu .sub-accordion-container .sub-title img {
+    display: none;
+  }
+  #flyout.mobile-menu .sub-accordion-container .sub-title {
+    padding: 0;
+  }
+  #flyout.mobile-menu .sub-accordion-container .sub-title h6 {
+    padding: 20px;
+  }
+  #flyout.mobile-menu .sub-accordion-container .sub-title:after {
+    background: url(icon-plus-accordion.svg) no-repeat center/100%;
+    width: 16px;
+    height: 16px;
+    content: "";
+  }
+  #flyout.mobile-menu
+    .accordion-container
+    .accordion-content
+    a:not(.sub-title) {
+    padding: 0 20px !important;
+  }
+}

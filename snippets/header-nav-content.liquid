@@ -2,7 +2,16 @@
   <nav class="m-nav_bottom">
     {% include 'header-menu', currList: section.settings['main-menu'] %}
     <ul class="m-nav_list m-nav_list--actions l-float_right">
-      <li>
+      <li class="tablet mobile flyout-button in-navbar">
+        <a href="javascript:;" class="m-nav_link" aria-label="hamburger button">
+          <div class="custom-menu-icon">
+            <div class="first-bar"></div>
+            <div class="second-bar"></div>
+            <div class="third-bar"></div>
+          </div>
+        </a>
+      </li>
+      <li class="search ipad-none">
         <form action="/search" class="m-nav_search" method="get">
           <input type="hidden" name="type" value="product">
           <input type="text" class="m-nav_search--input" name="q" placeholder="search">
@@ -11,10 +20,10 @@
           </button>
         </form>
       </li>
-      <li class="tablet">
+      <li class="tablet  ipad-none">
         <a href="/search" class="m-nav_link"><i class="fa fa-search"></i></a>
       </li>
-      <li>
+      <li class="ipad-none">
         <a class="m-nav_link m-nav_drop-toggle" href="/account" title="Account Icon"><i class="fa fa-user"></i></a>
       </li>
       <li>
@@ -27,15 +36,17 @@
           <img src="{{ 'fourwinds-icons_shopping-cart.png' | asset_url }}" alt="shopping-cart" width="42">
         </a>
       </li>
-      <li class="tablet mobile flyout-button in-navbar">
-        <a href="javascript:;" class="m-nav_link" aria-label="hamburger button">
-          <div class="custom-menu-icon">
-            <div class="first-bar"></div>
-            <div class="second-bar"></div>
-            <div class="third-bar"></div>
-          </div>
-        </a>
-      </li>
+      {% comment %}
+        <li class="tablet mobile flyout-button in-navbar">
+          <a href="javascript:;" class="m-nav_link" aria-label="hamburger button">
+            <div class="custom-menu-icon">
+              <div class="first-bar"></div>
+              <div class="second-bar"></div>
+              <div class="third-bar"></div>
+            </div>
+          </a>
+        </li>
+      {% endcomment %}
     </ul>
   </nav>
   <nav class="m-nav_dropdowns nav-dropdowns">

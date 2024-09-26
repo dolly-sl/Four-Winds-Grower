@@ -2,323 +2,323 @@
   <div class="tab-section-with-slider">
     <div class="container l-text_center nh-text-section">
       {% if section.settings.subtitle != blank %}
-      <h2 class="m-divider_subtitle">{{ section.settings.subtitle }}</h2>
+        <h2 class="m-divider_subtitle">{{ section.settings.subtitle }}</h2>
       {% endif %}
       {% if section.settings.title != blank %}
-      <h1 class="m-divider_title">{{ section.settings.title }}</h1>
+        <h1 class="m-divider_title">{{ section.settings.title }}</h1>
       {% endif %}
       {% if section.settings.text != blank %}
-      <div class="m-divider_text" style="max-width:{{section.settings.container_width}}px;">
-        <p>{{ section.settings.text }}</p>
-      </div>
+        <div class="m-divider_text" style="max-width:{{section.settings.container_width}}px;">
+          <p>{{ section.settings.text }}</p>
+        </div>
       {% endif %}
     </div>
     <div class="tab-section">
       <div class="container l-text_center">
         <ul class="tab-nav">
           {% if section.settings.pages_tab_title != blank %}
-          <li class="active" data-tab="pages-tab">{{ section.settings.pages_tab_title }}</li>
-          {%  endif %} 
+            <li class="active" data-tab="pages-tab">{{ section.settings.pages_tab_title }}</li>
+          {% endif %}
           {% if section.settings.articles_tab_title != blank %}
-          <li data-tab="articles-tab">{{ section.settings.articles_tab_title }}</li>
-          {%  endif %} 
+            <li data-tab="articles-tab">{{ section.settings.articles_tab_title }}</li>
+          {% endif %}
           {% if section.settings.videos_tab_title != blank %}
-          <li data-tab="videos-tab">{{ section.settings.videos_tab_title }}</li>
-          {%  endif %} 
+            <li data-tab="videos-tab">{{ section.settings.videos_tab_title }}</li>
+          {% endif %}
         </ul>
         <select class="tab-dropdown">
           <option value="pages-tab">{{ section.settings.pages_tab_title }}</option>
           <option value="articles-tab">{{ section.settings.articles_tab_title }}</option>
           <option value="videos-tab">{{ section.settings.videos_tab_title }}</option>
         </select>
-    </div>  
- <!-- Tab Content -->
-    <div class="tab-content">
-      {% for block in section.blocks %}
-        {% if block.type == 'page_block' %}
-          <div id="pages-tab" class="tab-pane active">
-            <ul class="owl-carousel pages-carousel">
-                  <li class="item">
-                    <a href="{{ block.settings.page_url }}">
-                      <div class="image-section">
-                        <picture>
-                          <!-- Mobile and tablet sizes -->
-                          <source
-                            media="(max-width: 767px)"
-                            srcset="
-                              {{ block.settings.page_image | image_url: width: 375 }} 375w,
-                              {{ block.settings.page_image | image_url: width: 550 }} 550w,
-                              {{ block.settings.page_image | image_url: width: 750 }} 750w
-                            "
-                            sizes="100vw"
-                          >
+      </div>
+      <!-- Tab Content -->
+      <div class="tab-content">
+        {% for block in section.blocks %}
+          {% if block.type == 'page_block' %}
+            <div id="pages-tab" class="tab-pane active">
+              <ul class="owl-carousel pages-carousel">
+                <li class="item">
+                  <a href="{{ block.settings.page_url }}">
+                    <div class="image-section">
+                      <picture>
+                        <!-- Mobile and tablet sizes -->
+                        <source
+                          media="(max-width: 767px)"
+                          srcset="
+                            {{ block.settings.page_image | image_url: width: 375 }} 375w,
+                            {{ block.settings.page_image | image_url: width: 550 }} 550w,
+                            {{ block.settings.page_image | image_url: width: 750 }} 750w
+                          "
+                          sizes="100vw"
+                        >
 
-                          <!-- Desktop sizes -->
-                          <source
-                            media="(min-width: 768px)"
-                            srcset="
-                              {{ block.settings.page_image | image_url: width: 1000 }} 1000w,
-                              {{ block.settings.page_image | image_url: width: 1400 }} 1400w,
-                              {{ block.settings.page_image | image_url: width: 1800 }} 1800w,
-                              {{ block.settings.page_image | image_url: width: 2400 }} 2400w,
-                              {{ block.settings.page_image | image_url: width: 3000 }} 3000w
-                            "
-                            sizes="100vw"
-                          >
+                        <!-- Desktop sizes -->
+                        <source
+                          media="(min-width: 768px)"
+                          srcset="
+                            {{ block.settings.page_image | image_url: width: 1000 }} 1000w,
+                            {{ block.settings.page_image | image_url: width: 1400 }} 1400w,
+                            {{ block.settings.page_image | image_url: width: 1800 }} 1800w,
+                            {{ block.settings.page_image | image_url: width: 2400 }} 2400w,
+                            {{ block.settings.page_image | image_url: width: 3000 }} 3000w
+                          "
+                          sizes="100vw"
+                        >
 
-                          <!-- Fallback image -->
-                          {{
-                            block.settings.page_image
-                            | image_url: width: 1800
-                            | image_tag:
-                              loading: 'lazy',
-                              width: block.settings.page_image.width,
-                              height: block.settings.page_image.height
-                          }}
-                        </picture>
-                      </div>
-                    
-                      {% if block.settings.page_title != blank %}
-                        <h4>{{ block.settings.page_title }}</h4>
-                      {%  endif %} 
-                    </a>
-                  </li>
-                  <li class="item">
-                    <a href="{{ block.settings.page_url }}">
-                      <div class="image-section">
-                        <picture>
-                          <!-- Mobile and tablet sizes -->
-                          <source
-                            media="(max-width: 767px)"
-                            srcset="
-                              {{ block.settings.page_image | image_url: width: 375 }} 375w,
-                              {{ block.settings.page_image | image_url: width: 550 }} 550w,
-                              {{ block.settings.page_image | image_url: width: 750 }} 750w
-                            "
-                            sizes="100vw"
-                          >
+                        <!-- Fallback image -->
+                        {{
+                          block.settings.page_image
+                          | image_url: width: 1800
+                          | image_tag:
+                            loading: 'lazy',
+                            width: block.settings.page_image.width,
+                            height: block.settings.page_image.height
+                        }}
+                      </picture>
+                    </div>
 
-                          <!-- Desktop sizes -->
-                          <source
-                            media="(min-width: 768px)"
-                            srcset="
-                              {{ block.settings.page_image | image_url: width: 1000 }} 1000w,
-                              {{ block.settings.page_image | image_url: width: 1400 }} 1400w,
-                              {{ block.settings.page_image | image_url: width: 1800 }} 1800w,
-                              {{ block.settings.page_image | image_url: width: 2400 }} 2400w,
-                              {{ block.settings.page_image | image_url: width: 3000 }} 3000w
-                            "
-                            sizes="100vw"
-                          >
+                    {% if block.settings.page_title != blank %}
+                      <h4>{{ block.settings.page_title }}</h4>
+                    {% endif %}
+                  </a>
+                </li>
+                <li class="item">
+                  <a href="{{ block.settings.page_url }}">
+                    <div class="image-section">
+                      <picture>
+                        <!-- Mobile and tablet sizes -->
+                        <source
+                          media="(max-width: 767px)"
+                          srcset="
+                            {{ block.settings.page_image | image_url: width: 375 }} 375w,
+                            {{ block.settings.page_image | image_url: width: 550 }} 550w,
+                            {{ block.settings.page_image | image_url: width: 750 }} 750w
+                          "
+                          sizes="100vw"
+                        >
 
-                          <!-- Fallback image -->
-                          {{
-                            block.settings.page_image
-                            | image_url: width: 1800
-                            | image_tag:
-                              loading: 'lazy',
-                              width: block.settings.page_image.width,
-                              height: block.settings.page_image.height
-                          }}
-                        </picture>
-                      </div>
-                    
-                      {% if block.settings.page_title != blank %}
-                        <h4>{{ block.settings.page_title }}</h4>
-                      {%  endif %} 
-                    </a>
-                  </li>
-                  <li class="item">
-                    <a href="{{ block.settings.page_url }}">
-                      <div class="image-section">
-                        <picture>
-                          <!-- Mobile and tablet sizes -->
-                          <source
-                            media="(max-width: 767px)"
-                            srcset="
-                              {{ block.settings.page_image | image_url: width: 375 }} 375w,
-                              {{ block.settings.page_image | image_url: width: 550 }} 550w,
-                              {{ block.settings.page_image | image_url: width: 750 }} 750w
-                            "
-                            sizes="100vw"
-                          >
+                        <!-- Desktop sizes -->
+                        <source
+                          media="(min-width: 768px)"
+                          srcset="
+                            {{ block.settings.page_image | image_url: width: 1000 }} 1000w,
+                            {{ block.settings.page_image | image_url: width: 1400 }} 1400w,
+                            {{ block.settings.page_image | image_url: width: 1800 }} 1800w,
+                            {{ block.settings.page_image | image_url: width: 2400 }} 2400w,
+                            {{ block.settings.page_image | image_url: width: 3000 }} 3000w
+                          "
+                          sizes="100vw"
+                        >
 
-                          <!-- Desktop sizes -->
-                          <source
-                            media="(min-width: 768px)"
-                            srcset="
-                              {{ block.settings.page_image | image_url: width: 1000 }} 1000w,
-                              {{ block.settings.page_image | image_url: width: 1400 }} 1400w,
-                              {{ block.settings.page_image | image_url: width: 1800 }} 1800w,
-                              {{ block.settings.page_image | image_url: width: 2400 }} 2400w,
-                              {{ block.settings.page_image | image_url: width: 3000 }} 3000w
-                            "
-                            sizes="100vw"
-                          >
+                        <!-- Fallback image -->
+                        {{
+                          block.settings.page_image
+                          | image_url: width: 1800
+                          | image_tag:
+                            loading: 'lazy',
+                            width: block.settings.page_image.width,
+                            height: block.settings.page_image.height
+                        }}
+                      </picture>
+                    </div>
 
-                          <!-- Fallback image -->
-                          {{
-                            block.settings.page_image
-                            | image_url: width: 1800
-                            | image_tag:
-                              loading: 'lazy',
-                              width: block.settings.page_image.width,
-                              height: block.settings.page_image.height
-                          }}
-                        </picture>
-                      </div>
-                    
-                      {% if block.settings.page_title != blank %}
-                        <h4>{{ block.settings.page_title }}</h4>
-                      {%  endif %} 
-                    </a>
-                  </li>
-                  <li class="item">
-                    <a href="{{ block.settings.page_url }}">
-                      <div class="image-section">
-                        <picture>
-                          <!-- Mobile and tablet sizes -->
-                          <source
-                            media="(max-width: 767px)"
-                            srcset="
-                              {{ block.settings.page_image | image_url: width: 375 }} 375w,
-                              {{ block.settings.page_image | image_url: width: 550 }} 550w,
-                              {{ block.settings.page_image | image_url: width: 750 }} 750w
-                            "
-                            sizes="100vw"
-                          >
+                    {% if block.settings.page_title != blank %}
+                      <h4>{{ block.settings.page_title }}</h4>
+                    {% endif %}
+                  </a>
+                </li>
+                <li class="item">
+                  <a href="{{ block.settings.page_url }}">
+                    <div class="image-section">
+                      <picture>
+                        <!-- Mobile and tablet sizes -->
+                        <source
+                          media="(max-width: 767px)"
+                          srcset="
+                            {{ block.settings.page_image | image_url: width: 375 }} 375w,
+                            {{ block.settings.page_image | image_url: width: 550 }} 550w,
+                            {{ block.settings.page_image | image_url: width: 750 }} 750w
+                          "
+                          sizes="100vw"
+                        >
 
-                          <!-- Desktop sizes -->
-                          <source
-                            media="(min-width: 768px)"
-                            srcset="
-                              {{ block.settings.page_image | image_url: width: 1000 }} 1000w,
-                              {{ block.settings.page_image | image_url: width: 1400 }} 1400w,
-                              {{ block.settings.page_image | image_url: width: 1800 }} 1800w,
-                              {{ block.settings.page_image | image_url: width: 2400 }} 2400w,
-                              {{ block.settings.page_image | image_url: width: 3000 }} 3000w
-                            "
-                            sizes="100vw"
-                          >
+                        <!-- Desktop sizes -->
+                        <source
+                          media="(min-width: 768px)"
+                          srcset="
+                            {{ block.settings.page_image | image_url: width: 1000 }} 1000w,
+                            {{ block.settings.page_image | image_url: width: 1400 }} 1400w,
+                            {{ block.settings.page_image | image_url: width: 1800 }} 1800w,
+                            {{ block.settings.page_image | image_url: width: 2400 }} 2400w,
+                            {{ block.settings.page_image | image_url: width: 3000 }} 3000w
+                          "
+                          sizes="100vw"
+                        >
 
-                          <!-- Fallback image -->
-                          {{
-                            block.settings.page_image
-                            | image_url: width: 1800
-                            | image_tag:
-                              loading: 'lazy',
-                              width: block.settings.page_image.width,
-                              height: block.settings.page_image.height
-                          }}
-                        </picture>
-                      </div>
-                    
-                      {% if block.settings.page_title != blank %}
-                        <h4>{{ block.settings.page_title }}</h4>
-                      {%  endif %} 
-                    </a>
-                  </li>
-                  <li class="item">
-                    <a href="{{ block.settings.page_url }}">
-                      <div class="image-section">
-                        <picture>
-                          <!-- Mobile and tablet sizes -->
-                          <source
-                            media="(max-width: 767px)"
-                            srcset="
-                              {{ block.settings.page_image | image_url: width: 375 }} 375w,
-                              {{ block.settings.page_image | image_url: width: 550 }} 550w,
-                              {{ block.settings.page_image | image_url: width: 750 }} 750w
-                            "
-                            sizes="100vw"
-                          >
+                        <!-- Fallback image -->
+                        {{
+                          block.settings.page_image
+                          | image_url: width: 1800
+                          | image_tag:
+                            loading: 'lazy',
+                            width: block.settings.page_image.width,
+                            height: block.settings.page_image.height
+                        }}
+                      </picture>
+                    </div>
 
-                          <!-- Desktop sizes -->
-                          <source
-                            media="(min-width: 768px)"
-                            srcset="
-                              {{ block.settings.page_image | image_url: width: 1000 }} 1000w,
-                              {{ block.settings.page_image | image_url: width: 1400 }} 1400w,
-                              {{ block.settings.page_image | image_url: width: 1800 }} 1800w,
-                              {{ block.settings.page_image | image_url: width: 2400 }} 2400w,
-                              {{ block.settings.page_image | image_url: width: 3000 }} 3000w
-                            "
-                            sizes="100vw"
-                          >
+                    {% if block.settings.page_title != blank %}
+                      <h4>{{ block.settings.page_title }}</h4>
+                    {% endif %}
+                  </a>
+                </li>
+                <li class="item">
+                  <a href="{{ block.settings.page_url }}">
+                    <div class="image-section">
+                      <picture>
+                        <!-- Mobile and tablet sizes -->
+                        <source
+                          media="(max-width: 767px)"
+                          srcset="
+                            {{ block.settings.page_image | image_url: width: 375 }} 375w,
+                            {{ block.settings.page_image | image_url: width: 550 }} 550w,
+                            {{ block.settings.page_image | image_url: width: 750 }} 750w
+                          "
+                          sizes="100vw"
+                        >
 
-                          <!-- Fallback image -->
-                          {{
-                            block.settings.page_image
-                            | image_url: width: 1800
-                            | image_tag:
-                              loading: 'lazy',
-                              width: block.settings.page_image.width,
-                              height: block.settings.page_image.height
-                          }}
-                        </picture>
-                      </div>
-                    
-                      {% if block.settings.page_title != blank %}
-                        <h4>{{ block.settings.page_title }}</h4>
-                      {%  endif %} 
-                    </a>
-                  </li>
-                  <li class="item">
-                    <a href="{{ block.settings.page_url }}">
-                      <div class="image-section">
-                        <picture>
-                          <!-- Mobile and tablet sizes -->
-                          <source
-                            media="(max-width: 767px)"
-                            srcset="
-                              {{ block.settings.page_image | image_url: width: 375 }} 375w,
-                              {{ block.settings.page_image | image_url: width: 550 }} 550w,
-                              {{ block.settings.page_image | image_url: width: 750 }} 750w
-                            "
-                            sizes="100vw"
-                          >
+                        <!-- Desktop sizes -->
+                        <source
+                          media="(min-width: 768px)"
+                          srcset="
+                            {{ block.settings.page_image | image_url: width: 1000 }} 1000w,
+                            {{ block.settings.page_image | image_url: width: 1400 }} 1400w,
+                            {{ block.settings.page_image | image_url: width: 1800 }} 1800w,
+                            {{ block.settings.page_image | image_url: width: 2400 }} 2400w,
+                            {{ block.settings.page_image | image_url: width: 3000 }} 3000w
+                          "
+                          sizes="100vw"
+                        >
 
-                          <!-- Desktop sizes -->
-                          <source
-                            media="(min-width: 768px)"
-                            srcset="
-                              {{ block.settings.page_image | image_url: width: 1000 }} 1000w,
-                              {{ block.settings.page_image | image_url: width: 1400 }} 1400w,
-                              {{ block.settings.page_image | image_url: width: 1800 }} 1800w,
-                              {{ block.settings.page_image | image_url: width: 2400 }} 2400w,
-                              {{ block.settings.page_image | image_url: width: 3000 }} 3000w
-                            "
-                            sizes="100vw"
-                          >
+                        <!-- Fallback image -->
+                        {{
+                          block.settings.page_image
+                          | image_url: width: 1800
+                          | image_tag:
+                            loading: 'lazy',
+                            width: block.settings.page_image.width,
+                            height: block.settings.page_image.height
+                        }}
+                      </picture>
+                    </div>
 
-                          <!-- Fallback image -->
-                          {{
-                            block.settings.page_image
-                            | image_url: width: 1800
-                            | image_tag:
-                              loading: 'lazy',
-                              width: block.settings.page_image.width,
-                              height: block.settings.page_image.height
-                          }}
-                        </picture>
-                      </div>
-                    
-                      {% if block.settings.page_title != blank %}
-                        <h4>{{ block.settings.page_title }}</h4>
-                      {%  endif %} 
-                    </a>
-                  </li>
-            </ul>
-            {% if block.settings.all_pages_url %}
-              <a href="{{block.settings.all_pages_url}}" class="m-btn">{{ block.settings.all_pages_text }}</a>
-            {% endif %}
-          </div>
-      
-        {% elsif block.type == 'blog_list' %}
-          <div id="articles-tab" class="tab-pane">
-          {% for blog in blogs %}
-            <ul class="owl-carousel articles-carousel">
-                {% for article in blog.articles %}
+                    {% if block.settings.page_title != blank %}
+                      <h4>{{ block.settings.page_title }}</h4>
+                    {% endif %}
+                  </a>
+                </li>
+                <li class="item">
+                  <a href="{{ block.settings.page_url }}">
+                    <div class="image-section">
+                      <picture>
+                        <!-- Mobile and tablet sizes -->
+                        <source
+                          media="(max-width: 767px)"
+                          srcset="
+                            {{ block.settings.page_image | image_url: width: 375 }} 375w,
+                            {{ block.settings.page_image | image_url: width: 550 }} 550w,
+                            {{ block.settings.page_image | image_url: width: 750 }} 750w
+                          "
+                          sizes="100vw"
+                        >
+
+                        <!-- Desktop sizes -->
+                        <source
+                          media="(min-width: 768px)"
+                          srcset="
+                            {{ block.settings.page_image | image_url: width: 1000 }} 1000w,
+                            {{ block.settings.page_image | image_url: width: 1400 }} 1400w,
+                            {{ block.settings.page_image | image_url: width: 1800 }} 1800w,
+                            {{ block.settings.page_image | image_url: width: 2400 }} 2400w,
+                            {{ block.settings.page_image | image_url: width: 3000 }} 3000w
+                          "
+                          sizes="100vw"
+                        >
+
+                        <!-- Fallback image -->
+                        {{
+                          block.settings.page_image
+                          | image_url: width: 1800
+                          | image_tag:
+                            loading: 'lazy',
+                            width: block.settings.page_image.width,
+                            height: block.settings.page_image.height
+                        }}
+                      </picture>
+                    </div>
+
+                    {% if block.settings.page_title != blank %}
+                      <h4>{{ block.settings.page_title }}</h4>
+                    {% endif %}
+                  </a>
+                </li>
+                <li class="item">
+                  <a href="{{ block.settings.page_url }}">
+                    <div class="image-section">
+                      <picture>
+                        <!-- Mobile and tablet sizes -->
+                        <source
+                          media="(max-width: 767px)"
+                          srcset="
+                            {{ block.settings.page_image | image_url: width: 375 }} 375w,
+                            {{ block.settings.page_image | image_url: width: 550 }} 550w,
+                            {{ block.settings.page_image | image_url: width: 750 }} 750w
+                          "
+                          sizes="100vw"
+                        >
+
+                        <!-- Desktop sizes -->
+                        <source
+                          media="(min-width: 768px)"
+                          srcset="
+                            {{ block.settings.page_image | image_url: width: 1000 }} 1000w,
+                            {{ block.settings.page_image | image_url: width: 1400 }} 1400w,
+                            {{ block.settings.page_image | image_url: width: 1800 }} 1800w,
+                            {{ block.settings.page_image | image_url: width: 2400 }} 2400w,
+                            {{ block.settings.page_image | image_url: width: 3000 }} 3000w
+                          "
+                          sizes="100vw"
+                        >
+
+                        <!-- Fallback image -->
+                        {{
+                          block.settings.page_image
+                          | image_url: width: 1800
+                          | image_tag:
+                            loading: 'lazy',
+                            width: block.settings.page_image.width,
+                            height: block.settings.page_image.height
+                        }}
+                      </picture>
+                    </div>
+
+                    {% if block.settings.page_title != blank %}
+                      <h4>{{ block.settings.page_title }}</h4>
+                    {% endif %}
+                  </a>
+                </li>
+              </ul>
+              {% if block.settings.all_pages_url %}
+                <a href="{{block.settings.all_pages_url}}" class="m-btn">{{ block.settings.all_pages_text }}</a>
+              {% endif %}
+            </div>
+
+          {% elsif block.type == 'blog_list' %}
+            <div id="articles-tab" class="tab-pane">
+              {% assign post = block.settings.blog_post %}
+              <ul class="owl-carousel articles-carousel">
+                {% for article in post %}
                   <li class="item">
                     <a href="{{ article.url }}" title="{{ article.title }}">
                       <div class="image-section">
@@ -351,10 +351,7 @@
                           {{
                             article.image
                             | image_url: width: 1800
-                            | image_tag:
-                              loading: 'lazy',
-                              width: article.image.width,
-                              height: article.image.height
+                            | image_tag: loading: 'lazy', width: article.image.width, height: article.image.height
                           }}
                         </picture>
                       </div>
@@ -363,13 +360,12 @@
                     </a>
                   </li>
                 {% endfor %}
-            </ul>
-            <a href="{{ blog.url }}" class="m-btn">{{ block.settings.all_blog }}</a>
-          {% endfor %}
-          </div>
-        {% elsif block.type == 'videos' %}
-          <div id="videos-tab" class="tab-pane">
-            <ul class="owl-carousel videos-carousel">
+              </ul>
+              <a href="{{ blog.url }}" class="m-btn">{{ block.settings.all_blog }}</a>
+            </div>
+          {% elsif block.type == 'videos' %}
+            <div id="videos-tab" class="tab-pane">
+              <ul class="owl-carousel videos-carousel">
                 <li class="item">
                   <div class="image-section">
                     <picture>
@@ -534,125 +530,135 @@
                   </div>
                   <h4>{{ block.settings.video_title }}</h4>
                 </li>
-            </ul>
-          </div>
-        {% endif %}
-      {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
     </div>
   </div>
-</div>
 {% endif %}
 <script>
- jQuery(document).ready(function($){
-  $('.pages-carousel').owlCarousel({
-    loop: false,
-    margin: 0,
-    nav: true,
-    nav:true,
-    dots: true,
-    navText: ["<span class='nav-arrow prev-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' fill='#fff' stroke='#E3DAD0'/><path d='m17 21-5-6 5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>", "<span class='nav-arrow next-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' transform='matrix(-1 0 0 1 30 0)' fill='#fff' stroke='#E3DAD0'/><path d='m13 21 5-6-5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>"],
-    responsive: {
-      0: {
-        items: 1
+  jQuery(document).ready(function ($) {
+    $('.pages-carousel').owlCarousel({
+      loop: false,
+      margin: 0,
+      nav: true,
+      nav: true,
+      dots: true,
+      navText: [
+        "<span class='nav-arrow prev-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' fill='#fff' stroke='#E3DAD0'/><path d='m17 21-5-6 5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>",
+        "<span class='nav-arrow next-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' transform='matrix(-1 0 0 1 30 0)' fill='#fff' stroke='#E3DAD0'/><path d='m13 21 5-6-5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>",
+      ],
+      responsive: {
+        0: {
+          items: 1,
+        },
+        350: {
+          items: 2,
+        },
+        800: {
+          items: 3,
+        },
+        1160: {
+          items: 4,
+        },
+        1445: {
+          items: 5,
+        },
       },
-      350: {
-        items: 2
-      },
-      800: {
-        items: 3
-      },
-      1160: {
-        items: 4
-      },
-      1445: {
-        items: 5
-      }
-    }
-  });
-
-  $('.articles-carousel').owlCarousel({
-    loop: false,
-    margin: 0,
-    nav: true,
-    nav:true,
-    dots: true,
-    navText: ["<span class='nav-arrow prev-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' fill='#fff' stroke='#E3DAD0'/><path d='m17 21-5-6 5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>", "<span class='nav-arrow next-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' transform='matrix(-1 0 0 1 30 0)' fill='#fff' stroke='#E3DAD0'/><path d='m13 21 5-6-5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>"],
-    responsive: {
-      0: {
-        items: 1
-      },
-      350: {
-        items: 2
-      },
-      800: {
-        items: 3
-      },
-      1160: {
-        items: 4
-      },
-      1445: {
-        items: 5
-      }
-    }
-  });
-
-  $('.videos-carousel').owlCarousel({
-    loop: false,
-    margin: 0,
-    nav: true,
-    nav:true,
-    dots: true,
-    navText: ["<span class='nav-arrow prev-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' fill='#fff' stroke='#E3DAD0'/><path d='m17 21-5-6 5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>", "<span class='nav-arrow next-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' transform='matrix(-1 0 0 1 30 0)' fill='#fff' stroke='#E3DAD0'/><path d='m13 21 5-6-5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>"],
-    responsive: {
-      0: {
-        items: 1
-      },
-      350: {
-        items: 2
-      },
-      800: {
-        items: 3
-      },
-      1160: {
-        items: 4
-      },
-      1445: {
-        items: 5
-      }
-    }
-  });
-
-  // Tab navigation
-  $('.tab-section-with-slider .tab-nav li').click(function() {
-    var tab_id = $(this).attr('data-tab');
-
-    $('.tab-section-with-slider .tab-nav li').removeClass('active');
-    $('.tab-section-with-slider .tab-pane').removeClass('active');
-
-    $(this).addClass('active');
-    $('#' + tab_id).addClass('active');
-  });
-});
-
-// dropdown
-jQuery(document).ready(function($) {
-  if ($(window).width() < 768) {
-    $('.tab-section-with-slider .tab-dropdown').on('change', function() {
-      var selectedTab = $(this).val(); // Get the value of the selected option
-      $('.tab-section-with-slider .tab-content > div').removeClass('active').hide();
-      $('#' + selectedTab).addClass('active').show();
     });
 
-    $('.tab-section-with-slider .tab-content > div').each(function(index) {
-      if (index === 0) {
-        $(this).addClass('active').show(); // Show the first tab
-      } else {
-        $(this).hide();
-      }
+    $('.articles-carousel').owlCarousel({
+      loop: false,
+      margin: 0,
+      nav: true,
+      nav: true,
+      dots: true,
+      navText: [
+        "<span class='nav-arrow prev-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' fill='#fff' stroke='#E3DAD0'/><path d='m17 21-5-6 5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>",
+        "<span class='nav-arrow next-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' transform='matrix(-1 0 0 1 30 0)' fill='#fff' stroke='#E3DAD0'/><path d='m13 21 5-6-5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>",
+      ],
+      responsive: {
+        0: {
+          items: 1,
+        },
+        350: {
+          items: 2,
+        },
+        800: {
+          items: 3,
+        },
+        1160: {
+          items: 4,
+        },
+        1445: {
+          items: 5,
+        },
+      },
     });
-  }
-});
 
+    $('.videos-carousel').owlCarousel({
+      loop: false,
+      margin: 0,
+      nav: true,
+      nav: true,
+      dots: true,
+      navText: [
+        "<span class='nav-arrow prev-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' fill='#fff' stroke='#E3DAD0'/><path d='m17 21-5-6 5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>",
+        "<span class='nav-arrow next-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' transform='matrix(-1 0 0 1 30 0)' fill='#fff' stroke='#E3DAD0'/><path d='m13 21 5-6-5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>",
+      ],
+      responsive: {
+        0: {
+          items: 1,
+        },
+        350: {
+          items: 2,
+        },
+        800: {
+          items: 3,
+        },
+        1160: {
+          items: 4,
+        },
+        1445: {
+          items: 5,
+        },
+      },
+    });
+
+    // Tab navigation
+    $('.tab-section-with-slider .tab-nav li').click(function () {
+      var tab_id = $(this).attr('data-tab');
+
+      $('.tab-section-with-slider .tab-nav li').removeClass('active');
+      $('.tab-section-with-slider .tab-pane').removeClass('active');
+
+      $(this).addClass('active');
+      $('#' + tab_id).addClass('active');
+    });
+  });
+
+  // dropdown
+  jQuery(document).ready(function ($) {
+    if ($(window).width() < 768) {
+      $('.tab-section-with-slider .tab-dropdown').on('change', function () {
+        var selectedTab = $(this).val(); // Get the value of the selected option
+        $('.tab-section-with-slider .tab-content > div').removeClass('active').hide();
+        $('#' + selectedTab)
+          .addClass('active')
+          .show();
+      });
+
+      $('.tab-section-with-slider .tab-content > div').each(function (index) {
+        if (index === 0) {
+          $(this).addClass('active').show(); // Show the first tab
+        } else {
+          $(this).hide();
+        }
+      });
+    }
+  });
 </script>
 
 {% schema %}
@@ -751,6 +757,11 @@ jQuery(document).ready(function($) {
           "id": "all_blog",
           "label": "Blog Button Text",
           "default": "View all blogs"
+        },
+        {
+          "type": "blog",
+          "id": "blog_post",
+          "label": "Blog"
         }
       ]
     },

@@ -1,7 +1,7 @@
 <header class="m-page_header" id="navbar">
   {% include 'ann_bar' %}
-  <div class="m-header header-wrapper">
-    <nav class="m-nav_top l-container_fake top-nav">
+  <div class="m-header">
+    <nav class="m-nav_top l-container_fake">
       <ul class="m-nav_list">
         <li
           class="mobile-right"
@@ -14,13 +14,11 @@
         <li class="mobile-right">
           <a class="m-nav_link--text" href="/pages/contact-us">Contact</a>
         </li>
-        {% comment %}
-          <li class="l-float_right">
-            <span class="m-nav_announcement">
-              {{ section.settings['nav-announcement'] }}
-            </span>
-          </li>
-        {% endcomment %}
+        <li class="l-float_right">
+          <span class="m-nav_announcement">
+            {{ section.settings['nav-announcement'] }}
+          </span>
+        </li>
       </ul>
     </nav>
     {% include 'header-nav-content' %}
