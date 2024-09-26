@@ -21,3 +21,6 @@ header .header-wrapper .m-nav_bottom .fa-user {
 .header-wrapper .m-nav_logo {
   width: 120px;
 }
+header .header-wrapper .m-nav_link-submenu ul li a {
+  text-transform: capitalize !important;
+}
