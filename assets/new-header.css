@@ -179,7 +179,8 @@ header .header-wrapper .ipad-none {
   header #flyout.mobile-menu {
     left: 0;
     right: auto;
-    height: 100vh !important;
+    max-width: 100vh !important;
+    height: calc(100vh - 130px) !important;
     box-shadow: none;
     border-top: 1px solid #e3dad0;
   }
