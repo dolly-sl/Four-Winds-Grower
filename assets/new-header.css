@@ -181,4 +181,7 @@ header .header-wrapper .ipad-none {
     right: auto;
     height: 100vh !important;
   }
+  header #flyout.mobile-menu .mobile-link {
+    background: #f9f2e8;
+  }
 }
