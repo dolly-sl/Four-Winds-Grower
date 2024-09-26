@@ -1,8 +1,7 @@
 {% assign anntxt = settings.anouncementtxt %}
 {% assign annurl = settings.anouncementurl %}
-
-{% if section.blocks.size > 0 %}
-  {% if section.settings.show_announcement %}
+{% if section.settings.show_announcement %}
+  {% if section.blocks.size > 0 %}
     <div class="ann-bar">
       <div class="owl-carousel announcement-slider">
         {% for block in section.blocks %}
