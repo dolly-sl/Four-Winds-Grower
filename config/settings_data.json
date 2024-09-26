@@ -3205,17 +3205,65 @@
           "logo_hT73xm": {
             "type": "logo",
             "settings": {
-              "image": "shopify://shop_images/eustis-limequat-citrus-tree-2_1.jpg",
+              "image": "shopify://shop_images/four-winds-lemons.webp",
               "link": "",
               "title": "Citrus Chart"
+            }
+          },
+          "logo_3PU3t9": {
+            "type": "logo",
+            "settings": {
+              "image": "shopify://shop_images/four-winds-olives.webp",
+              "link": "",
+              "title": "FAQ's"
+            }
+          },
+          "logo_8xDKkM": {
+            "type": "logo",
+            "settings": {
+              "image": "shopify://shop_images/four-winds-apples.webp",
+              "link": "",
+              "title": "Brochures & Guides"
+            }
+          },
+          "logo_DaCPnK": {
+            "type": "logo",
+            "settings": {
+              "image": "shopify://shop_images/four-winds-avocados.webp",
+              "link": "",
+              "title": "Helpful links"
+            }
+          },
+          "logo_Gm474c": {
+            "type": "logo",
+            "settings": {
+              "image": "shopify://shop_images/four-winds-buddhas-hand.webp",
+              "link": "",
+              "title": "Contact"
             }
           }
         },
         "block_order": [
-          "logo_hT73xm"
+          "logo_hT73xm",
+          "logo_3PU3t9",
+          "logo_8xDKkM",
+          "logo_DaCPnK",
+          "logo_Gm474c"
         ],
         "settings": {
           "section-title": "Image & text"
+        }
+      },
+      "full_width_content_with_bg_img_wejLzc": {
+        "type": "full-width-content-with-bg-img",
+        "settings": {
+          "title": "4 GENERATIONS OF",
+          "subtitle": "FAMILY GROWN TREES",
+          "text": "In 1946, a curious soon-to-be nurseryman named Floyd Dillon decided there was a need for a California version of the dwarf apple and pear. He chose citrus as the ideal candidate.",
+          "container_width": 680,
+          "button": "Learn About Us",
+          "button_url": "shopify://pages/about-us",
+          "bg-fade": 50
         }
       }
     },
@@ -3228,6 +3276,7 @@
       "home_hero_slider_FM9TU6",
       "full_width_content_with_graphic_7xAEYz",
       "home_products_slider_wePWUJ",
+      "full_width_content_with_bg_img_wejLzc",
       "five_column_logo_section_8DbQEG"
     ],
     "blocks": {
