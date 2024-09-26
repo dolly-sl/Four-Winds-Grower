@@ -108,13 +108,22 @@
               "collection-item-one": "fruit-trees-1",
               "collection-item-two": ""
             }
+          },
+          "announcement_w7kLtz": {
+            "type": "announcement",
+            "settings": {
+              "header_text": "<p>ON SALE! Buy 2 Citrus Bushes & Get 1 FREE - use code: BUY2GET1 (ends 7/31) click here to shop</p>",
+              "announcement_link": "shopify://collections/15-off-all-avocado-trees",
+              "announcement_link_text": ""
+            }
           }
         },
         "block_order": [
           "1505950390903",
           "1505950402602",
           "1505950800135",
-          "1539363759639"
+          "1539363759639",
+          "announcement_w7kLtz"
         ],
         "settings": {
           "logo": "shopify://shop_images/Four-Winds-Logo_8bd3ad6d-4052-4dfe-ad4f-aacce40c451c.png",
@@ -122,6 +131,7 @@
           "enable-shop": true,
           "shop-menu-bg": "shopify://shop_images/fourwinds-slider_1.jpg",
           "nav-announcement": "",
+          "show_announcement": true,
           "hidewholesale": false
         }
       },
