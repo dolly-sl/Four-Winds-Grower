@@ -2,6 +2,15 @@
   <nav class="m-nav_bottom">
     {% include 'header-menu', currList: section.settings['main-menu'] %}
     <ul class="m-nav_list m-nav_list--actions l-float_right">
+      <li class="tablet mobile flyout-button in-navbar">
+        <a href="javascript:;" class="m-nav_link" aria-label="hamburger button">
+          <div class="custom-menu-icon">
+            <div class="first-bar"></div>
+            <div class="second-bar"></div>
+            <div class="third-bar"></div>
+          </div>
+        </a>
+      </li>
       <li>
         <form action="/search" class="m-nav_search" method="get">
           <input type="hidden" name="type" value="product">
@@ -27,15 +36,17 @@
           <img src="{{ 'fourwinds-icons_shopping-cart.png' | asset_url }}" alt="shopping-cart" width="42">
         </a>
       </li>
-      <li class="tablet mobile flyout-button in-navbar">
-        <a href="javascript:;" class="m-nav_link" aria-label="hamburger button">
-          <div class="custom-menu-icon">
-            <div class="first-bar"></div>
-            <div class="second-bar"></div>
-            <div class="third-bar"></div>
-          </div>
-        </a>
-      </li>
+      {% comment %}
+        <li class="tablet mobile flyout-button in-navbar">
+          <a href="javascript:;" class="m-nav_link" aria-label="hamburger button">
+            <div class="custom-menu-icon">
+              <div class="first-bar"></div>
+              <div class="second-bar"></div>
+              <div class="third-bar"></div>
+            </div>
+          </a>
+        </li>
+      {% endcomment %}
     </ul>
   </nav>
   <nav class="m-nav_dropdowns nav-dropdowns">
