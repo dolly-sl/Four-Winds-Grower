@@ -12,30 +12,60 @@
             <p>{{ section.settings.news_desc }}</p>
           {% endif %}
           <div class="newsletter-form">
-            <form action="">
-              <input type="email" name="Email" id="email" placeholder="Enter Email Address">
-              <button type="submit" class="btn-submit" value="Subscribe">Subscribe</button>
-            </form>
+            <!--
+              <form action="">
+                <input type="email" name="Email" id="email" placeholder="Enter Email Address">
+                <button type="submit" class="btn-submit" value="Subscribe">Subscribe</button>
+              </form>
+            -->
+            {%- assign formId = 'NewsletterForm' -%}
+            {% form 'contact', id: formId %}
+              {% if form.posted_successfully? %}
+                <p class="form-success">
+                  {{ section.settings['newsletter-success'] }}
+                </p>
+              {% endif %}
+
+              {{ form.errors | default_errors }}
+
+              <div class="form-input">
+                <input
+                  type="email"
+                  name="contact[email]"
+                  id="{{ formId }}Email"
+                  placeholder="Email Address"
+                  spellcheck="false"
+                  autocomplete="off"
+                  aria-required="true"
+                  required="required"
+                  autocapitalize="off"
+                  class="default"
+                >
+              </div>
+              <div class="form-input">
+                <button type="submit" class="btn-submit">Sign up</button>
+              </div>
+            {% endform %}
           </div>
         </div>
-    {% comment %}
-        {% if section.settings.contact_us_phone %}
-          <div class="m-footer_subsection">
-            <h4 class="m-footer_subheader">Phone</h4>
-            <a href="tel:{{ section.settings.phone-link }}" class="m-footer_menu-item">{{section.settings.contact_us_phone}}</a>
-          </div>
-        {% endif %}
-        {% if section.settings.contact_us_email %}
-          <div class="m-footer_subsection">
-            <h4 class="m-footer_subheader">Email</h4>
-            <a class="m-footer_menu-item" href="mailto:{{section.settings.contact_us_email}}">
-              {{section.settings.contact_us_email}}
-            </a>
-          </div>
-        {% endif %}
-    {% endcomment %}
+        {% comment %}
+          {% if section.settings.contact_us_phone %}
+            <div class="m-footer_subsection">
+              <h4 class="m-footer_subheader">Phone</h4>
+              <a href="tel:{{ section.settings.phone-link }}" class="m-footer_menu-item">{{section.settings.contact_us_phone}}</a>
+            </div>
+          {% endif %}
+          {% if section.settings.contact_us_email %}
+            <div class="m-footer_subsection">
+              <h4 class="m-footer_subheader">Email</h4>
+              <a class="m-footer_menu-item" href="mailto:{{section.settings.contact_us_email}}">
+                {{section.settings.contact_us_email}}
+              </a>
+            </div>
+          {% endif %}
+        {% endcomment %}
         <div class="m-footer_subsection">
-          {% include 'social-media', className: "m-footer_social" %}
+          {% include 'social-media', className: 'm-footer_social' %}
         </div>
       </section>
       <section class="l-table_cell m-footer_section">
@@ -72,11 +102,15 @@
           </div>
         {% endif %}
       </section>
-    </div>  
+    </div>
   </div>
   <section class="m-copyright l-text_center">
     <div class="container">
-    <span>&copy;{{ 'now' | date: '%Y' }} All Rights Reserved Four Winds Growers</span><span class="separator">|</span><span>Web Design by <a href="https://www.sleeplessmedia.com/services/shopify-web-design/" target="_blank">Sleepless Media</a></span>
+      <span>&copy;{{ 'now' | date: '%Y' }} All Rights Reserved Four Winds Growers</span><span class="separator">|</span
+      ><span
+        >Web Design by
+        <a href="https://www.sleeplessmedia.com/services/shopify-web-design/" target="_blank">Sleepless Media</a></span
+      >
     </div>
   </section>
 </footer>
@@ -84,50 +118,56 @@
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     if ($(window).width() < 981) {
-      $(".f-collapse-title").click(function () {
-        $(this).next(".f-collapse-content").slideToggle();
-        $(this).toggleClass("is-open");
+      $('.f-collapse-title').click(function () {
+        $(this).next('.f-collapse-content').slideToggle();
+        $(this).toggleClass('is-open');
       });
     }
   });
 </script>
 
 {% schema %}
-  {
-    "name": "Footer",
-    "settings": [
-      {
-        "type": "link_list",
-        "id": "shop_list",
-        "label": "Shop Menu"
-      },
-      {
-        "type": "link_list",
-        "id": "learn_list",
-        "label": "Learn List"
-      },
-      {
-        "type": "link_list",
-        "id": "about_list",
-        "label": "About List"
-      },
-      {
-        "type": "link_list",
-        "id": "general_list",
-        "label": "General List"
-      },
-      {
-        "type": "text",
-        "id": "newsTitle",
-        "label": "Newsletter Title",
-        "default": "Newsletter"
-      },
-      {
-        "type": "inline_richtext",
-        "id": "news_desc",
-        "label": "Add Description",
-        "default": "Newsletter Description Goes here"
-      }
-    ]
-  }
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "shop_list",
+      "label": "Shop Menu"
+    },
+    {
+      "type": "link_list",
+      "id": "learn_list",
+      "label": "Learn List"
+    },
+    {
+      "type": "link_list",
+      "id": "about_list",
+      "label": "About List"
+    },
+    {
+      "type": "link_list",
+      "id": "general_list",
+      "label": "General List"
+    },
+    {
+      "type": "text",
+      "id": "newsTitle",
+      "label": "Newsletter Title",
+      "default": "Newsletter"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "news_desc",
+      "label": "Add Description",
+      "default": "Newsletter Description Goes here"
+    },
+    {
+      "type": "text",
+      "id": "newsletter-success",
+      "label": "Newsletter success Message",
+      "default": "Thank you for Subscribing our Newsletter!"
+    }
+  ]
+}
 {% endschema %}
