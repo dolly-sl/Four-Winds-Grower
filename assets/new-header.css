@@ -155,4 +155,8 @@ header .header-wrapper .ipad-none {
   header .header-wrapper .m-nav_list--actions.l-float_right li.flyout-button {
     border-right: 1px solid #e3dad0;
   }
+  header .header-wrapper .cart img {
+    height: 42px;
+    object-fit: contain;
+  }
 }
