@@ -1,0 +1,110 @@
+<div class="grid-product product-card">
+  <div class="pic background-parent">
+    {% comment %}
+      {% if product.featured_image %}
+      {% comment %}
+      	{% assign old_url = product.featured_image | img_url: 'master' %}
+    	{% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '300', options: 'dpr:2' %}{% endcapture %}
+      {% endcomment %}
+        <img src="{{ product.featured_image | img_url: 'master' }}" class="lazyload background" alt="{{ product.title }}"/>
+      {% else %}
+      	{% assign old_url = "https://cdn.shopify.com/s/files/1/2336/3219/files/citrus-no-image-available.jpg?17706093781375664629" %}
+    	{% comment %}
+      {% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '300', options: 'dpr:2' %}{% endcapture %}
+      {% endcomment %}
+        <img src="{{ old_url }}" class="lazyload background" alt="{{ product.title }}"/>
+      {% endif %}
+    {% endcomment %}
+      <div class="image-section">
+       <form action="/cart/add" method="post" enctype="multipart/form-data" class="add-to-cart-form">
+          <!-- Product variant or ID -->
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+          <!-- Add to Cart button -->
+          <button type="submit" class="m-btn js__btn-add-to-cart">Add to Cart</button>
+        </form>
+        <a href="{{product.url}}">
+          {% if product.images.size > 1 %}
+              <img
+                class="js__product-image-{{product.id}} first-img"
+                data-src="{{  product.images[0] | img_url: '558x558' }}"
+                src="{{  product.images[0] | img_url: '558x558' }}"
+                alt="{{ product.featured_image.alt | escape }}"
+                loading="lazy">
+              <img
+                class="hover-img"
+                data-src="{{  product.images[1] | img_url: '558x558' }}"
+                src="{{  product.images[1] | img_url: '558x558' }}"
+                alt="{{ product.featured_image.alt | escape  }}"
+                loading="lazy">
+            {% else %}
+              <img
+                class="js__product-image-{{product.id}}"
+                src="{{  product.images[0] | img_url: '558x558' }}"
+                data-src="{{ product.images[0] | img_url: '558x558' }}"
+                alt="{{ product.featured_image.alt | escape }}"
+                loading="lazy">
+            {% endif %}
+          </a>
+
+        <div class="product-tags">
+          {% if product.collections.size > 0 %}
+              {% for collection in product.collections %}
+                <div class="collection-tag">{{ collection.title }}</div>
+                {% break %} <!-- Display only the first collection. Remove this line to display all collections -->
+              {% endfor %}
+          {% endif %}
+
+          {% if product.available == false %}
+          <div class="product-sticker" style="text-transform: uppercase;">   
+            {% if product.metafields.sleepless.soldout_text != blank %}
+              {{ product.metafields.sleepless.soldout_text }}
+              {% else %}
+              SOLD OUT
+            {% endif %}
+          </div>
+          {% endif %}
+        </div>        
+    </div>
+  </div>
+  <div class="info">
+      <p>{{product.title}}</p>
+     {% capture current_url %}
+    {% case template %}
+      {% when 'page' %}{{page.url}}
+      {% when 'blog' %}{% if current_tags %}/{{ current_tags.first | handleize }}{% endif %}
+      {% when 'article' %}{{article.url}}
+      {% when 'collection' %}{{collection.url}}{% if current_tags %}/{{ current_tags.first | handleize }}{% endif %}
+      {% when 'product' %}{{product.url}}
+    {% endcase %}
+{% endcapture %}
+    
+    {% if current_url contains 'collection'%}{% endif %}
+      <div class="yotpo bottomLine"
+          data-product-id="{{ product.id }}">
+          {%- assign yotpo_offload_content = shop.metafields.yotpo.yotpo_offload_content %}
+          {%- assign time_now = 'now' | date: '%s' %}
+          {%- assign yotpo_live_time = shop.metafields.yotpo.yotpo_live | date: '%s' %}
+          {%- assign diff_seconds_from_live = time_now | minus: yotpo_live_time %}
+          {%- assign yotpo_bottomline_last_updated = product.metafields.yotpo.catalog_bottomline_update_time | date: '%s' %}
+          {%- assign diff_seconds_from_last_bottomline_update = time_now | minus: yotpo_bottomline_last_updated %}
+          {%- if yotpo_live_time and diff_seconds_from_live < 86400 or yotpo_bottomline_last_updated and diff_seconds_from_last_bottomline_update < 86400 -%}
+            {%- assign yotpo_bottomline_obsolete = false %}
+          {%- else %}
+            {%- assign yotpo_bottomline_obsolete = true %}
+          {%- endif %}
+          {%- if yotpo_offload_content == 'yes' and yotpo_bottomline_obsolete != true -%}
+            {{ _product.metafields.yotpo.catalog_bottomline }}
+          {%- endif %}
+      </div>
+
+     {% for variant in product.variants %}
+        <span class="m-grid-product_price">
+          {% if variant.compare_at_price > product.price %}
+            <s>{{ variant.compare_at_price | money }}</s><br />
+          {% endif %}
+          {{variant.price | money_without_trailing_zeros}}
+        </span>
+    {% endfor %}
+  </div>
+</div>
