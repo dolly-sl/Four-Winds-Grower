@@ -1,0 +1,140 @@
+{% if section.settings.title %}
+<section data-section-id="{{ section.id }}" class="m-divider nh-text-section">
+  {% comment %}
+  {% assign old_url = section.settings.image  | img_url: 'master' %}
+  {% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '960', options: 'dpr:2' %}{% endcapture %}
+  {% endcomment %}
+  <div class="l-bg_cover full-width-content-with-bg-img">
+    <div class="m-divider_overlay" style="opacity:0.{{section.settings.bg-fade}};"></div>
+    {% if section.settings.image %}
+    <div class="image-section">
+      <picture>
+          <!-- Mobile and tablet sizes -->
+          <source
+            media="(max-width: 767px)"
+            srcset="
+            {% if section.settings.mobile_image != blank %}
+              {{ section.settings.mobile_image | image_url: width: 375 }} 375w,
+              {{ section.settings.mobile_image | image_url: width: 550 }} 550w,
+              {{ section.settings.mobile_image | image_url: width: 750 }} 750w
+              {% endif %}
+            "
+            sizes="100vw"
+          >
+
+          <!-- Desktop sizes -->
+          <source
+            media="(min-width: 768px)"
+            srcset="
+            {% if section.settings.image != blank %}
+              {{ section.settings.image | image_url: width: 1000 }} 1000w,
+              {{ section.settings.image | image_url: width: 1400 }} 1400w,
+              {{ section.settings.image | image_url: width: 1800 }} 1800w,
+              {{ section.settings.image | image_url: width: 2400 }} 2400w,
+              {{ section.settings.image | image_url: width: 3000 }} 3000w
+              {% endif %}
+            "
+            sizes="100vw"
+          >
+
+          <!-- Fallback image -->
+          {{
+            section.settings.image
+            | image_url: width: 1800
+            | image_tag:
+              loading: 'lazy',
+              width: section.settings.image.width,
+              height: section.settings.image.height
+          }}
+        </picture>
+    </div>
+    {% endif %}
+    <div class="container l-text_center">
+      {% if section.settings.subtitle %}
+      <h2 class="m-divider_subtitle">{{section.settings.subtitle}}</h2>
+      {% endif %}
+      {% if section.settings.title %}
+      <h3 class="m-divider_title">{{section.settings.title}}</h3>
+      {% endif %}
+      {% if section.settings.text %}
+      <div class="m-divider_text" style="max-width:{{section.settings.container_width}}px;"><p>{{section.settings.text}}</p></div>
+      {% endif %}
+      {% if section.settings.button_url %}
+        <a href="{{section.settings.button_url}}" class="m-btn">{{section.settings.button}}</a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Home Full Width CTA",
+    "class": "m-text-divider",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "FULL SIZE FRUIT. FULL SIZE FLAVOR."
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Sub Title",
+        "default": "SMALL TREES"
+      },
+      {
+        "type": "textarea",
+        "id": "text",
+        "label": "Text",
+        "default": "<p>Four Winds Growers specializes in dwarf and semi-dwarf citrus trees. Trees can be grown in a container, no yard needed! No matter how you grow you're going to get full size fruit with full size flavor!</p>"
+      },
+      {
+        "type": "range",
+        "id": "container_width",
+        "label": "Text Width",
+        "info": "Want to reduce the maximum width for text in this section for better formatting? Assign a maximum-width here.",
+        "default": 680,
+        "min": 400,
+        "max": 900,
+        "step": 5,
+        "unit": "px"
+      },
+      {
+        "type": "text",
+        "id": "button",
+        "label": "Button Label",
+        "default": "Shop For Trees"
+      },
+      {
+        "type": "url",
+        "id": "button_url",
+        "label": "Link URL"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Background Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobile_image",
+        "label": "Mobile Background Image"
+      },
+      {
+        "type": "range",
+        "id": "bg-fade",
+        "min": 0,
+        "max": 99,
+        "step": 1,
+        "unit": "%",
+        "label": "Background Layover Opacity",
+        "default": 50
+      }
+    ],
+    "presets": [{
+      "name": "Home Full Width CTA"
+    }]
+  }
+{% endschema %}

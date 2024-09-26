@@ -1,0 +1,785 @@
+{% if section.settings.title != blank %}
+  <div class="tab-section-with-slider">
+    <div class="container l-text_center nh-text-section">
+      {% if section.settings.subtitle != blank %}
+      <h2 class="m-divider_subtitle">{{ section.settings.subtitle }}</h2>
+      {% endif %}
+      {% if section.settings.title != blank %}
+      <h1 class="m-divider_title">{{ section.settings.title }}</h1>
+      {% endif %}
+      {% if section.settings.text != blank %}
+      <div class="m-divider_text" style="max-width:{{section.settings.container_width}}px;">
+        <p>{{ section.settings.text }}</p>
+      </div>
+      {% endif %}
+    </div>
+    <div class="tab-section">
+      <div class="container l-text_center">
+        <ul class="tab-nav">
+          {% if section.settings.pages_tab_title != blank %}
+          <li class="active" data-tab="pages-tab">{{ section.settings.pages_tab_title }}</li>
+          {%  endif %} 
+          {% if section.settings.articles_tab_title != blank %}
+          <li data-tab="articles-tab">{{ section.settings.articles_tab_title }}</li>
+          {%  endif %} 
+          {% if section.settings.videos_tab_title != blank %}
+          <li data-tab="videos-tab">{{ section.settings.videos_tab_title }}</li>
+          {%  endif %} 
+        </ul>
+        <select class="tab-dropdown">
+          <option value="pages-tab">{{ section.settings.pages_tab_title }}</option>
+          <option value="articles-tab">{{ section.settings.articles_tab_title }}</option>
+          <option value="videos-tab">{{ section.settings.videos_tab_title }}</option>
+        </select>
+    </div>  
+ <!-- Tab Content -->
+    <div class="tab-content">
+      {% for block in section.blocks %}
+        {% if block.type == 'page_block' %}
+          <div id="pages-tab" class="tab-pane active">
+            <ul class="owl-carousel pages-carousel">
+                  <li class="item">
+                    <a href="{{ block.settings.page_url }}">
+                      <div class="image-section">
+                        <picture>
+                          <!-- Mobile and tablet sizes -->
+                          <source
+                            media="(max-width: 767px)"
+                            srcset="
+                              {{ block.settings.page_image | image_url: width: 375 }} 375w,
+                              {{ block.settings.page_image | image_url: width: 550 }} 550w,
+                              {{ block.settings.page_image | image_url: width: 750 }} 750w
+                            "
+                            sizes="100vw"
+                          >
+
+                          <!-- Desktop sizes -->
+                          <source
+                            media="(min-width: 768px)"
+                            srcset="
+                              {{ block.settings.page_image | image_url: width: 1000 }} 1000w,
+                              {{ block.settings.page_image | image_url: width: 1400 }} 1400w,
+                              {{ block.settings.page_image | image_url: width: 1800 }} 1800w,
+                              {{ block.settings.page_image | image_url: width: 2400 }} 2400w,
+                              {{ block.settings.page_image | image_url: width: 3000 }} 3000w
+                            "
+                            sizes="100vw"
+                          >
+
+                          <!-- Fallback image -->
+                          {{
+                            block.settings.page_image
+                            | image_url: width: 1800
+                            | image_tag:
+                              loading: 'lazy',
+                              width: block.settings.page_image.width,
+                              height: block.settings.page_image.height
+                          }}
+                        </picture>
+                      </div>
+                    
+                      {% if block.settings.page_title != blank %}
+                        <h4>{{ block.settings.page_title }}</h4>
+                      {%  endif %} 
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="{{ block.settings.page_url }}">
+                      <div class="image-section">
+                        <picture>
+                          <!-- Mobile and tablet sizes -->
+                          <source
+                            media="(max-width: 767px)"
+                            srcset="
+                              {{ block.settings.page_image | image_url: width: 375 }} 375w,
+                              {{ block.settings.page_image | image_url: width: 550 }} 550w,
+                              {{ block.settings.page_image | image_url: width: 750 }} 750w
+                            "
+                            sizes="100vw"
+                          >
+
+                          <!-- Desktop sizes -->
+                          <source
+                            media="(min-width: 768px)"
+                            srcset="
+                              {{ block.settings.page_image | image_url: width: 1000 }} 1000w,
+                              {{ block.settings.page_image | image_url: width: 1400 }} 1400w,
+                              {{ block.settings.page_image | image_url: width: 1800 }} 1800w,
+                              {{ block.settings.page_image | image_url: width: 2400 }} 2400w,
+                              {{ block.settings.page_image | image_url: width: 3000 }} 3000w
+                            "
+                            sizes="100vw"
+                          >
+
+                          <!-- Fallback image -->
+                          {{
+                            block.settings.page_image
+                            | image_url: width: 1800
+                            | image_tag:
+                              loading: 'lazy',
+                              width: block.settings.page_image.width,
+                              height: block.settings.page_image.height
+                          }}
+                        </picture>
+                      </div>
+                    
+                      {% if block.settings.page_title != blank %}
+                        <h4>{{ block.settings.page_title }}</h4>
+                      {%  endif %} 
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="{{ block.settings.page_url }}">
+                      <div class="image-section">
+                        <picture>
+                          <!-- Mobile and tablet sizes -->
+                          <source
+                            media="(max-width: 767px)"
+                            srcset="
+                              {{ block.settings.page_image | image_url: width: 375 }} 375w,
+                              {{ block.settings.page_image | image_url: width: 550 }} 550w,
+                              {{ block.settings.page_image | image_url: width: 750 }} 750w
+                            "
+                            sizes="100vw"
+                          >
+
+                          <!-- Desktop sizes -->
+                          <source
+                            media="(min-width: 768px)"
+                            srcset="
+                              {{ block.settings.page_image | image_url: width: 1000 }} 1000w,
+                              {{ block.settings.page_image | image_url: width: 1400 }} 1400w,
+                              {{ block.settings.page_image | image_url: width: 1800 }} 1800w,
+                              {{ block.settings.page_image | image_url: width: 2400 }} 2400w,
+                              {{ block.settings.page_image | image_url: width: 3000 }} 3000w
+                            "
+                            sizes="100vw"
+                          >
+
+                          <!-- Fallback image -->
+                          {{
+                            block.settings.page_image
+                            | image_url: width: 1800
+                            | image_tag:
+                              loading: 'lazy',
+                              width: block.settings.page_image.width,
+                              height: block.settings.page_image.height
+                          }}
+                        </picture>
+                      </div>
+                    
+                      {% if block.settings.page_title != blank %}
+                        <h4>{{ block.settings.page_title }}</h4>
+                      {%  endif %} 
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="{{ block.settings.page_url }}">
+                      <div class="image-section">
+                        <picture>
+                          <!-- Mobile and tablet sizes -->
+                          <source
+                            media="(max-width: 767px)"
+                            srcset="
+                              {{ block.settings.page_image | image_url: width: 375 }} 375w,
+                              {{ block.settings.page_image | image_url: width: 550 }} 550w,
+                              {{ block.settings.page_image | image_url: width: 750 }} 750w
+                            "
+                            sizes="100vw"
+                          >
+
+                          <!-- Desktop sizes -->
+                          <source
+                            media="(min-width: 768px)"
+                            srcset="
+                              {{ block.settings.page_image | image_url: width: 1000 }} 1000w,
+                              {{ block.settings.page_image | image_url: width: 1400 }} 1400w,
+                              {{ block.settings.page_image | image_url: width: 1800 }} 1800w,
+                              {{ block.settings.page_image | image_url: width: 2400 }} 2400w,
+                              {{ block.settings.page_image | image_url: width: 3000 }} 3000w
+                            "
+                            sizes="100vw"
+                          >
+
+                          <!-- Fallback image -->
+                          {{
+                            block.settings.page_image
+                            | image_url: width: 1800
+                            | image_tag:
+                              loading: 'lazy',
+                              width: block.settings.page_image.width,
+                              height: block.settings.page_image.height
+                          }}
+                        </picture>
+                      </div>
+                    
+                      {% if block.settings.page_title != blank %}
+                        <h4>{{ block.settings.page_title }}</h4>
+                      {%  endif %} 
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="{{ block.settings.page_url }}">
+                      <div class="image-section">
+                        <picture>
+                          <!-- Mobile and tablet sizes -->
+                          <source
+                            media="(max-width: 767px)"
+                            srcset="
+                              {{ block.settings.page_image | image_url: width: 375 }} 375w,
+                              {{ block.settings.page_image | image_url: width: 550 }} 550w,
+                              {{ block.settings.page_image | image_url: width: 750 }} 750w
+                            "
+                            sizes="100vw"
+                          >
+
+                          <!-- Desktop sizes -->
+                          <source
+                            media="(min-width: 768px)"
+                            srcset="
+                              {{ block.settings.page_image | image_url: width: 1000 }} 1000w,
+                              {{ block.settings.page_image | image_url: width: 1400 }} 1400w,
+                              {{ block.settings.page_image | image_url: width: 1800 }} 1800w,
+                              {{ block.settings.page_image | image_url: width: 2400 }} 2400w,
+                              {{ block.settings.page_image | image_url: width: 3000 }} 3000w
+                            "
+                            sizes="100vw"
+                          >
+
+                          <!-- Fallback image -->
+                          {{
+                            block.settings.page_image
+                            | image_url: width: 1800
+                            | image_tag:
+                              loading: 'lazy',
+                              width: block.settings.page_image.width,
+                              height: block.settings.page_image.height
+                          }}
+                        </picture>
+                      </div>
+                    
+                      {% if block.settings.page_title != blank %}
+                        <h4>{{ block.settings.page_title }}</h4>
+                      {%  endif %} 
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="{{ block.settings.page_url }}">
+                      <div class="image-section">
+                        <picture>
+                          <!-- Mobile and tablet sizes -->
+                          <source
+                            media="(max-width: 767px)"
+                            srcset="
+                              {{ block.settings.page_image | image_url: width: 375 }} 375w,
+                              {{ block.settings.page_image | image_url: width: 550 }} 550w,
+                              {{ block.settings.page_image | image_url: width: 750 }} 750w
+                            "
+                            sizes="100vw"
+                          >
+
+                          <!-- Desktop sizes -->
+                          <source
+                            media="(min-width: 768px)"
+                            srcset="
+                              {{ block.settings.page_image | image_url: width: 1000 }} 1000w,
+                              {{ block.settings.page_image | image_url: width: 1400 }} 1400w,
+                              {{ block.settings.page_image | image_url: width: 1800 }} 1800w,
+                              {{ block.settings.page_image | image_url: width: 2400 }} 2400w,
+                              {{ block.settings.page_image | image_url: width: 3000 }} 3000w
+                            "
+                            sizes="100vw"
+                          >
+
+                          <!-- Fallback image -->
+                          {{
+                            block.settings.page_image
+                            | image_url: width: 1800
+                            | image_tag:
+                              loading: 'lazy',
+                              width: block.settings.page_image.width,
+                              height: block.settings.page_image.height
+                          }}
+                        </picture>
+                      </div>
+                    
+                      {% if block.settings.page_title != blank %}
+                        <h4>{{ block.settings.page_title }}</h4>
+                      {%  endif %} 
+                    </a>
+                  </li>
+            </ul>
+            {% if block.settings.all_pages_url %}
+              <a href="{{block.settings.all_pages_url}}" class="m-btn">{{ block.settings.all_pages_text }}</a>
+            {% endif %}
+          </div>
+      
+        {% elsif block.type == 'blog_list' %}
+          <div id="articles-tab" class="tab-pane">
+          {% for blog in blogs %}
+            <ul class="owl-carousel articles-carousel">
+                {% for article in blog.articles %}
+                  <li class="item">
+                    <a href="{{ article.url }}" title="{{ article.title }}">
+                      <div class="image-section">
+                        <picture>
+                          <!-- Mobile and tablet sizes -->
+                          <source
+                            media="(max-width: 767px)"
+                            srcset="
+                              {{ article.image | image_url: width: 375 }} 375w,
+                              {{ article.image | image_url: width: 550 }} 550w,
+                              {{ article.image | image_url: width: 750 }} 750w
+                            "
+                            sizes="100vw"
+                          >
+
+                          <!-- Desktop sizes -->
+                          <source
+                            media="(min-width: 768px)"
+                            srcset="
+                              {{ article.image | image_url: width: 1000 }} 1000w,
+                              {{ article.image | image_url: width: 1400 }} 1400w,
+                              {{ article.image | image_url: width: 1800 }} 1800w,
+                              {{ article.image | image_url: width: 2400 }} 2400w,
+                              {{ article.image | image_url: width: 3000 }} 3000w
+                            "
+                            sizes="100vw"
+                          >
+
+                          <!-- Fallback image -->
+                          {{
+                            article.image
+                            | image_url: width: 1800
+                            | image_tag:
+                              loading: 'lazy',
+                              width: article.image.width,
+                              height: article.image.height
+                          }}
+                        </picture>
+                      </div>
+                      <h4>{{ article.title }}</h4>
+                      <span class="article-tag">{{ article.tags[0] }}</span>
+                    </a>
+                  </li>
+                {% endfor %}
+            </ul>
+            <a href="{{ blog.url }}" class="m-btn">{{ block.settings.all_blog }}</a>
+          {% endfor %}
+          </div>
+        {% elsif block.type == 'videos' %}
+          <div id="videos-tab" class="tab-pane">
+            <ul class="owl-carousel videos-carousel">
+                <li class="item">
+                  <div class="image-section">
+                    <picture>
+                      <!-- Mobile and tablet sizes -->
+                      <source
+                        media="(max-width: 767px)"
+                        srcset="
+                          {{ block.settings.video_thumbnail | image_url: width: 375 }} 375w,
+                          {{ block.settings.video_thumbnail | image_url: width: 550 }} 550w,
+                          {{ block.settings.video_thumbnail | image_url: width: 750 }} 750w
+                        "
+                        sizes="100vw"
+                      >
+
+                      <!-- Desktop sizes -->
+                      <source
+                        media="(min-width: 768px)"
+                        srcset="
+                          {{ block.settings.video_thumbnail | image_url: width: 1000 }} 1000w,
+                          {{ block.settings.video_thumbnail | image_url: width: 1400 }} 1400w,
+                          {{ block.settings.video_thumbnail | image_url: width: 1800 }} 1800w,
+                          {{ block.settings.video_thumbnail | image_url: width: 2400 }} 2400w,
+                          {{ block.settings.video_thumbnail | image_url: width: 3000 }} 3000w
+                        "
+                        sizes="100vw"
+                      >
+
+                      <!-- Fallback image -->
+                      {{
+                        block.settings.video_thumbnail
+                        | image_url: width: 1800
+                        | image_tag:
+                          loading: 'lazy',
+                          width: block.settings.video_thumbnail.width,
+                          height: block.settings.video_thumbnail.height
+                      }}
+                    </picture>
+                    <a data-fancybox class="play-btn" href="{{ block.settings.video_url }}">{% render 'icon-play' %}</a>
+                  </div>
+                  <h4>{{ block.settings.video_title }}</h4>
+                </li>
+                <li class="item">
+                  <div class="image-section">
+                    <picture>
+                      <!-- Mobile and tablet sizes -->
+                      <source
+                        media="(max-width: 767px)"
+                        srcset="
+                          {{ block.settings.video_thumbnail | image_url: width: 375 }} 375w,
+                          {{ block.settings.video_thumbnail | image_url: width: 550 }} 550w,
+                          {{ block.settings.video_thumbnail | image_url: width: 750 }} 750w
+                        "
+                        sizes="100vw"
+                      >
+
+                      <!-- Desktop sizes -->
+                      <source
+                        media="(min-width: 768px)"
+                        srcset="
+                          {{ block.settings.video_thumbnail | image_url: width: 1000 }} 1000w,
+                          {{ block.settings.video_thumbnail | image_url: width: 1400 }} 1400w,
+                          {{ block.settings.video_thumbnail | image_url: width: 1800 }} 1800w,
+                          {{ block.settings.video_thumbnail | image_url: width: 2400 }} 2400w,
+                          {{ block.settings.video_thumbnail | image_url: width: 3000 }} 3000w
+                        "
+                        sizes="100vw"
+                      >
+
+                      <!-- Fallback image -->
+                      {{
+                        block.settings.video_thumbnail
+                        | image_url: width: 1800
+                        | image_tag:
+                          loading: 'lazy',
+                          width: block.settings.video_thumbnail.width,
+                          height: block.settings.video_thumbnail.height
+                      }}
+                    </picture>
+                    <a data-fancybox class="play-btn" href="{{ block.settings.video_url }}">{% render 'icon-play' %}</a>
+                  </div>
+                  <h4>{{ block.settings.video_title }}</h4>
+                </li>
+                <li class="item">
+                  <div class="image-section">
+                    <picture>
+                      <!-- Mobile and tablet sizes -->
+                      <source
+                        media="(max-width: 767px)"
+                        srcset="
+                          {{ block.settings.video_thumbnail | image_url: width: 375 }} 375w,
+                          {{ block.settings.video_thumbnail | image_url: width: 550 }} 550w,
+                          {{ block.settings.video_thumbnail | image_url: width: 750 }} 750w
+                        "
+                        sizes="100vw"
+                      >
+
+                      <!-- Desktop sizes -->
+                      <source
+                        media="(min-width: 768px)"
+                        srcset="
+                          {{ block.settings.video_thumbnail | image_url: width: 1000 }} 1000w,
+                          {{ block.settings.video_thumbnail | image_url: width: 1400 }} 1400w,
+                          {{ block.settings.video_thumbnail | image_url: width: 1800 }} 1800w,
+                          {{ block.settings.video_thumbnail | image_url: width: 2400 }} 2400w,
+                          {{ block.settings.video_thumbnail | image_url: width: 3000 }} 3000w
+                        "
+                        sizes="100vw"
+                      >
+
+                      <!-- Fallback image -->
+                      {{
+                        block.settings.video_thumbnail
+                        | image_url: width: 1800
+                        | image_tag:
+                          loading: 'lazy',
+                          width: block.settings.video_thumbnail.width,
+                          height: block.settings.video_thumbnail.height
+                      }}
+                    </picture>
+                    <a data-fancybox class="play-btn" href="{{ block.settings.video_url }}">{% render 'icon-play' %}</a>
+                  </div>
+                  <h4>{{ block.settings.video_title }}</h4>
+                </li>
+                <li class="item">
+                  <div class="image-section">
+                    <picture>
+                      <!-- Mobile and tablet sizes -->
+                      <source
+                        media="(max-width: 767px)"
+                        srcset="
+                          {{ block.settings.video_thumbnail | image_url: width: 375 }} 375w,
+                          {{ block.settings.video_thumbnail | image_url: width: 550 }} 550w,
+                          {{ block.settings.video_thumbnail | image_url: width: 750 }} 750w
+                        "
+                        sizes="100vw"
+                      >
+
+                      <!-- Desktop sizes -->
+                      <source
+                        media="(min-width: 768px)"
+                        srcset="
+                          {{ block.settings.video_thumbnail | image_url: width: 1000 }} 1000w,
+                          {{ block.settings.video_thumbnail | image_url: width: 1400 }} 1400w,
+                          {{ block.settings.video_thumbnail | image_url: width: 1800 }} 1800w,
+                          {{ block.settings.video_thumbnail | image_url: width: 2400 }} 2400w,
+                          {{ block.settings.video_thumbnail | image_url: width: 3000 }} 3000w
+                        "
+                        sizes="100vw"
+                      >
+
+                      <!-- Fallback image -->
+                      {{
+                        block.settings.video_thumbnail
+                        | image_url: width: 1800
+                        | image_tag:
+                          loading: 'lazy',
+                          width: block.settings.video_thumbnail.width,
+                          height: block.settings.video_thumbnail.height
+                      }}
+                    </picture>
+                    <a data-fancybox class="play-btn" href="{{ block.settings.video_url }}">{% render 'icon-play' %}</a>
+                  </div>
+                  <h4>{{ block.settings.video_title }}</h4>
+                </li>
+            </ul>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endif %}
+<script>
+ jQuery(document).ready(function($){
+  $('.pages-carousel').owlCarousel({
+    loop: false,
+    margin: 0,
+    nav: true,
+    nav:true,
+    dots: true,
+    navText: ["<span class='nav-arrow prev-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' fill='#fff' stroke='#E3DAD0'/><path d='m17 21-5-6 5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>", "<span class='nav-arrow next-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' transform='matrix(-1 0 0 1 30 0)' fill='#fff' stroke='#E3DAD0'/><path d='m13 21 5-6-5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>"],
+    responsive: {
+      0: {
+        items: 1
+      },
+      350: {
+        items: 2
+      },
+      800: {
+        items: 3
+      },
+      1160: {
+        items: 4
+      },
+      1445: {
+        items: 5
+      }
+    }
+  });
+
+  $('.articles-carousel').owlCarousel({
+    loop: false,
+    margin: 0,
+    nav: true,
+    nav:true,
+    dots: true,
+    navText: ["<span class='nav-arrow prev-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' fill='#fff' stroke='#E3DAD0'/><path d='m17 21-5-6 5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>", "<span class='nav-arrow next-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' transform='matrix(-1 0 0 1 30 0)' fill='#fff' stroke='#E3DAD0'/><path d='m13 21 5-6-5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>"],
+    responsive: {
+      0: {
+        items: 1
+      },
+      350: {
+        items: 2
+      },
+      800: {
+        items: 3
+      },
+      1160: {
+        items: 4
+      },
+      1445: {
+        items: 5
+      }
+    }
+  });
+
+  $('.videos-carousel').owlCarousel({
+    loop: false,
+    margin: 0,
+    nav: true,
+    nav:true,
+    dots: true,
+    navText: ["<span class='nav-arrow prev-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' fill='#fff' stroke='#E3DAD0'/><path d='m17 21-5-6 5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>", "<span class='nav-arrow next-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' transform='matrix(-1 0 0 1 30 0)' fill='#fff' stroke='#E3DAD0'/><path d='m13 21 5-6-5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>"],
+    responsive: {
+      0: {
+        items: 1
+      },
+      350: {
+        items: 2
+      },
+      800: {
+        items: 3
+      },
+      1160: {
+        items: 4
+      },
+      1445: {
+        items: 5
+      }
+    }
+  });
+
+  // Tab navigation
+  $('.tab-section-with-slider .tab-nav li').click(function() {
+    var tab_id = $(this).attr('data-tab');
+
+    $('.tab-section-with-slider .tab-nav li').removeClass('active');
+    $('.tab-section-with-slider .tab-pane').removeClass('active');
+
+    $(this).addClass('active');
+    $('#' + tab_id).addClass('active');
+  });
+});
+
+// dropdown
+jQuery(document).ready(function($) {
+  if ($(window).width() < 768) {
+    $('.tab-section-with-slider .tab-dropdown').on('change', function() {
+      var selectedTab = $(this).val(); // Get the value of the selected option
+      $('.tab-section-with-slider .tab-content > div').removeClass('active').hide();
+      $('#' + selectedTab).addClass('active').show();
+    });
+
+    $('.tab-section-with-slider .tab-content > div').each(function(index) {
+      if (index === 0) {
+        $(this).addClass('active').show(); // Show the first tab
+      } else {
+        $(this).hide();
+      }
+    });
+  }
+});
+
+</script>
+
+{% schema %}
+{
+  "name": "Home Tabs with Slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "FULL SIZE FRUIT. FULL SIZE FLAVOR."
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Sub Title",
+      "default": "SMALL TREES"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Four Winds Growers specializes in dwarf and semi-dwarf citrus trees. Trees can be grown in a container, no yard needed! No matter how you grow you're going to get full size fruit with full size flavor!"
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "label": "Text Width",
+      "info": "Want to reduce the maximum width for text in this section for better formatting? Assign a maximum-width here.",
+      "default": 680,
+      "min": 400,
+      "max": 900,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "text",
+      "id": "pages_tab_title",
+      "label": "Pages Tab Title",
+      "default": "Pages"
+    },
+    {
+      "type": "text",
+      "id": "articles_tab_title",
+      "label": "Blog Tab Title",
+      "default": "The Blog"
+    },
+    {
+      "type": "text",
+      "id": "videos_tab_title",
+      "label": "Video Tab Title",
+      "default": "Videos"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "page_block",
+      "name": "Page Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "page_image",
+          "label": "Page Image"
+        },
+        {
+          "type": "url",
+          "id": "page_url",
+          "label": "Page URL"
+        },
+        {
+          "type": "text",
+          "id": "page_title",
+          "label": "Page Title",
+          "default": "Default Page Title"
+        },
+        {
+          "type": "url",
+          "id": "all_pages_url",
+          "label": "All Pages URL"
+        },
+        {
+          "type": "text",
+          "id": "all_pages_text",
+          "label": "All button Text",
+          "default": "View all"
+        }
+      ]
+    },
+    {
+      "type": "blog_list",
+      "name": "Blog Block",
+      "limit": 12,
+      "settings": [
+        {
+          "type": "text",
+          "id": "all_blog",
+          "label": "Blog Button Text",
+          "default": "View all blogs"
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "name": "Video",
+      "settings": [
+        {
+          "type": "text",
+          "id": "video_title",
+          "label": "Video Title"
+        },
+        {
+          "type": "image_picker",
+          "id": "video_thumbnail",
+          "label": "Video Thumbnail"
+        },
+        {
+          "type": "url",
+          "id": "video_url",
+          "label": "Video URL (YouTube or Vimeo link)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home Tabs With Slider"
+    }
+  ]
+}
+{% endschema %}

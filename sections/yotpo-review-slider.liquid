@@ -1,0 +1,49 @@
+
+<section data-section-id="{{ section.id }}">
+{% if section.settings.title != blank %}
+  <div class="m-review_header">
+    <div class="container l-text_center">
+    {% if section.settings.subtitle != blank %}
+      <h2 class="m-divider_subtitle">{{section.settings.subtitle}}</h2>
+    {% endif %}
+    {% if section.settings.title != blank %}
+      <h3 class="m-title">{{section.settings.title}}</h3>
+    {% endif %}
+    </div>
+  </div>
+  {% endif %}
+    <div class="yotpo yotpo-reviews-carousel"
+        data-background-color="transparent"
+        data-mode="top_rated"
+        data-type="product"
+        data-count="9"
+        data-show-bottomline="1"
+        data-autoplay-enabled="1"
+        data-autoplay-speed="3000"
+        data-show-navigation="1">&nbsp;</div> 
+</section>
+{% schema %}
+{
+  "name": "Yotpo Review Slider",
+  "class": "yotpo-review-slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "From Real Customers"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Real Reviews"
+    }
+  ],
+  "presets": [{
+    "name": "Yotpo Review Slider",
+    "category": "Sleepless Media"
+  }]
+}
+
+{% endschema %}

@@ -1,23 +1,25 @@
 <!doctype html>
 <!--[if IE 9]> <html class="ie9 no-js supports-no-cookies" lang="{{ shop.locale }}"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js supports-no-cookies" lang="{{ shop.locale }}"> <!--<![endif]-->
-<head>
-  {%- if dropinblog == 1 -%}{{ dropinblog_head_top }}{%- endif -%}
-  {%- comment -%}smartseo_integration_begin{%- endcomment -%}
-  {% include 'smartseo' %}
-  {%- comment -%}smartseo_integration_end{%- endcomment -%}
-  
-  <meta name="p:domain_verify" content="b879f8ce03498e3ced7b7d9e18e37818"/>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="canonical" href="{{ canonical_url }}">
+<!-- [if (gt IE 9)|!(IE)]><! -->
+<html class="no-js supports-no-cookies" lang="{{ shop.locale }}">
+  <!-- <![endif] -->
+  <head>
+    {%- if dropinblog == 1 -%}{{ dropinblog_head_top }}{%- endif -%}
+    {%- comment -%}smartseo_integration_begin{%- endcomment -%}
+    {% include 'smartseo' %}
+    {%- comment -%}smartseo_integration_end{%- endcomment -%}
 
-  {% if settings.favicon != blank %}
-    <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
-  {% endif %}
+    <meta name="p:domain_verify" content="b879f8ce03498e3ced7b7d9e18e37818">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="canonical" href="{{ canonical_url }}">
 
-  {% capture seo_title %}
+    {% if settings.favicon != blank %}
+      <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+    {% endif %}
+
+    {% capture seo_title %}
     {{ page_title }}
     {% if current_tags %}
       {%- assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
@@ -29,120 +31,126 @@
       &ndash; {{ shop.name }}
     {% endunless %}
   {% endcapture %}
-  {% if template contains 'index' %}
-    {% assign seo_title = settings.home-seo-title %}
-  {% endif %}
-  {%- comment smartseo_integration_begin_meta_data -%}<title>{{ seo_title }}</title>{%- endcomment smartseo_integration_end_meta_data -%}
+    {% if template contains 'index' %}
+      {% assign seo_title = settings['home-seo-title'] %}
+    {% endif %}
+    {%- comment -%}<title>{{ seo_title }}</title>{%- endcomment -%}
 
-  {% if page_description %}
-    {%- comment smartseo_integration_begin_meta_data -%}<meta name="description" content="{{ page_description | escape }}">{%- endcomment smartseo_integration_end_meta_data -%}
-  {% else %}
-    {%- comment smartseo_integration_begin_meta_data -%}<meta name="description" content="{{ settings.seo-description }}">{%- endcomment smartseo_integration_end_meta_data -%}
-  {% endif %}
+    {% if page_description %}
+      {%- comment -%}<meta name="description" content="{{ page_description | escape }}">{%- endcomment -%}
+    {% else %}
+      {%- comment -%}<meta name="description" content="{{ settings.seo-description }}">{%- endcomment -%}
+    {% endif %}
 
-  {%- if dropinblog == 1 -%}
-    {{ dropinblog_head_social }}
-  {%- else -%}
-    {% include 'social-meta-tags' %}
-  {%- endif -%}
+    {%- if dropinblog == 1 -%}
+      {{ dropinblog_head_social }}
+    {%- else -%}
+      {% include 'social-meta-tags' %}
+    {%- endif -%}
 
-  <!-- Preload important fonts -->
-  <link rel="preload" href="{{ 'avenirnext-medium.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin="anonymous">
+    <!-- Preload important fonts -->
+    <link
+      rel="preload"
+      href="{{ 'avenirnext-medium.woff2' | asset_url }}"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    >
 
-  <!-- Inline critical CSS for the largest text element -->
-  <style>
-    .m-divider_text p {
-      color: #fff;
-      line-height: 30px;
-      font-size: 18px;
-      font-family: avenir-medium, sans-serif;
-    }
-
-    @media (max-width: 767px) {
+    <!-- Inline critical CSS for the largest text element -->
+    <style>
       .m-divider_text p {
-        font-size: 15px;
-        line-height: 22px;
+        color: #fff;
+        line-height: 30px;
+        font-size: 18px;
+        font-family: avenir-medium, sans-serif;
       }
-    }
 
-    @font-face {
-      font-family: 'avenir-medium';
-      src: url('{{ 'avenirnext-medium.woff2' | asset_url }}') format('woff2');
-      font-display: swap;
-    }
-  </style>
+      @media (max-width: 767px) {
+        .m-divider_text p {
+          font-size: 15px;
+          line-height: 22px;
+        }
+      }
 
-  <!-- Load essential CSS normally -->
-  {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
-  
-  <link rel="stylesheet" href="{{ '_sleepless.ongoing.scss.css' | asset_url }}">
+      @font-face {
+        font-family: 'avenir-medium';
+        src: url('{{ 'avenirnext-medium.woff2' | asset_url }}') format('woff2');
+        font-display: swap;
+      }
+    </style>
 
-  <script>
-    document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+    <!-- Load essential CSS normally -->
+    {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
+    {{ 'new-home-css.css' | asset_url | stylesheet_tag }}
 
-    window.theme = {
-      strings: {
-        addToCart: {{ 'products.product.add_to_cart' | t | json }},
-        soldOut: {{ 'products.product.sold_out' | t | json }},
-        unavailable: {{ 'products.product.unavailable' | t | json }}
-      },
-      moneyFormat: {{ shop.money_format | json }}
-    };
-  </script>
+    <link rel="stylesheet" href="{{ '_sleepless.ongoing.scss.css' | asset_url }}">
 
-  {% if template.directory == 'customers' %}
-    <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer></script><!--<![endif]-->
-    <!--[if lte IE 9]><script src="{{ 'shopify_common.js' | shopify_asset_url }}"></script><![endif]-->
-  {% endif %}
+    <script>
+      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
 
-  <!-- Use async or defer for non-critical JS -->
-  <script src="{{ 'vendor.js' | asset_url }}" async></script>
- 
+      window.theme = {
+        strings: {
+          addToCart: {{ 'products.product.add_to_cart' | t | json }},
+          soldOut: {{ 'products.product.sold_out' | t | json }},
+          unavailable: {{ 'products.product.unavailable' | t | json }}
+        },
+        moneyFormat: {{ shop.money_format | json }}
+      };
+    </script>
 
-  {{ content_for_header }}
+    {% if template.directory == 'customers' %}
+      <!-- [if (gt IE 9)|!(IE)]><! -->
+      <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer></script>
+      <!-- <![endif] -->
+      <!--[if lte IE 9]> <script src="{{ 'shopify_common.js' | shopify_asset_url }}"></script> <![endif]-->
+    {% endif %}
 
-  {% include 'giftship' %}
-  {% render 'hs-cart-drawer' %}
-  {%- if dropinblog == 1 -%}{{ dropinblog_head_bottom }}{%- endif -%}
-</head>
+    <!-- Use async or defer for non-critical JS -->
+    <script src="{{ 'vendor.js' | asset_url }}" async></script>
 
-<body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
-  
-  {% section 'header' %}
+    {{ content_for_header }}
 
-  {{ content_for_layout }}
+    {% include 'giftship' %}
+    {% render 'hs-cart-drawer' %}
+    {%- if dropinblog == 1 -%}{{ dropinblog_head_bottom }}{%- endif -%}
+  </head>
 
-  {% section 'footer' %}
+  <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
+    {% section 'header' %}
 
-  
-  {% render 'spurit_po2_theme_snippet' %}
+    {{ content_for_layout }}
 
-  <style>
-    .spurit-po-wrapper {
-      float: right;
-    }
-    @media (max-width: 600px) {
+    {% section 'footer' %}
+
+    {% render 'spurit_po2_theme_snippet' %}
+
+    <style>
       .spurit-po-wrapper {
-        float: none;
-        display: block;
-        height: 70px;
+        float: right;
       }
-      .design-pre-order-template-wrapper {
-        display: block !important;
+      @media (max-width: 600px) {
+        .spurit-po-wrapper {
+          float: none;
+          display: block;
+          height: 70px;
+        }
+        .design-pre-order-template-wrapper {
+          display: block !important;
+        }
       }
-    }
-  </style>
+    </style>
 
-  <!-- Lazy load non-essential scripts -->
-  {% comment %}
-  {% include 'swymSnippet' %}
-  {% endcomment %}
+    <!-- Lazy load non-essential scripts -->
+    {% comment %}
+      {% include 'swymSnippet' %}
+    {% endcomment %}
 
-  <!-- Hextom QAB Integration -->
-  {% render 'hextom_qab_main', product: product, customer: customer %}
-  {% render 'hs-cart-drawer-subscriptions' %}
-  {% render 'scripts-footer' %}
-</body>
+    <!-- Hextom QAB Integration -->
+    {% render 'hextom_qab_main', product: product, customer: customer %}
+    {% render 'hs-cart-drawer-subscriptions' %}
+    {% render 'scripts-footer' %}
+  </body>
 </html>
 
 <script>

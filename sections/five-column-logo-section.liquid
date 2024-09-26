@@ -1,0 +1,104 @@
+{% if section.blocks.size > 0 %}
+<div class="five-column-logo-section">
+  <div class="container">
+  {% if section.settings.section-title != blank %}
+    <div class="title"><h2>{{ section.settings.section-title }}</h2></div>
+    {% endif %}
+    <ul class="logo-row">
+        {% for block in section.blocks %}
+          <li class="logo-col">
+            {% if block.settings.image != blank %}
+              <a
+                href="{{ block.settings.link }}"
+                title="Read More About {{ block.settings.title }}"
+                aria-label="Read More About {{ block.settings.title }}"
+                >
+                <div class="image-section">
+                    <picture>
+                      <!-- Mobile and tablet sizes -->
+                      <source
+                        media="(max-width: 767px)"
+                        srcset="
+                          {{ block.settings.image | image_url: width: 375 }} 375w,
+                          {{ block.settings.image | image_url: width: 550 }} 550w,
+                          {{ block.settings.image | image_url: width: 750 }} 750w
+                        "
+                        sizes="100vw"
+                      >
+
+                      <!-- Desktop sizes -->
+                      <source
+                        media="(min-width: 768px)"
+                        srcset="
+                          {{ block.settings.image | image_url: width: 1000 }} 1000w,
+                          {{ block.settings.image | image_url: width: 1400 }} 1400w,
+                          {{ block.settings.image | image_url: width: 1800 }} 1800w,
+                          {{ block.settings.image | image_url: width: 2400 }} 2400w,
+                          {{ block.settings.image | image_url: width: 3000 }} 3000w
+                        "
+                        sizes="100vw"
+                      >
+
+                      <!-- Fallback image -->
+                      {{
+                        block.settings.image
+                        | image_url: width: 1800
+                        | image_tag:
+                          loading: 'lazy',
+                          width: block.settings.image.width,
+                          height: block.settings.image.height
+                      }}
+                    </picture>
+                </div>
+                <span>{{ block.settings.title }}</span>
+              </a>
+            {% endif %}
+          </li>
+        {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Five Column Logo Section",
+    "settings": [
+        {
+			"id": "section-title",
+			"type": "text",
+			"label": "Section Title",
+			"default": "Image & text"
+		}
+    ],
+    "blocks": [
+      {
+        "type": "logo",
+        "name": "Logo",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image",
+            "info": "120 x 120px Recommended"
+          },
+          {
+            "type": "url",
+            "id": "link",
+            "label": "Icon Link"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Logo Title"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Five Column Logo Section"
+      }
+    ]
+  }
+{% endschema %}
