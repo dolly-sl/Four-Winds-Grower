@@ -111,7 +111,7 @@ header .header-wrapper .ipad-none {
 /* header responsive  */
 @media (max-width: 991px) {
   header .header-wrapper .ipad-none {
-    display: none;
+    display: none !important;
   }
   header .header-wrapper .m-nav_logo {
     right: 0;
