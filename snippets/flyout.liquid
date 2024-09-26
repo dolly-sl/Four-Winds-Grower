@@ -38,12 +38,14 @@
         {% endif %}
       {% endif %}
     {% endfor %}
-    <div class="mobile-link ipad-block">
+    <div class="account-link">
+      <a href="/account" class="top-title"><h6>Account</h6></a>
+    </div>
+    <div class="mobile-link">
       <a href="{{ settings.wholesale-link }}" class="top-title"><h6>Wholesale</h6></a>
       <a href="/pages/contact-us" class="top-title"><h6>Contact</h6></a>
-      <a href="/cart" class="top-title"><h6>Cart</h6></a>
-      <a href="/search" class="top-title"><h6>Search</h6></a>
-      <a href="/account" class="top-title"><h6>Account</h6></a>
+      {% comment %} <a href="/cart" class="top-title"><h6>Cart</h6></a> {% endcomment %}
+      {% comment %} <a href="/search" class="top-title"><h6>Search</h6></a> {% endcomment %}
     </div>
   </div>
 </aside>
