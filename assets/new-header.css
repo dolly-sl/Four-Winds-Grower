@@ -200,4 +200,7 @@ header .header-wrapper .ipad-none {
     height: 18px;
     background: url(icon-arrow-dropdown.svg) no-repeat center/100%;
   }
+  header #flyout.mobile-menu .top-title.active:after {
+    transform: rotate(90deg);
+  }
 }
