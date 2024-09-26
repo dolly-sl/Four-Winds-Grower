@@ -316,53 +316,52 @@
 
           {% elsif block.type == 'blog_list' %}
             <div id="articles-tab" class="tab-pane">
-              {% for blog in blogs %}
-                <ul class="owl-carousel articles-carousel">
-                  {% for article in blog.articles %}
-                    <li class="item">
-                      <a href="{{ article.url }}" title="{{ article.title }}">
-                        <div class="image-section">
-                          <picture>
-                            <!-- Mobile and tablet sizes -->
-                            <source
-                              media="(max-width: 767px)"
-                              srcset="
-                                {{ article.image | image_url: width: 375 }} 375w,
-                                {{ article.image | image_url: width: 550 }} 550w,
-                                {{ article.image | image_url: width: 750 }} 750w
-                              "
-                              sizes="100vw"
-                            >
+              {% assign post = block.settings.blog %}
+              <ul class="owl-carousel articles-carousel">
+                {% for article in post %}
+                  <li class="item">
+                    <a href="{{ article.url }}" title="{{ article.title }}">
+                      <div class="image-section">
+                        <picture>
+                          <!-- Mobile and tablet sizes -->
+                          <source
+                            media="(max-width: 767px)"
+                            srcset="
+                              {{ article.image | image_url: width: 375 }} 375w,
+                              {{ article.image | image_url: width: 550 }} 550w,
+                              {{ article.image | image_url: width: 750 }} 750w
+                            "
+                            sizes="100vw"
+                          >
 
-                            <!-- Desktop sizes -->
-                            <source
-                              media="(min-width: 768px)"
-                              srcset="
-                                {{ article.image | image_url: width: 1000 }} 1000w,
-                                {{ article.image | image_url: width: 1400 }} 1400w,
-                                {{ article.image | image_url: width: 1800 }} 1800w,
-                                {{ article.image | image_url: width: 2400 }} 2400w,
-                                {{ article.image | image_url: width: 3000 }} 3000w
-                              "
-                              sizes="100vw"
-                            >
+                          <!-- Desktop sizes -->
+                          <source
+                            media="(min-width: 768px)"
+                            srcset="
+                              {{ article.image | image_url: width: 1000 }} 1000w,
+                              {{ article.image | image_url: width: 1400 }} 1400w,
+                              {{ article.image | image_url: width: 1800 }} 1800w,
+                              {{ article.image | image_url: width: 2400 }} 2400w,
+                              {{ article.image | image_url: width: 3000 }} 3000w
+                            "
+                            sizes="100vw"
+                          >
 
-                            <!-- Fallback image -->
-                            {{
-                              article.image
-                              | image_url: width: 1800
-                              | image_tag: loading: 'lazy', width: article.image.width, height: article.image.height
-                            }}
-                          </picture>
-                        </div>
-                        <h4>{{ article.title }}</h4>
-                        <span class="article-tag">{{ article.tags[0] }}</span>
-                      </a>
-                    </li>
-                  {% endfor %}
-                </ul>
-                <a href="{{ blog.url }}" class="m-btn">{{ block.settings.all_blog }}</a>
-              {% endfor %}
+                          <!-- Fallback image -->
+                          {{
+                            article.image
+                            | image_url: width: 1800
+                            | image_tag: loading: 'lazy', width: article.image.width, height: article.image.height
+                          }}
+                        </picture>
+                      </div>
+                      <h4>{{ article.title }}</h4>
+                      <span class="article-tag">{{ article.tags[0] }}</span>
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+              <a href="{{ blog.url }}" class="m-btn">{{ block.settings.all_blog }}</a>
             </div>
           {% elsif block.type == 'videos' %}
             <div id="videos-tab" class="tab-pane">
