@@ -108,13 +108,22 @@
               "collection-item-one": "fruit-trees-1",
               "collection-item-two": ""
             }
+          },
+          "announcement_BgABbX": {
+            "type": "announcement",
+            "settings": {
+              "header_text": "<p>ON SALE! Buy 2 Citrus Bushes & Get 1 FREE - use code: BUY2GET1 (ends 7/31) click here to sho</p>",
+              "announcement_link": "",
+              "announcement_link_text": "SShop NOw"
+            }
           }
         },
         "block_order": [
           "1505950390903",
           "1505950402602",
           "1505950800135",
-          "1539363759639"
+          "1539363759639",
+          "announcement_BgABbX"
         ],
         "settings": {
           "logo": "shopify://shop_images/Four-Winds-Logo_8bd3ad6d-4052-4dfe-ad4f-aacce40c451c.png",
@@ -133,7 +142,8 @@
           "about_list": "about",
           "general_list": "general-info",
           "newsTitle": "Newsletter",
-          "news_desc": "Newsletter Description Goes here"
+          "news_desc": "Newsletter Description Goes here",
+          "newsletter-success": "Thank you for Subscribing our Newsletter!"
         }
       },
       "1504745892424": {
