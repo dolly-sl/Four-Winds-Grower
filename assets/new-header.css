@@ -75,6 +75,16 @@ header
 header
   .header-wrapper
   .m-nav_link-submenu--shop
+  .container
+  .row
+  .m-nav_sublist
+  ul
+  li {
+  margin-bottom: 10px;
+}
+header
+  .header-wrapper
+  .m-nav_link-submenu--shop
   .m-nav_drop-section
   + .m-nav_drop-section {
   margin-top: 40px !important;
