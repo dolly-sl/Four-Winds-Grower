@@ -235,4 +235,16 @@ header .header-wrapper .ipad-none {
   #flyout.mobile-menu .sub-accordion-container .sub-title img {
     display: none;
   }
+  #flyout .sub-accordion-container .sub-title {
+    padding: 0;
+  }
+  #flyout .sub-accordion-container .sub-title h6 {
+    padding: 20px;
+  }
+  #flyout .sub-accordion-container .sub-title:after {
+    background: url(icon-plus-accordion.svg) no-repeat center/100%;
+    width: 16px;
+    height: 16px;
+    content: "";
+  }
 }
