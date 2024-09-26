@@ -179,5 +179,6 @@ header .header-wrapper .ipad-none {
   .header-wrapper #flyout {
     left: 0;
     right: auto;
+    height: 100vh !important;
   }
 }
