@@ -3267,6 +3267,53 @@
           "mobile_image": "shopify://shop_images/generations-mobile.webp",
           "bg-fade": 50
         }
+      },
+      "yotpo_review_slider_4BK4bk": {
+        "type": "yotpo-review-slider",
+        "settings": {
+          "title": "From Real Customers",
+          "subtitle": "Real Reviews"
+        }
+      },
+      "insta_section_tiAcDr": {
+        "type": "insta-section",
+        "blocks": {
+          "insta_z68nph": {
+            "type": "insta",
+            "settings": {
+              "instaImage": "shopify://shop_images/oranges.webp"
+            }
+          },
+          "insta_3cMbJc": {
+            "type": "insta",
+            "settings": {
+              "instaImage": "shopify://shop_images/fields.webp"
+            }
+          },
+          "insta_tdB8z3": {
+            "type": "insta",
+            "settings": {
+              "instaImage": "shopify://shop_images/insta.webp"
+            }
+          },
+          "insta_tTfbVm": {
+            "type": "insta",
+            "settings": {
+              "instaImage": "shopify://shop_images/insta2.webp"
+            }
+          }
+        },
+        "block_order": [
+          "insta_z68nph",
+          "insta_3cMbJc",
+          "insta_tdB8z3",
+          "insta_tTfbVm"
+        ],
+        "settings": {
+          "title": "Follow Us On Instagram",
+          "subtitle": "@fourwindsgrowers",
+          "instagram_url": "http://www.instagram.com/socksmith"
+        }
       }
     },
     "content_for_index": [
@@ -3279,7 +3326,9 @@
       "full_width_content_with_graphic_7xAEYz",
       "home_products_slider_wePWUJ",
       "full_width_content_with_bg_img_wejLzc",
-      "five_column_logo_section_8DbQEG"
+      "five_column_logo_section_8DbQEG",
+      "yotpo_review_slider_4BK4bk",
+      "insta_section_tiAcDr"
     ],
     "blocks": {
       "10910696115237310528": {
