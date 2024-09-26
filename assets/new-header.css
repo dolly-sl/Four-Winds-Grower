@@ -14,7 +14,7 @@ header .header-wrapper .m-nav_bottom .fa-user:before {
 header .header-wrapper .m-nav_bottom .fa-user {
   width: 23px;
   height: 23px;
-  background: url(icon-account.svg) no-repeat/100%;
+  background: url(icon-account.svg) no-repeat center/100%;
 }
 .header-wrapper .m-nav_logo {
   width: 120px;
