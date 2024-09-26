@@ -121,7 +121,7 @@
           "main-menu": "main-menu",
           "enable-shop": true,
           "shop-menu-bg": "shopify://shop_images/fourwinds-slider_1.jpg",
-          "nav-announcement": "",
+          "nav-announcement": "ON SALE! Buy 2 Citrus Bushes & Get 1 FREE - use code: BUY2GET1 (ends 7/31) click here to shop",
           "hidewholesale": false
         }
       },
