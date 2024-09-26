@@ -350,4 +350,8 @@ header .header-wrapper .ipad-none {
   ul.m-nav_list li {
     display: inline-block !important;
   }
+  header .header-wrapper .m-nav_logo {
+    left: 50%;
+    right: auto;
+  }
 }
