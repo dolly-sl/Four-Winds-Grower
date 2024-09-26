@@ -3175,6 +3175,29 @@
           "container_width": 680,
           "bg-fade": 50
         }
+      },
+      "full_width_content_with_graphic_7xAEYz": {
+        "type": "full-width-content-with-graphic",
+        "settings": {
+          "bg_color": "#fef9f3",
+          "title": "FULL SIZE FRUIT. FULL SIZE FLAVOR.",
+          "subtitle": "SMALL TREES",
+          "text": "Four Winds Growers specializes in dwarf and semi-dwarf citrus trees. Trees can be grown in a container, no yard needed! No matter how you grow you're going to get full size fruit with full size flavor!",
+          "container_width": 680,
+          "button": "Shop For Trees",
+          "button_url": "shopify://pages/about-us",
+          "bottom_graphic": "shopify://shop_images/fruits.webp"
+        }
+      },
+      "home_products_slider_wePWUJ": {
+        "type": "home-products-slider",
+        "settings": {
+          "section-sub-title": "Browse Our",
+          "section-title": "Best Sellers",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur consequat dui et turpis mattis, et convallis augue tristique. Vestibulum elementum placerat orci sed placerat. Nullam laoreet pellentesque ante. Quisque finibus imperdiet augue sed luctus.",
+          "container_width": 680,
+          "collection": "our-best-selling-citrus-trees"
+        }
       }
     },
     "content_for_index": [
@@ -3183,7 +3206,9 @@
       "1512274579986",
       "1504916130046",
       "1505176658671",
-      "home_hero_slider_FM9TU6"
+      "home_hero_slider_FM9TU6",
+      "full_width_content_with_graphic_7xAEYz",
+      "home_products_slider_wePWUJ"
     ],
     "blocks": {
       "10910696115237310528": {
