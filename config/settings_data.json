@@ -10,7 +10,7 @@
 {
   "current": {
     "favicon": "shopify://shop_images/four-winds-favicon.png",
-    "anouncementtxt": "ON SALE! Buy 2 Citrus Bushes & Get 1 FREE - use code: BUY2GET1 (ends 7/31) click here to shop",
+    "anouncementtxt": "pON SALE! Buy 2 Citrus Bushes & Get 1 FREE - use code: BUY2GET1 (ends 7/31) click here to sho",
     "anouncementurl": "https://www.fourwindsgrowers.com/collections/bush-rooted-cutting",
     "anouncementbgcolor": "#e87314",
     "anouncementtxtcolor": "#ffffff",
@@ -108,13 +108,22 @@
               "collection-item-one": "fruit-trees-1",
               "collection-item-two": ""
             }
+          },
+          "announcement_w7kLtz": {
+            "type": "announcement",
+            "settings": {
+              "header_text": "<p>ON SALE! Buy 2 Citrus Bushes & Get 1 FREE - use code: BUY2GET1 (ends 7/31) click here to shop</p>",
+              "announcement_link": "shopify://collections/15-off-all-avocado-trees",
+              "announcement_link_text": "click here to shop"
+            }
           }
         },
         "block_order": [
           "1505950390903",
           "1505950402602",
           "1505950800135",
-          "1539363759639"
+          "1539363759639",
+          "announcement_w7kLtz"
         ],
         "settings": {
           "logo": "shopify://shop_images/Four-Winds-Logo_8bd3ad6d-4052-4dfe-ad4f-aacce40c451c.png",
@@ -122,6 +131,7 @@
           "enable-shop": true,
           "shop-menu-bg": "shopify://shop_images/fourwinds-slider_1.jpg",
           "nav-announcement": "",
+          "show_announcement": true,
           "hidewholesale": false
         }
       },
@@ -133,7 +143,8 @@
           "about_list": "about",
           "general_list": "general-info",
           "newsTitle": "Newsletter",
-          "news_desc": "Newsletter Description Goes here"
+          "news_desc": "Newsletter Description Goes here",
+          "newsletter-success": "Thank you for Subscribing our Newsletter!"
         }
       },
       "1504745892424": {
@@ -3318,15 +3329,33 @@
       "tab_section_with_slider_UdaXbz": {
         "type": "tab-section-with-slider",
         "blocks": {
-          "blog_list_bWkx9h": {
+          "blog_list_36htFG": {
             "type": "blog_list",
             "settings": {
               "select_blog": "four-winds-growing"
             }
+          },
+          "page_block_8zyEFq": {
+            "type": "page_block",
+            "settings": {
+              "page_image": "shopify://shop_images/insta.webp",
+              "page_url": "shopify://pages/about-us",
+              "page_title": "About US"
+            }
+          },
+          "page_block_Q6Y39r": {
+            "type": "page_block",
+            "settings": {
+              "page_image": "shopify://shop_images/Centennial_Variegated_Kumquat_1_1.jpg",
+              "page_url": "shopify://pages/faq",
+              "page_title": "FAQ"
+            }
           }
         },
         "block_order": [
-          "blog_list_bWkx9h"
+          "blog_list_36htFG",
+          "page_block_8zyEFq",
+          "page_block_Q6Y39r"
         ],
         "settings": {
           "title": "FULL SIZE FRUIT. FULL SIZE FLAVOR.",
