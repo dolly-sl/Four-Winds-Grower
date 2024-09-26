@@ -311,7 +311,10 @@ header .header-wrapper .ipad-none {
     a:not(.sub-title):focus {
     color: #e5622e;
   }
-  #flyout.mobile-menu .shop .sub-accordion-content .shop-all {
+  #flyout.mobile-menu
+    .accordion-container
+    .accordion-content
+    a:not(.sub-title).shop-all {
     font-family: savu-condensed, sans-serif !important;
     font-size: 16px;
     font-style: normal;
