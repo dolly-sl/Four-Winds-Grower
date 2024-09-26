@@ -40,3 +40,6 @@ header .header-wrapper .nav-dropdowns .nav-dropdown {
   max-width: 250px;
   box-shadow: none;
 }
+header .header-wrapper .m-nav_link:after {
+  display: none;
+}
