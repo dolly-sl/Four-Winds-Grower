@@ -218,18 +218,21 @@ header .header-wrapper .ipad-none {
   header #flyout.mobile-menu .m-nav_search input {
     height: 45px;
   }
-  .accordion-title.top-title.active {
+  #flyout.mobile-menu .accordion-title.top-title.active {
     position: absolute !important;
     top: 0;
     background: white;
     width: 100%;
     left: 0;
   }
-  .accordion-content {
+  #flyout.mobile-menu .accordion-content {
     position: absolute;
     top: 61px;
     background: white;
     height: 100vh;
     z-index: 10;
+  }
+  #flyout.mobile-menu .sub-accordion-container .sub-title img {
+    display: none;
   }
 }
