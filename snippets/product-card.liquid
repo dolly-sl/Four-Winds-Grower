@@ -19,9 +19,10 @@
        <form action="/cart/add" method="post" enctype="multipart/form-data" class="add-to-cart-form">
           <!-- Product variant or ID -->
           <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-
+          {% if product.available == true %}
           <!-- Add to Cart button -->
           <button type="submit" class="m-btn js__btn-add-to-cart">Add to Cart</button>
+        {% endif %}
         </form>
         <a href="{{product.url}}">
           {% if product.images.size > 1 %}
