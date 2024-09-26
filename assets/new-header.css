@@ -42,5 +42,7 @@ header .header-wrapper .nav-dropdowns .nav-dropdown {
 }
 header .header-wrapper .m-nav_link:after {
   display: none;
+}
+header .header-wrapper .m-nav_link {
   border-bottom: 1px solid #e3dad0;
 }
