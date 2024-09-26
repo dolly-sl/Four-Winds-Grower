@@ -46,3 +46,7 @@ header .header-wrapper .m-nav_link:after {
 header .header-wrapper .m-nav_link {
   border-bottom: 1px solid #e3dad0;
 }
+header .header-wrapper .m-nav_link-submenu--shop .container {
+  padding: 0 40px;
+  width: 100%;
+}
