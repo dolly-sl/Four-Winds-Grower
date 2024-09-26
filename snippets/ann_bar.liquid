@@ -8,13 +8,19 @@
           {%- case block.type -%}
             {%- when 'announcement' -%}
               <div class="ann-bar-inner">
-                <p>
-                  {%- if block.settings.announcement_link != '' -%}
-                    <a href="{{block.settings.announcement_link}}">
-                  {%- endif -%}
-                  {{ block.settings.header_text }}
-                  {%- if block.settings.announcement_link != '' -%}</a>{% endif %}
-                </p>
+                {%- if block.settings.announcement_link != '' -%}
+                  <a href="{{block.settings.announcement_link}}">
+                {%- endif -%}
+                {{ block.settings.header_text }}
+                {%- if block.settings.announcement_link != '' -%}</a>{% endif %}
+                {%- if block.settings.announcement_link != '' -%}
+                  <a
+                    href="{{block.settings.announcement_link}}"
+                    title="{{block.settings.announcement_link_text}}"
+                  >
+                    {{- block.settings.announcement_link_text -}}
+                  </a>
+                {% endif %}
               </div>
           {%- endcase -%}
         {% endfor %}
