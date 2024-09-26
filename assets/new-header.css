@@ -52,7 +52,7 @@ header .header-wrapper .m-nav_link-submenu--shop .container {
 }
 header .header-wrapper .m-nav_link-submenu--shop .container .row .m-nav_list {
   border-right: 1px solid #e3dad0;
-  padding: 0 40px;
+  padding: 40px 40px;
 }
 header
   .header-wrapper
@@ -98,4 +98,7 @@ header
   .m-nav_drop-section
   + .m-nav_drop-section {
   margin-top: 40px !important;
+}
+header .header-wrapper .m-nav_link-submenu {
+  padding: 0 !important;
 }
