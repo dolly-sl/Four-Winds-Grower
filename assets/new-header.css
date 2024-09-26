@@ -30,4 +30,5 @@ header .header-wrapper .nav-dropdowns .nav-dropdown {
   border-right: 1px solid #e3dad0;
   border-bottom: 1px solid #e3dad0;
   border-left: 1px solid #e3dad0;
+  max-width: 250px;
 }
