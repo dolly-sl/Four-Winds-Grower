@@ -176,4 +176,8 @@ header .header-wrapper .ipad-none {
     div {
     margin-bottom: 5px;
   }
+  .header-wrapper #flyout {
+    left: 0;
+    right: auto;
+  }
 }
