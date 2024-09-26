@@ -3314,6 +3314,29 @@
           "subtitle": "@fourwindsgrowers",
           "instagram_url": "http://www.instagram.com/socksmith"
         }
+      },
+      "tab_section_with_slider_UdaXbz": {
+        "type": "tab-section-with-slider",
+        "blocks": {
+          "blog_list_bWkx9h": {
+            "type": "blog_list",
+            "settings": {
+              "all_blog": ""
+            }
+          }
+        },
+        "block_order": [
+          "blog_list_bWkx9h"
+        ],
+        "settings": {
+          "title": "FULL SIZE FRUIT. FULL SIZE FLAVOR.",
+          "subtitle": "SMALL TREES",
+          "text": "Four Winds Growers specializes in dwarf and semi-dwarf citrus trees. Trees can be grown in a container, no yard needed! No matter how you grow you're going to get full size fruit with full size flavor!",
+          "container_width": 680,
+          "pages_tab_title": "Pages",
+          "articles_tab_title": "The Blog",
+          "videos_tab_title": "Videos"
+        }
       }
     },
     "content_for_index": [
@@ -3328,7 +3351,8 @@
       "full_width_content_with_bg_img_wejLzc",
       "five_column_logo_section_8DbQEG",
       "yotpo_review_slider_4BK4bk",
-      "insta_section_tiAcDr"
+      "insta_section_tiAcDr",
+      "tab_section_with_slider_UdaXbz"
     ],
     "blocks": {
       "10910696115237310528": {
