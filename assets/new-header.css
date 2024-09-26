@@ -350,6 +350,9 @@ header .header-wrapper .ipad-none {
   }
 }
 @media (max-width: 650px) {
+  header .header-wrapper .m-nav_list--actions.l-float_right li {
+    width: 82px;
+  }
   ul.m-nav_list li {
     display: inline-block !important;
   }
