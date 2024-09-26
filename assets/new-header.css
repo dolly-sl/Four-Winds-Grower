@@ -130,6 +130,7 @@ header .header-wrapper .ipad-none {
     height: 100% !important;
     padding: 20px !important;
     line-height: normal;
+    width: 100%;
   }
   header .header-wrapper .m-nav_list--actions.l-float_right li {
     width: 82px;
