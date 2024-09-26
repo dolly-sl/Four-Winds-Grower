@@ -1,5 +1,12 @@
 <header class="m-page_header" id="navbar">
-  {% include 'ann_bar' %}
+  {% if section.settings.show_announcement == true %}
+    {% include 'ann_bar' %}
+    {% comment %}
+      <script>
+        $('body').addClass('announcement-visible');
+      </script>
+    {% endcomment %}
+  {% endif %}
   <div class="m-header header-wrapper">
     <nav class="m-nav_top l-container_fake top-nav">
       <ul class="m-nav_list">
@@ -78,7 +85,7 @@
 {
   "name": "Header",
   "class": "m-page_header--container",
-  "max_blocks": 4,
+
   "settings": [
     {
       "type": "image_picker",
@@ -107,6 +114,12 @@
       "default": "10% discount on Orders of $120.00 or more!"
     },
     {
+      "type": "checkbox",
+      "id": "show_announcement",
+      "label": "Show Top Announcement",
+      "default": true
+    },
+    {
       "id": "hidewholesale",
       "type": "checkbox",
       "label": "Hide Wholesale link?"
@@ -116,6 +129,7 @@
     {
       "type": "shop_column",
       "name": "Shop Column",
+      "limit": 4,
       "settings": [
         {
           "type": "collection",
@@ -127,6 +141,28 @@
           "type": "collection",
           "id": "collection-item-two",
           "label": "Collection #2"
+        }
+      ]
+    },
+    {
+      "type": "announcement",
+      "name": "Announcement",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "header_text",
+          "label": "Text"
+        },
+        {
+          "type": "url",
+          "id": "announcement_link",
+          "label": "Link",
+          "info": "Optional"
+        },
+        {
+          "type": "text",
+          "id": "announcement_link_text",
+          "label": "Link Text"
         }
       ]
     }

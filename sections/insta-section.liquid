@@ -1,121 +1,126 @@
 <section data-section-id="{{ section.id }}">
   <div class="insta-section">
     <ul class="left-insta insta-list">
-        {%- for block in section.blocks limit: 2 %}
+      {%- for block in section.blocks limit: 2 %}
         {% if block.settings.instaImage != blank %}
-            <li>
+          <li>
             <div class="image-section" title="{{ block.settings.InstaLink }}">
-            {% comment %}
+              {% comment %}
                 {{
                 block.settings.instaImage
                 | image_url: width: 270
                     | image_tag: loading: 'lazy', widths: '270x270'
                 }}
-            {% endcomment %}
-            <picture>
-                  <!-- Mobile and tablet sizes -->
-                  <source
-                    media="(max-width: 767px)"
-                    srcset="
-                      {{ block.settings.instaImage | image_url: width: 375 }} 375w,
-                      {{ block.settings.instaImage | image_url: width: 550 }} 550w,
-                      {{ block.settings.instaImage | image_url: width: 750 }} 750w
-                    "
-                    sizes="100vw"
-                  >
+              {% endcomment %}
+              <picture>
+                <!-- Mobile and tablet sizes -->
+                <source
+                  media="(max-width: 767px)"
+                  srcset="
+                    {{ block.settings.instaImage | image_url: width: 375 }} 375w,
+                    {{ block.settings.instaImage | image_url: width: 550 }} 550w,
+                    {{ block.settings.instaImage | image_url: width: 750 }} 750w
+                  "
+                  sizes="100vw"
+                >
 
-                  <!-- Desktop sizes -->
-                  <source
-                    media="(min-width: 768px)"
-                    srcset="
-                      {{ block.settings.instaImage | image_url: width: 1000 }} 1000w,
-                      {{ block.settings.instaImage | image_url: width: 1400 }} 1400w,
-                      {{ block.settings.instaImage | image_url: width: 1800 }} 1800w,
-                      {{ block.settings.instaImage | image_url: width: 2400 }} 2400w,
-                      {{ block.settings.instaImage | image_url: width: 3000 }} 3000w
-                    "
-                    sizes="100vw"
-                  >
+                <!-- Desktop sizes -->
+                <source
+                  media="(min-width: 768px)"
+                  srcset="
+                    {{ block.settings.instaImage | image_url: width: 1000 }} 1000w,
+                    {{ block.settings.instaImage | image_url: width: 1400 }} 1400w,
+                    {{ block.settings.instaImage | image_url: width: 1800 }} 1800w,
+                    {{ block.settings.instaImage | image_url: width: 2400 }} 2400w,
+                    {{ block.settings.instaImage | image_url: width: 3000 }} 3000w
+                  "
+                  sizes="100vw"
+                >
 
-                  <!-- Fallback image -->
-                  {{
-                    block.settings.instaImage
-                    | image_url: width: 1800
-                    | image_tag:
-                      loading: 'lazy',
-                      width: block.settings.instaImage.width,
-                      height: block.settings.instaImage.height
-                  }}
-                </picture>
+                <!-- Fallback image -->
+                {{
+                  block.settings.instaImage
+                  | image_url: width: 1800
+                  | image_tag:
+                    loading: 'lazy',
+                    width: block.settings.instaImage.width,
+                    height: block.settings.instaImage.height
+                }}
+              </picture>
             </div>
-            </li>
+          </li>
         {% endif %}
-        {% endfor %}
+      {% endfor %}
     </ul>
     <div class="middle-section">
-    {% if section.settings.title != blank %}
+      {% if section.settings.title != blank %}
         <div class="m-instafeed_header l-text_center">
           {% if section.settings.instagram_url != blank %}
-            <a href="{{ section.settings.instagram_url }}" target="_blank" class="m-instafeed_text">{{section.settings.subtitle}}</a>
+            <a href="{{ section.settings.instagram_url }}" target="_blank" class="m-instafeed_text">
+              {{- section.settings.subtitle -}}
+            </a>
           {% endif %}
           {% if section.settings.title != blank %}
-            <h4 class="m-instafeed_title">{{section.settings.title}} <i class="fa fa-instagram l-text_orange"></i></h4>
+            <h4 class="m-instafeed_title">
+              {{ section.settings.title }}
+              <i class="fa fa-instagram l-text_orange"></i>
+            </h4>
           {% endif %}
         </div>
       {% endif %}
     </div>
 
     <ul class="rigt-insta insta-list">
-        {% for block in section.blocks offset: 2 %}
+      {% for block in section.blocks offset: 2 %}
         {% if block.settings.instaImage != blank %}
-            <li>
+          <li>
             <div class="image-section" title="{{ block.settings.InstaLink }}">
-                {% comment %}
+              {% comment %}
                 {{
                 block.settings.instaImage
                 | image_url: width: 270
                     | image_tag: loading: 'lazy', widths: '270x270'
                 }}
-                {% endcomment %}
-                <picture>
-                  <!-- Mobile and tablet sizes -->
-                  <source
-                    media="(max-width: 767px)"
-                    srcset="
-                      {{ block.settings.instaImage | image_url: width: 375 }} 375w,
-                      {{ block.settings.instaImage | image_url: width: 550 }} 550w,
-                      {{ block.settings.instaImage | image_url: width: 750 }} 750w
-                    "
-                    sizes="100vw"
-                  >
+              {% endcomment %}
+              <picture>
+                <!-- Mobile and tablet sizes -->
+                <source
+                  media="(max-width: 767px)"
+                  srcset="
+                    {{ block.settings.instaImage | image_url: width: 375 }} 375w,
+                    {{ block.settings.instaImage | image_url: width: 550 }} 550w,
+                    {{ block.settings.instaImage | image_url: width: 750 }} 750w
+                  "
+                  sizes="100vw"
+                >
 
-                  <!-- Desktop sizes -->
-                  <source
-                    media="(min-width: 768px)"
-                    srcset="
-                      {{ block.settings.instaImage | image_url: width: 1000 }} 1000w,
-                      {{ block.settings.instaImage | image_url: width: 1400 }} 1400w,
-                      {{ block.settings.instaImage | image_url: width: 1800 }} 1800w,
-                      {{ block.settings.instaImage | image_url: width: 2400 }} 2400w,
-                      {{ block.settings.instaImage | image_url: width: 3000 }} 3000w
-                    "
-                    sizes="100vw"
-                  >
+                <!-- Desktop sizes -->
+                <source
+                  media="(min-width: 768px)"
+                  srcset="
+                    {{ block.settings.instaImage | image_url: width: 1000 }} 1000w,
+                    {{ block.settings.instaImage | image_url: width: 1400 }} 1400w,
+                    {{ block.settings.instaImage | image_url: width: 1800 }} 1800w,
+                    {{ block.settings.instaImage | image_url: width: 2400 }} 2400w,
+                    {{ block.settings.instaImage | image_url: width: 3000 }} 3000w
+                  "
+                  sizes="100vw"
+                >
 
-                  <!-- Fallback image -->
-                  {{
-                    block.settings.instaImage
-                    | image_url: width: 1800
-                    | image_tag:
-                      loading: 'lazy',
-                      width: block.settings.instaImage.width,
-                      height: block.settings.instaImage.height
-                  }}
-                </picture>
+                <!-- Fallback image -->
+                {{
+                  block.settings.instaImage
+                  | image_url: width: 1800
+                  | image_tag:
+                    loading: 'lazy',
+                    width: block.settings.instaImage.width,
+                    height: block.settings.instaImage.height
+                }}
+              </picture>
             </div>
-            </li>
+          </li>
         {% endif %}
-        {% endfor %}
+      {% endfor %}
     </ul>
   </div>
 </section>
@@ -157,7 +162,7 @@
       ]
     }
   ],
-   "presets": [
+  "presets": [
     {
       "name": "Instagram Section",
       "category": "Sleepless Media"
