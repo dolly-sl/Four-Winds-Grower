@@ -260,6 +260,9 @@ header .header-wrapper .ipad-none {
     height: 16px;
     content: "";
   }
+  #flyout.mobile-menu .sub-accordion-container .sub-title.active:after {
+    background: url(icon-accordion-minus.svg) no-repeat center/100%;
+  }
   #flyout.mobile-menu
     .accordion-container
     .accordion-content
