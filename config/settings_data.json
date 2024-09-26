@@ -3263,6 +3263,8 @@
           "container_width": 680,
           "button": "Learn About Us",
           "button_url": "shopify://pages/about-us",
+          "image": "shopify://shop_images/generations.webp",
+          "mobile_image": "shopify://shop_images/generations-mobile.webp",
           "bg-fade": 50
         }
       }
