@@ -105,8 +105,14 @@ header .header-wrapper .col-sm-3 {
 header .header-wrapper .m-nav_link-submenu {
   padding: 0 !important;
 }
+header .header-wrapper .ipad-none {
+  display: block;
+}
 /* header responsive  */
 @media (max-width: 991px) {
+  header .header-wrapper .ipad-none {
+    display: none;
+  }
   header .header-wrapper .m-nav_logo {
     right: 0;
     left: 0;
