@@ -201,7 +201,7 @@ header .header-wrapper .ipad-none {
     background: url(icon-arrow-dropdown.svg) no-repeat center/100%;
   }
   header #flyout.mobile-menu .top-title.active:after {
-    transform: rotate(90deg);
+    transform: rotate(180deg);
     opacity: 1 !important;
   }
   header #flyout.mobile-menu .search {
@@ -218,7 +218,7 @@ header .header-wrapper .ipad-none {
     height: 45px;
   }
   .accordion-title.top-title.active {
-    position: absolute;
+    position: absolute !important;
     top: 0;
     background: white;
     width: 100%;
