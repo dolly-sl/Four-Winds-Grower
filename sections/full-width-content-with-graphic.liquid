@@ -1,73 +1,76 @@
 {% if section.settings.title != blank %}
-<section data-section-id="{{ section.id }}" class="m-divider nh-text-section">
-  {% comment %}
-    {% assign old_url = section.settings.bottom_graphic  | img_url: 'master' %}
-    {% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '960', options: 'dpr:2' %}{% endcapture %}
-  {% endcomment %}
-  <div class="full-width-content-with-graphic" style="background-color: {{ section.settings.bg_color }};">
+  <style>
+    .full-width-content-with-graphic{
+      background-color: {{ section.settings.bg_color }};
+    }
+  </style>
+  <section data-section-id="{{ section.id }}" class="nh-text-section">
+    {% comment %}
+      {% assign old_url = section.settings.bottom_graphic  | img_url: 'master' %}
+      {% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '960', options: 'dpr:2' %}{% endcapture %}
+    {% endcomment %}
     <div class="container l-text_center">
       {% if section.settings.subtitle != blank %}
-      <h2 class="m-divider_subtitle">{{ section.settings.subtitle }}</h2>
+        <h2 class="m-divider_subtitle">{{ section.settings.subtitle }}</h2>
       {% endif %}
       {% if section.settings.title != blank %}
-      <h3 class="m-divider_title">{{ section.settings.title }}</h3>
+        <h3 class="m-divider_title">{{ section.settings.title }}</h3>
       {% endif %}
       {% if section.settings.text != blank %}
-      <div class="m-divider_text" style="max-width:{{section.settings.container_width}}px;">
-        <p>{{ section.settings.text }}</p>
-      </div>
+        <div class="m-divider_text" style="max-width:{{section.settings.container_width}}px;">
+          <p>{{ section.settings.text }}</p>
+        </div>
       {% endif %}
       {% if section.settings.button_url %}
         <a href="{{section.settings.button_url}}" class="m-btn">{{ section.settings.button }}</a>
       {% endif %}
     </div>
     {% if section.settings.bottom_graphic %}
-    <div class="image-section">
-      <picture>
-        <!-- Mobile and tablet sizes -->
-        <source
-          media="(max-width: 767px)"
-          srcset="
-            {{ section.settings.bottom_graphic | image_url: width: 375 }} 375w,
-            {{ section.settings.bottom_graphic | image_url: width: 550 }} 550w,
-            {{ section.settings.bottom_graphic | image_url: width: 750 }} 750w
-          "
-          sizes="100vw"
-        >
+      <div class="image-section">
+        <picture>
+          <!-- Mobile and tablet sizes -->
+          <source
+            media="(max-width: 767px)"
+            srcset="
+              {{ section.settings.bottom_graphic | image_url: width: 375 }} 375w,
+              {{ section.settings.bottom_graphic | image_url: width: 550 }} 550w,
+              {{ section.settings.bottom_graphic | image_url: width: 750 }} 750w
+            "
+            sizes="100vw"
+          >
 
-        <!-- Desktop sizes -->
-        <source
-          media="(min-width: 768px)"
-          srcset="
-            {{ section.settings.bottom_graphic | image_url: width: 1000 }} 1000w,
-            {{ section.settings.bottom_graphic | image_url: width: 1400 }} 1400w,
-            {{ section.settings.bottom_graphic | image_url: width: 1800 }} 1800w,
-            {{ section.settings.bottom_graphic | image_url: width: 2400 }} 2400w,
-            {{ section.settings.bottom_graphic | image_url: width: 3000 }} 3000w
-          "
-          sizes="100vw"
-        >
+          <!-- Desktop sizes -->
+          <source
+            media="(min-width: 768px)"
+            srcset="
+              {{ section.settings.bottom_graphic | image_url: width: 1000 }} 1000w,
+              {{ section.settings.bottom_graphic | image_url: width: 1400 }} 1400w,
+              {{ section.settings.bottom_graphic | image_url: width: 1800 }} 1800w,
+              {{ section.settings.bottom_graphic | image_url: width: 2400 }} 2400w,
+              {{ section.settings.bottom_graphic | image_url: width: 3000 }} 3000w
+            "
+            sizes="100vw"
+          >
 
-        <!-- Fallback image -->
-        {{
-          section.settings.bottom_graphic
-          | image_url: width: 1800
-          | image_tag:
-            loading: 'lazy',
-            width: section.settings.bottom_graphic.width,
-            height: section.settings.bottom_graphic.height
-        }}
-      </picture>
-    </div>
+          <!-- Fallback image -->
+          {{
+            section.settings.bottom_graphic
+            | image_url: width: 1800
+            | image_tag:
+              loading: 'lazy',
+              width: section.settings.bottom_graphic.width,
+              height: section.settings.bottom_graphic.height
+          }}
+        </picture>
+      </div>
     {% endif %}
-  </div>
-</section>
+  </section>
 {% endif %}
 
 {% schema %}
 {
   "name": "Text & Image with Graphic",
-  "class": "m-text-divider",
+  "class": "full-width-content-with-graphic",
   "settings": [
     {
       "type": "color",
