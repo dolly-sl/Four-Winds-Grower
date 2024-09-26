@@ -187,4 +187,7 @@ header .header-wrapper .ipad-none {
   header #flyout.mobile-menu .top-title {
     padding: 20px !important;
   }
+  header #flyout.mobile-menu .top-title h6 {
+    text-align: left !important;
+  }
 }
