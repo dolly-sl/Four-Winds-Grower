@@ -14,13 +14,7 @@
     {% endcomment %}
 
     <a href="{{ currentCollection.url }}" class="m-nav_sublink">
-      {% if currentCollection.title == 'Small Fruits' %}
-        Small Fruits &amp; Vines
-      {% elsif currentCollection.title contains 'Exotic' %}
-        Gifts &amp; Accessories
-      {% else %}
-        {{ currentCollection.title }}
-      {% endif %}
+      {{ currentCollection.title }}
     </a>
 
     {% comment %}
@@ -60,7 +54,7 @@
         {% endif %}
         {% if currentCollection.title == 'Fruit Trees' %}
           <li class="shop-all">
-            <a href="" href="{{ currentCollection.url }}" aria-label="{{ currentCollection.title }}">SHOP All</a>
+            <a href="" href="{{ ['fruit-trees-1'] }}" aria-label="{{ currentCollection.title }}">SHOP All</a>
           </li>
         {% endif %}
       </ul>
