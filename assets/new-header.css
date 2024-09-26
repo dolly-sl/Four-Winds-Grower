@@ -180,6 +180,7 @@ header .header-wrapper .ipad-none {
     left: 0;
     right: auto;
     height: 100vh !important;
+    box-shadow: none;
   }
   header #flyout.mobile-menu .mobile-link {
     background: #f9f2e8;
@@ -262,6 +263,7 @@ header .header-wrapper .ipad-none {
     font-weight: 500;
     text-transform: capitalize;
     margin-top: 0;
+    color: #443e37;
   }
   #flyout.mobile-menu
     .accordion-container
