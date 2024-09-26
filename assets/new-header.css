@@ -348,6 +348,14 @@ header .header-wrapper .ipad-none {
     height: 11px;
     content: "";
   }
+  header #flyout.mobile-menu:before {
+    position: absolute;
+    background: #f9f2e8;
+    content: "";
+    width: 100%;
+    height: 80%;
+    bottom: 0;
+  }
 }
 @media (max-width: 650px) {
   header .header-wrapper .m-nav_list--actions.l-float_right li {
