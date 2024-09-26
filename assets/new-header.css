@@ -133,7 +133,8 @@ header .header-wrapper .ipad-none {
     width: 100%;
   }
   header .header-wrapper .m-nav_list--actions.l-float_right li {
-    width: 82px;
+    min-width: 82px;
+    max-width: 100px;
     height: 82px;
   }
   header
