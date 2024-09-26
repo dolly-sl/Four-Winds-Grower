@@ -6,12 +6,14 @@
     <div class="owl-carousel announcement-slider">
       {% for block in section.blocks %}
         {%- case block.type -%}
-          {%- when 'list' -%}
+          {%- when 'announcement' -%}
             <div class="ann-bar-inner">
               <p>
-                {%- if annurl != '' -%}<a href="{{ annurl }}">{% endif -%}
-                {{- anntxt }}
-                {%- if annurl != '' -%}</a>{% endif %}
+                {%- if block.settings.announcement_link != '' -%}
+                  <a href="{{block.settings.announcement_link}}">
+                {%- endif -%}
+                {{ block.settings.header_text }}
+                {%- if block.settings.announcement_link != '' -%}</a>{% endif %}
               </p>
             </div>
         {%- endcase -%}
