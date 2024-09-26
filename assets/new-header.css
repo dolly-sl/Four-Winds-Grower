@@ -2,3 +2,6 @@ header .header-wrapper .top-nav {
   display: flex;
   justify-content: space-between;
 }
+header .header-wrapper .top-nav li:last-child a {
+  margin-right: 0;
+}
