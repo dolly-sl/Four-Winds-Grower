@@ -3318,15 +3318,33 @@
       "tab_section_with_slider_UdaXbz": {
         "type": "tab-section-with-slider",
         "blocks": {
-          "blog_list_bWkx9h": {
+          "blog_list_36htFG": {
             "type": "blog_list",
             "settings": {
               "select_blog": "four-winds-growing"
             }
+          },
+          "page_block_8zyEFq": {
+            "type": "page_block",
+            "settings": {
+              "page_image": "shopify://shop_images/insta.webp",
+              "page_url": "shopify://pages/about-us",
+              "page_title": "About US"
+            }
+          },
+          "page_block_Q6Y39r": {
+            "type": "page_block",
+            "settings": {
+              "page_image": "shopify://shop_images/Centennial_Variegated_Kumquat_1_1.jpg",
+              "page_url": "shopify://pages/faq",
+              "page_title": "FAQ"
+            }
           }
         },
         "block_order": [
-          "blog_list_bWkx9h"
+          "blog_list_36htFG",
+          "page_block_8zyEFq",
+          "page_block_Q6Y39r"
         ],
         "settings": {
           "title": "FULL SIZE FRUIT. FULL SIZE FLAVOR.",
