@@ -165,4 +165,12 @@ header .header-wrapper .ipad-none {
     height: 42px;
     object-fit: contain;
   }
+  header
+    .header-wrapper
+    .m-nav_list--actions.l-float_right
+    li.flyout-button.active
+    .custom-menu-icon
+    div {
+    margin-bottom: 5px;
+  }
 }
