@@ -5,13 +5,16 @@
   <div class="ann-bar">
     <div class="owl-carousel announcement-slider">
       {% for block in section.blocks %}
-        <div class="ann-bar-inner">
-          <p>
-            {%- if annurl != '' -%}<a href="{{ annurl }}">{% endif -%}
-            {{- anntxt }}
-            {%- if annurl != '' -%}</a>{% endif %}
-          </p>
-        </div>
+        {%- case block.type -%}
+          {%- when 'list' -%}
+            <div class="ann-bar-inner">
+              <p>
+                {%- if annurl != '' -%}<a href="{{ annurl }}">{% endif -%}
+                {{- anntxt }}
+                {%- if annurl != '' -%}</a>{% endif %}
+              </p>
+            </div>
+        {%- endcase -%}
       {% endfor %}
     </div>
     <div class="exit-ann">✕</div>
