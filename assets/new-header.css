@@ -181,6 +181,7 @@ header .header-wrapper .ipad-none {
     right: auto;
     height: 100vh !important;
     box-shadow: none;
+    border-top: 1px solid #e3dad0;
   }
   header #flyout.mobile-menu .mobile-link {
     background: #f9f2e8;
@@ -240,6 +241,9 @@ header .header-wrapper .ipad-none {
   #flyout.mobile-menu .shop .accordion-content {
     padding-top: 0;
   }
+  #flyout.mobile-menu .shop .accordion-title.top-title.active {
+    border-bottom: 0 !important;
+  }
   #flyout.mobile-menu .sub-accordion-container .sub-title img {
     display: none;
   }
@@ -255,10 +259,7 @@ header .header-wrapper .ipad-none {
     height: 16px;
     content: "";
   }
-  #flyout.mobile-menu
-    .accordion-container
-    .accordion-content
-    a:not(.sub-title) {
+  #flyout.mobile-menu .accordion-container .accordion-content a:not(.sub-title) {
     padding: 0 20px !important;
     font-family: avenir-medium, sans-serif !important;
     font-size: 14px;
@@ -284,4 +285,5 @@ header .header-wrapper .ipad-none {
     margin-top: 0;
     color: #443e37;
   }
+  #flyout.mobile-menu .m-nav_sublink--link:hover,#flyout.mobile-menu .m-nav_sublink--link:focus, {
 }
