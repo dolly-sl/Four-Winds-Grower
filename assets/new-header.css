@@ -202,5 +202,6 @@ header .header-wrapper .ipad-none {
   }
   header #flyout.mobile-menu .top-title.active:after {
     transform: rotate(90deg);
+    opacity: 1 !important;
   }
 }
