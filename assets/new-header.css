@@ -99,6 +99,9 @@ header
   + .m-nav_drop-section {
   margin-top: 40px !important;
 }
+header .header-wrapper .col-sm-3 {
+  width: 25% !important;
+}
 header .header-wrapper .m-nav_link-submenu {
   padding: 0 !important;
 }
