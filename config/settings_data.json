@@ -3321,8 +3321,7 @@
           "blog_list_bWkx9h": {
             "type": "blog_list",
             "settings": {
-              "all_blog": "",
-              "blog_post": "news"
+              "select_blog": "four-winds-growing"
             }
           }
         },
@@ -3336,7 +3335,10 @@
           "container_width": 680,
           "pages_tab_title": "Pages",
           "articles_tab_title": "The Blog",
-          "videos_tab_title": "Videos"
+          "videos_tab_title": "Videos",
+          "all_pages_url": "",
+          "all_pages_text": "View all",
+          "all_blog": "View all blogs"
         }
       }
     },
