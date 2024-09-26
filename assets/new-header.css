@@ -33,7 +33,7 @@ header .header-wrapper .m-nav_link-submenu ul li {
 header .header-wrapper .m-nav_link-submenu ul li:last-child {
   margin-bottom: 0;
 }
-header .header-wrapper .nav-dropdowns .nav-dropdown {
+header .header-wrapper .nav-dropdowns .nav-dropdown.m-nav_link-submenu--easy {
   border-right: 1px solid #e3dad0;
   border-bottom: 1px solid #e3dad0;
   border-left: 1px solid #e3dad0;
