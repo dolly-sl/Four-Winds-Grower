@@ -146,6 +146,6 @@ header .header-wrapper .ipad-none {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    top: 0;
+    /* top: 0; */
   }
 }
