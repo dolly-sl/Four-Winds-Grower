@@ -231,6 +231,8 @@ header .header-wrapper .ipad-none {
     background: white;
     height: 100vh;
     z-index: 10;
+    width: 100%;
+    left: 0;
   }
   #flyout.mobile-menu .sub-accordion-container .sub-title img {
     display: none;
