@@ -131,6 +131,9 @@ header .header-wrapper .ipad-none {
     padding: 20px !important;
     line-height: normal;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   header .header-wrapper .m-nav_list--actions.l-float_right li {
     max-width: 82px;
@@ -144,7 +147,7 @@ header .header-wrapper .ipad-none {
     a
     .custom-menu-icon {
     display: flex;
-    width: 100%;
+    width: 42px;
     height: 100%;
     align-items: center;
     justify-content: center;
