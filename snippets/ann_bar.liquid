@@ -2,20 +2,22 @@
 {% assign annurl = settings.anouncementurl %}
 
 {%- if anntxt != '' -%}
-  <div class="ann-bar owl-carousel announcement-slider">
-    <div class="ann-bar-inner">
-      <p>
-        {%- if annurl != '' -%}<a href="{{ annurl }}">{% endif -%}
-        {{- anntxt }}
-        {%- if annurl != '' -%}</a>{% endif %}
-      </p>
-    </div>
-    <div class="ann-bar-inner">
-      <p>
-        {%- if annurl != '' -%}<a href="{{ annurl }}">{% endif -%}
-        {{- anntxt }}
-        {%- if annurl != '' -%}</a>{% endif %}
-      </p>
+  <div class="ann-bar">
+    <div class="owl-carousel announcement-slider">
+      <div class="ann-bar-inner">
+        <p>
+          {%- if annurl != '' -%}<a href="{{ annurl }}">{% endif -%}
+          {{- anntxt }}
+          {%- if annurl != '' -%}</a>{% endif %}
+        </p>
+      </div>
+      <div class="ann-bar-inner">
+        <p>
+          {%- if annurl != '' -%}<a href="{{ annurl }}">{% endif -%}
+          {{- anntxt }}
+          {%- if annurl != '' -%}</a>{% endif %}
+        </p>
+      </div>
     </div>
     <div class="exit-ann">✕</div>
   </div>
