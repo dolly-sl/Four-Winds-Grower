@@ -204,6 +204,10 @@ header .header-wrapper .ipad-none {
     transform: rotate(90deg);
     opacity: 1 !important;
   }
+  header #flyout.mobile-menu .search {
+    padding: 20px;
+    border-bottom: 1px solid #e3dad0;
+  }
   header #flyout.mobile-menu .m-nav_search {
     display: inline-block;
   }
