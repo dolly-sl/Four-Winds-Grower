@@ -1,9 +1,11 @@
 <header class="m-page_header" id="navbar">
   {% if section.settings.show_announcement == true %}
     {% include 'ann_bar' %}
-    <script>
-      $('body').addClass('announcement-visible');
-    </script>
+    {% comment %}
+      <script>
+        $('body').addClass('announcement-visible');
+      </script>
+    {% endcomment %}
   {% endif %}
   <div class="m-header header-wrapper">
     <nav class="m-nav_top l-container_fake top-nav">
