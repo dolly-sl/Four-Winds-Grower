@@ -224,6 +224,7 @@ header .header-wrapper .ipad-none {
     background: white;
     width: 100%;
     left: 0;
+    border-bottom: 1px solid #e3dad0;
   }
   #flyout.mobile-menu .accordion-content {
     position: absolute;
