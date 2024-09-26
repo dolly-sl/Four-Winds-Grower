@@ -129,6 +129,7 @@ header .header-wrapper .ipad-none {
   header .header-wrapper .m-nav_list--actions.l-float_right li .m-nav_link {
     height: 100% !important;
     padding: 20px !important;
+    line-height: normal;
   }
   header .header-wrapper .m-nav_list--actions.l-float_right li {
     width: 82px;
