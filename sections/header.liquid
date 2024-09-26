@@ -14,11 +14,13 @@
         <li class="mobile-right">
           <a class="m-nav_link--text" href="/pages/contact-us">Contact</a>
         </li>
-        <li class="l-float_right">
-          <span class="m-nav_announcement">
-            {{ section.settings['nav-announcement'] }}
-          </span>
-        </li>
+        {% comment %}
+          <li class="l-float_right">
+            <span class="m-nav_announcement">
+              {{ section.settings['nav-announcement'] }}
+            </span>
+          </li>
+        {% endcomment %}
       </ul>
     </nav>
     {% include 'header-nav-content' %}
