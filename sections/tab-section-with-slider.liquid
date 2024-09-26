@@ -316,7 +316,7 @@
 
           {% elsif block.type == 'blog_list' %}
             <div id="articles-tab" class="tab-pane">
-              {% assign post = block.settings.blog %}
+              {% assign post = block.settings.blog_post %}
               <ul class="owl-carousel articles-carousel">
                 {% for article in post %}
                   <li class="item">
@@ -760,7 +760,7 @@
         },
         {
           "type": "blog",
-          "id": "blog",
+          "id": "blog_post",
           "label": "Blog"
         }
       ]
