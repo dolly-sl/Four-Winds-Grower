@@ -1,7 +1,7 @@
 {% assign anntxt = settings.anouncementtxt %}
 {% assign annurl = settings.anouncementurl %}
 
-{% if section.blocks.size > 0 %}
+{%- if anntxt != '' -%}
   <div class="ann-bar">
     <div class="owl-carousel announcement-slider">
       {% for block in section.blocks %}
@@ -21,7 +21,9 @@
     </div>
     <div class="exit-ann">✕</div>
   </div>
-
+  <script>
+    $('body').addClass('announcement-visible');
+  </script>
   <style>
     .ann-bar {
         padding: 0 50px;
@@ -107,7 +109,6 @@
     }*/
   </style>
   <script>
-    $('body').addClass('announcement-visible');
     $(document).ready(function () {
       $('.exit-ann').click(function () {
         $('.ann-bar').slideUp(500);
