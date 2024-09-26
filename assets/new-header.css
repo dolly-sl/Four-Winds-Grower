@@ -1,7 +1,9 @@
 body.announcement-visible {
   padding-top: 185px;
 }
-
+body.announcement-hide {
+  padding-top: 150px;
+}
 header .header-wrapper .top-nav ul {
   display: flex;
   justify-content: space-between;
