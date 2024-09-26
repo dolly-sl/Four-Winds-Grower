@@ -209,6 +209,12 @@ header .header-wrapper .ipad-none {
     border-bottom: 1px solid #e3dad0;
   }
   header #flyout.mobile-menu .m-nav_search {
-    display: inline-block;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: 45px;
+  }
+  header #flyout.mobile-menu .m-nav_search input {
+    height: 45px;
   }
 }
