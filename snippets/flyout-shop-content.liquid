@@ -3,78 +3,106 @@
 {% assign linkCount = linklists[colChildList].links | size %}
 {% if currentCollection.title != blank %}
   <div class="sub-accordion-container">
-    {% comment %}{% if linkCount > 0 or currentCollection.title == 'Small Fruits' %}
-    {% if currentCollection.title != 'New & Exotic' %}
-    {% endif %}{% endif %}{% endcomment %}
+    {% comment %}
+      {% if linkCount > 0 or currentCollection.title == 'Small Fruits' %}
+      {% if currentCollection.title != 'New & Exotic' %}
+      {% endif %}{% endif %}
+    {% endcomment %}
     {% if linkCount %}
-    {% if currentCollection.title != 'test' %}
-    <div class="sub-accordion-title sub-title">
-    {% if currentCollection.image %}
-      	{% assign old_url = currentCollection.image | img_url: 'master' %}
-		{% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '60', options: 'dpr:2' %}{% endcapture %}
-        <img src="{{ imageboss_url }}" alt="collection-image"/>
-    {% endif %}
-        <h6>
-          {% if currentCollection.title contains 'Small' %}
-            Small Fruits &amp; Vines
-          {% elsif currentCollection.title contains 'Exotic' %}
-            Gifts &amp; Accessories
-          {% else %}
-          {{currentCollection.title}}
+      {% if currentCollection.title != 'test' %}
+        <div class="sub-accordion-title sub-title">
+          {% if currentCollection.image %}
+            {% assign old_url = currentCollection.image | img_url: 'master' %}
+            {% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '60', options: 'dpr:2' %}{% endcapture %}
+            <img src="{{ imageboss_url }}" alt="collection-image">
           {% endif %}
-        </h6>
-    </div>
-     <div class="sub-accordion-content">
-        {% if currentCollection.title == 'Fruit Trees' %}
-          	{% for childestLink in linklists['fruit-trees-1'].links %}
-              <a href="{{childestLink.url}}" class="m-nav_sublink--link{% if childestLink.active %} active{% endif %}">{{childestLink.title}}</a>
+          <h6>
+            {% if currentCollection.title contains 'Small' %}
+              Small Fruits &amp; Vines
+            {% elsif currentCollection.title contains 'Exotic' %}
+              Gifts &amp; Accessories
+            {% else %}
+              {{ currentCollection.title }}
+            {% endif %}
+          </h6>
+        </div>
+        <div class="sub-accordion-content">
+          {% if currentCollection.title == 'Fruit Trees' %}
+            {% for childestLink in linklists['fruit-trees-1'].links %}
+              <a href="{{childestLink.url}}" class="m-nav_sublink--link{% if childestLink.active %} active{% endif %}">
+                {{- childestLink.title -}}
+              </a>
             {% endfor %}
           {% elsif currentCollection.title == 'Small Fruits' %}
-          	{% for childestLink in linklists['fruit-trees'].links %}
-              <a href="{{childestLink.url}}" class="m-nav_sublink--link{% if childestLink.active %} active{% endif %}">{{childestLink.title}}</a>
+            {% for childestLink in linklists['fruit-trees'].links %}
+              <a href="{{childestLink.url}}" class="m-nav_sublink--link{% if childestLink.active %} active{% endif %}">
+                {{- childestLink.title -}}
+              </a>
             {% endfor %}
           {% else %}
             {% for childestLink in linklists[colChildList].links %}
-              <a href="{{childestLink.url}}" class="m-nav_sublink--link{% if childestLink.active %} active{% endif %}">{{childestLink.title}}</a>
+              <a href="{{childestLink.url}}" class="m-nav_sublink--link{% if childestLink.active %} active{% endif %}">
+                {{- childestLink.title -}}
+              </a>
             {% endfor %}
           {% endif %}
-      </div>
-    {% endif %}
+          {% if currentCollection.title == 'Fruit Trees' %}
+            <a class="shop-all" href="{{ currentCollection.url }}" aria-label="{{ currentCollection.title }}"
+              >SHOP All</a
+            >
+
+          {% elsif currentCollection.title == 'Small Fruits' %}
+            <a class="shop-all" href="{{ currentCollection.url }}" aria-label="{{ currentCollection.title }}"
+              >SHOP All</a
+            >
+
+          {% elsif currentCollection.title == 'Small Fruits' %}
+            <a class="shop-all" href="{{ currentCollection.url }}" aria-label="{{ currentCollection.title }}"
+              >SHOP All</a
+            >
+
+          {% else %}
+            <a class="shop-all" href="{{ currentCollection.url }}" aria-label="{{ currentCollection.title }}"
+              >SHOP All</a
+            >
+          {% endif %}
+        </div>
+      {% endif %}
     {% else %}
-        <a href="{{ currentCollection.url }}" class="sub-title no-links">
-            {% if currentCollection.image %}
-          		{% assign old_url = currentCollection.image | img_url: 'master' %}
-				{% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '60', options: 'dpr:2' %}{% endcapture %}
-                <img src="{{ imageboss_url }}" alt="collection-image"/>
-            {% endif %}
-            <h6>
-              {% if currentCollection.title contains 'Small' %}
-                Fruit Trees &amp; Vines
-              {% elsif currentCollection.title contains 'Exotic' %}
-                Gifts &amp; Accessories
-              {% else %}
-              {{currentCollection.title}}
-              {% endif %}
-            </h6>
-        </a>
+      <a href="{{ currentCollection.url }}" class="sub-title no-links">
+        {% if currentCollection.image %}
+          {% assign old_url = currentCollection.image | img_url: 'master' %}
+          {% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '60', options: 'dpr:2' %}{% endcapture %}
+          <img src="{{ imageboss_url }}" alt="collection-image">
+        {% endif %}
+        <h6>
+          {% if currentCollection.title contains 'Small' %}
+            Fruit Trees &amp; Vines
+          {% elsif currentCollection.title contains 'Exotic' %}
+            Gifts &amp; Accessories
+          {% else %}
+            {{ currentCollection.title }}
+          {% endif %}
+        </h6>
+      </a>
     {% endif %}
     {% if currentCollection.title == 'New & Exotic' %}
       <a href="{{ currentCollection.url }}" class="sub-title no-links">
-            {% if currentCollection.image %}
-        		{% assign old_url = currentCollection.image | img_url: 'master' %}
-				{% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '60', options: 'dpr:2' %}{% endcapture %}
-                <img src="{{ imageboss_url }}" alt="collection-image"/>
-            {% endif %}
-            <h6>
-              {% if currentCollection.title contains 'Small' %}
-                Fruit Trees &amp; Vines
-              {% elsif currentCollection.title contains 'Exotic' %}
-                Gifts &amp; Accessories
-              {% else %}
-              {{currentCollection.title}}
-              {% endif %}
-            </h6>
-        </a>
+        {% if currentCollection.image %}
+          {% assign old_url = currentCollection.image | img_url: 'master' %}
+          {% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '60', options: 'dpr:2' %}{% endcapture %}
+          <img src="{{ imageboss_url }}" alt="collection-image">
+        {% endif %}
+        <h6>
+          {% if currentCollection.title contains 'Small' %}
+            Fruit Trees &amp; Vines
+          {% elsif currentCollection.title contains 'Exotic' %}
+            Gifts &amp; Accessories
+          {% else %}
+            {{ currentCollection.title }}
+          {% endif %}
+        </h6>
+      </a>
     {% endif %}
   </div>
 {% endif %}
