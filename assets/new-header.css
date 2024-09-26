@@ -1,4 +1,4 @@
-header .header-wrapper .top-nav {
+header .header-wrapper .top-nav ul {
   display: flex;
   justify-content: space-between;
 }
