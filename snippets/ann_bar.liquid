@@ -22,9 +22,11 @@
       </div>
       <div class="exit-ann">✕</div>
     </div>
-    <script>
-      $('body').addClass('announcement-visible');
-    </script>
+    {% if section.blocks.size > 0 %}
+      <script>
+        $('body').addClass('announcement-visible');
+      </script>
+    {% endif %}
     <style>
       .ann-bar {
           padding: 0 50px;
