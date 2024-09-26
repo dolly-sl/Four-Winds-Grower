@@ -1,5 +1,5 @@
 <header class="m-page_header" id="navbar">
-  {% if section.settings.show_announcement %}
+  {% if section.settings.show_announcement == true %}
     {% include 'ann_bar' %}
     <script>
       $('body').addClass('announcement-visible');
