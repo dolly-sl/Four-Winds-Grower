@@ -217,4 +217,18 @@ header .header-wrapper .ipad-none {
   header #flyout.mobile-menu .m-nav_search input {
     height: 45px;
   }
+  .accordion-title.top-title.active {
+    position: absolute;
+    top: 0;
+    background: white;
+    width: 100%;
+    left: 0;
+  }
+  .accordion-content {
+    position: absolute;
+    top: 61px;
+    background: white;
+    height: 100vh;
+    z-index: 10;
+  }
 }
