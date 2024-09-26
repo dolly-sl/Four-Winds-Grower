@@ -116,7 +116,7 @@
 </footer>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
+  $(document).ready(function () {
     if ($(window).width() < 981) {
       $('.f-collapse-title').click(function () {
         $(this).next('.f-collapse-content').slideToggle();
