@@ -15,6 +15,8 @@ header .header-wrapper .m-nav_bottom .fa-user {
   width: 23px;
   height: 23px;
   background: url(icon-account.svg) no-repeat center/100%;
+  top: 6px;
+  position: relative;
 }
 .header-wrapper .m-nav_logo {
   width: 120px;
