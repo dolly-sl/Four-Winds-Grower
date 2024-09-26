@@ -148,4 +148,7 @@ header .header-wrapper .ipad-none {
     flex-direction: column;
     /* top: 0; */
   }
+  header .header-wrapper .custom-menu-icon div {
+    margin-bottom: 10px;
+  }
 }
