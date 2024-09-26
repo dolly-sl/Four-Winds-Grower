@@ -30,9 +30,13 @@ header .header-wrapper .m-nav_link-submenu ul li a {
 header .header-wrapper .m-nav_link-submenu ul li {
   margin-bottom: 20px;
 }
+header .header-wrapper .m-nav_link-submenu ul li:last-child {
+  margin-bottom: 0;
+}
 header .header-wrapper .nav-dropdowns .nav-dropdown {
   border-right: 1px solid #e3dad0;
   border-bottom: 1px solid #e3dad0;
   border-left: 1px solid #e3dad0;
   max-width: 250px;
+  box-shadow: none;
 }
