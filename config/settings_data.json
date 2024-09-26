@@ -3321,7 +3321,8 @@
           "blog_list_bWkx9h": {
             "type": "blog_list",
             "settings": {
-              "all_blog": ""
+              "all_blog": "",
+              "blog": "four-winds-growing"
             }
           }
         },
