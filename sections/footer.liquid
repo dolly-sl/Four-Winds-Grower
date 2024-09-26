@@ -18,34 +18,37 @@
                 <button type="submit" class="btn-submit" value="Subscribe">Subscribe</button>
               </form>
             -->
-            {%- assign formId = 'NewsletterForm' -%}
-            {% form 'contact', id: formId %}
-              {% if form.posted_successfully? %}
-                <p class="form-success">
-                  {{ section.settings['newsletter-success'] }}
-                </p>
-              {% endif %}
+            {% comment %}
+              {%- assign formId = 'NewsletterForm' -%}
+              {% form 'contact', id: formId %}
+                {% if form.posted_successfully? %}
+                  <p class="form-success">
+                    {{ section.settings['newsletter-success'] }}
+                  </p>
+                {% endif %}
 
-              {{ form.errors | default_errors }}
+                {{ form.errors | default_errors }}
 
-              <div class="form-input">
-                <input
-                  type="email"
-                  name="contact[email]"
-                  id="{{ formId }}Email"
-                  placeholder="Email Address"
-                  spellcheck="false"
-                  autocomplete="off"
-                  aria-required="true"
-                  required="required"
-                  autocapitalize="off"
-                  class="default"
-                >
-              </div>
-              <div class="form-input">
-                <button type="submit" class="btn-submit">Sign up</button>
-              </div>
-            {% endform %}
+                <div class="form-input">
+                  <input
+                    type="email"
+                    name="contact[email]"
+                    id="{{ formId }}Email"
+                    placeholder="Email Address"
+                    spellcheck="false"
+                    autocomplete="off"
+                    aria-required="true"
+                    required="required"
+                    autocapitalize="off"
+                    class="default"
+                  >
+                </div>
+                <div class="form-input">
+                  <button type="submit" class="btn-submit">Sign up</button>
+                </div>
+              {% endform %}
+            {% endcomment %}
+            <div class="klaviyo-form-T9X5xs"></div>
           </div>
         </div>
         {% comment %}
