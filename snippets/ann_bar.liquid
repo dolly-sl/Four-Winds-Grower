@@ -22,11 +22,7 @@
       </div>
       <div class="exit-ann">✕</div>
     </div>
-    {% if section.blocks.size > 0 %}
-      <script>
-        $('body').addClass('announcement-visible');
-      </script>
-    {% endif %}
+
     <style>
       .ann-bar {
           padding: 0 50px;
@@ -112,6 +108,7 @@
       }*/
     </style>
     <script>
+      $('body').addClass('announcement-visible');
       $(document).ready(function () {
         $('.exit-ann').click(function () {
           $('.ann-bar').slideUp(500);
