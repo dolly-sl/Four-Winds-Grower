@@ -114,7 +114,7 @@
             "settings": {
               "header_text": "<p>ON SALE! Buy 2 Citrus Bushes & Get 1 FREE - use code: BUY2GET1 (ends 7/31) click here to shop</p>",
               "announcement_link": "shopify://collections/15-off-all-avocado-trees",
-              "announcement_link_text": ""
+              "announcement_link_text": "click here to shop"
             }
           }
         },
