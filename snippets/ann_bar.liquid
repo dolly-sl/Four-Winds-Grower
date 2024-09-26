@@ -108,6 +108,8 @@
     </style>
     <script>
       $(document).ready(function () {
+        var transparentHeaderSetting = '{{ section.settings.show_announcement  }}';
+        {% comment %} var check = ${{ section.settings.show_announcement }} {% endcomment %}
         $('.exit-ann').click(function () {
           $('.ann-bar').slideUp(500);
           $('.ann-bar').hide();
