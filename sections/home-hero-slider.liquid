@@ -8,99 +8,96 @@
             {% if block.settings.image %}
               <div class="image-section">
                 <picture>
-                    <!-- Mobile and tablet sizes -->
-                    <source
-                      media="(max-width: 767px)"
-                      srcset="
-                      {% if block.settings.image != blank %}
-                        {{ block.settings.image | image_url: width: 375 }} 375w,
-                        {{ block.settings.image | image_url: width: 550 }} 550w,
-                        {{ block.settings.image | image_url: width: 750 }} 750w
-                        {% endif %}
-                      "
-                      sizes="100vw"
-                    >
+                  <!-- Mobile and tablet sizes -->
+                  <source
+                    media="(max-width: 767px)"
+                    srcset="
+                                            {% if block.settings.image != blank %}
+                      {{ block.settings.image | image_url: width: 375 }} 375w,
+                      {{ block.settings.image | image_url: width: 550 }} 550w,
+                      {{ block.settings.image | image_url: width: 750 }} 750w
+                      {% endif %}
+                    "
+                    sizes="100vw"
+                  >
 
-                    <!-- Desktop sizes -->
-                    <source
-                      media="(min-width: 768px)"
-                      srcset="
-                      {% if block.settings.image != blank %}
-                        {{ block.settings.image | image_url: width: 1000 }} 1000w,
-                        {{ block.settings.image | image_url: width: 1400 }} 1400w,
-                        {{ block.settings.image | image_url: width: 1800 }} 1800w,
-                        {{ block.settings.image | image_url: width: 2400 }} 2400w,
-                        {{ block.settings.image | image_url: width: 3000 }} 3000w
-                        {% endif %}
-                      "
-                      sizes="100vw"
-                    >
+                  <!-- Desktop sizes -->
+                  <source
+                    media="(min-width: 768px)"
+                    srcset="
+                                            {% if block.settings.image != blank %}
+                      {{ block.settings.image | image_url: width: 1000 }} 1000w,
+                      {{ block.settings.image | image_url: width: 1400 }} 1400w,
+                      {{ block.settings.image | image_url: width: 1800 }} 1800w,
+                      {{ block.settings.image | image_url: width: 2400 }} 2400w,
+                      {{ block.settings.image | image_url: width: 3000 }} 3000w
+                      {% endif %}
+                    "
+                    sizes="100vw"
+                  >
 
-                    <!-- Fallback image -->
-                    {{
-                      block.settings.image
-                      | image_url: width: 1800
-                      | image_tag:
-                        loading: 'lazy',
-                        width: block.settings.image.width,
-                        height: block.settings.image.height
-                    }}
-                  </picture>
+                  <!-- Fallback image -->
+                  {{
+                    block.settings.image
+                    | image_url: width: 1800
+                    | image_tag: loading: 'lazy', width: block.settings.image.width, height: block.settings.image.height
+                  }}
+                </picture>
               </div>
             {% else %}
-            <div class="image-section">
-            {% assign old_url = 'fourwinds-slide_oranges.png' | asset_url %}
-              <picture>
-                <!-- Mobile and tablet sizes -->
-                <source
-                  media="(max-width: 767px)"
-                  srcset="
-                    {{ old_url | image_url: width: 375 }} 375w,
-                    {{ old_url | image_url: width: 550 }} 550w,
-                    {{ old_url | image_url: width: 750 }} 750w
-                  "
-                  sizes="100vw"
-                >
+              <div class="image-section">
+                {% assign old_url = 'fourwinds-slide_oranges.png' | asset_url %}
+                <picture>
+                  <!-- Mobile and tablet sizes -->
+                  <source
+                    media="(max-width: 767px)"
+                    srcset="
+                      {{ old_url | image_url: width: 375 }} 375w,
+                      {{ old_url | image_url: width: 550 }} 550w,
+                      {{ old_url | image_url: width: 750 }} 750w
+                    "
+                    sizes="100vw"
+                  >
 
-                <!-- Desktop sizes -->
-                <source
-                  media="(min-width: 768px)"
-                  srcset="
-                    {{ old_url | image_url: width: 1000 }} 1000w,
-                    {{ old_url | image_url: width: 1400 }} 1400w,
-                    {{ old_url | image_url: width: 1800 }} 1800w,
-                    {{ old_url | image_url: width: 2400 }} 2400w,
-                    {{ old_url | image_url: width: 3000 }} 3000w
-                  "
-                  sizes="100vw"
-                >
+                  <!-- Desktop sizes -->
+                  <source
+                    media="(min-width: 768px)"
+                    srcset="
+                      {{ old_url | image_url: width: 1000 }} 1000w,
+                      {{ old_url | image_url: width: 1400 }} 1400w,
+                      {{ old_url | image_url: width: 1800 }} 1800w,
+                      {{ old_url | image_url: width: 2400 }} 2400w,
+                      {{ old_url | image_url: width: 3000 }} 3000w
+                    "
+                    sizes="100vw"
+                  >
 
-                <!-- Fallback image (default if no sources match) -->
-                <img
-                  src="{{ old_url | image_url: width: 1800 }}"
-                  alt="{{ block.settings.pretitle }} Citrus"
-                  loading="lazy"
-                  width="1800"
-                  height="auto"
-                >
-              </picture>
-            </div>
+                  <!-- Fallback image (default if no sources match) -->
+                  <img
+                    src="{{ old_url | image_url: width: 1800 }}"
+                    alt="{{ block.settings.pretitle }} Citrus"
+                    loading="lazy"
+                    width="1800"
+                    height="auto"
+                  >
+                </picture>
+              </div>
             {% endif %}
 
             <div class="m-slide_contents l-text_center">
               {% if block.settings.pretitle != blank %}
-              <h2 class="m-slide_subtitle">{{block.settings.pretitle}}</h2>
+                <h2 class="m-slide_subtitle">{{ block.settings.pretitle }}</h2>
               {% endif %}
               {% if block.settings.title != blank %}
-                <h3 class="m-slide_title">{{block.settings.title}}</h3>
+                <h3 class="m-slide_title">{{ block.settings.title }}</h3>
               {% endif %}
               {% if block.settings.text != blank %}
-              <div class="m-slide_content" style="max-width:{{section.settings.container_width}}px;">
-                <p>{{block.settings.text}}</p>
-              </div>
+                <div class="m-slide_content" style="max-width:{{section.settings.container_width}}px;">
+                  <p>{{ block.settings.text }}</p>
+                </div>
               {% endif %}
               {% if block.settings.link and block.settings.button_text %}
-                <a href="{{block.settings.link}}" class="m-btn">{{block.settings.button_text}}</a>
+                <a href="{{block.settings.link}}" class="m-btn">{{ block.settings.button_text }}</a>
               {% endif %}
             </div>
           </div>
@@ -110,92 +107,97 @@
   </div>
 </section>
 <script>
-  $(document).ready(function() {
-    $(".m-slider_landing .m-slider").owlCarousel({
+  $(document).ready(function () {
+    $('.m-slider_landing .m-slider').owlCarousel({
       center: true,
-      items:2,
-      loop:true,
+      items: 2,
+      loop: true,
       dots: true,
       nav: true,
-      navText: ["<span class='nav-arrow prev-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' fill='#fff' stroke='#E3DAD0'/><path d='m17 21-5-6 5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>", "<span class='nav-arrow next-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' transform='matrix(-1 0 0 1 30 0)' fill='#fff' stroke='#E3DAD0'/><path d='m13 21 5-6-5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>"],
-      autoWidth:true,
-      autoplay: true,
-      autoplayPauseOnHover: true
+      navText: [
+        "<span class='nav-arrow prev-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' fill='#fff' stroke='#E3DAD0'/><path d='m17 21-5-6 5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>",
+        "<span class='nav-arrow next-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' transform='matrix(-1 0 0 1 30 0)' fill='#fff' stroke='#E3DAD0'/><path d='m13 21 5-6-5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>",
+      ],
+      autoWidth: true,
+      autoplay: false,
+      autoplayPauseOnHover: true,
     });
   });
 </script>
 {% schema %}
-  {
-    "name": "Home Hero Slider",
-    "class": "m-slider_container home-hero-slider",
-    "max_blocks": 10,
-    "settings": [
-      {
-        "type": "range",
-        "id": "container_width",
-        "label": "Text Width",
-        "info": "Want to reduce the maximum width for text in this section for better formatting? Assign a maximum-width here.",
-        "default": 680,
-        "min": 400,
-        "max": 900,
-        "step": 5,
-        "unit": "px"
-      },
-      {
-        "type": "range",
-        "id": "bg-fade",
-        "min": 0,
-        "max": 99,
-        "step": 1,
-        "unit": "%",
-        "label": "Background Layover Opacity",
-        "default": 50
-      }
-    ],
-    "blocks": [
-      {
-        "type": "image",
-        "name": "Image slide",
-        "settings": [
-          {
-            "type": "image_picker",
-            "id": "image",
-            "label": "Slide Image"
-          },
-          {
-            "type": "text",
-            "id": "pretitle",
-            "label": "pre-Heading",
-            "default": "60 Varieties Of"
-          },
-          {
-            "type": "text",
-            "id": "title",
-            "label": "Heading",
-            "default": "FINE CITRUS TREES ONLINE"
-          },
-          {
-            "type": "textarea",
-            "id": "text",
-            "label": "Text",
-            "default": "<p>These include a selection of rare and unusual Citrus varieties, some of which are not yet available at retail nurseries in California.</p>"
-          },
-          {
-            "type": "text",
-            "id": "button_text",
-            "label": "Button Label",
-            "default": "Shop our Citrus"
-          },
-          {
-            "type": "url",
-            "id": "link",
-            "label": "Slide link"
-          }
-        ]
-      }
-    ],
-    "presets": [{
+{
+  "name": "Home Hero Slider",
+  "class": "m-slider_container home-hero-slider",
+  "max_blocks": 10,
+  "settings": [
+    {
+      "type": "range",
+      "id": "container_width",
+      "label": "Text Width",
+      "info": "Want to reduce the maximum width for text in this section for better formatting? Assign a maximum-width here.",
+      "default": 680,
+      "min": 400,
+      "max": 900,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "bg-fade",
+      "min": 0,
+      "max": 99,
+      "step": 1,
+      "unit": "%",
+      "label": "Background Layover Opacity",
+      "default": 50
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Slide Image"
+        },
+        {
+          "type": "text",
+          "id": "pretitle",
+          "label": "pre-Heading",
+          "default": "60 Varieties Of"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "FINE CITRUS TREES ONLINE"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>These include a selection of rare and unusual Citrus varieties, some of which are not yet available at retail nurseries in California.</p>"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Label",
+          "default": "Shop our Citrus"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Slide link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
       "name": "Home Hero Slider"
-    }]
-  }
+    }
+  ]
+}
 {% endschema %}
