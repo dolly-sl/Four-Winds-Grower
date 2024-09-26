@@ -134,4 +134,18 @@ header .header-wrapper .ipad-none {
     width: 82px;
     height: 82px;
   }
+  header
+    .header-wrapper
+    .m-nav_list--actions.l-float_right
+    li
+    a
+    .custom-menu-icon {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    top: 0;
+  }
 }
