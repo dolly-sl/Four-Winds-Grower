@@ -5,14 +5,17 @@ header .header-wrapper .top-nav ul {
 header .header-wrapper .top-nav li:last-child a {
   margin-right: 0;
 }
-header .m-nav_bottom .fa-user:before {
+header .header-wrapper .m-nav_bottom .fa-user:before {
   display: none;
 }
-header .m-nav_bottom .fa-user:before {
+header .header-wrapper .m-nav_bottom .fa-user:before {
   display: none;
 }
-header .m-nav_bottom .fa-user {
+header .header-wrapper .m-nav_bottom .fa-user {
   width: 23px;
   height: 23px;
   background: url(icon-account.svg) no-repeat/100%;
+}
+.header-wrapper .m-nav_logo {
+  width: 120px;
 }
