@@ -280,8 +280,7 @@ header .header-wrapper .ipad-none {
     padding-bottom: 20px !important;
   }
   #flyout.mobile-menu
-    .shop
-    .accordion-container
+    .accordion-container.shop
     .accordion-content
     a:not(.sub-title):last-child {
     border-bottom: 0;
