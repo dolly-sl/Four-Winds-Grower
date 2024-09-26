@@ -228,7 +228,7 @@ header .header-wrapper .ipad-none {
   }
   #flyout.mobile-menu .accordion-content {
     position: absolute;
-    top: 61px;
+    top: 62px;
     background: white;
     height: 100vh;
     z-index: 10;
@@ -268,7 +268,7 @@ header .header-wrapper .ipad-none {
     .accordion-content
     a:not(.sub-title):last-child {
     border-bottom: 1px solid #e3dad0;
-    padding-bottom: 20px;
+    /* padding-bottom: 20px !important; */
   }
   #flyout.mobile-menu .m-nav_sublink--link {
     font-family: avenir-medium, sans-serif !important;
