@@ -337,7 +337,7 @@ header .header-wrapper .ipad-none {
     width: 90px;
     height: 100px;
   }
-  .account-link a:after {
+  header #flyout.mobile-menu .account-link .top-title:after {
     background: url(icon-account.svg) no-repeat center/100%;
     opacity: 1;
     left: 0;
