@@ -108,7 +108,7 @@
     </style>
     <script>
       $(document).ready(function () {
-        $('body').addClass('announcement-visible');
+        {% comment %} $('body').addClass('announcement-visible'); {% endcomment %}
 
         $('.exit-ann').click(function () {
           $('.ann-bar').slideUp(500);
@@ -116,8 +116,8 @@
           $('body').removeClass('announcement-visible');
           $('body').addClass('announcement-hide');
         });
-        if ($('.m-page_header .ann-bar').length() == 0) {
-          $('body').removeClass('announcement-visible');
+        if ($('.m-page_header .ann-bar').length) {
+          $('body').addClass('announcement-visible');
         }
         setTimeout(function () {
           $('#qab_container').hide();
