@@ -71,8 +71,16 @@
           <li class="shop-all">
             <a href="{{ currentCollection.url }}" aria-label="{{ currentCollection.title }}">SHOP All</a>
           </li>
+        {% else %}
+          <li class="shop-all">
+            <a href="{{ currentCollection.url }}" aria-label="{{ currentCollection.title }}">SHOP All</a>
+          </li>
         {% endif %}
         {% if currentCollection.title == 'New & Exotic' %}
+          <li class="shop-all">
+            <a href="{{ currentCollection.url }}" aria-label="{{ currentCollection.title }}">SHOP All</a>
+          </li>
+        {% else %}
           <li class="shop-all">
             <a href="{{ currentCollection.url }}" aria-label="{{ currentCollection.title }}">SHOP All</a>
           </li>
