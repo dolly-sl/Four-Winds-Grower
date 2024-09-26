@@ -193,6 +193,8 @@ header .header-wrapper .ipad-none {
   }
   header #flyout.mobile-menu .top-title:after {
     content: "";
+    width: 16px;
+    height: 18px;
     background: url(icon-arrow-dropdown.svg) no-repeat center/100%;
   }
 }
