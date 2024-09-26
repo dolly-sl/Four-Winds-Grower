@@ -118,4 +118,9 @@ header .header-wrapper .ipad-none {
     left: 0;
     margin: 0 auto;
   }
+  header .header-wrapper .m-nav_list--actions.l-float_right {
+    float: none;
+    display: flex;
+    justify-content: space-between;
+  }
 }
