@@ -323,8 +323,18 @@ header .header-wrapper .ipad-none {
     letter-spacing: 0.8px;
     color: #e57634;
   }
-  #flyout.mobile-menu .shop .sub-accordion-content .shop-all:hover,
-  #flyout.mobile-menu .shop .sub-accordion-content .shop-all:focus {
+  #flyout.mobile-menu
+    .accordion-container
+    .accordion-content
+    a:not(.sub-title).shop-all:hover,
+  #flyout.mobile-menu
+    .accordion-container
+    .accordion-content
+    a:not(.sub-title).shop-all:focus {
     text-decoration: underline !important;
+  }
+  .header-wrapper .m-nav_logo {
+    width: 90px;
+    height: 100px;
   }
 }
