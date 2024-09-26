@@ -27,8 +27,7 @@ header .header-wrapper .m-nav_link-submenu ul li a {
   font-family: avenir-medium, sans-serif !important;
 }
 header .header-wrapper .nav-dropdowns .nav-dropdown {
-  border-right: 1px solid var(--FW-tan, #e3dad0);
-  border-bottom: 1px solid var(--FW-tan, #e3dad0);
-  border-left: 1px solid var(--FW-tan, #e3dad0);
-  background: var(--FW-white, #fff);
+  border-right: 1px solid #e3dad0;
+  border-bottom: 1px solid #e3dad0;
+  border-left: 1px solid #e3dad0;
 }
