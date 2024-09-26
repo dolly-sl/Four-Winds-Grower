@@ -320,4 +320,8 @@ header .header-wrapper .ipad-none {
     letter-spacing: 0.8px;
     color: #e57634;
   }
+  #flyout.mobile-menu .shop .sub-accordion-content .shop-all:hover,
+  #flyout.mobile-menu .shop .sub-accordion-content .shop-all:focus {
+    text-decoration: underline !important;
+  }
 }
