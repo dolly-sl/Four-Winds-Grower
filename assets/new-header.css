@@ -249,5 +249,10 @@ header .header-wrapper .ipad-none {
     height: 16px;
     content: "";
   }
-  #flyout.mobile-menu .accordion-container .accordion-content a:not(.sub-title)
+  #flyout.mobile-menu
+    .accordion-container
+    .accordion-content
+    a:not(.sub-title) {
+    padding: 0 20px !important;
+  }
 }
