@@ -189,6 +189,10 @@ header .header-wrapper .ipad-none {
   }
   header #flyout.mobile-menu .top-title h6 {
     text-align: left !important;
-    font-size: 14px;
+    font-size: 14px !important;
+  }
+  header #flyout.mobile-menu .top-title:after {
+    content: "";
+    background: url(icon-arrow-dropdown.svg) no-repeat center/100%;
   }
 }
