@@ -116,7 +116,7 @@
           $('body').removeClass('announcement-visible');
           $('body').addClass('announcement-hide');
         });
-        if ($('.ann-bar').height) {
+        if ($('.ann-bar .ann-bar-inner').length) {
           $('body').addClass('announcement-visible');
         }
         setTimeout(function () {
