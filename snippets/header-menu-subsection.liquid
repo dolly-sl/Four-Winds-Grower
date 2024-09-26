@@ -38,6 +38,9 @@
                 {{- childestLink.title -}}
               </a>
             </li>
+            <li class="shop-all">
+              <a href="" href="{{ currentCollection.url }}" aria-label="{{ currentCollection.title }}">SHOP All</a>
+            </li>
           {% endfor %}
         {% elsif currentCollection.title == 'Small Fruits' %}
           {% for childestLink in linklists['fruit-trees'].links %}
@@ -47,6 +50,9 @@
               </a>
             </li>
           {% endfor %}
+          <li class="shop-all">
+            <a href="" href="{{ currentCollection.url }}" aria-label="{{ currentCollection.title }}">SHOP All</a>
+          </li>
         {% elsif currentCollection.title == 'New & Exotic' %}
 
         {% else %}
@@ -57,10 +63,10 @@
               </a>
             </li>
           {% endfor %}
+          <li class="shop-all">
+            <a href="" href="{{ currentCollection.url }}" aria-label="{{ currentCollection.title }}">SHOP All</a>
+          </li>
         {% endif %}
-        <li class="shop-all">
-          <a href="" href="{{ currentCollection.url }}" aria-label="{{ currentCollection.title }}">SHOP All</a>
-        </li>
       </ul>
     </div>
   </div>
