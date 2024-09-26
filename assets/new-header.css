@@ -110,6 +110,9 @@ header .header-wrapper .ipad-none {
 }
 /* header responsive  */
 @media (max-width: 991px) {
+  header .header-wrapper .top-nav {
+    display: none;
+  }
   header .header-wrapper .ipad-none {
     display: none !important;
   }
