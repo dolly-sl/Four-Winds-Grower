@@ -346,3 +346,8 @@ header .header-wrapper .ipad-none {
     content: "";
   }
 }
+@media (max-width: 650px) {
+  ul.m-nav_list li {
+    display: inline-block !important;
+  }
+}
