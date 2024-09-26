@@ -259,7 +259,10 @@ header .header-wrapper .ipad-none {
     height: 16px;
     content: "";
   }
-  #flyout.mobile-menu .accordion-container .accordion-content a:not(.sub-title) {
+  #flyout.mobile-menu
+    .accordion-container
+    .accordion-content
+    a:not(.sub-title) {
     padding: 0 20px !important;
     font-family: avenir-medium, sans-serif !important;
     font-size: 14px;
@@ -285,5 +288,16 @@ header .header-wrapper .ipad-none {
     margin-top: 0;
     color: #443e37;
   }
-  #flyout.mobile-menu .m-nav_sublink--link:hover,#flyout.mobile-menu .m-nav_sublink--link:focus, {
+  #flyout.mobile-menu .m-nav_sublink--link:hover,
+  #flyout.mobile-menu .m-nav_sublink--link:focus,
+  #flyout.mobile-menu
+    .accordion-container
+    .accordion-content
+    a:not(.sub-title):hover,
+  #flyout.mobile-menu
+    .accordion-container
+    .accordion-content
+    a:not(.sub-title):focus {
+    color: #e5622e;
+  }
 }
