@@ -2,7 +2,14 @@
 {% assign annurl = settings.anouncementurl %}
 
 {%- if anntxt != '' -%}
-  <div class="ann-bar owl-carousel">
+  <div class="ann-bar owl-carousel announcement-slider">
+    <div class="ann-bar-inner">
+      <p>
+        {%- if annurl != '' -%}<a href="{{ annurl }}">{% endif -%}
+        {{- anntxt }}
+        {%- if annurl != '' -%}</a>{% endif %}
+      </p>
+    </div>
     <div class="ann-bar-inner">
       <p>
         {%- if annurl != '' -%}<a href="{{ annurl }}">{% endif -%}
@@ -110,6 +117,23 @@
       setTimeout(function () {
         $('#qab_container').hide();
       }, 2000);
+    });
+    $(document).ready(function () {
+      $('.announcement-slider').owlCarousel({
+        center: true,
+        items: 1,
+        loop: true,
+        dots: false,
+        nav: false,
+        autoWidth: true,
+        autoplay: true,
+        autoplayPauseOnHover: true,
+        touchDrag: true,
+        mouseDrag: true,
+        smartSpeed: 600,
+        touchDragThreshold: 5,
+        mouseDragThreshold: 5,
+      });
     });
   </script>
 {% endif %}
