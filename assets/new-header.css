@@ -176,7 +176,7 @@ header .header-wrapper .ipad-none {
     div {
     margin-bottom: 5px;
   }
-  .header-wrapper #flyout {
+  header #flyout.mobile-menu {
     left: 0;
     right: auto;
     height: 100vh !important;
