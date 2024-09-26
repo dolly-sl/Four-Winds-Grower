@@ -311,4 +311,13 @@ header .header-wrapper .ipad-none {
     a:not(.sub-title):focus {
     color: #e5622e;
   }
+  #flyout.mobile-menu .shop .sub-accordion-content .shop-all {
+    font-family: savu-condensed, sans-serif !important;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0.8px;
+    color: #e57634;
+  }
 }
