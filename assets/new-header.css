@@ -261,6 +261,13 @@ header .header-wrapper .ipad-none {
     text-transform: capitalize;
     margin-top: 0;
   }
+  #flyout.mobile-menu
+    .accordion-container
+    .accordion-content
+    a:not(.sub-title):last-child {
+    border-bottom: 1px solid #e3dad0;
+    padding-bottom: 20px;
+  }
   #flyout.mobile-menu .m-nav_sublink--link {
     font-family: avenir-medium, sans-serif !important;
     font-size: 14px;
