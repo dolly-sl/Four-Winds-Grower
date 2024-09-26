@@ -1,98 +1,110 @@
 {% include 'spurit_po2_section_snippet', product: null, products: collections[section.settings.collection].products %}
 {% schema %}
 {
-	"name": "Home Product Slider",
-	"settings": [
-		{
-			"id": "section-sub-title",
-			"type": "text",
-			"label": "Section Sub Title",
-			"default": "Browse Our"
-		},
-		{
-			"id": "section-title",
-			"type": "text",
-			"label": "Section Title",
-			"default": "Best Sellers"
-		},
-		{
-			"type": "textarea",
-			"id": "text",
-			"label": "Text"
-		},
-		{
-			"type": "range",
-			"id": "container_width",
-			"label": "Text Width",
-			"info": "Want to reduce the maximum width for text in this section for better formatting? Assign a maximum-width here.",
-			"default": 680,
-			"min": 400,
-			"max": 900,
-			"step": 5,
-			"unit": "px"
-		},
-		{
-			"id": "collection",
-			"type": "collection",
-			"label": "Collection"
-		}
-	],
-	"presets": [{
+  "name": "Home Product Slider",
+  "settings": [
+    {
+      "id": "section-sub-title",
+      "type": "text",
+      "label": "Section Sub Title",
+      "default": "Browse Our"
+    },
+    {
+      "id": "section-title",
+      "type": "text",
+      "label": "Section Title",
+      "default": "Best Sellers"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "label": "Text Width",
+      "info": "Want to reduce the maximum width for text in this section for better formatting? Assign a maximum-width here.",
+      "default": 680,
+      "min": 400,
+      "max": 900,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "id": "collection",
+      "type": "collection",
+      "label": "Collection"
+    }
+  ],
+  "presets": [
+    {
       "name": "Home Product Slider"
-    }]
+    }
+  ]
 }
 {% endschema %}
-{% if section.settings.section-title != blank %}
-<section id="home-products-slider">
-	<div class="container l-text_center">
-	{% if section.settings.section-sub-title != blank %}
-		<h2>{{ section.settings.section-sub-title }}</h2>
-	{% endif %}
-	{% if section.settings.section-title != blank %}
-		<h3>{{ section.settings.section-title }}</h3>
-	{% endif %}
-	{% if section.settings.text != blank %}
-		<div class="m-divider_text" style="max-width:{{section.settings.container_width}}px;"><p>{{section.settings.text}}</p></div>
-	{% endif %}
-	</div>
-	<div class="slider-container">
-		<div class="owl-carousel">
-			{% for product in collections[section.settings.collection].products limit: 12 %}
-				{% include 'product-card' %}
-			{% endfor %}
-		</div>
-	</div>
-</section>
+{% if section.settings['section-title'] != blank %}
+  <section id="home-products-slider">
+    <div class="container l-text_center">
+      {% if section.settings['section-sub-title'] != blank %}
+        <h2>{{ section.settings['section-sub-title'] }}</h2>
+      {% endif %}
+      {% if section.settings['section-title'] != blank %}
+        <h3>{{ section.settings['section-title'] }}</h3>
+      {% endif %}
+      {% if section.settings.text != blank %}
+        <div class="m-divider_text" style="max-width:{{section.settings.container_width}}px;">
+          <p>{{ section.settings.text }}</p>
+        </div>
+      {% endif %}
+    </div>
+    <div class="slider-container">
+      <div class="owl-carousel">
+        {% for product in collections[section.settings.collection].products limit: 12 %}
+          {% include 'product-card' %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
 {% endif %}
 
 <script>
-  $(document).ready(function() {
-    $("#home-products-slider .owl-carousel").owlCarousel({
+  $(document).ready(function () {
+    $('#home-products-slider .owl-carousel').owlCarousel({
       items: 4,
-      loop:false,
-      margin:0,
-      nav:true,
+      loop: false,
+      margin: 0,
+      nav: true,
       dots: true,
-      autoplay:true,
+      autoplay: true,
       autoplayPauseOnHover: true,
-      navText: ["<span class='nav-arrow prev-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' fill='#fff' stroke='#E3DAD0'/><path d='m17 21-5-6 5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>", "<span class='nav-arrow next-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' transform='matrix(-1 0 0 1 30 0)' fill='#fff' stroke='#E3DAD0'/><path d='m13 21 5-6-5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>"],
+      touchDrag: true,
+      mouseDrag: true,
+      smartSpeed: 600,
+      touchDragThreshold: 5,
+      mouseDragThreshold: 5,
+      navText: [
+        "<span class='nav-arrow prev-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' fill='#fff' stroke='#E3DAD0'/><path d='m17 21-5-6 5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>",
+        "<span class='nav-arrow next-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' transform='matrix(-1 0 0 1 30 0)' fill='#fff' stroke='#E3DAD0'/><path d='m13 21 5-6-5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>",
+      ],
       responsive: {
         0: {
-          items: 1
+          items: 1,
         },
         350: {
-          items: 2
+          items: 2,
         },
         800: {
-          items: 3
+          items: 3,
         },
         1160: {
-          items: 4
+          items: 4,
         },
-        1445: {
-          items: 5
-        }
-      }
+        1600: {
+          items: 5,
+        },
+      },
     });
   });
 </script>
