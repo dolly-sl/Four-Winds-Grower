@@ -3198,6 +3198,25 @@
           "container_width": 680,
           "collection": "our-best-selling-citrus-trees"
         }
+      },
+      "five_column_logo_section_8DbQEG": {
+        "type": "five-column-logo-section",
+        "blocks": {
+          "logo_hT73xm": {
+            "type": "logo",
+            "settings": {
+              "image": "shopify://shop_images/eustis-limequat-citrus-tree-2_1.jpg",
+              "link": "",
+              "title": "Citrus Chart"
+            }
+          }
+        },
+        "block_order": [
+          "logo_hT73xm"
+        ],
+        "settings": {
+          "section-title": "Image & text"
+        }
       }
     },
     "content_for_index": [
@@ -3208,7 +3227,8 @@
       "1505176658671",
       "home_hero_slider_FM9TU6",
       "full_width_content_with_graphic_7xAEYz",
-      "home_products_slider_wePWUJ"
+      "home_products_slider_wePWUJ",
+      "five_column_logo_section_8DbQEG"
     ],
     "blocks": {
       "10910696115237310528": {
