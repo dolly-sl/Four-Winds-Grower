@@ -54,3 +54,11 @@ header .header-wrapper .m-nav_link-submenu--shop .container .row .m-nav_list {
   border-right: 1px solid #e3dad0;
   padding: 0 40px;
 }
+header
+  .header-wrapper
+  .m-nav_link-submenu--shop
+  .container
+  .row
+  .m-nav_list:last-child {
+  border-right: 0;
+}
