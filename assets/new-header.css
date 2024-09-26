@@ -184,4 +184,7 @@ header .header-wrapper .ipad-none {
   header #flyout.mobile-menu .mobile-link {
     background: #f9f2e8;
   }
+  header #flyout.mobile-menu .top-title {
+    padding: 20px !important;
+  }
 }
