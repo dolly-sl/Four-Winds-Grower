@@ -2,141 +2,143 @@
 {% assign annurl = settings.anouncementurl %}
 
 {% if section.blocks.size > 0 %}
-  <div class="ann-bar">
-    <div class="owl-carousel announcement-slider">
-      {% for block in section.blocks %}
-        {%- case block.type -%}
-          {%- when 'announcement' -%}
-            <div class="ann-bar-inner">
-              <p>
-                {%- if block.settings.announcement_link != '' -%}
-                  <a href="{{block.settings.announcement_link}}">
-                {%- endif -%}
-                {{ block.settings.header_text }}
-                {%- if block.settings.announcement_link != '' -%}</a>{% endif %}
-              </p>
-            </div>
-        {%- endcase -%}
-      {% endfor %}
+  {% if section.settings.show_announcement %}
+    <div class="ann-bar">
+      <div class="owl-carousel announcement-slider">
+        {% for block in section.blocks %}
+          {%- case block.type -%}
+            {%- when 'announcement' -%}
+              <div class="ann-bar-inner">
+                <p>
+                  {%- if block.settings.announcement_link != '' -%}
+                    <a href="{{block.settings.announcement_link}}">
+                  {%- endif -%}
+                  {{ block.settings.header_text }}
+                  {%- if block.settings.announcement_link != '' -%}</a>{% endif %}
+                </p>
+              </div>
+          {%- endcase -%}
+        {% endfor %}
+      </div>
+      <div class="exit-ann">✕</div>
     </div>
-    <div class="exit-ann">✕</div>
-  </div>
-  <script>
-    $('body').addClass('announcement-visible');
-  </script>
-  <style>
-    .ann-bar {
-        padding: 0 50px;
-        background: {{ settings.anouncementbgcolor }};
-        text-align: center;
-        text-transform: uppercase;
-    }
-    .exit-ann {
-        cursor: pointer;
-        color: white;
-        position: absolute;
-        left: 97%;
-        top: 2.5%;
-    }
-    @media (max-width: 520px) {
-        .exit-ann { left: 96%; }
-    }
+    <script>
+      $('body').addClass('announcement-visible');
+    </script>
+    <style>
+      .ann-bar {
+          padding: 0 50px;
+          background: {{ settings.anouncementbgcolor }};
+          text-align: center;
+          text-transform: uppercase;
+      }
+      .exit-ann {
+          cursor: pointer;
+          color: white;
+          position: absolute;
+          left: 97%;
+          top: 2.5%;
+      }
+      @media (max-width: 520px) {
+          .exit-ann { left: 96%; }
+      }
 
-    @media (max-width: 980px) {
-        .ann-bar {
-            padding: 0 30px;
-        }
-    }
-    @media (max-width: 767px) {
-        .ann-bar {
-            padding: 0 20px;
-        }
-    }
-    .ann-bar-inner {
-        padding: 10px 0;
-    }
-    .ann-bar-inner p{
-        color: {{ settings.anouncementtxtcolor }};
-    }
-    .ann-bar-inner a {
-        color: {{ settings.anouncementtxtcolor }} !important;
-    }
-    @media (max-width: 980px) {
-        body header .mobile-menu-hamburger {
-            /*top: 110px !important;*/
-            position: unset;
-        }
-        header .left-section {
-            padding-right: 25%;
-        }
-        header .logo-section {
-            margin-left: -25px;
-        }
-        header .right-section {
-            padding-left: 25%;
-        }
-    }
-    @media (max-width: 767px) {
-        .ann-bar-inner p{
-            font-size: 0.65em;
-        }
-    }
+      @media (max-width: 980px) {
+          .ann-bar {
+              padding: 0 30px;
+          }
+      }
+      @media (max-width: 767px) {
+          .ann-bar {
+              padding: 0 20px;
+          }
+      }
+      .ann-bar-inner {
+          padding: 10px 0;
+      }
+      .ann-bar-inner p{
+          color: {{ settings.anouncementtxtcolor }};
+      }
+      .ann-bar-inner a {
+          color: {{ settings.anouncementtxtcolor }} !important;
+      }
+      @media (max-width: 980px) {
+          body header .mobile-menu-hamburger {
+              /*top: 110px !important;*/
+              position: unset;
+          }
+          header .left-section {
+              padding-right: 25%;
+          }
+          header .logo-section {
+              margin-left: -25px;
+          }
+          header .right-section {
+              padding-left: 25%;
+          }
+      }
+      @media (max-width: 767px) {
+          .ann-bar-inner p{
+              font-size: 0.65em;
+          }
+      }
 
-    @media (max-width: 700px) {
-        header .right-section {
-            padding-left: 15%;
-        }
-    }
-    @media (max-width: 600px) {
-        header .right-section {
-            padding-left: 10%;
-        }
-    }
-    @media (max-width: 520px) {
-        header .right-section {
-            padding-left: 0%;
-        }
-    }
-    @media (max-width: 380px) {
-        header .logo-section {
-            margin-left: 0px;
-        }
-    }
-    /*@media (max-width: 480px) {
-        body header .mobile-menu-hamburger {
-            top: 5px !important;
-        }
-    }*/
-  </style>
-  <script>
-    $(document).ready(function () {
-      $('.exit-ann').click(function () {
-        $('.ann-bar').slideUp(500);
-        $('.ann-bar').hide();
-        $('body').removeClass('announcement-visible');
-        $('body').addClass('announcement-hide');
+      @media (max-width: 700px) {
+          header .right-section {
+              padding-left: 15%;
+          }
+      }
+      @media (max-width: 600px) {
+          header .right-section {
+              padding-left: 10%;
+          }
+      }
+      @media (max-width: 520px) {
+          header .right-section {
+              padding-left: 0%;
+          }
+      }
+      @media (max-width: 380px) {
+          header .logo-section {
+              margin-left: 0px;
+          }
+      }
+      /*@media (max-width: 480px) {
+          body header .mobile-menu-hamburger {
+              top: 5px !important;
+          }
+      }*/
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('.exit-ann').click(function () {
+          $('.ann-bar').slideUp(500);
+          $('.ann-bar').hide();
+          $('body').removeClass('announcement-visible');
+          $('body').addClass('announcement-hide');
+        });
+
+        setTimeout(function () {
+          $('#qab_container').hide();
+        }, 2000);
       });
+      $(document).ready(function () {
+        $('.announcement-slider').owlCarousel({
+          items: 1,
+          loop: true,
+          dots: false,
+          nav: false,
 
-      setTimeout(function () {
-        $('#qab_container').hide();
-      }, 2000);
-    });
-    $(document).ready(function () {
-      $('.announcement-slider').owlCarousel({
-        items: 1,
-        loop: true,
-        dots: false,
-        nav: false,
-
-        autoplay: false,
-        autoplayPauseOnHover: true,
-        touchDrag: true,
-        mouseDrag: true,
-        smartSpeed: 1000,
-        touchDragThreshold: 5,
-        mouseDragThreshold: 5,
-        margin: 30,
+          autoplay: false,
+          autoplayPauseOnHover: true,
+          touchDrag: true,
+          mouseDrag: true,
+          smartSpeed: 1000,
+          touchDragThreshold: 5,
+          mouseDragThreshold: 5,
+          margin: 30,
+        });
       });
-    });
-  </script>
+    </script>
+  {% endif %}
 {% endif %}
