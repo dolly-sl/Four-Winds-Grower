@@ -136,7 +136,7 @@ header .header-wrapper .ipad-none {
     justify-content: center;
   }
   header .header-wrapper .m-nav_list--actions.l-float_right li {
-    max-width: 82px;
+    /* max-width: 82px; */
     width: 100px;
     height: 82px;
   }
