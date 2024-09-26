@@ -348,7 +348,7 @@ header .header-wrapper .ipad-none {
     height: 11px;
     content: "";
   }
-  header #flyout.mobile-menu:before {
+  header #flyout.mobile-menu .mobile-link:before {
     position: absolute;
     background: #f9f2e8;
     content: "";
