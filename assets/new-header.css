@@ -106,7 +106,7 @@ header .header-wrapper .m-nav_link-submenu {
   padding: 0 !important;
 }
 /* header responsive  */
-@media (max-wwidth: 991px) {
+@media (max-width: 991px) {
   header .header-wrapper .m-nav_logo {
     right: 0;
     left: 0;
