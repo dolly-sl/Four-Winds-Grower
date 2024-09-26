@@ -70,3 +70,10 @@ header
   .m-nav_sublist {
   border-top: 0 !important;
 }
+header
+  .header-wrapper
+  .m-nav_link-submenu--shop
+  .m-nav_drop-section
+  + .m-nav_drop-section {
+  margin-top: 40px !important;
+}
