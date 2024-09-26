@@ -237,6 +237,9 @@ header .header-wrapper .ipad-none {
     left: 0;
     padding-top: 20px;
   }
+  #flyout.mobile-menu .shop .accordion-content {
+    padding-top: 0;
+  }
   #flyout.mobile-menu .sub-accordion-container .sub-title img {
     display: none;
   }
