@@ -123,4 +123,7 @@ header .header-wrapper .ipad-none {
     display: flex;
     justify-content: space-between;
   }
+  header .header-wrapper .m-nav_bottom {
+    height: 82px !important;
+  }
 }
