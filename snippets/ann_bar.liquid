@@ -2,14 +2,18 @@
 {% assign annurl = settings.anouncementurl %}
 
 {%- if anntxt != '' -%}
-    <div class="ann-bar">
-        <div class="ann-bar-inner">
-            <p>{%- if annurl != '' -%}<a href="{{ annurl }}">{% endif %}{{ anntxt }}{%- if annurl != '' -%}</a>{% endif %}</p>
-        </div>
-        <div class="exit-ann">✕</div>
+  <div class="ann-bar">
+    <div class="ann-bar-inner">
+      <p>
+        {%- if annurl != '' -%}<a href="{{ annurl }}">{% endif -%}
+        {{- anntxt }}
+        {%- if annurl != '' -%}</a>{% endif %}
+      </p>
     </div>
+    <div class="exit-ann">✕</div>
+  </div>
 
-<style>
+  <style>
     .ann-bar {
         padding: 0 50px;
         background: {{ settings.anouncementbgcolor }};
@@ -51,7 +55,7 @@
             /*top: 110px !important;*/
             position: unset;
         }
-        header .left-section { 
+        header .left-section {
             padding-right: 25%;
         }
         header .logo-section {
@@ -92,17 +96,19 @@
             top: 5px !important;
         }
     }*/
-</style>
-<script>
-$(document).ready(function() {   
-    $('.exit-ann').click(function() {
+  </style>
+  <script>
+    $(document).ready(function () {
+      $('.exit-ann').click(function () {
         $('.ann-bar').slideUp(500);
         $('.ann-bar').hide();
+        $('body').removeClass('announcement-visible');
+        $('body').addClass('announcement-hide');
+      });
+
+      setTimeout(function () {
+        $('#qab_container').hide();
+      }, 2000);
     });
-  
-  setTimeout(function() {
-    $('#qab_container').hide(); 
-  }, 2000);
-});
-</script>
+  </script>
 {% endif %}
