@@ -82,14 +82,14 @@ header
   li {
   margin-bottom: 10px;
 }
-header .header-wrapper .shop-all a {
+header .header-wrapper .m-nav_link-submenu ul li.shop-all a {
   font-family: Savu-Bold !important;
   font-size: 16px !important;
   align-self: stretch;
   line-height: 24px !important;
   letter-spacing: 0.8px;
 }
-header .header-wrapper .shop-all a:hover {
+header .header-wrapper .m-nav_link-submenu ul li.shop-all a:hover {
   text-decoration: underline !important;
 }
 header
