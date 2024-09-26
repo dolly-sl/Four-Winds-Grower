@@ -191,6 +191,9 @@ header .header-wrapper .ipad-none {
     text-align: left !important;
     font-size: 14px !important;
   }
+  header #flyout.mobile-menu .top-title:before {
+    display: none;
+  }
   header #flyout.mobile-menu .top-title:after {
     content: "";
     width: 16px;
