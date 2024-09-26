@@ -42,7 +42,7 @@
       <!-- Tab Content -->
       <div class="tab-content">
         <div id="pages-tab" class="tab-pane active">
-          <ul class="owl-carousel pages-carousel">
+          <ul class="owl-carousel {% if pages_blocks.size > 4 %}left-space {% else %}no-left-space{% endif %} pages-carousel">
             {%- for block in section.blocks -%}
               {%- case block.type -%}
                 {%- when 'page_block' -%}
@@ -95,13 +95,15 @@
               {% endcase %}
             {% endfor %}
           </ul>
-          {% if section.settings.all_pages_url %}
-            <a href="{{section.settings.all_pages_url}}" class="m-btn">{{ section.settings.all_pages_text }}</a>
-          {% endif %}
+          <div class="{% if pages_blocks.size > 4 %}no-space {% else %}added-space{% endif %} btn-wrapper">
+            {% if section.settings.all_pages_url %}
+              <a href="{{section.settings.all_pages_url}}" class="m-btn">{{ section.settings.all_pages_text }}</a>
+            {% endif %}
+          </div>
         </div>
 
         <div id="articles-tab" class="tab-pane">
-          <ul class="owl-carousel articles-carousel">
+          <ul class="owl-carousel {% if articles.size > 4 %}left-space {% else %}no-left-space{% endif %} articles-carousel">
             {%- for block in section.blocks -%}
               {%- case block.type -%}
                 {%- when 'blog_list' -%}
@@ -153,11 +155,13 @@
               {% endcase %}
             {% endfor %}
           </ul>
-          <a href="{{ blog.url }}" class="m-btn">{{ section.settings.all_blog }}</a>
+          <div class="{% if articles.size > 4 %}no-space {% else %}added-space{% endif %} btn-wrapper">
+            <a href="{{ blog.url }}" class="m-btn">{{ section.settings.all_blog }}</a>
+          </div>
         </div>
 
         <div id="videos-tab" class="tab-pane">
-          <ul class="owl-carousel videos-carousel">
+          <ul class="owl-carousel {% if videos.size > 4 %}left-space {% else %}no-left-space{% endif %} videos-carousel">
             {%- for block in section.blocks -%}
               {%- case block.type -%}
                 {%- when 'videos' -%}
@@ -231,6 +235,7 @@
       smartSpeed: 600,
       touchDragThreshold: 5,
       mouseDragThreshold: 5,
+      center: true,
       navText: [
         "<span class='nav-arrow prev-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' fill='#fff' stroke='#E3DAD0'/><path d='m17 21-5-6 5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>",
         "<span class='nav-arrow next-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' transform='matrix(-1 0 0 1 30 0)' fill='#fff' stroke='#E3DAD0'/><path d='m13 21 5-6-5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>",
@@ -265,6 +270,7 @@
       smartSpeed: 600,
       touchDragThreshold: 5,
       mouseDragThreshold: 5,
+      center: true,
       navText: [
         "<span class='nav-arrow prev-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' fill='#fff' stroke='#E3DAD0'/><path d='m17 21-5-6 5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>",
         "<span class='nav-arrow next-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' transform='matrix(-1 0 0 1 30 0)' fill='#fff' stroke='#E3DAD0'/><path d='m13 21 5-6-5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>",
@@ -299,6 +305,7 @@
       smartSpeed: 600,
       touchDragThreshold: 5,
       mouseDragThreshold: 5,
+      center: true,
       navText: [
         "<span class='nav-arrow prev-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' fill='#fff' stroke='#E3DAD0'/><path d='m17 21-5-6 5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>",
         "<span class='nav-arrow next-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' transform='matrix(-1 0 0 1 30 0)' fill='#fff' stroke='#E3DAD0'/><path d='m13 21 5-6-5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>",
