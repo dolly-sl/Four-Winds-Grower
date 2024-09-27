@@ -157,16 +157,17 @@
               {% endcase %}
             {% endfor %}
           </div>
-
-          {%- case block.type -%}
-            {%- when 'blog_list' -%}
-              {% assign selected_blog = blogs[block.settings.select_blog] %}
-              {% for article in selected_blog.articles %}
-                <div class="{% if article.size > 4 %}no-space {% else %}added-space{% endif %} btn-wrapper">
-                  <a href="{{ blog.url }}" class="m-btn">{{ section.settings.all_blog }}</a>
-                </div>
-              {% endfor %}
-          {% endcase %}
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when 'blog_list' -%}
+                {% assign selected_blog = blogs[block.settings.select_blog] %}
+                {% for article in selected_blog.articles %}
+                  <div class="{% if article.size > 4 %}no-space {% else %}added-space{% endif %} btn-wrapper">
+                    <a href="{{ blog.url }}" class="m-btn">{{ section.settings.all_blog }}</a>
+                  </div>
+                {% endfor %}
+            {% endcase %}
+          {% endfor %}
         </div>
 
         <div id="videos-tab" class="tab-pane">
