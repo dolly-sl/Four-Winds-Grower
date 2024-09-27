@@ -841,6 +841,10 @@
   margin-top: 20px;
   order: 2;
 }
+#articles-tab .item a {
+  display: flex;
+  flex-direction: column;
+}
 .tab-section-with-slider .pages-carousel .item h4 {
   text-align: center;
 }
