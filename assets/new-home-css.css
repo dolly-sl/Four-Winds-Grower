@@ -293,8 +293,8 @@
     width: 275px !important;
   }
   .home-hero-slider .active.center .m-slide {
-    -webkit-transform: scale(1.092) translateY(-50px);
-    transform: scale(1.092) translateY(-50px);
+    -webkit-transform: scaleX(1.092);
+    transform: scaleX(1.092);
   }
   .home-hero-slider .active.center .m-slide_contents.l-text_center {
     margin-top: 60px;
