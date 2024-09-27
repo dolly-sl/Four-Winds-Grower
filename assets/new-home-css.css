@@ -972,6 +972,16 @@
     right: 20px;
   }
 }
+@media (max-width: 767px) {
+  .tab-section-with-slider .btn-wrapper.less.added-space a {
+    position: relative;
+    margin: 0 auto;
+    max-width: initial;
+    right: 0;
+    left: 0;
+    top: 0;
+  }
+}
 .tab-section-with-slider .m-btn:hover {
   border-color: var(--nh-border-color);
   background-color: var(--nh-light-color);
