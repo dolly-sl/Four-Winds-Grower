@@ -157,9 +157,14 @@
               {% endcase %}
             {% endfor %}
           </div>
-          <div class="{% if articles.size > 4 %}no-space {% else %}added-space{% endif %} btn-wrapper">
-            <a href="{{ blog.url }}" class="m-btn">{{ section.settings.all_blog }}</a>
-          </div>
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when 'blog_list' -%}
+                <div class="{% if articles.size > 4 %}no-space {% else %}added-space{% endif %} btn-wrapper">
+                  <a href="{{ blog.url }}" class="m-btn">{{ section.settings.all_blog }}</a>
+                </div>
+            {% endcase %}
+          {% endfor %}
         </div>
 
         <div id="videos-tab" class="tab-pane">
