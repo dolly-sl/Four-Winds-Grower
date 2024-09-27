@@ -768,9 +768,9 @@
 .tab-section-with-slider ul.tab-nav li:hover,
 .tab-section-with-slider ul.tab-nav li:focus,
 .tab-section-with-slider ul.tab-nav li.active {
-  border-color: var(--nh-border-color);
-  background-color: var(--nh-light-color);
-  color: var(--nh-dark-color);
+  border-color: var(--nh-orange-color);
+  background-color: var(--nh-orange-color);
+  color: var(--nh-white-color);
 }
 .tab-section-with-slider .tab-pane {
   display: none;
