@@ -3390,6 +3390,14 @@
               "video_thumbnail": "shopify://shop_images/How_To_Grow_Fruit_Trees_CITRUS_In_Containers.png",
               "video_url": "https://www.youtube.com/watch?v=W6-Bxv1C_BM"
             }
+          },
+          "videos_PirAmz": {
+            "type": "videos",
+            "settings": {
+              "video_title": "How We Ship Bare Root Fruit Trees to Your Door",
+              "video_thumbnail": "shopify://shop_images/How_We_Ship_Bare_Root_Fruit_Trees_to_Your_Door.png",
+              "video_url": "https://www.youtube.com/watch?v=98yzHzbj_tE"
+            }
           }
         },
         "block_order": [
@@ -3400,7 +3408,8 @@
           "page_block_wPyMgb",
           "page_block_gyhYkh",
           "videos_UABjqH",
-          "videos_F8HBXH"
+          "videos_F8HBXH",
+          "videos_PirAmz"
         ],
         "settings": {
           "title": "FULL SIZE FRUIT. FULL SIZE FLAVOR.",
