@@ -42,7 +42,14 @@
       <!-- Tab Content -->
       <div class="tab-content">
         <div id="pages-tab" class="tab-pane active">
-          <div class="owl-carousel {% if pages_blocks.size > 4 %}left-space {% else %}no-left-space{% endif %} pages-carousel">
+          {% assign count = 0 %}
+          {% for block in section.blocks %}
+            {%- case block.type -%}
+              {%- when 'videos' -%}
+                {% assign count = count | plus: 1 %}
+            {% endcase %}
+          {% endfor %}
+          <div class="owl-carousel {% if count < 5 %} less-4 {% endif %} {% if pages_blocks.size > 4 %}left-space {% else %}no-left-space{% endif %} pages-carousel">
             {%- for block in section.blocks -%}
               {%- case block.type -%}
                 {%- when 'page_block' -%}
