@@ -828,6 +828,7 @@
   letter-spacing: 0.8px;
   /* font-weight: 700; */
   font-family: savu-bold-condensed, sans-serif;
+  text-align: center;
 }
 .tab-section-with-slider .pages-carousel .item h4 {
   text-align: center;
