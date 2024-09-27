@@ -964,7 +964,7 @@
   right: auto;
   left: auto;
 }
-@media (max-width: 1159px) {
+@media (max-width: 1159.9px) {
   .tab-section-with-slider .btn-wrapper.less.added-space a {
     position: absolute;
     top: -24px;
