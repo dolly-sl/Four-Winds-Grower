@@ -379,3 +379,14 @@ header .header-wrapper .ipad-none {
     right: auto;
   }
 }
+
+.product-card .grid-product .yotpo .text-m {
+  width: fit-content;
+  margin-top: 5px;
+  color: #443e37 !important;
+  font-family: avenir-medium, sans-serif !important;
+  font-size: 14px;
+  font-style: normal !important;
+  font-weight: 500;
+  line-height: normal;
+}
