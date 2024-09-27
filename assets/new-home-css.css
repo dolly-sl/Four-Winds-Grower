@@ -1071,6 +1071,7 @@
     max-width: initial;
     right: 0;
     left: 0;
+    top: 0;
     transform: translateY(0%);
   }
   .tab-section-with-slider .m-divider_title {
