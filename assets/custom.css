@@ -559,7 +559,7 @@
 .boost-sd__suggestion-queries-item-price * {
   font-family: savu-condensed, sans-serif !important;
   font-size: 16px !important;
-  font-weight: bold !important;
+  font-weight: unset !important;
   font-stretch: condensed !important;
   line-height: 1.71 !important;
   letter-spacing: 1px !important;
