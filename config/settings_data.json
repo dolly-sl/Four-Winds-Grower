@@ -3398,6 +3398,14 @@
               "video_thumbnail": "shopify://shop_images/How_We_Ship_Bare_Root_Fruit_Trees_to_Your_Door.png",
               "video_url": "https://www.youtube.com/watch?v=98yzHzbj_tE"
             }
+          },
+          "videos_84PM6e": {
+            "type": "videos",
+            "settings": {
+              "video_title": "How to Make Primo Potting Mix",
+              "video_thumbnail": "shopify://shop_images/image_29.png",
+              "video_url": "https://www.youtube.com/watch?v=nnraZ5BxnSk"
+            }
           }
         },
         "block_order": [
@@ -3409,7 +3417,8 @@
           "page_block_gyhYkh",
           "videos_UABjqH",
           "videos_F8HBXH",
-          "videos_PirAmz"
+          "videos_PirAmz",
+          "videos_84PM6e"
         ],
         "settings": {
           "title": "FULL SIZE FRUIT. FULL SIZE FLAVOR.",
