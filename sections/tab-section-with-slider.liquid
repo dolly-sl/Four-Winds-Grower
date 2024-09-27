@@ -148,7 +148,7 @@
                           </div>
                         {% endif %}
                         <h4>{{ article.title }}</h4>
-                        {% if article.tags %}
+                        {% if article.tags != blank %}
                           <span class="article-tag">{{ article.tags[0] }}</span>
                         {% endif %}
                       </a>
