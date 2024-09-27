@@ -14,7 +14,6 @@
       >
         {{ link.title }}
       </a>
-
       {% if link.title == 'Shop' and section.settings['enable-shop'] %}
         {% assign blockCount = section.blocks | size %}
         {% case blockCount %}
@@ -27,9 +26,8 @@
           {% when 4 %}
             {% assign widthClass = 'col-sm-3' %}
           {% else %}
-            {% assign widthClass = 'col-sm-3' %}
+            {% assign widthClass = '' %}
         {% endcase %}
-
         <h1>{{ block.settings['collection-item-one'].title }}</h1>
         {% if widthClass %}
           {% capture currentChildrenContent %}
