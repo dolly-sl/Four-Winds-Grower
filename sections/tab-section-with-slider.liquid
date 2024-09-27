@@ -45,11 +45,11 @@
           {% assign count = 0 %}
           {% for block in section.blocks %}
             {%- case block.type -%}
-              {%- when 'videos' -%}
+              {%- when 'page_block' -%}
                 {% assign count = count | plus: 1 %}
             {% endcase %}
           {% endfor %}
-          <div class="owl-carousel {% if count == 4 %} less-4 {% endif %} {% if pages_blocks.size > 4 %}left-space {% else %}no-left-space{% endif %} pages-carousel">
+          <div class="owl-carousel {% if count < 5 %} less-4 {% endif %} {% if pages_blocks.size > 4 %}left-space {% else %}no-left-space{% endif %} pages-carousel">
             {%- for block in section.blocks -%}
               {%- case block.type -%}
                 {%- when 'page_block' -%}
