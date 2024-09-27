@@ -829,6 +829,7 @@
   /* font-weight: 700; */
   font-family: savu-bold-condensed, sans-serif;
   text-align: center;
+  order: 3;
 }
 .tab-section-with-slider .pages-carousel .item h4 {
   text-align: center;
