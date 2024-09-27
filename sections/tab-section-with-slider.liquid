@@ -148,7 +148,9 @@
                           </div>
                         {% endif %}
                         <h4>{{ article.title }}</h4>
-                        <span class="article-tag">{{ article.tags[0] }}</span>
+                        {% if article.tags %}
+                          <span class="article-tag">{{ article.tags[0] }}</span>
+                        {% endif %}
                       </a>
                     </div>
                   {% endfor %}
@@ -259,6 +261,7 @@
 
     $('.articles-carousel').owlCarousel({
       items: 4,
+      startPosition: 0,
       loop: false,
       margin: 0,
       nav: true,
