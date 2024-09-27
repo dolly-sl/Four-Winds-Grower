@@ -3382,6 +3382,14 @@
               "video_thumbnail": "shopify://shop_images/fields.webp",
               "video_url": "https://www.youtube.com/watch?v=6DXrqU4zcTQ"
             }
+          },
+          "videos_F8HBXH": {
+            "type": "videos",
+            "settings": {
+              "video_title": "IV ORGANIC: How To Grow Fruit Trees (CITRUS) In Containers",
+              "video_thumbnail": "shopify://shop_images/How_To_Grow_Fruit_Trees_CITRUS_In_Containers.png",
+              "video_url": "https://www.youtube.com/watch?v=W6-Bxv1C_BM"
+            }
           }
         },
         "block_order": [
@@ -3391,7 +3399,8 @@
           "page_block_cCztg8",
           "page_block_wPyMgb",
           "page_block_gyhYkh",
-          "videos_UABjqH"
+          "videos_UABjqH",
+          "videos_F8HBXH"
         ],
         "settings": {
           "title": "FULL SIZE FRUIT. FULL SIZE FLAVOR.",
