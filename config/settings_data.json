@@ -142,8 +142,8 @@
           "learn_list": "learn",
           "about_list": "about",
           "general_list": "general-info",
-          "newsTitle": "Newsletter",
-          "news_desc": "Newsletter Description Goes here",
+          "newsTitle": "Sign up for our newsletter",
+          "news_desc": "Get updates on specials, new varieties, growing tips, & more.",
           "newsletter-success": "Thank you for Subscribing our Newsletter!"
         }
       },
@@ -3262,7 +3262,7 @@
           "logo_Gm474c"
         ],
         "settings": {
-          "section-title": "Image & text"
+          "section-title": "more Resources"
         }
       },
       "full_width_content_with_bg_img_wejLzc": {
@@ -3338,24 +3338,87 @@
           "page_block_8zyEFq": {
             "type": "page_block",
             "settings": {
-              "page_image": "shopify://shop_images/insta.webp",
-              "page_url": "shopify://pages/about-us",
-              "page_title": "About US"
+              "page_image": "shopify://shop_images/fresh-citrus-satisfied-customers.jpg",
+              "page_url": "shopify://pages/citrus-variety-info-chart",
+              "page_title": "Citrus"
             }
           },
           "page_block_Q6Y39r": {
             "type": "page_block",
             "settings": {
-              "page_image": "shopify://shop_images/Centennial_Variegated_Kumquat_1_1.jpg",
-              "page_url": "shopify://pages/faq",
-              "page_title": "FAQ"
+              "page_image": "shopify://shop_images/fig.png",
+              "page_url": "shopify://pages/figs-dropdown",
+              "page_title": "Figs"
+            }
+          },
+          "page_block_cCztg8": {
+            "type": "page_block",
+            "settings": {
+              "page_image": "shopify://shop_images/Avocado.png",
+              "page_url": "shopify://pages/avocado-dropdown",
+              "page_title": "Avocado"
+            }
+          },
+          "page_block_wPyMgb": {
+            "type": "page_block",
+            "settings": {
+              "page_image": "shopify://shop_images/Olives.png",
+              "page_url": "shopify://pages/olives-dropdown",
+              "page_title": "Olives"
+            }
+          },
+          "page_block_gyhYkh": {
+            "type": "page_block",
+            "settings": {
+              "page_image": "shopify://shop_images/berries_growingberries.jpg",
+              "page_url": "shopify://pages/cane-berries-dropdown",
+              "page_title": "Cane Berries"
+            }
+          },
+          "videos_UABjqH": {
+            "type": "videos",
+            "settings": {
+              "video_title": "CA Grown: Farm To Fan. An Inside look at four winds growers",
+              "video_thumbnail": "shopify://shop_images/fields.webp",
+              "video_url": "https://www.youtube.com/watch?v=6DXrqU4zcTQ"
+            }
+          },
+          "videos_F8HBXH": {
+            "type": "videos",
+            "settings": {
+              "video_title": "IV ORGANIC: How To Grow Fruit Trees (CITRUS) In Containers",
+              "video_thumbnail": "shopify://shop_images/How_To_Grow_Fruit_Trees_CITRUS_In_Containers.png",
+              "video_url": "https://www.youtube.com/watch?v=W6-Bxv1C_BM"
+            }
+          },
+          "videos_PirAmz": {
+            "type": "videos",
+            "settings": {
+              "video_title": "How We Ship Bare Root Fruit Trees to Your Door",
+              "video_thumbnail": "shopify://shop_images/How_We_Ship_Bare_Root_Fruit_Trees_to_Your_Door.png",
+              "video_url": "https://www.youtube.com/watch?v=98yzHzbj_tE"
+            }
+          },
+          "videos_84PM6e": {
+            "type": "videos",
+            "settings": {
+              "video_title": "How to Make Primo Potting Mix",
+              "video_thumbnail": "shopify://shop_images/image_29.png",
+              "video_url": "https://www.youtube.com/watch?v=nnraZ5BxnSk"
             }
           }
         },
         "block_order": [
           "blog_list_36htFG",
           "page_block_8zyEFq",
-          "page_block_Q6Y39r"
+          "page_block_Q6Y39r",
+          "page_block_cCztg8",
+          "page_block_wPyMgb",
+          "page_block_gyhYkh",
+          "videos_UABjqH",
+          "videos_F8HBXH",
+          "videos_PirAmz",
+          "videos_84PM6e"
         ],
         "settings": {
           "title": "FULL SIZE FRUIT. FULL SIZE FLAVOR.",
@@ -3365,8 +3428,8 @@
           "pages_tab_title": "Pages",
           "articles_tab_title": "The Blog",
           "videos_tab_title": "Videos",
-          "all_pages_url": "",
-          "all_pages_text": "View all",
+          "all_pages_url": "shopify://collections",
+          "all_pages_text": "View All Tips",
           "all_blog": "View all blogs"
         }
       }
@@ -3381,10 +3444,10 @@
       "full_width_content_with_graphic_7xAEYz",
       "home_products_slider_wePWUJ",
       "full_width_content_with_bg_img_wejLzc",
+      "tab_section_with_slider_UdaXbz",
       "five_column_logo_section_8DbQEG",
       "yotpo_review_slider_4BK4bk",
-      "insta_section_tiAcDr",
-      "tab_section_with_slider_UdaXbz"
+      "insta_section_tiAcDr"
     ],
     "blocks": {
       "10910696115237310528": {
