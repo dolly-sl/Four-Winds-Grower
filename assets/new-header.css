@@ -266,7 +266,7 @@ header .header-wrapper .ipad-none {
   }
   #flyout.mobile-menu .sub-accordion-container .sub-title h6 {
     padding: 20px;
-    font-weight: 700;
+    /* font-weight: 700; */
   }
   #flyout.mobile-menu .sub-accordion-container .sub-title:after {
     background: url(icon-plus-accordion.svg) no-repeat center/100%;
