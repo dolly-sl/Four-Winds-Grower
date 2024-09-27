@@ -927,6 +927,10 @@
 }
 .tab-section-with-slider .btn-wrapper.added-space {
   padding-top: 50px;
+  width: 100%;
+  max-width: 1440px;
+  position: relative;
+  margin: 0 auto;
 }
 .tab-section-with-slider .m-btn:hover {
   border-color: var(--nh-border-color);
