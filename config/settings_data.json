@@ -3379,6 +3379,7 @@
             "type": "videos",
             "settings": {
               "video_title": "CA Grown: Farm To Fan. An Inside look at four winds growers",
+              "video_thumbnail": "shopify://shop_images/fields.webp",
               "video_url": "https://www.youtube.com/watch?v=6DXrqU4zcTQ"
             }
           }
