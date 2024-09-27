@@ -3392,7 +3392,7 @@
           "pages_tab_title": "Pages",
           "articles_tab_title": "The Blog",
           "videos_tab_title": "Videos",
-          "all_pages_url": "",
+          "all_pages_url": "shopify://collections",
           "all_pages_text": "View All Tips",
           "all_blog": "View all blogs"
         }
