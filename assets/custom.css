@@ -509,6 +509,7 @@
   color: #443e37 !important;
   text-transform: uppercase !important;
   padding: 0px 0 10px !important;
+  font-weight: unset;
 }
 
 .boost-sd__suggestion-queries-link {
