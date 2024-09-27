@@ -35,6 +35,8 @@
               <div class="container">
                 <div class="row">
                   {% for block in section.blocks %}
+                    {%- case block.type -%}
+                      {%- when 'shop_column' -%}
                     <div class="{{widthClass}} m-nav_list">
                       {% if block.settings.collection-item-one %}
                         {% include 'header-menu-subsection', currCollection: block.settings.collection-item-one %}
@@ -43,6 +45,7 @@
                         {% include 'header-menu-subsection', currCollection: block.settings.collection-item-two %}
                       {% endif %}
                     </div>
+                  {% endcase %}
                   {% endfor %}
                 </div>
               </div>
