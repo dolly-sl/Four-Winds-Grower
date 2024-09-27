@@ -2051,3 +2051,7 @@ footer .newsletter-form {
     padding-left: 30px;
   }
 }
+
+.pages-carousel {
+  display: block !important;
+}
