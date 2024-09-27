@@ -998,6 +998,11 @@
     right: 50px;
   }
 }
+@media (max-width: 1200px) {
+  .tab-section-with-slider .m-btn {
+    right: 40px;
+  }
+}
 @media (max-width: 1023px) {
   .tab-section-with-slider .owl-carousel .item {
     padding: 20px;
