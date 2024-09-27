@@ -2039,7 +2039,7 @@ footer .newsletter-form {
 }
 @media (max-width: 1159.9px) {
   .tab-section-with-slider .owl-carousel.less-4 .owl-stage {
-    max-width: 100%;
+    /* max-width: 100%; */
     padding-right: 0px;
     padding-left: 30px;
   }
