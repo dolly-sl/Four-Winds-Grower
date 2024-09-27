@@ -109,7 +109,6 @@
                 {%- when 'blog_list' -%}
                   {% assign selected_blog = blogs[block.settings.select_blog] %}
                   {% for article in selected_blog.articles %}
-                    {{ selected_blog.articles_count }}
                     <div class="item">
                       <a href="{{ article.url }}" title="{{ article.title }}">
                         {% if article.image != blank %}
