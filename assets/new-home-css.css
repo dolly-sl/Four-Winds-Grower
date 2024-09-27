@@ -957,6 +957,13 @@
   align-items: center;
   justify-content: center;
 }
+.tab-section-with-slider .btn-wrapperless.added-space a {
+  position: relative;
+  top: 0;
+  margin: 0 auto;
+  right: auto;
+  left: auto;
+}
 .tab-section-with-slider .m-btn:hover {
   border-color: var(--nh-border-color);
   background-color: var(--nh-light-color);
