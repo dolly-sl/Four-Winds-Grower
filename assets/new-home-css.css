@@ -926,7 +926,7 @@
   /* max-width: 166px;
   width: 166px; */
   width: fit-content;
-  padding: 15px;
+  padding: 11px 15px;
   text-align: center;
   background-color: var(--nh-orange-color);
   color: var(--nh-white-color);
