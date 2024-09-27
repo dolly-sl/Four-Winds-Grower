@@ -281,9 +281,9 @@
   .home-hero-slider .m-slide_content p {
     font-size: 14px;
   }
-  .home-hero-slider {
+  /* .home-hero-slider {
     padding-top: 30px;
-  }
+  } */
 }
 @media (max-width: 450px) {
   .home-hero-slider .owl-dots:not(.disabled) {
