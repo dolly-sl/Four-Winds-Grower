@@ -171,7 +171,14 @@
         </div>
 
         <div id="videos-tab" class="tab-pane">
-          <div class="owl-carousel {% if videos_count > 4 %}left-space {% else %}no-left-space{% endif %} videos-carousel">
+          {% assign count = 0 %}
+          {% for block in section.blocks %}
+            {%- case block.type -%}
+              {%- when 'videos' -%}
+                {% assign count = count | plus: 1 %}
+            {% endcase %}
+          {% endfor %}
+          <div class="owl-carousel {% if videos > 4 %}left-space {% else %}no-left-space{% endif %} videos-carousel">
             {%- for block in section.blocks -%}
               {%- case block.type -%}
                 {%- when 'videos' -%}
