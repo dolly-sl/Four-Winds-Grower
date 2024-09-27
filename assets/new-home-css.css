@@ -952,6 +952,11 @@
   position: relative;
   margin: 0 auto;
 }
+.tab-section-with-slider .btn-wrapperless.added-space {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .tab-section-with-slider .m-btn:hover {
   border-color: var(--nh-border-color);
   background-color: var(--nh-light-color);
