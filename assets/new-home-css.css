@@ -696,6 +696,7 @@
 .full-width-content-with-bg-img {
   position: relative;
   padding: 134px 0;
+  height: 100%;
 }
 .full-width-content-with-bg-img .content {
   position: relative;
