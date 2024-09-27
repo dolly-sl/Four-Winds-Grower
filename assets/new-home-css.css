@@ -831,6 +831,14 @@
   text-align: center;
   order: 3;
 }
+.tab-section-with-slider .owl-carousel .item .article-tag {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-align: center;
+  display: block;
+}
 .tab-section-with-slider .pages-carousel .item h4 {
   text-align: center;
 }
