@@ -969,16 +969,14 @@
 .tab-section-with-slider .image-section:hover .play-btn {
   transform: translate(-50%, -50%) scale(1.16);
 }
-/* @media (max-width: 1420px) {
+@media (max-width: 1420px) {
   .tab-section-with-slider .owl-carousel .owl-dots:not(.disabled) {
-    max-width: 67%;
-    width: 100%;
+    max-width: 900px;
   }
   .tab-section-with-slider .owl-carousel .owl-nav {
-    max-width: 75%;
-    width: 100%;
+    max-width: 1000px;
   }
-} */
+}
 @media (max-width: 1350px) {
   .tab-section-with-slider .owl-carousel .owl-stage {
     padding-left: 30px;
