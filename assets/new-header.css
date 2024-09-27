@@ -60,6 +60,9 @@ header .header-wrapper .m-nav_link-submenu--shop .container .row .m-nav_list {
   border-right: 1px solid #e3dad0;
   padding: 40px 40px;
 }
+header .header-wrapper input::placeholder {
+  color: red;
+}
 header
   .header-wrapper
   .m-nav_link-submenu--shop
