@@ -745,8 +745,8 @@
 }
 .tab-section-with-slider ul.tab-nav li {
   cursor: pointer;
-  background-color: var(--nh-orange-color);
-  color: var(--nh-white-color);
+  background-color: var(--nh-light-color);
+  color: var(--nh-dark-color);
   display: inline-block;
   font-family: savu-bold, sans-serif;
   font-size: 12px;
@@ -755,7 +755,7 @@
   height: auto;
   letter-spacing: 0.6px;
   line-height: 12px;
-  border: 1px solid var(--nh-orange-color);
+  border: 1px solid var(--nh-border-color);
   -webkit-transition: background 0.2s ease-out, border 0.2s ease-out,
     color 0.2s ease-out;
   -moz-transition: background 0.2s ease-out, border 0.2s ease-out,
