@@ -178,7 +178,7 @@
                 {% assign count = count | plus: 1 %}
             {% endcase %}
           {% endfor %}
-          <div class="owl-carousel {% if count < 5 %} custom-class{% endif %} {% if videos > 4 %}left-space {% else %}no-left-space{% endif %} videos-carousel">
+          <div class="owl-carousel {% if count < 5 %} less-4 {% endif %} {% if videos > 4 %}left-space {% else %}no-left-space{% endif %} videos-carousel">
             {%- for block in section.blocks -%}
               {%- case block.type -%}
                 {%- when 'videos' -%}
