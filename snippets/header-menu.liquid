@@ -26,8 +26,10 @@
             {% assign widthClass = 'col-sm-4' %}
           {% when 4 %}
             {% assign widthClass = 'col-sm-3' %}
-          {% else %}
-            {% assign widthClass = 'col-sm-3' %}
+            {% comment %}
+              {% else %}
+              {% assign widthClass = 'col-sm-3' %}
+            {% endcomment %}
         {% endcase %}
 
         <h1>{{ block.settings['collection-item-one'].title }}</h1>
