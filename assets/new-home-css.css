@@ -627,6 +627,7 @@
   letter-spacing: 1.2px;
   line-height: 1.35;
   height: auto;
+  text-align: center;
   width: auto;
 }
 .product-card .product-tags .collection-tag {
