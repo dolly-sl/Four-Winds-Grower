@@ -222,7 +222,7 @@ header .header-wrapper .ipad-none {
     top: calc(50% - 6px);
   }
   header #flyout.mobile-menu .search {
-    padding: 20px;
+    padding: 18px;
     border-bottom: 1px solid #e3dad0;
   }
   header #flyout.mobile-menu .m-nav_search {
