@@ -309,7 +309,8 @@
     width: 220px;
   }
   .home-hero-slider .m-slide {
-    width: 400px !important;
+    max-width: 350px !important;
+    width: 100% !important;
   }
   .home-hero-slider .active.center .m-slide {
     -webkit-transform: scaleX(1.092);
