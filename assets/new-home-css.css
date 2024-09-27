@@ -328,6 +328,10 @@
   }
 }
 /* Full width section (bg-color) with bottom graphic */
+.full-width-content-with-img-section {
+  min-height: 450px;
+  height: fit-content !important;
+}
 .full-width-content-with-graphic {
   padding: 120px 0 160px;
   position: relative;
