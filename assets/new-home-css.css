@@ -787,6 +787,10 @@
   /* width: 100% !important; */
   /* justify-content: center; */
   margin: 0 auto;
+  margin: 0 auto;
+  display: flex;
+  padding-right: 0;
+  padding-left: calc(50vw - 640px);
 }
 .tab-section-with-slider .owl-carousel.left-space .owl-stage {
   padding-left: calc(50vw - 640px);
