@@ -16,22 +16,20 @@
       </a>
 
       {% if link.title == 'Shop' and section.settings['enable-shop'] %}
-        {%- case block.type -%}
-          {% when 'shop_column' %}
-            {% assign blockCount = section.blocks | size %}
-            {% case blockCount %}
-              {% when 1 %}
-                {% assign widthClass = 'col-sm-12' %}
-              {% when 2 %}
-                {% assign widthClass = 'col-sm-6' %}
-              {% when 3 %}
-                {% assign widthClass = 'col-sm-4' %}
-              {% when 4 %}
-                {% assign widthClass = 'col-sm-3' %}
-              {% else %}
-                {% assign widthClass = '' %}
-            {% endcase %}
+        {% assign blockCount = section.blocks | size %}
+        {% case blockCount %}
+          {% when 1 %}
+            {% assign widthClass = 'col-sm-12' %}
+          {% when 2 %}
+            {% assign widthClass = 'col-sm-6' %}
+          {% when 3 %}
+            {% assign widthClass = 'col-sm-4' %}
+          {% when 4 %}
+            {% assign widthClass = 'col-sm-3' %}
+          {% else %}
+            {% assign widthClass = '' %}
         {% endcase %}
+
         <h1>{{ block.settings['collection-item-one'].title }}</h1>
         {% if widthClass %}
           {% capture currentChildrenContent %}
