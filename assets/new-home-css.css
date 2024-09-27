@@ -2032,3 +2032,8 @@ footer .newsletter-form {
     margin-bottom: 7px;
   }
 }
+
+.tab-section-with-slider .owl-carousel.less-4 .owl-stage {
+  max-width: 1340px;
+  padding: 0 30px;
+}
