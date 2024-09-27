@@ -5,9 +5,9 @@
     {% endif %}
     target="_blank"
     href="{{settings.social-facebook}}"
-    title="Facebook"
   >
-    <i class="fa fa-facebook-square"></i>
+    <!-- <i class="fa fa-facebook-square"></i> -->
+    {% render 'icon-facebook' %}
   </a>
 {% endif %}
 {% if settings['social-instagram'] != blank %}
@@ -17,9 +17,9 @@
     {% endif %}
     target="_blank"
     href="{{settings.social-instagram}}"
-    title="Instagram"
   >
-    <i class="fa fa-instagram"></i>
+    <!-- <i class="fa fa-instagram"></i> -->
+    {% render 'icon-instagram' %}
   </a>
 {% endif %}
 {% if settings['social-youtube'] != blank %}
@@ -29,7 +29,6 @@
     {% endif %}
     target="_blank"
     href="{{settings.social-youtube}}"
-    title="Youtube"
   >
     <i class="fa fa-youtube-square"></i>
   </a>
@@ -39,7 +38,6 @@
     {% if className %}
       class="{{className}}"
     {% endif %}
-    title="Twitter"
     target="_blank"
     href="{{settings.social-twitter}}"
   >
@@ -53,7 +51,6 @@
     {% endif %}
     target="_blank"
     href="{{settings.social-flickr}}"
-    title="Flickr"
   >
     <i class="fa fa-flickr"></i>
   </a>
@@ -65,8 +62,8 @@
     {% endif %}
     target="_blank"
     href="{{settings.social-pinterest}}"
-    title="Pinterest"
   >
-    <i class="fa fa-pinterest-square"></i>
+    <!-- <i class="fa fa-pinterest-square"></i> -->
+    {% render 'icon-pinterest' %}
   </a>
 {% endif %}
