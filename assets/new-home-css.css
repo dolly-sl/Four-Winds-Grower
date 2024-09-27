@@ -1004,6 +1004,9 @@
   }
 }
 @media (max-width: 1023px) {
+  .tab-section-with-slider .m-btn {
+    right: 20px;
+  }
   .tab-section-with-slider .owl-carousel .item {
     padding: 20px;
   }
