@@ -16,7 +16,8 @@
       </a>
       {% if link.title == 'Shop' and section.settings['enable-shop'] %}
         {% assign blockCount = section.blocks | size %}
-        {% case blockCount %}
+        {% case blockCount -%}
+            z
           {% when 1 %}
             {% assign widthClass = 'col-sm-12' %}
           {% when 2 %}
