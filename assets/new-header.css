@@ -89,7 +89,7 @@ header
   .m-nav_sublist
   ul
   li {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   line-height: normal;
 }
 header .header-wrapper .m-nav_link-submenu ul li.shop-all a {
@@ -201,7 +201,7 @@ header .header-wrapper .ipad-none {
     background: #f9f2e8;
   }
   header #flyout.mobile-menu .top-title {
-    padding: 20px !important;
+    padding: 18px !important;
   }
   header #flyout.mobile-menu .top-title h6 {
     text-align: left !important;
@@ -222,7 +222,7 @@ header .header-wrapper .ipad-none {
     top: calc(50% - 6px);
   }
   header #flyout.mobile-menu .search {
-    padding: 20px;
+    padding: 18px;
     border-bottom: 1px solid #e3dad0;
   }
   header #flyout.mobile-menu .m-nav_search {
@@ -265,13 +265,15 @@ header .header-wrapper .ipad-none {
     padding: 0;
   }
   #flyout.mobile-menu .sub-accordion-container .sub-title h6 {
-    padding: 20px;
+    padding: 18px;
+    font-size: 14px;
     /* font-weight: 700; */
   }
   #flyout.mobile-menu .sub-accordion-container .sub-title:after {
     background: url(icon-plus-accordion.svg) no-repeat center/100%;
     width: 16px;
     height: 16px;
+    top: 21px;
     content: "";
   }
   #flyout.mobile-menu .sub-accordion-container .sub-title.active:after {
