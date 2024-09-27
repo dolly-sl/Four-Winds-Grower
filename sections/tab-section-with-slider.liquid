@@ -163,7 +163,7 @@
               {%- when 'blog_list' -%}
                 {% assign selected_blog = blogs[block.settings.select_blog] %}
                 {% for article in selected_blog.articles limit: 1 %}
-                  <div class="{% if selected_blog.articles_count > 4 %}no-space {% else %} less{% endif %} btn-wrapper">
+                  <div class="{% if selected_blog.articles_count > 4 %}no-space {% else %}added-space{% endif %} btn-wrapper">
                     <a href="{{ blog.url }}" class="m-btn">{{ section.settings.all_blog }}</a>
                   </div>
                 {% endfor %}
