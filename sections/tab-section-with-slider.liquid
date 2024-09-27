@@ -5,7 +5,7 @@
         <h2 class="m-divider_subtitle">{{ section.settings.subtitle }}</h2>
       {% endif %}
       {% if section.settings.title != blank %}
-        <h1 class="m-divider_title">{{ section.settings.title }}</h1>
+        <h3 class="m-divider_title">{{ section.settings.title }}</h3>
       {% endif %}
       {% if section.settings.text != blank %}
         <div class="m-divider_text" style="max-width:{{section.settings.container_width}}px;">
@@ -42,11 +42,18 @@
       <!-- Tab Content -->
       <div class="tab-content">
         <div id="pages-tab" class="tab-pane active">
-          <ul class="owl-carousel {% if pages_blocks.size > 4 %}left-space {% else %}no-left-space{% endif %} pages-carousel">
+          {% assign count = 0 %}
+          {% for block in section.blocks %}
+            {%- case block.type -%}
+              {%- when 'page_block' -%}
+                {% assign count = count | plus: 1 %}
+            {% endcase %}
+          {% endfor %}
+          <div class="owl-carousel {% if count < 5 %} less-4 {% endif %} {% if pages_blocks.size > 4 %}left-space {% else %}no-left-space{% endif %} pages-carousel">
             {%- for block in section.blocks -%}
               {%- case block.type -%}
                 {%- when 'page_block' -%}
-                  <li class="item">
+                  <div class="item">
                     <a href="{{ block.settings.page_url }}">
                       {% if block.settings.page_image != blank %}
                         <div class="image-section">
@@ -91,11 +98,11 @@
                         <h4>{{ block.settings.page_title }}</h4>
                       {% endif %}
                     </a>
-                  </li>
+                  </div>
               {% endcase %}
             {% endfor %}
-          </ul>
-          <div class="{% if pages_blocks.size > 4 %}no-space {% else %}added-space{% endif %} btn-wrapper">
+          </div>
+          <div class="{% if count < 5 %} less {% endif %} {% if pages_blocks.size > 4 %}no-space {% else %}added-space{% endif %} btn-wrapper">
             {% if section.settings.all_pages_url %}
               <a href="{{section.settings.all_pages_url}}" class="m-btn">{{ section.settings.all_pages_text }}</a>
             {% endif %}
@@ -103,13 +110,22 @@
         </div>
 
         <div id="articles-tab" class="tab-pane">
-          <ul class="owl-carousel {% if articles.size > 4 %}left-space {% else %}no-left-space{% endif %} articles-carousel">
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when 'blog_list' -%}
+                {% assign selected_blog = blogs[block.settings.select_blog] %}
+                {% for article in selected_blog.articles limit: 1 %}
+                  {% assign count = selected_blog.articles_count %}
+                {% endfor %}
+            {% endcase %}
+          {% endfor %}
+          <div class="owl-carousel {% if count < 5 %} less-4 {% endif %}   {% if articles.size > 4 %}left-space {% else %}no-left-space{% endif %} articles-carousel">
             {%- for block in section.blocks -%}
               {%- case block.type -%}
                 {%- when 'blog_list' -%}
                   {% assign selected_blog = blogs[block.settings.select_blog] %}
                   {% for article in selected_blog.articles %}
-                    <li class="item">
+                    <div class="item">
                       <a href="{{ article.url }}" title="{{ article.title }}">
                         {% if article.image != blank %}
                           <div class="image-section">
@@ -148,24 +164,41 @@
                           </div>
                         {% endif %}
                         <h4>{{ article.title }}</h4>
-                        <span class="article-tag">{{ article.tags[0] }}</span>
+                        {% if article.tags != blank %}
+                          <span class="article-tag">{{ article.tags[0] }}</span>
+                        {% endif %}
                       </a>
-                    </li>
+                    </div>
                   {% endfor %}
               {% endcase %}
             {% endfor %}
-          </ul>
-          <div class="{% if articles.size > 4 %}no-space {% else %}added-space{% endif %} btn-wrapper">
-            <a href="{{ blog.url }}" class="m-btn">{{ section.settings.all_blog }}</a>
           </div>
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when 'blog_list' -%}
+                {% assign selected_blog = blogs[block.settings.select_blog] %}
+                {% for article in selected_blog.articles limit: 1 %}
+                  <div class="{% if selected_blog.articles_count > 4 %}no-space {% else %}less {% endif %} added-space btn-wrapper">
+                    <a href="{{ blog.url }}" class="m-btn">{{ section.settings.all_blog }}</a>
+                  </div>
+                {% endfor %}
+            {% endcase %}
+          {% endfor %}
         </div>
 
         <div id="videos-tab" class="tab-pane">
-          <ul class="owl-carousel {% if videos.size > 4 %}left-space {% else %}no-left-space{% endif %} videos-carousel">
+          {% assign count = 0 %}
+          {% for block in section.blocks %}
+            {%- case block.type -%}
+              {%- when 'videos' -%}
+                {% assign count = count | plus: 1 %}
+            {% endcase %}
+          {% endfor %}
+          <div class="owl-carousel {% if count < 5 %} less-4 {% endif %} {% if videos > 4 %}left-space {% else %}no-left-space{% endif %} videos-carousel">
             {%- for block in section.blocks -%}
               {%- case block.type -%}
                 {%- when 'videos' -%}
-                  <li class="item">
+                  <div class="item">
                     {% if block.settings.video_thumbnail != blank %}
                       <div class="image-section">
                         <picture>
@@ -213,10 +246,10 @@
                     {% if block.settings.video_title != blank %}
                       <h4>{{ block.settings.video_title }}</h4>
                     {% endif %}
-                  </li>
+                  </div>
               {% endcase %}
             {% endfor %}
-          </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -225,17 +258,18 @@
 <script>
   jQuery(document).ready(function ($) {
     $('.pages-carousel').owlCarousel({
+      items: 4,
       loop: false,
       margin: 0,
       nav: true,
-      nav: true,
       dots: true,
+      autoplay: false,
+      autoplayPauseOnHover: true,
       touchDrag: true,
       mouseDrag: true,
       smartSpeed: 600,
       touchDragThreshold: 5,
       mouseDragThreshold: 5,
-      center: true,
       navText: [
         "<span class='nav-arrow prev-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' fill='#fff' stroke='#E3DAD0'/><path d='m17 21-5-6 5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>",
         "<span class='nav-arrow next-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' transform='matrix(-1 0 0 1 30 0)' fill='#fff' stroke='#E3DAD0'/><path d='m13 21 5-6-5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>",
@@ -252,25 +286,24 @@
         },
         1160: {
           items: 4,
-        },
-        1600: {
-          items: 5,
         },
       },
     });
 
     $('.articles-carousel').owlCarousel({
+      items: 4,
+
       loop: false,
       margin: 0,
       nav: true,
-      nav: true,
       dots: true,
+      autoplay: false,
+      autoplayPauseOnHover: true,
       touchDrag: true,
       mouseDrag: true,
       smartSpeed: 600,
       touchDragThreshold: 5,
       mouseDragThreshold: 5,
-      center: true,
       navText: [
         "<span class='nav-arrow prev-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' fill='#fff' stroke='#E3DAD0'/><path d='m17 21-5-6 5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>",
         "<span class='nav-arrow next-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' transform='matrix(-1 0 0 1 30 0)' fill='#fff' stroke='#E3DAD0'/><path d='m13 21 5-6-5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>",
@@ -287,25 +320,24 @@
         },
         1160: {
           items: 4,
-        },
-        1600: {
-          items: 5,
         },
       },
     });
 
     $('.videos-carousel').owlCarousel({
+      items: 4,
+
       loop: false,
       margin: 0,
       nav: true,
-      nav: true,
       dots: true,
+      autoplay: false,
+      autoplayPauseOnHover: true,
       touchDrag: true,
       mouseDrag: true,
       smartSpeed: 600,
       touchDragThreshold: 5,
       mouseDragThreshold: 5,
-      center: true,
       navText: [
         "<span class='nav-arrow prev-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' fill='#fff' stroke='#E3DAD0'/><path d='m17 21-5-6 5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>",
         "<span class='nav-arrow next-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' transform='matrix(-1 0 0 1 30 0)' fill='#fff' stroke='#E3DAD0'/><path d='m13 21 5-6-5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>",
@@ -322,9 +354,6 @@
         },
         1160: {
           items: 4,
-        },
-        1600: {
-          items: 5,
         },
       },
     });
@@ -342,7 +371,7 @@
   });
 
   // dropdown
-  jQuery(document).ready(function ($) {
+  $(document).ready(function () {
     if ($(window).width() < 768) {
       $('.tab-section-with-slider .tab-dropdown').on('change', function () {
         var selectedTab = $(this).val(); // Get the value of the selected option
@@ -422,8 +451,8 @@
     {
       "type": "text",
       "id": "all_pages_text",
-      "label": "Pages button Text",
-      "default": "View all"
+      "label": "Pages Button Text",
+      "default": "View all Tips"
     },
     {
       "type": "text",

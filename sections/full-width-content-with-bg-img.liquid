@@ -1,5 +1,5 @@
 {% if section.settings.title %}
-  <section data-section-id="{{ section.id }}" class="m-divider nh-text-section">
+  <section data-section-id="{{ section.id }}" class="m-divider nh-text-section full-width-content-with-img-section">
     {% comment %}
       {% assign old_url = section.settings.image  | img_url: 'master' %}
       {% capture imageboss_url %}{% include 'imageboss' src:old_url, operation: 'width', size: '960', options: 'dpr:2' %}{% endcapture %}
