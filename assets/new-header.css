@@ -390,3 +390,7 @@ header .header-wrapper .ipad-none {
   font-weight: 500;
   line-height: normal;
 }
+.product-card .grid-product .yotpo .standalone-bottomline .star-clickable {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
