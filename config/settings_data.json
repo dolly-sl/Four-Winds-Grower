@@ -3374,6 +3374,13 @@
               "page_url": "shopify://pages/cane-berries-dropdown",
               "page_title": "Cane Berries"
             }
+          },
+          "videos_UABjqH": {
+            "type": "videos",
+            "settings": {
+              "video_title": "CA Grown: Farm To Fan. An Inside look at four winds growers",
+              "video_url": "https://www.youtube.com/watch?v=6DXrqU4zcTQ"
+            }
           }
         },
         "block_order": [
@@ -3382,7 +3389,8 @@
           "page_block_Q6Y39r",
           "page_block_cCztg8",
           "page_block_wPyMgb",
-          "page_block_gyhYkh"
+          "page_block_gyhYkh",
+          "videos_UABjqH"
         ],
         "settings": {
           "title": "FULL SIZE FRUIT. FULL SIZE FLAVOR.",
