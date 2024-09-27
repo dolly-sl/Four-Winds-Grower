@@ -908,9 +908,11 @@
   color: var(--nh-white-color);
   position: absolute;
   z-index: 3;
-  bottom: 0;
-  transform: translateY(50%);
-  right: calc(100vw / 2 - 1280px / 2);
+  /* bottom: 0; */
+  /* transform: translateY(50%); */
+  /* right: calc(100vw / 2 - 1280px / 2); */
+  top: -24px;
+  right: 80px;
   padding: 13px 5px;
   height: auto;
   letter-spacing: 0;
