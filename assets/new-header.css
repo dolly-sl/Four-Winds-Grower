@@ -289,6 +289,7 @@ header .header-wrapper .ipad-none {
     text-transform: capitalize;
     margin-top: 0;
     color: #443e37;
+    margin-bottom: 13px;
   }
   #flyout.mobile-menu
     .accordion-container
