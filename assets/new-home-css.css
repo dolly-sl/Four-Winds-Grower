@@ -845,6 +845,7 @@
   display: block;
   margin-bottom: 5px;
   order: 2;
+  font-family: avenir-medium, sans-serif !important;
 }
 #articles-tab .item a {
   display: flex;
