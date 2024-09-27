@@ -111,6 +111,8 @@ header .header-wrapper .col-sm-3 {
 }
 header .header-wrapper .m-nav_link-submenu.m-nav_link-submenu--shop {
   padding: 0 !important;
+  border-bottom: 1px solid #e3dad0;
+  box-shadow: none;
 }
 header .header-wrapper .ipad-none {
   display: inline-block;
