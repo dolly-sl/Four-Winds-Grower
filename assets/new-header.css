@@ -379,6 +379,11 @@ header .header-wrapper .ipad-none {
     right: auto;
   }
 }
+@media (max-width: 430px) {
+  body.announcement-visible {
+    padding-top: 172px;
+  }
+}
 
 .grid-product .yotpo .text-m {
   width: fit-content;
