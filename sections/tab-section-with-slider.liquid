@@ -102,7 +102,7 @@
               {% endcase %}
             {% endfor %}
           </div>
-          <div class="{% if pages_blocks.size > 4 %}no-space {% else %}added-space{% endif %} btn-wrapper">
+          <div class="{% if count < 5 %} less {% endif %} {% if pages_blocks.size > 4 %}no-space {% else %}added-space{% endif %} btn-wrapper">
             {% if section.settings.all_pages_url %}
               <a href="{{section.settings.all_pages_url}}" class="m-btn">{{ section.settings.all_pages_text }}</a>
             {% endif %}
