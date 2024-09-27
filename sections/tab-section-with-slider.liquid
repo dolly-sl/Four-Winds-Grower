@@ -115,10 +115,11 @@
               {%- when 'blog_list' -%}
                 {% assign selected_blog = blogs[block.settings.select_blog] %}
                 {% for article in selected_blog.articles limit: 1 %}
+                  {% assign count = selected_blog.articles_count %}
                 {% endfor %}
             {% endcase %}
           {% endfor %}
-          <div class="owl-carousel {% if articles.size > 4 %}left-space {% else %}no-left-space{% endif %} articles-carousel">
+          <div class="owl-carousel {{ count }} {% if articles.size > 4 %}left-space {% else %}no-left-space{% endif %} articles-carousel">
             {%- for block in section.blocks -%}
               {%- case block.type -%}
                 {%- when 'blog_list' -%}
