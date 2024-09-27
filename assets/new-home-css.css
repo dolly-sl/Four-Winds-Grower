@@ -1097,7 +1097,7 @@
     color: var(--nh-dark-color);
   }
   .tab-section-with-slider {
-    padding: 60px 0 40px;
+    padding: 60px 0 30px;
   }
   .tab-section-with-slider .owl-carousel .item h4 {
     font-size: 14px;
