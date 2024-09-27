@@ -838,6 +838,8 @@
   line-height: 150%;
   text-align: center;
   display: block;
+  margin-top: 20px;
+  order: 2;
 }
 .tab-section-with-slider .pages-carousel .item h4 {
   text-align: center;
