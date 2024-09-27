@@ -302,6 +302,7 @@ header .header-wrapper .ipad-none {
     font-family: avenir-medium, sans-serif !important;
     font-size: 14px;
     font-style: normal;
+    line-height: normal;
     font-weight: 500;
     text-transform: capitalize;
     margin-top: 0;
