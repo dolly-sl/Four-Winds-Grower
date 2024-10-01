@@ -1,7 +1,7 @@
 jQuery(document).ready(function ($) {
     // Hero banner
     $('.m-slider_landing .m-slider').owlCarousel({
-        center: true,
+        center: false,
         items: 2,
         loop: true,
         dots: true,
@@ -10,7 +10,7 @@ jQuery(document).ready(function ($) {
           "<span class='nav-arrow prev-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' fill='#fff' stroke='#E3DAD0'/><path d='m17 21-5-6 5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>",
           "<span class='nav-arrow next-arrow'><svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='15' r='14.5' transform='matrix(-1 0 0 1 30 0)' fill='#fff' stroke='#E3DAD0'/><path d='m13 21 5-6-5-6' stroke='#443E37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></span>",
         ],
-        autoWidth: true,
+        autoWidth:false,
         autoplay: true,
         autoplayPauseOnHover: true,
         touchDrag: true,
