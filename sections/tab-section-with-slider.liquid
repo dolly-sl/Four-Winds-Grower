@@ -413,6 +413,11 @@
     } else {
       $('.tab-section-with-slider #articles-tab').removeClass('active');
     }
+    if (datatab == 'articles-tab') {
+      $('.tab-section-with-slider #pages-tab').addClass('active');
+    } else {
+      $('.tab-section-with-slider #pages-tab').removeClass('active');
+    }
     $('.tab-section-with-slider .tab-nav li').click(function () {
       var tab_id = $(this).attr('data-tab');
 
