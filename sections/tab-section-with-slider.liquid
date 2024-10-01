@@ -71,7 +71,7 @@
       </div>
       <!-- Tab Content -->
       <div class="tab-content">
-        <div id="pages-tab" class="tab-pane active">
+        <div id="pages-tab" data-tab="pages-tab" class="tab-pane active">
           {% assign count = 0 %}
           {% for block in section.blocks %}
             {%- case block.type -%}
@@ -149,7 +149,7 @@
         </div>
       </div>
 
-      <div id="articles-tab" class="tab-pane">
+      <div id="articles-tab" data-tab="articles-tab" class="tab-pane">
         {%- for block in section.blocks -%}
           {%- case block.type -%}
             {%- when 'blog_list' -%}
@@ -226,7 +226,7 @@
         {% endfor %}
       </div>
 
-      <div id="videos-tab" class="tab-pane">
+      <div id="videos-tab" data-tab="videos-tab" class="tab-pane">
         {% assign count = 0 %}
         {% for block in section.blocks %}
           {%- case block.type -%}
