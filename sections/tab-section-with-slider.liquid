@@ -400,9 +400,13 @@
 
     // Tab navigation
     $('.tab-section-with-slider .tab-nav li').first().addClass('active');
-    var datatab = $('.tab-section-with-slider .tab-nav li').attr("data-tab");
-    var getid = $('.tab-content .tab-pane').attr("id");
-    if($(".tab-content" ).)
+    var datatab = $('.tab-section-with-slider .tab-nav li').first().addClass('active');
+    var getid = $('.tab-content .tab-pane').attr('id');
+    if ($(datatab == getid)) {
+      $('.tab-content .tab-pane').addClass('active');
+    } else {
+      $('.tab-content .tab-pane').removeClass('active');
+    }
     $('.tab-section-with-slider .tab-nav li').click(function () {
       var tab_id = $(this).attr('data-tab');
 
