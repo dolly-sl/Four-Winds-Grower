@@ -70,83 +70,82 @@
         </select>
       </div>
       <!-- Tab Content -->
-      <div class="tab-content">
-        <div id="pages-tab" class="tab-pane active">
-          {% assign count = 0 %}
-          {% for block in section.blocks %}
+
+      <div id="pages-tab" class="tab-pane active">
+        {% assign count = 0 %}
+        {% for block in section.blocks %}
+          {%- case block.type -%}
+            {%- when 'page_block' -%}
+              {% assign count = count | plus: 1 %}
+          {% endcase %}
+        {% endfor %}
+        <div class="owl-carousel {% if count < 5 %} less-4 {% endif %} {% if pages_blocks.size > 4 %}left-space {% else %}no-left-space{% endif %} pages-carousel">
+          {%- for block in section.blocks -%}
             {%- case block.type -%}
               {%- when 'page_block' -%}
-                {% assign count = count | plus: 1 %}
-            {% endcase %}
-          {% endfor %}
-          <div class="owl-carousel {% if count < 5 %} less-4 {% endif %} {% if pages_blocks.size > 4 %}left-space {% else %}no-left-space{% endif %} pages-carousel">
-            {%- for block in section.blocks -%}
-              {%- case block.type -%}
-                {%- when 'page_block' -%}
-                  <div class="item">
-                    <a href="{{ block.settings.page_url }}">
-                      {% if block.settings.page_image != blank %}
-                        <div class="image-section">
-                          <picture>
-                            <!-- Mobile and tablet sizes -->
-                            <source
-                              media="(max-width: 767px)"
-                              srcset="
-                                {{ block.settings.page_image | image_url: width: 375 }} 375w,
-                                {{ block.settings.page_image | image_url: width: 550 }} 550w,
-                                {{ block.settings.page_image | image_url: width: 750 }} 750w
-                              "
-                              sizes="100vw"
-                            >
+                <div class="item">
+                  <a href="{{ block.settings.page_url }}">
+                    {% if block.settings.page_image != blank %}
+                      <div class="image-section">
+                        <picture>
+                          <!-- Mobile and tablet sizes -->
+                          <source
+                            media="(max-width: 767px)"
+                            srcset="
+                              {{ block.settings.page_image | image_url: width: 375 }} 375w,
+                              {{ block.settings.page_image | image_url: width: 550 }} 550w,
+                              {{ block.settings.page_image | image_url: width: 750 }} 750w
+                            "
+                            sizes="100vw"
+                          >
 
-                            <!-- Desktop sizes -->
-                            <source
-                              media="(min-width: 768px)"
-                              srcset="
-                                {{ block.settings.page_image | image_url: width: 1000 }} 1000w,
-                                {{ block.settings.page_image | image_url: width: 1400 }} 1400w,
-                                {{ block.settings.page_image | image_url: width: 1800 }} 1800w,
-                                {{ block.settings.page_image | image_url: width: 2400 }} 2400w,
-                                {{ block.settings.page_image | image_url: width: 3000 }} 3000w
-                              "
-                              sizes="100vw"
-                            >
+                          <!-- Desktop sizes -->
+                          <source
+                            media="(min-width: 768px)"
+                            srcset="
+                              {{ block.settings.page_image | image_url: width: 1000 }} 1000w,
+                              {{ block.settings.page_image | image_url: width: 1400 }} 1400w,
+                              {{ block.settings.page_image | image_url: width: 1800 }} 1800w,
+                              {{ block.settings.page_image | image_url: width: 2400 }} 2400w,
+                              {{ block.settings.page_image | image_url: width: 3000 }} 3000w
+                            "
+                            sizes="100vw"
+                          >
 
-                            <!-- Fallback image -->
-                            {{
-                              block.settings.page_image
-                              | image_url: width: 1800
-                              | image_tag:
-                                loading: 'lazy',
-                                width: block.settings.page_image.width,
-                                height: block.settings.page_image.height
-                            }}
-                          </picture>
-                        </div>
-                      {% endif %}
-
-                      {% if block.settings.page_title != blank %}
-                        <h4>{{ block.settings.page_title }}</h4>
-                      {% endif %}
-                    </a>
-                  </div>
-              {% endcase %}
-            {% endfor %}
-          </div>
-          {% for block in section.blocks limit: 1 %}
-            {%- case block.type -%}
-              {%- when 'page_block' -%}
-                {% if section.blocks.size > 0 %}
-                  <div class="{% if count < 5 %} less {% endif %} {% if pages_blocks.size > 4 %}no-space {% else %}added-space{% endif %} btn-wrapper">
-                    {% if section.settings.all_pages_url %}
-                      <a href="{{section.settings.all_pages_url}}" class="m-btn">
-                        {{- section.settings.all_pages_text -}}
-                      </a>
+                          <!-- Fallback image -->
+                          {{
+                            block.settings.page_image
+                            | image_url: width: 1800
+                            | image_tag:
+                              loading: 'lazy',
+                              width: block.settings.page_image.width,
+                              height: block.settings.page_image.height
+                          }}
+                        </picture>
+                      </div>
                     {% endif %}
-                {% endif %}
+
+                    {% if block.settings.page_title != blank %}
+                      <h4>{{ block.settings.page_title }}</h4>
+                    {% endif %}
+                  </a>
+                </div>
             {% endcase %}
           {% endfor %}
         </div>
+        {% for block in section.blocks limit: 1 %}
+          {%- case block.type -%}
+            {%- when 'page_block' -%}
+              {% if section.blocks.size > 0 %}
+                <div class="{% if count < 5 %} less {% endif %} {% if pages_blocks.size > 4 %}no-space {% else %}added-space{% endif %} btn-wrapper">
+                  {% if section.settings.all_pages_url %}
+                    <a href="{{section.settings.all_pages_url}}" class="m-btn">
+                      {{- section.settings.all_pages_text -}}
+                    </a>
+                  {% endif %}
+              {% endif %}
+          {% endcase %}
+        {% endfor %}
       </div>
 
       <div id="articles-tab" class="tab-pane">
