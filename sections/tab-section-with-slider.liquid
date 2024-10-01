@@ -19,7 +19,7 @@
           {% for block in section.blocks limit: 1 %}
             {%- case block.type -%}
               {%- when 'page_block' -%}
-                {% if section.blocks.size > 0 %}
+                {% if block.settings.page_title != blank %}
                   {% if section.settings.pages_tab_title != blank %}
                     <li class="active" data-tab="pages-tab">{{ section.settings.pages_tab_title }}</li>
                   {% endif %}
@@ -50,10 +50,10 @@
         </ul>
 
         <select class="tab-dropdown">
-          {% for block in section.blocks limit: 1 %}
+          {% for block in section.blocks %}
             {%- case block.type -%}
               {%- when 'page_block' -%}
-                {% if section.blocks.size > 0 %}
+                {% if block.settings.page_title != blank %}
                   {% if section.settings.pages_tab_title != blank %}
                     <option value="pages-tab">{{ section.settings.pages_tab_title }}</option>
                   {% endif %}
