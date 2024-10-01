@@ -402,13 +402,13 @@
     $('.tab-section-with-slider .tab-nav li').first().addClass('active');
     var datatab = $('.tab-section-with-slider .tab-nav li').first().attr('data-tab');
     var getid = $('.tab-content .tab-pane').attr('id');
-
-    if ($(datatab == 'videos-tab')) {
+    console.log(datatab);
+    if (datatab == 'videos-tab') {
       $('.tab-section-with-slider #videos-tab').addClass('active');
     } else {
       $('.tab-section-with-slider #videos-tab').removeClass('active');
     }
-    if ($(datatab == 'articles-tab')) {
+    if (datatab == 'articles-tab') {
       $('.tab-section-with-slider #articles-tab').addClass('active');
     } else {
       $('.tab-section-with-slider #articles-tab').removeClass('active');
