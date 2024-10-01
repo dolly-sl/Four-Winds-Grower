@@ -43,9 +43,16 @@
         </ul>
 
         <select class="tab-dropdown">
-          {% if section.settings.pages_tab_title != blank %}
-            <option value="pages-tab">{{ section.settings.pages_tab_title }}</option>
-          {% endif %}
+          {% for block in section.blocks limit: 1 %}
+            {%- case block.type -%}
+              {%- when 'page_block' -%}
+                {% if section.blocks.size > 0 %}
+                  {% if section.settings.pages_tab_title != blank %}
+                    <option value="pages-tab">{{ section.settings.pages_tab_title }}</option>
+                  {% endif %}
+                {% endif %}
+            {% endcase %}
+          {% endfor %}
           {%- for block in section.blocks -%}
             {%- case block.type -%}
               {%- when 'blog_list' -%}
@@ -117,21 +124,16 @@
                           </picture>
                         </div>
                       {% endif %}
-                      {% for block in section.blocks limit: 1 %}
-                        {%- case block.type -%}
-                          {%- when 'page_block' -%}
-                            {% if section.blocks.size > 0 %}
-                              {% if block.settings.page_title != blank %}
-                                <h4>{{ block.settings.page_title }}</h4>
-                              {% endif %}
-                            {% endif %}
-                        {% endcase %}
-                      {% endfor %}
+
+                      {% if block.settings.page_title != blank %}
+                        <h4>{{ block.settings.page_title }}</h4>
+                      {% endif %}
                     </a>
                   </div>
               {% endcase %}
             {% endfor %}
           </div>
+
           <div class="{% if count < 5 %} less {% endif %} {% if pages_blocks.size > 4 %}no-space {% else %}added-space{% endif %} btn-wrapper">
             {% if section.settings.all_pages_url %}
               <a href="{{section.settings.all_pages_url}}" class="m-btn">{{ section.settings.all_pages_text }}</a>
