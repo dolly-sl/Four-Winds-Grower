@@ -447,7 +447,7 @@
   }); {% endcomment %}
 
   // dropdown
-  $(document).ready(function () {
+  {% comment %} $(document).ready(function () {
     if ($(window).width() < 768) {
       $('.tab-section-with-slider .tab-dropdown').on('change', function () {
         var selectedTab = $(this).val(); // Get the value of the selected option
@@ -465,7 +465,7 @@
         }
       });
     }
-  });
+  }); {% endcomment %}
 </script>
 
 {% schema %}

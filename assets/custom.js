@@ -129,6 +129,7 @@ $(document).ready(function() {
       $(this).addClass('active');
       $('#' + tab_id).addClass('active');
     });
+    // dropdown
     if ($(window).width() < 768) {
         $('.tab-section-with-slider .tab-dropdown').on('change', function () {
           var selectedTab = $(this).val(); // Get the value of the selected option
