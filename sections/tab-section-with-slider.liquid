@@ -117,9 +117,16 @@
                           </picture>
                         </div>
                       {% endif %}
-                      {% if block.settings.page_title != blank %}
-                        <h4>{{ block.settings.page_title }}</h4>
-                      {% endif %}
+                      {% for block in section.blocks limit: 1 %}
+                        {%- case block.type -%}
+                          {%- when 'page_block' -%}
+                            {% if section.blocks.size > 0 %}
+                              {% if block.settings.page_title != blank %}
+                                <h4>{{ block.settings.page_title }}</h4>
+                              {% endif %}
+                            {% endif %}
+                        {% endcase %}
+                      {% endfor %}
                     </a>
                   </div>
               {% endcase %}
