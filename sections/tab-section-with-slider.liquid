@@ -32,7 +32,7 @@
                 {% assign selected_blog = blogs[block.settings.select_blog] %}
                 {% if selected_blog != blank %}
                   {% if section.settings.articles_tab_title != blank %}
-                    <li datatab="articles-tab">{{ section.settings.articles_tab_title }}</li>
+                    <li data-tab="articles-tab">{{ section.settings.articles_tab_title }}</li>
                   {% endif %}
                 {% endif %}
             {% endcase %}
