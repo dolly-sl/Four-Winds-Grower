@@ -3376,6 +3376,7 @@
           },
           "videos_UABjqH": {
             "type": "videos",
+            "disabled": true,
             "settings": {
               "video_title": "CA Grown: Farm To Fan. An Inside look at four winds growers",
               "video_thumbnail": "shopify://shop_images/fields.webp",
@@ -3384,6 +3385,7 @@
           },
           "videos_F8HBXH": {
             "type": "videos",
+            "disabled": true,
             "settings": {
               "video_title": "IV ORGANIC: How To Grow Fruit Trees (CITRUS) In Containers",
               "video_thumbnail": "shopify://shop_images/How_To_Grow_Fruit_Trees_CITRUS_In_Containers.png",
@@ -3392,6 +3394,7 @@
           },
           "videos_PirAmz": {
             "type": "videos",
+            "disabled": true,
             "settings": {
               "video_title": "How We Ship Bare Root Fruit Trees to Your Door",
               "video_thumbnail": "shopify://shop_images/How_We_Ship_Bare_Root_Fruit_Trees_to_Your_Door.png",
@@ -3400,10 +3403,18 @@
           },
           "videos_84PM6e": {
             "type": "videos",
+            "disabled": true,
             "settings": {
               "video_title": "How to Make Primo Potting Mix",
               "video_thumbnail": "shopify://shop_images/image_29.png",
               "video_url": "https://www.youtube.com/watch?v=nnraZ5BxnSk"
+            }
+          },
+          "blog_list_zD6WTJ": {
+            "type": "blog_list",
+            "disabled": true,
+            "settings": {
+              "select_blog": "four-winds-growing"
             }
           }
         },
@@ -3416,7 +3427,8 @@
           "videos_UABjqH",
           "videos_F8HBXH",
           "videos_PirAmz",
-          "videos_84PM6e"
+          "videos_84PM6e",
+          "blog_list_zD6WTJ"
         ],
         "settings": {
           "title": "FULL SIZE FRUIT. FULL SIZE FLAVOR.",
