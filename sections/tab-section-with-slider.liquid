@@ -19,9 +19,17 @@
           {% if section.settings.pages_tab_title != blank %}
             <li class="active" data-tab="pages-tab">{{ section.settings.pages_tab_title }}</li>
           {% endif %}
-          {% if section.settings.articles_tab_title != blank %}
-            <li data-tab="articles-tab">{{ section.settings.articles_tab_title }}</li>
-          {% endif %}
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when 'blog_list' -%}
+                {% assign selected_blog = blogs[block.settings.select_blog] %}
+                {% if selected_blog != blank %}
+                  {% if section.settings.articles_tab_title != blank %}
+                    <option value="articles-tab">{{ section.settings.articles_tab_title }}</option>
+                  {% endif %}
+                {% endif %}
+            {% endcase %}
+          {% endfor %}
           {% if section.settings.videos_tab_title != blank %}
             <li data-tab="videos-tab">{{ section.settings.videos_tab_title }}</li>
           {% endif %}
