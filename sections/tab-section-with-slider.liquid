@@ -16,32 +16,79 @@
     <div class="tab-section">
       <div class="container l-text_center">
         <ul class="tab-nav">
-          {% if section.settings.pages_tab_title != blank %}
-            <li class="active" data-tab="pages-tab">{{ section.settings.pages_tab_title }}</li>
+          {% for block in section.blocks %}
+            {%- case block.type -%}
+              {%- when 'page_block' -%}
+                {% assign title = block.settings.page_title %}
+            {% endcase %}
+          {% endfor %}
+          {% if title != blank %}
+            {% if section.settings.pages_tab_title != blank %}
+              <li class="active" data-tab="pages-tab">{{ section.settings.pages_tab_title }}</li>
+            {% endif %}
           {% endif %}
-          {% if section.settings.articles_tab_title != blank %}
-            <li data-tab="articles-tab">{{ section.settings.articles_tab_title }}</li>
-          {% endif %}
-          {% if section.settings.videos_tab_title != blank %}
-            <li data-tab="videos-tab">{{ section.settings.videos_tab_title }}</li>
+
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when 'blog_list' -%}
+                {% assign selected_blog = blogs[block.settings.select_blog] %}
+                {% if selected_blog != blank %}
+                  {% if section.settings.articles_tab_title != blank %}
+                    <li data-tab="articles-tab">{{ section.settings.articles_tab_title }}</li>
+                  {% endif %}
+                {% endif %}
+            {% endcase %}
+          {% endfor %}
+          {% for block in section.blocks %}
+            {%- case block.type -%}
+              {%- when 'videos' -%}
+                {% assign videolink = block.settings.video_url %}
+            {% endcase %}
+          {% endfor %}
+          {% if videolink != blank %}
+            {% if section.settings.videos_tab_title != blank %}
+              <li data-tab="videos-tab">{{ section.settings.videos_tab_title }}</li>
+            {% endif %}
           {% endif %}
         </ul>
 
         <select class="tab-dropdown">
-          {% if section.settings.pages_tab_title != blank %}
-            <option value="pages-tab">{{ section.settings.pages_tab_title }}</option>
-          {% endif %}
-          {% if section.settings.articles_tab_title != blank %}
-            <option value="articles-tab">{{ section.settings.articles_tab_title }}</option>
-          {% endif %}
-          {% if section.settings.videos_tab_title != blank %}
-            <option value="videos-tab">{{ section.settings.videos_tab_title }}</option>
-          {% endif %}
+          {% for block in section.blocks limit: 1 %}
+            {%- case block.type -%}
+              {%- when 'page_block' -%}
+                {% if block.settings.page_title != blank %}
+                  {% if section.settings.pages_tab_title != blank %}
+                    <option value="pages-tab">{{ section.settings.pages_tab_title }}</option>
+                  {% endif %}
+                {% endif %}
+            {% endcase %}
+          {% endfor %}
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when 'blog_list' -%}
+                {% assign selected_blog = blogs[block.settings.select_blog] %}
+                {% if selected_blog != blank %}
+                  {% if section.settings.articles_tab_title != blank %}
+                    <option value="articles-tab">{{ section.settings.articles_tab_title }}</option>
+                  {% endif %}
+                {% endif %}
+            {% endcase %}
+          {% endfor %}
+          {% for block in section.blocks limit: 1 %}
+            {%- case block.type -%}
+              {%- when 'videos' -%}
+                {% if block.settings.video_url %}
+                  {% if section.settings.videos_tab_title != blank %}
+                    <option value="videos-tab">{{ section.settings.videos_tab_title }}</option>
+                  {% endif %}
+                {% endif %}
+            {% endcase %}
+          {% endfor %}
         </select>
       </div>
       <!-- Tab Content -->
       <div class="tab-content">
-        <div id="pages-tab" class="tab-pane active">
+        <div id="pages-tab" data-tab="pages-tab" class="tab-pane active">
           {% assign count = 0 %}
           {% for block in section.blocks %}
             {%- case block.type -%}
@@ -94,6 +141,7 @@
                           </picture>
                         </div>
                       {% endif %}
+
                       {% if block.settings.page_title != blank %}
                         <h4>{{ block.settings.page_title }}</h4>
                       {% endif %}
@@ -102,161 +150,170 @@
               {% endcase %}
             {% endfor %}
           </div>
-          <div class="{% if count < 5 %} less {% endif %} {% if pages_blocks.size > 4 %}no-space {% else %}added-space{% endif %} btn-wrapper">
-            {% if section.settings.all_pages_url %}
-              <a href="{{section.settings.all_pages_url}}" class="m-btn">{{ section.settings.all_pages_text }}</a>
-            {% endif %}
-          </div>
-        </div>
-
-        <div id="articles-tab" class="tab-pane">
-          {%- for block in section.blocks -%}
+          {% for block in section.blocks limit: 1 %}
             {%- case block.type -%}
-              {%- when 'blog_list' -%}
-                {% assign selected_blog = blogs[block.settings.select_blog] %}
-                {% for article in selected_blog.articles limit: 1 %}
-                  {% assign count = selected_blog.articles_count %}
-                {% endfor %}
+              {%- when 'page_block' -%}
+                {% if section.blocks.size > 0 %}
+                  <div class="{% if count < 5 %} less {% endif %} {% if pages_blocks.size > 4 %}no-space {% else %}added-space{% endif %} btn-wrapper">
+                    {% if section.settings.all_pages_url %}
+                      <a href="{{section.settings.all_pages_url}}" class="m-btn">
+                        {{- section.settings.all_pages_text -}}
+                      </a>
+                    {% endif %}
+                {% endif %}
             {% endcase %}
           {% endfor %}
-          <div class="owl-carousel {% if count < 5 %} less-4 {% endif %}   {% if articles.size > 4 %}left-space {% else %}no-left-space{% endif %} articles-carousel">
-            {%- for block in section.blocks -%}
-              {%- case block.type -%}
-                {%- when 'blog_list' -%}
-                  {% assign selected_blog = blogs[block.settings.select_blog] %}
-                  {% for article in selected_blog.articles %}
-                    <div class="item">
-                      <a href="{{ article.url }}" title="{{ article.title }}">
-                        {% if article.image != blank %}
-                          <div class="image-section">
-                            <picture>
-                              <!-- Mobile and tablet sizes -->
-                              <source
-                                media="(max-width: 767px)"
-                                srcset="
-                                  {{ article.image | image_url: width: 375 }} 375w,
-                                  {{ article.image | image_url: width: 550 }} 550w,
-                                  {{ article.image | image_url: width: 750 }} 750w
-                                "
-                                sizes="100vw"
-                              >
+        </div>
+      </div>
 
-                              <!-- Desktop sizes -->
-                              <source
-                                media="(min-width: 768px)"
-                                srcset="
-                                  {{ article.image | image_url: width: 1000 }} 1000w,
-                                  {{ article.image | image_url: width: 1400 }} 1400w,
-                                  {{ article.image | image_url: width: 1800 }} 1800w,
-                                  {{ article.image | image_url: width: 2400 }} 2400w,
-                                  {{ article.image | image_url: width: 3000 }} 3000w
-                                "
-                                sizes="100vw"
-                              >
-
-                              <!-- Fallback image -->
-                              {{
-                                article.image
-                                | image_url: width: 1800
-                                | image_tag: loading: 'lazy', width: article.image.width, height: article.image.height
-                              }}
-                            </picture>
-                          </div>
-                        {% endif %}
-                        <h4>{{ article.title }}</h4>
-                        {% if article.tags != blank %}
-                          <span class="article-tag">{{ article.tags[0] }}</span>
-                        {% endif %}
-                      </a>
-                    </div>
-                  {% endfor %}
-              {% endcase %}
-            {% endfor %}
-          </div>
+      <div id="articles-tab" data-tab="articles-tab" class="tab-pane">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'blog_list' -%}
+              {% assign selected_blog = blogs[block.settings.select_blog] %}
+              {% for article in selected_blog.articles limit: 1 %}
+                {% assign count = selected_blog.articles_count %}
+              {% endfor %}
+          {% endcase %}
+        {% endfor %}
+        <div class="owl-carousel {% if count < 5 %} less-4 {% endif %}   {% if articles.size > 4 %}left-space {% else %}no-left-space{% endif %} articles-carousel">
           {%- for block in section.blocks -%}
             {%- case block.type -%}
               {%- when 'blog_list' -%}
                 {% assign selected_blog = blogs[block.settings.select_blog] %}
-                {% for article in selected_blog.articles limit: 1 %}
-                  <div class="{% if selected_blog.articles_count > 4 %}no-space {% else %}less {% endif %} added-space btn-wrapper">
-                    <a href="{{ blog.url }}" class="m-btn">{{ section.settings.all_blog }}</a>
+                {% for article in selected_blog.articles %}
+                  <div class="item">
+                    <a href="{{ article.url }}" title="{{ article.title }}">
+                      {% if article.image != blank %}
+                        <div class="image-section">
+                          <picture>
+                            <!-- Mobile and tablet sizes -->
+                            <source
+                              media="(max-width: 767px)"
+                              srcset="
+                                {{ article.image | image_url: width: 375 }} 375w,
+                                {{ article.image | image_url: width: 550 }} 550w,
+                                {{ article.image | image_url: width: 750 }} 750w
+                              "
+                              sizes="100vw"
+                            >
+
+                            <!-- Desktop sizes -->
+                            <source
+                              media="(min-width: 768px)"
+                              srcset="
+                                {{ article.image | image_url: width: 1000 }} 1000w,
+                                {{ article.image | image_url: width: 1400 }} 1400w,
+                                {{ article.image | image_url: width: 1800 }} 1800w,
+                                {{ article.image | image_url: width: 2400 }} 2400w,
+                                {{ article.image | image_url: width: 3000 }} 3000w
+                              "
+                              sizes="100vw"
+                            >
+
+                            <!-- Fallback image -->
+                            {{
+                              article.image
+                              | image_url: width: 1800
+                              | image_tag: loading: 'lazy', width: article.image.width, height: article.image.height
+                            }}
+                          </picture>
+                        </div>
+                      {% endif %}
+                      <h4>{{ article.title }}</h4>
+                      {% if article.tags != blank %}
+                        <span class="article-tag">{{ article.tags[0] }}</span>
+                      {% endif %}
+                    </a>
                   </div>
                 {% endfor %}
             {% endcase %}
           {% endfor %}
         </div>
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'blog_list' -%}
+              {% assign selected_blog = blogs[block.settings.select_blog] %}
+              {% for article in selected_blog.articles limit: 1 %}
+                <div class="{% if selected_blog.articles_count > 4 %}no-space {% else %}less {% endif %} added-space btn-wrapper">
+                  <a href="{{ blog.url }}" class="m-btn">{{ section.settings.all_blog }}</a>
+                </div>
+              {% endfor %}
+          {% endcase %}
+        {% endfor %}
+      </div>
 
-        <div id="videos-tab" class="tab-pane">
-          {% assign count = 0 %}
-          {% for block in section.blocks %}
+      <div id="videos-tab" data-tab="videos-tab" class="tab-pane">
+        {% assign count = 0 %}
+        {% for block in section.blocks %}
+          {%- case block.type -%}
+            {%- when 'videos' -%}
+              {% assign count = count | plus: 1 %}
+          {% endcase %}
+        {% endfor %}
+        <div class="owl-carousel {% if count < 5 %} less-4 {% endif %} {% if videos > 4 %}left-space {% else %}no-left-space{% endif %} videos-carousel">
+          {%- for block in section.blocks -%}
             {%- case block.type -%}
               {%- when 'videos' -%}
-                {% assign count = count | plus: 1 %}
+                <div class="item">
+                  {% if block.settings.video_thumbnail != blank %}
+                    <div class="image-section">
+                      <picture>
+                        <!-- Mobile and tablet sizes -->
+                        <source
+                          media="(max-width: 767px)"
+                          srcset="
+                            {{ block.settings.video_thumbnail | image_url: width: 375 }} 375w,
+                            {{ block.settings.video_thumbnail | image_url: width: 550 }} 550w,
+                            {{ block.settings.video_thumbnail | image_url: width: 750 }} 750w
+                          "
+                          sizes="100vw"
+                        >
+
+                        <!-- Desktop sizes -->
+                        <source
+                          media="(min-width: 768px)"
+                          srcset="
+                            {{ block.settings.video_thumbnail | image_url: width: 1000 }} 1000w,
+                            {{ block.settings.video_thumbnail | image_url: width: 1400 }} 1400w,
+                            {{ block.settings.video_thumbnail | image_url: width: 1800 }} 1800w,
+                            {{ block.settings.video_thumbnail | image_url: width: 2400 }} 2400w,
+                            {{ block.settings.video_thumbnail | image_url: width: 3000 }} 3000w
+                          "
+                          sizes="100vw"
+                        >
+
+                        <!-- Fallback image -->
+                        {{
+                          block.settings.video_thumbnail
+                          | image_url: width: 1800
+                          | image_tag:
+                            loading: 'lazy',
+                            width: block.settings.video_thumbnail.width,
+                            height: block.settings.video_thumbnail.height
+                        }}
+                      </picture>
+                      {% if block.settings.video_url != blank %}
+                        <a data-fancybox class="play-btn" href="{{ block.settings.video_url }}">
+                          {%- render 'icon-play' -%}
+                        </a>
+                      {% endif %}
+                    </div>
+                  {% endif %}
+                  {% if block.settings.video_title != blank %}
+                    <h4>{{ block.settings.video_title }}</h4>
+                  {% endif %}
+                </div>
             {% endcase %}
           {% endfor %}
-          <div class="owl-carousel {% if count < 5 %} less-4 {% endif %} {% if videos > 4 %}left-space {% else %}no-left-space{% endif %} videos-carousel">
-            {%- for block in section.blocks -%}
-              {%- case block.type -%}
-                {%- when 'videos' -%}
-                  <div class="item">
-                    {% if block.settings.video_thumbnail != blank %}
-                      <div class="image-section">
-                        <picture>
-                          <!-- Mobile and tablet sizes -->
-                          <source
-                            media="(max-width: 767px)"
-                            srcset="
-                              {{ block.settings.video_thumbnail | image_url: width: 375 }} 375w,
-                              {{ block.settings.video_thumbnail | image_url: width: 550 }} 550w,
-                              {{ block.settings.video_thumbnail | image_url: width: 750 }} 750w
-                            "
-                            sizes="100vw"
-                          >
-
-                          <!-- Desktop sizes -->
-                          <source
-                            media="(min-width: 768px)"
-                            srcset="
-                              {{ block.settings.video_thumbnail | image_url: width: 1000 }} 1000w,
-                              {{ block.settings.video_thumbnail | image_url: width: 1400 }} 1400w,
-                              {{ block.settings.video_thumbnail | image_url: width: 1800 }} 1800w,
-                              {{ block.settings.video_thumbnail | image_url: width: 2400 }} 2400w,
-                              {{ block.settings.video_thumbnail | image_url: width: 3000 }} 3000w
-                            "
-                            sizes="100vw"
-                          >
-
-                          <!-- Fallback image -->
-                          {{
-                            block.settings.video_thumbnail
-                            | image_url: width: 1800
-                            | image_tag:
-                              loading: 'lazy',
-                              width: block.settings.video_thumbnail.width,
-                              height: block.settings.video_thumbnail.height
-                          }}
-                        </picture>
-                        {% if block.settings.video_url != blank %}
-                          <a data-fancybox class="play-btn" href="{{ block.settings.video_url }}">
-                            {%- render 'icon-play' -%}
-                          </a>
-                        {% endif %}
-                      </div>
-                    {% endif %}
-                    {% if block.settings.video_title != blank %}
-                      <h4>{{ block.settings.video_title }}</h4>
-                    {% endif %}
-                  </div>
-              {% endcase %}
-            {% endfor %}
-          </div>
         </div>
       </div>
     </div>
   </div>
+  </div>
 {% endif %}
 <script>
-  jQuery(document).ready(function ($) {
+  {% comment %} jQuery(document).ready(function ($) {
     $('.pages-carousel').owlCarousel({
       items: 4,
       loop: false,
@@ -359,6 +416,25 @@
     });
 
     // Tab navigation
+    $('.tab-section-with-slider .tab-nav li').first().addClass('active');
+    var datatab = $('.tab-section-with-slider .tab-nav li').first().attr('data-tab');
+    var getid = $('.tab-content .tab-pane').attr('id');
+    console.log(datatab);
+    if (datatab == 'videos-tab') {
+      $('.tab-section-with-slider #videos-tab').addClass('active');
+    } else {
+      $('.tab-section-with-slider #videos-tab').removeClass('active');
+    }
+    if (datatab == 'articles-tab') {
+      $('.tab-section-with-slider #articles-tab').addClass('active');
+    } else {
+      $('.tab-section-with-slider #articles-tab').removeClass('active');
+    }
+    if (datatab == 'pages-tab') {
+      $('.tab-section-with-slider #pages-tab').addClass('active');
+    } else {
+      $('.tab-section-with-slider #pages-tab').removeClass('active');
+    }
     $('.tab-section-with-slider .tab-nav li').click(function () {
       var tab_id = $(this).attr('data-tab');
 
@@ -368,10 +444,10 @@
       $(this).addClass('active');
       $('#' + tab_id).addClass('active');
     });
-  });
+  }); {% endcomment %}
 
   // dropdown
-  $(document).ready(function () {
+  {% comment %} $(document).ready(function () {
     if ($(window).width() < 768) {
       $('.tab-section-with-slider .tab-dropdown').on('change', function () {
         var selectedTab = $(this).val(); // Get the value of the selected option
@@ -389,7 +465,7 @@
         }
       });
     }
-  });
+  }); {% endcomment %}
 </script>
 
 {% schema %}
