@@ -71,7 +71,7 @@
                 {% endif %}
             {% endcase %}
           {% endfor %}
-          {% for block in section.blocks limit: 1 %}
+          {% for block in section.blocks %}
             {%- case block.type -%}
               {%- when 'videos' -%}
                 {% if section.blocks.size > 0 %}
