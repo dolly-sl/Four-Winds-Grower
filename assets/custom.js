@@ -129,6 +129,23 @@ $(document).ready(function() {
       $(this).addClass('active');
       $('#' + tab_id).addClass('active');
     });
+    if ($(window).width() < 768) {
+        $('.tab-section-with-slider .tab-dropdown').on('change', function () {
+          var selectedTab = $(this).val(); // Get the value of the selected option
+          $('.tab-section-with-slider .tab-content > div').removeClass('active').hide();
+          $('#' + selectedTab)
+            .addClass('active')
+            .show();
+        });
+  
+        $('.tab-section-with-slider .tab-content > div').each(function (index) {
+          if (index === 0) {
+            $(this).addClass('active').show(); // Show the first tab
+          } else {
+            $(this).hide();
+          }
+        });
+      }
 
 
 
