@@ -400,7 +400,7 @@
 
     // Tab navigation
     $('.tab-section-with-slider .tab-nav li').first().addClass('active');
-    var datatab = $('.tab-section-with-slider .tab-nav li').first().addClass('active');
+    var datatab = $('.tab-section-with-slider .tab-nav li').first().attr('data-tab');
     var getid = $('.tab-content .tab-pane').attr('id');
 
     if ($(datatab == 'videos-tab')) {
