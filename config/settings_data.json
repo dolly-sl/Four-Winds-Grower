@@ -3329,12 +3329,6 @@
       "tab_section_with_slider_UdaXbz": {
         "type": "tab-section-with-slider",
         "blocks": {
-          "blog_list_36htFG": {
-            "type": "blog_list",
-            "settings": {
-              "select_blog": "four-winds-growing"
-            }
-          },
           "page_block_8zyEFq": {
             "type": "page_block",
             "settings": {
@@ -3409,7 +3403,6 @@
           }
         },
         "block_order": [
-          "blog_list_36htFG",
           "page_block_8zyEFq",
           "page_block_Q6Y39r",
           "page_block_cCztg8",
