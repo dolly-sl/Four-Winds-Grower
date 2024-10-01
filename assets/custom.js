@@ -1,4 +1,4 @@
-$(document).ready(function() {
+jQuery(document).ready(function ($) {
     $('.pages-carousel').owlCarousel({
       items: 4,
       loop: false,
