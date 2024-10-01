@@ -3331,14 +3331,12 @@
         "blocks": {
           "blog_list_zD6WTJ": {
             "type": "blog_list",
-            "disabled": true,
             "settings": {
               "select_blog": "four-winds-growing"
             }
           },
           "page_block_8zyEFq": {
             "type": "page_block",
-            "disabled": true,
             "settings": {
               "page_image": "shopify://shop_images/fresh-citrus-satisfied-customers.jpg",
               "page_url": "shopify://pages/citrus-variety-info-chart",
@@ -3347,7 +3345,6 @@
           },
           "page_block_Q6Y39r": {
             "type": "page_block",
-            "disabled": true,
             "settings": {
               "page_image": "shopify://shop_images/fig.png",
               "page_url": "shopify://pages/figs-dropdown",
@@ -3356,7 +3353,6 @@
           },
           "page_block_cCztg8": {
             "type": "page_block",
-            "disabled": true,
             "settings": {
               "page_image": "shopify://shop_images/Avocado.png",
               "page_url": "shopify://pages/avocado-dropdown",
@@ -3365,7 +3361,6 @@
           },
           "page_block_wPyMgb": {
             "type": "page_block",
-            "disabled": true,
             "settings": {
               "page_image": "shopify://shop_images/Olives.png",
               "page_url": "shopify://pages/olives-dropdown",
@@ -3374,7 +3369,6 @@
           },
           "page_block_gyhYkh": {
             "type": "page_block",
-            "disabled": true,
             "settings": {
               "page_image": "shopify://shop_images/berries_growingberries.jpg",
               "page_url": "shopify://pages/cane-berries-dropdown",
@@ -3383,7 +3377,6 @@
           },
           "videos_84PM6e": {
             "type": "videos",
-            "disabled": true,
             "settings": {
               "video_title": "How to Make Primo Potting Mix",
               "video_thumbnail": "shopify://shop_images/image_29.png",
@@ -3392,7 +3385,6 @@
           },
           "videos_UABjqH": {
             "type": "videos",
-            "disabled": true,
             "settings": {
               "video_title": "CA Grown: Farm To Fan. An Inside look at four winds growers",
               "video_thumbnail": "shopify://shop_images/fields.webp",
@@ -3401,7 +3393,6 @@
           },
           "videos_F8HBXH": {
             "type": "videos",
-            "disabled": true,
             "settings": {
               "video_title": "IV ORGANIC: How To Grow Fruit Trees (CITRUS) In Containers",
               "video_thumbnail": "shopify://shop_images/How_To_Grow_Fruit_Trees_CITRUS_In_Containers.png",
@@ -3410,7 +3401,6 @@
           },
           "videos_PirAmz": {
             "type": "videos",
-            "disabled": true,
             "settings": {
               "video_title": "How We Ship Bare Root Fruit Trees to Your Door",
               "video_thumbnail": "shopify://shop_images/How_We_Ship_Bare_Root_Fruit_Trees_to_Your_Door.png",
