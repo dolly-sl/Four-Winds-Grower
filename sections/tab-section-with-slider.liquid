@@ -74,7 +74,7 @@
           {% for block in section.blocks limit: 1 %}
             {%- case block.type -%}
               {%- when 'videos' -%}
-                {% if section.blocks.size > 0 %}
+                {% if block.settings.video_url %}
                   {% if section.settings.videos_tab_title != blank %}
                     <option value="videos-tab">{{ section.settings.videos_tab_title }}</option>
                   {% endif %}
