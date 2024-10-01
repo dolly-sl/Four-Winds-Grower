@@ -266,7 +266,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: auto !important;
+  /* width: auto !important; */
 }
 .home-hero-slider .image-section {
   width: 100%;
