@@ -22,8 +22,10 @@
                 {% assign title = block.settings.page_title %}
             {% endcase %}
           {% endfor %}
-          {% if section.settings.pages_tab_title != blank %}
-            <li class="active" data-tab="pages-tab">{{ section.settings.pages_tab_title }}</li>
+          {% if title != blank %}
+            {% if section.settings.pages_tab_title != blank %}
+              <li class="active" data-tab="pages-tab">{{ section.settings.pages_tab_title }}</li>
+            {% endif %}
           {% endif %}
 
           {%- for block in section.blocks -%}
