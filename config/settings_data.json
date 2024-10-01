@@ -3331,6 +3331,7 @@
         "blocks": {
           "page_block_8zyEFq": {
             "type": "page_block",
+            "disabled": true,
             "settings": {
               "page_image": "shopify://shop_images/fresh-citrus-satisfied-customers.jpg",
               "page_url": "shopify://pages/citrus-variety-info-chart",
