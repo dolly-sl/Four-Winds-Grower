@@ -262,6 +262,12 @@
   background: var(--nh-black-color);
   z-index: 2;
 }
+.home-hero-slider .owl-carousel.owl-drag .owl-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto !important;
+}
 .home-hero-slider .image-section {
   width: 100%;
   position: absolute;
