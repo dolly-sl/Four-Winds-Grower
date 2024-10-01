@@ -313,7 +313,7 @@
   </div>
 {% endif %}
 <script>
-  jQuery(document).ready(function ($) {
+  {% comment %} jQuery(document).ready(function ($) {
     $('.pages-carousel').owlCarousel({
       items: 4,
       loop: false,
@@ -444,7 +444,7 @@
       $(this).addClass('active');
       $('#' + tab_id).addClass('active');
     });
-  });
+  }); {% endcomment %}
 
   // dropdown
   $(document).ready(function () {
