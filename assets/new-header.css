@@ -238,6 +238,14 @@ header .header-wrapper .ipad-none {
   header #flyout.mobile-menu .m-nav_search input {
     height: 45px;
   }
+  header #flyout.mobile-menu .m-nav_search input::placeholder {
+    font-family: Savu;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1px;
+  }
   #flyout.mobile-menu .accordion-title.top-title.active {
     position: absolute !important;
     top: 0;
