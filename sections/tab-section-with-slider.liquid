@@ -16,7 +16,7 @@
     <div class="tab-section">
       <div class="container l-text_center">
         <ul class="tab-nav">
-          {% for block in section.blocks %}
+          {% for block in section.blocks limit: 1 %}
             {%- case block.type -%}
               {%- when 'page_block' -%}
                 {% if section.blocks.size > 0 %}
