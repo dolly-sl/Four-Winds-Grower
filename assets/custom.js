@@ -1,7 +1,7 @@
 jQuery(document).ready(function ($) {
     // Hero banner
     $('.m-slider_landing .m-slider').owlCarousel({
-        center: false,
+        center: true,
         items: 2,
         loop: true,
         dots: true,
