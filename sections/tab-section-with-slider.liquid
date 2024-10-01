@@ -39,7 +39,7 @@
           {% endfor %}
           {% for block in section.blocks limit: 1 %}
             {%- case block.type -%}
-              {%- when 'page_block' -%}
+              {%- when 'videos' -%}
                 {% if section.blocks.size > 0 %}
                   {% if section.settings.videos_tab_title != blank %}
                     <li data-tab="videos-tab">{{ section.settings.videos_tab_title }}</li>
@@ -73,7 +73,7 @@
           {% endfor %}
           {% for block in section.blocks limit: 1 %}
             {%- case block.type -%}
-              {%- when 'page_block' -%}
+              {%- when 'videos' -%}
                 {% if section.blocks.size > 0 %}
                   {% if section.settings.videos_tab_title != blank %}
                     <option value="videos-tab">{{ section.settings.videos_tab_title }}</option>
