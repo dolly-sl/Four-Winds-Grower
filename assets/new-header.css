@@ -98,7 +98,7 @@ header .header-wrapper .m-nav_link-submenu ul li.shop-all a {
   align-self: stretch;
   line-height: 1.3 !important;
   letter-spacing: 0.8px;
-  font-weight: 700;
+  font-weight: normal;
 }
 header .header-wrapper .m-nav_link-submenu ul li.shop-all a:hover {
   text-decoration: underline !important;
