@@ -3331,7 +3331,6 @@
         "blocks": {
           "blog_list_zD6WTJ": {
             "type": "blog_list",
-            "disabled": true,
             "settings": {
               "select_blog": "four-winds-growing"
             }
