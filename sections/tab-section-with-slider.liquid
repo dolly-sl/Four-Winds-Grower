@@ -42,13 +42,14 @@
           {% for block in section.blocks %}
             {%- case block.type -%}
               {%- when 'videos' -%}
-                {% if block.settings.video_url %}
-                  {% if section.settings.videos_tab_title != blank %}
-                    <li data-tab="videos-tab">{{ section.settings.videos_tab_title }}</li>
-                  {% endif %}
-                {% endif %}
+                {% assign videolink = block.settings.video_url %}
             {% endcase %}
           {% endfor %}
+          {% if videolink != blank %}
+            {% if section.settings.videos_tab_title != blank %}
+              <li data-tab="videos-tab">{{ section.settings.videos_tab_title }}</li>
+            {% endif %}
+          {% endif %}
         </ul>
 
         <select class="tab-dropdown">
