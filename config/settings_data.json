@@ -3331,6 +3331,7 @@
         "blocks": {
           "page_block_8zyEFq": {
             "type": "page_block",
+            "disabled": true,
             "settings": {
               "page_image": "shopify://shop_images/fresh-citrus-satisfied-customers.jpg",
               "page_url": "shopify://pages/citrus-variety-info-chart",
@@ -3339,6 +3340,7 @@
           },
           "page_block_Q6Y39r": {
             "type": "page_block",
+            "disabled": true,
             "settings": {
               "page_image": "shopify://shop_images/fig.png",
               "page_url": "shopify://pages/figs-dropdown",
@@ -3347,6 +3349,7 @@
           },
           "page_block_cCztg8": {
             "type": "page_block",
+            "disabled": true,
             "settings": {
               "page_image": "shopify://shop_images/Avocado.png",
               "page_url": "shopify://pages/avocado-dropdown",
@@ -3355,6 +3358,7 @@
           },
           "page_block_wPyMgb": {
             "type": "page_block",
+            "disabled": true,
             "settings": {
               "page_image": "shopify://shop_images/Olives.png",
               "page_url": "shopify://pages/olives-dropdown",
@@ -3363,6 +3367,7 @@
           },
           "page_block_gyhYkh": {
             "type": "page_block",
+            "disabled": true,
             "settings": {
               "page_image": "shopify://shop_images/berries_growingberries.jpg",
               "page_url": "shopify://pages/cane-berries-dropdown",
