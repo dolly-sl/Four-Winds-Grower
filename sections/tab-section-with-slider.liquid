@@ -37,9 +37,16 @@
                 {% endif %}
             {% endcase %}
           {% endfor %}
-          {% if section.settings.videos_tab_title != blank %}
-            <li data-tab="videos-tab">{{ section.settings.videos_tab_title }}</li>
-          {% endif %}
+          {% for block in section.blocks limit: 1 %}
+            {%- case block.type -%}
+              {%- when 'page_block' -%}
+                {% if section.blocks.size > 0 %}
+                  {% if section.settings.videos_tab_title != blank %}
+                    <li data-tab="videos-tab">{{ section.settings.videos_tab_title }}</li>
+                  {% endif %}
+                {% endif %}
+            {% endcase %}
+          {% endfor %}
         </ul>
 
         <select class="tab-dropdown">
