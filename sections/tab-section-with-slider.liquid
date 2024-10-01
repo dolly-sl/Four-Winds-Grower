@@ -19,8 +19,10 @@
           {% for block in section.blocks %}
             {%- case block.type -%}
               {%- when 'page_block' -%}
-                {% if section.settings.pages_tab_title != blank %}
-                  <li class="active" data-tab="pages-tab">{{ section.settings.pages_tab_title }}</li>
+                {% if section.blocks.size > 0 %}
+                  {% if section.settings.pages_tab_title != blank %}
+                    <li class="active" data-tab="pages-tab">{{ section.settings.pages_tab_title }}</li>
+                  {% endif %}
                 {% endif %}
             {% endcase %}
           {% endfor %}
