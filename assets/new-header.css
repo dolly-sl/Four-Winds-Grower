@@ -103,6 +103,10 @@ header .header-wrapper .m-nav_link-submenu ul li.shop-all a {
 header .header-wrapper .m-nav_link-submenu ul li.shop-all a:hover {
   text-decoration: underline !important;
 }
+header .header-wrapper .boost-sd__suggestion-queries-item-price {
+  font-family: avenir-medium, sans-serif !important;
+  font-weight: normal !important;
+}
 header
   .header-wrapper
   .m-nav_link-submenu--shop
