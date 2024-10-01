@@ -19,13 +19,13 @@
           {% for block in section.blocks %}
             {%- case block.type -%}
               {%- when 'page_block' -%}
-                {% if block.settings.page_title != blank %}
-                  {% if section.settings.pages_tab_title != blank %}
-                    <li class="active" data-tab="pages-tab">{{ section.settings.pages_tab_title }}</li>
-                  {% endif %}
-                {% endif %}
+                {% assign title = block.settings.page_title %}
             {% endcase %}
           {% endfor %}
+          {% if section.settings.pages_tab_title != blank %}
+            <li class="active" data-tab="pages-tab">{{ section.settings.pages_tab_title }}</li>
+          {% endif %}
+
           {%- for block in section.blocks -%}
             {%- case block.type -%}
               {%- when 'blog_list' -%}
