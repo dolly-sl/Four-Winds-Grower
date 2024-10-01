@@ -3329,7 +3329,7 @@
       "tab_section_with_slider_UdaXbz": {
         "type": "tab-section-with-slider",
         "blocks": {
-          "blog_list_36htFG": {
+          "blog_list_zD6WTJ": {
             "type": "blog_list",
             "settings": {
               "select_blog": "four-winds-growing"
@@ -3375,6 +3375,14 @@
               "page_title": "Cane Berries"
             }
           },
+          "videos_84PM6e": {
+            "type": "videos",
+            "settings": {
+              "video_title": "How to Make Primo Potting Mix",
+              "video_thumbnail": "shopify://shop_images/image_29.png",
+              "video_url": "https://www.youtube.com/watch?v=nnraZ5BxnSk"
+            }
+          },
           "videos_UABjqH": {
             "type": "videos",
             "settings": {
@@ -3398,27 +3406,19 @@
               "video_thumbnail": "shopify://shop_images/How_We_Ship_Bare_Root_Fruit_Trees_to_Your_Door.png",
               "video_url": "https://www.youtube.com/watch?v=98yzHzbj_tE"
             }
-          },
-          "videos_84PM6e": {
-            "type": "videos",
-            "settings": {
-              "video_title": "How to Make Primo Potting Mix",
-              "video_thumbnail": "shopify://shop_images/image_29.png",
-              "video_url": "https://www.youtube.com/watch?v=nnraZ5BxnSk"
-            }
           }
         },
         "block_order": [
-          "blog_list_36htFG",
+          "blog_list_zD6WTJ",
           "page_block_8zyEFq",
           "page_block_Q6Y39r",
           "page_block_cCztg8",
           "page_block_wPyMgb",
           "page_block_gyhYkh",
+          "videos_84PM6e",
           "videos_UABjqH",
           "videos_F8HBXH",
-          "videos_PirAmz",
-          "videos_84PM6e"
+          "videos_PirAmz"
         ],
         "settings": {
           "title": "FULL SIZE FRUIT. FULL SIZE FLAVOR.",
@@ -3486,6 +3486,13 @@
         "type": "shopify://apps/yotpo-product-reviews-ugc/blocks/settings/eb7dfd7d-db44-4334-bc49-c893b51b36cf",
         "disabled": false,
         "settings": {
+        }
+      },
+      "14339172867238703359": {
+        "type": "shopify://apps/yotpo-product-reviews-ugc/blocks/reviews_tab/eb7dfd7d-db44-4334-bc49-c893b51b36cf",
+        "disabled": false,
+        "settings": {
+          "product": ""
         }
       }
     }
