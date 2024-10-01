@@ -71,7 +71,7 @@
       </div>
       <!-- Tab Content -->
       <div class="tab-content">
-        <div id="pages-tab" class="tab-pane">
+        <div id="pages-tab" class="tab-pane active">
           {% assign count = 0 %}
           {% for block in section.blocks %}
             {%- case block.type -%}
@@ -402,6 +402,11 @@
     $('.tab-section-with-slider .tab-nav li').first().addClass('active');
     var datatab = $('.tab-section-with-slider .tab-nav li').first().addClass('active');
     var getid = $('.tab-content .tab-pane').attr('id');
+    if ($(datatab == 'videos-tab')) {
+      $('.tab-section-with-slider #videos-tab').addClass('active');
+    } else {
+      $('.tab-section-with-slider #videos-tab').removeClass('active');
+    }
     if ($(datatab == 'videos-tab')) {
       $('.tab-section-with-slider #videos-tab').addClass('active');
     } else {
