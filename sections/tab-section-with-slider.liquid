@@ -16,9 +16,14 @@
     <div class="tab-section">
       <div class="container l-text_center">
         <ul class="tab-nav">
-          {% if section.settings.pages_tab_title != blank %}
-            <li class="active" data-tab="pages-tab">{{ section.settings.pages_tab_title }}</li>
-          {% endif %}
+          {% for block in section.blocks %}
+            {%- case block.type -%}
+              {%- when 'page_block' -%}
+                {% if section.settings.pages_tab_title != blank %}
+                  <li class="active" data-tab="pages-tab">{{ section.settings.pages_tab_title }}</li>
+                {% endif %}
+            {% endcase %}
+          {% endfor %}
           {%- for block in section.blocks -%}
             {%- case block.type -%}
               {%- when 'blog_list' -%}
