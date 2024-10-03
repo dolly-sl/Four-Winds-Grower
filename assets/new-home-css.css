@@ -1826,7 +1826,7 @@ footer .m-footer_subsection + .m-footer_subsection {
 }
 footer .m-footer_subsection.f-mobile-collapse {
   margin-top: 20px;
-  width: calc(25% - 20px);
+  width: calc(184px - 20px);
   margin-left: 20px;
 }
 
