@@ -4,7 +4,7 @@
       {%- for block in section.blocks limit: 2 %}
         {% if block.settings.instaImage != blank %}
           <li>
-            <a href="" class="image-section" title="{{ block.settings.InstaLink }}">
+            <a href="{{ block.settings.link }}" class="image-section" title="{{ block.settings.InstaLink }}">
               {% comment %}
                 {{
                 block.settings.instaImage
