@@ -492,7 +492,8 @@
   width: unset !important;
   flex: 1 1 auto;
   margin: 0;
-  height: 1px;
+  height: 2px;
+  margin-top: -15px;
   border-radius: 0;
   background-color: rgba(var(--nh-orange-rgb-color), 0.3);
 }
