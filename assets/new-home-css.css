@@ -1829,13 +1829,7 @@ footer .m-footer_subsection.f-mobile-collapse {
   width: calc(25% - 20px);
   margin-left: 20px;
 }
-@media (max-width: 1280px) {
-  footer .footer-nav {
-    margin-left: -20px;
-    padding-left: 40px;
-    /* width: calc(100% + 15px); */
-  }
-}
+
 @media (max-width: 980px) {
   footer .m-footer_subsection.f-mobile-collapse {
     width: 100%;
@@ -1844,6 +1838,12 @@ footer .m-footer_subsection.f-mobile-collapse {
 footer .footer-nav {
   margin-left: -20px;
   /* width: calc(100% + 15px); */
+}
+@media (max-width: 1280px) {
+  footer .footer-nav {
+    padding-left: 40px;
+    /* width: calc(100% + 15px); */
+  }
 }
 footer .m-footer_section.newsletter {
   max-width: 560px;
