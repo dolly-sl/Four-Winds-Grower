@@ -504,7 +504,7 @@
 }
 #home-products-slider .owl-dots .owl-dot.active:before {
   content: "";
-  background-color: #27253f;
+  background-color: rgba(var(--nh-orange-rgb-color), 1);
   position: relative;
   left: -99vw;
   top: 0;
