@@ -641,6 +641,9 @@
   width: auto;
   padding: 6px 10px 4px;
 }
+.product-card.info .m-grid-product_price {
+  font-family: avenir-regular, sans-serif !important;
+}
 .product-card .product-tags .collection-tag {
   background-color: var(--nh-green-color);
   color: var(--nh-white-color);
