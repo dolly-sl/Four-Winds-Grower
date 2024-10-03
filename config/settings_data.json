@@ -147,146 +147,9 @@
           "newsletter-success": "Thank you for Subscribing our Newsletter!"
         }
       },
-      "1504745892424": {
-        "type": "sleepless-text-section",
-        "disabled": true,
-        "settings": {
-          "title": "FULL SIZE FRUIT. FULL SIZE FLAVOR.",
-          "subtitle": "SMALL TREES",
-          "text": "<p>Four Winds Growers specializes in semi-dwarf citrus trees. Trees can be grown in a container, no yard needed! No matter how you grow you're going to get full size fruit with full size flavor!</p>",
-          "container_width": 680,
-          "button": "shop citrus trees",
-          "button_url": "shopify://collections/citrus-trees",
-          "image": "shopify://shop_images/fourwinds-slider_1.jpg",
-          "bg-fade": 50
-        }
-      },
-      "1504910530050": {
-        "type": "sleepless-slider-landing",
-        "blocks": {
-          "1539388480863": {
-            "type": "image",
-            "settings": {
-              "top-image": "shopify://shop_images/FourWinds_Oranges-02_39474ab2-4652-482e-9858-27aa5f3e4d79.png",
-              "image": "shopify://shop_images/FourWinds_Oranges-01.png",
-              "pretitle": "NEW!  lemon & lime",
-              "title": "Bushes/ Rooted Cuttings",
-              "text": "These rooted cuttings are the perfect starter trees for your citrus collection.",
-              "button_text": "SHOP CITRUS BUSHES",
-              "link": "https://www.fourwindsgrowers.com/collections/bush-rooted-cutting"
-            }
-          },
-          "1504910534524": {
-            "type": "image",
-            "settings": {
-              "top-image": "shopify://shop_images/FourWinds_Oranges-02_39474ab2-4652-482e-9858-27aa5f3e4d79.png",
-              "image": "shopify://shop_images/fourwindsgrowersassetts-01.png",
-              "pretitle": "60+ Varieties Of",
-              "title": "FINE CITRUS TREES",
-              "text": "<p>We grow a wide selection of rare and unusual citrus varieties, some of which are hard to find at retail nurseries.</p>",
-              "button_text": "Shop Citrus TREES",
-              "link": "shopify://collections/citrus-trees"
-            }
-          },
-          "1513829157517": {
-            "type": "image",
-            "settings": {
-              "top-image": "shopify://shop_images/FourWinds_Avocados-03.png",
-              "image": "shopify://shop_images/FourWinds_Avocados-01.png",
-              "pretitle": "Browse Our",
-              "title": "Tropicals",
-              "text": "<p>These include a selection of avocado trees, guavas and passion Vines. </p>",
-              "button_text": "Shop our Tropicals",
-              "link": "shopify://collections/tropical-fruits"
-            }
-          },
-          "1504910554109": {
-            "type": "image",
-            "settings": {
-              "top-image": "shopify://shop_images/FourWinds_Bluberry-01.png",
-              "image": "shopify://shop_images/FourWinds_Bluberry-02.png",
-              "pretitle": "Browse Our",
-              "title": "Berries",
-              "text": "<p>Check out our selection of blueberry, raspberry and blackberry bushes</p>",
-              "button_text": "Shop Berries",
-              "link": "shopify://collections/berries"
-            }
-          },
-          "1513829095316": {
-            "type": "image",
-            "settings": {
-              "top-image": "shopify://shop_images/FourWinds_Olives-01_6aac53fa-d831-44d8-a929-78d00190e6bd.png",
-              "image": "shopify://shop_images/FourWinds_Olives-02_813ef809-71df-46b6-8574-04ca2af7d654.png",
-              "pretitle": "Browse Our",
-              "title": "Mediterranean Selection",
-              "text": "<p>We have an amazing selection of fig, olive and pomegranate trees as well as grape vines.</p>",
-              "button_text": "Shop our Mediterranean Trees",
-              "link": "shopify://collections/mediterranean-fruits"
-            }
-          },
-          "80a5e698-cee3-4eba-91a0-20e3956a8664": {
-            "type": "image",
-            "settings": {
-              "top-image": "shopify://shop_images/FourWinds_Oranges-02_39474ab2-4652-482e-9858-27aa5f3e4d79.png",
-              "image": "shopify://shop_images/FourWinds_Oranges-01.png",
-              "pretitle": "WE HAVE",
-              "title": "WHAT YOU NEED TO GROW",
-              "text": "We have everything you need to get started on growing fruit trees. Find starter pots, potting soil, fertilizer and more in our plant care section.",
-              "button_text": "SHOP PLANT CARE",
-              "link": "https://www.fourwindsgrowers.com/collections/plant-care"
-            }
-          }
-        },
-        "block_order": [
-          "1539388480863",
-          "1504910534524",
-          "1513829157517",
-          "1504910554109",
-          "1513829095316",
-          "80a5e698-cee3-4eba-91a0-20e3956a8664"
-        ],
-        "disabled": true,
-        "settings": {
-        }
-      },
-      "1504916130046": {
-        "type": "sleepless-text-section",
-        "disabled": true,
-        "settings": {
-          "title": "FAMILY GROWN TREES",
-          "subtitle": "4 GENERATIONS OF",
-          "text": "In 1946, a curious soon-to-be nurseryman named Floyd Dillon decided there was a need for a California version of the dwarf apple and pear. He chose citrus as the ideal candidate.",
-          "container_width": 680,
-          "button": "Get The Whole Story",
-          "button_url": "shopify://pages/about-us",
-          "image": "shopify://shop_images/contact-family-grown-trees.jpg",
-          "bg-fade": 60
-        }
-      },
-      "1505176658671": {
-        "type": "instagram",
-        "disabled": true,
-        "settings": {
-          "use_embedded": false,
-          "embedded_ig_code": "",
-          "instagram_client_id": "1368689015.dd0d2b9.860cdd190d7448fd9483ba37b4833a23",
-          "title": "Follow Us On Instagram",
-          "subtitle": "@fourwindsgrowers",
-          "instagram_url": "https://www.instagram.com/fourwindsgrowers/"
-        }
-      },
       "collection-template": {
         "type": "collection-template",
         "settings": {
-        }
-      },
-      "1512274579986": {
-        "type": "home-best-sellers",
-        "disabled": true,
-        "settings": {
-          "section-sub-title": "Browse Our",
-          "section-title": "Best Sellers",
-          "collection": "our-best-selling-citrus-trees"
         }
       },
       "related-products": {
@@ -3292,25 +3155,29 @@
           "insta_z68nph": {
             "type": "insta",
             "settings": {
-              "instaImage": "shopify://shop_images/oranges.webp"
+              "instaImage": "shopify://shop_images/oranges.webp",
+              "link": "shopify://blogs/four-winds-growing"
             }
           },
           "insta_3cMbJc": {
             "type": "insta",
             "settings": {
-              "instaImage": "shopify://shop_images/fields.webp"
+              "instaImage": "shopify://shop_images/fields.webp",
+              "link": ""
             }
           },
           "insta_tdB8z3": {
             "type": "insta",
             "settings": {
-              "instaImage": "shopify://shop_images/insta.webp"
+              "instaImage": "shopify://shop_images/insta.webp",
+              "link": ""
             }
           },
           "insta_tTfbVm": {
             "type": "insta",
             "settings": {
-              "instaImage": "shopify://shop_images/insta2.webp"
+              "instaImage": "shopify://shop_images/insta2.webp",
+              "link": ""
             }
           }
         },
@@ -3435,11 +3302,6 @@
       }
     },
     "content_for_index": [
-      "1504745892424",
-      "1504910530050",
-      "1512274579986",
-      "1504916130046",
-      "1505176658671",
       "home_hero_slider_FM9TU6",
       "full_width_content_with_graphic_7xAEYz",
       "home_products_slider_wePWUJ",
