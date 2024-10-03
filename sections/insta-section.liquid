@@ -87,50 +87,63 @@
       {% for block in section.blocks offset: 2 %}
         {% if block.settings.instaImage != blank %}
           <li>
-            <div class="image-section" title="{{ block.settings.InstaLink }}">
-              {% comment %}
-                {{
+            {% if block.settings.link != blank %}
+              <a
+                href="{{ block.settings.link }}"
+                class="image-section"
+                title="{{ block.settings.InstaLink }}"
+                target="_blank"
+              >
+            {% else %}
+              <div class="image-section">
+            {% endif %}
+            {% comment %}
+              {{
+              block.settings.instaImage
+              | image_url: width: 270
+                  | image_tag: loading: 'lazy', widths: '270x270'
+              }}
+            {% endcomment %}
+            <picture>
+              <!-- Mobile and tablet sizes -->
+              <source
+                media="(max-width: 767px)"
+                srcset="
+                  {{ block.settings.instaImage | image_url: width: 375 }} 375w,
+                  {{ block.settings.instaImage | image_url: width: 550 }} 550w,
+                  {{ block.settings.instaImage | image_url: width: 750 }} 750w
+                "
+                sizes="100vw"
+              >
+
+              <!-- Desktop sizes -->
+              <source
+                media="(min-width: 768px)"
+                srcset="
+                  {{ block.settings.instaImage | image_url: width: 1000 }} 1000w,
+                  {{ block.settings.instaImage | image_url: width: 1400 }} 1400w,
+                  {{ block.settings.instaImage | image_url: width: 1800 }} 1800w,
+                  {{ block.settings.instaImage | image_url: width: 2400 }} 2400w,
+                  {{ block.settings.instaImage | image_url: width: 3000 }} 3000w
+                "
+                sizes="100vw"
+              >
+
+              <!-- Fallback image -->
+              {{
                 block.settings.instaImage
-                | image_url: width: 270
-                    | image_tag: loading: 'lazy', widths: '270x270'
-                }}
-              {% endcomment %}
-              <picture>
-                <!-- Mobile and tablet sizes -->
-                <source
-                  media="(max-width: 767px)"
-                  srcset="
-                    {{ block.settings.instaImage | image_url: width: 375 }} 375w,
-                    {{ block.settings.instaImage | image_url: width: 550 }} 550w,
-                    {{ block.settings.instaImage | image_url: width: 750 }} 750w
-                  "
-                  sizes="100vw"
-                >
-
-                <!-- Desktop sizes -->
-                <source
-                  media="(min-width: 768px)"
-                  srcset="
-                    {{ block.settings.instaImage | image_url: width: 1000 }} 1000w,
-                    {{ block.settings.instaImage | image_url: width: 1400 }} 1400w,
-                    {{ block.settings.instaImage | image_url: width: 1800 }} 1800w,
-                    {{ block.settings.instaImage | image_url: width: 2400 }} 2400w,
-                    {{ block.settings.instaImage | image_url: width: 3000 }} 3000w
-                  "
-                  sizes="100vw"
-                >
-
-                <!-- Fallback image -->
-                {{
-                  block.settings.instaImage
-                  | image_url: width: 1800
-                  | image_tag:
-                    loading: 'lazy',
-                    width: block.settings.instaImage.width,
-                    height: block.settings.instaImage.height
-                }}
-              </picture>
-            </div>
+                | image_url: width: 1800
+                | image_tag:
+                  loading: 'lazy',
+                  width: block.settings.instaImage.width,
+                  height: block.settings.instaImage.height
+              }}
+            </picture>
+            {% if block.settings.link != blank %}
+              </a>
+            {% else %}
+              </div>
+            {% endif %}
           </li>
         {% endif %}
       {% endfor %}
