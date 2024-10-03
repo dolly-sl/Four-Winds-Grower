@@ -482,7 +482,8 @@
   width: calc(100% - 140px);
   height: 2px;
   margin: auto;
-  margin-top: -15px;
+  margin-top: -25px;
+  padding-top: 15px;
   position: relative;
   z-index: 2;
 }
