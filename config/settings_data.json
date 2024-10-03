@@ -3163,21 +3163,21 @@
             "type": "insta",
             "settings": {
               "instaImage": "shopify://shop_images/fields.webp",
-              "link": ""
+              "link": "shopify://pages/contact-us"
             }
           },
           "insta_tdB8z3": {
             "type": "insta",
             "settings": {
               "instaImage": "shopify://shop_images/insta.webp",
-              "link": ""
+              "link": "shopify://policies/privacy-policy"
             }
           },
           "insta_tTfbVm": {
             "type": "insta",
             "settings": {
               "instaImage": "shopify://shop_images/insta2.webp",
-              "link": ""
+              "link": "shopify://policies/terms-of-service"
             }
           }
         },
@@ -3190,7 +3190,7 @@
         "settings": {
           "title": "Follow Us On Instagram",
           "subtitle": "@fourwindsgrowers",
-          "instagram_url": "http://www.instagram.com/socksmith"
+          "instagram_url": "https://www.instagram.com/fourwindsgrowers/"
         }
       },
       "tab_section_with_slider_UdaXbz": {
