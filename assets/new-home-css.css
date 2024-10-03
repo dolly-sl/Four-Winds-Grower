@@ -482,11 +482,12 @@
   width: calc(100% - 140px);
   height: 2px;
   margin: auto;
-  margin-top: -25px;
+  margin-top: -20px;
   padding-top: 15px;
   position: relative;
   z-index: 2;
   overflow-x: hidden;
+  align-items: center;
 }
 #home-products-slider .owl-dots .owl-dot {
   display: inline-flex;
