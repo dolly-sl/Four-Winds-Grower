@@ -1817,7 +1817,7 @@ footer .m-footer_section {
   justify-content: space-between;
 }
 footer .m-footer_section + .m-footer_section {
-  border-left: 1px solid var(--nh-border-color);
+  border-left: 0 !important;
   margin-top: -20px;
 }
 
@@ -1854,6 +1854,7 @@ footer .m-footer_section.newsletter {
   max-width: 560px;
   flex-direction: column;
   justify-content: flex-start;
+  border-right: 1px solid var(--nh-border-color);
 }
 footer .m-footer_subheader {
   line-height: 1.4;
