@@ -3156,28 +3156,28 @@
             "type": "insta",
             "settings": {
               "instaImage": "shopify://shop_images/oranges.webp",
-              "link": "shopify://blogs/four-winds-growing"
+              "link": ""
             }
           },
           "insta_3cMbJc": {
             "type": "insta",
             "settings": {
               "instaImage": "shopify://shop_images/fields.webp",
-              "link": "shopify://pages/contact-us"
+              "link": ""
             }
           },
           "insta_tdB8z3": {
             "type": "insta",
             "settings": {
               "instaImage": "shopify://shop_images/insta.webp",
-              "link": "shopify://policies/privacy-policy"
+              "link": ""
             }
           },
           "insta_tTfbVm": {
             "type": "insta",
             "settings": {
               "instaImage": "shopify://shop_images/insta2.webp",
-              "link": "shopify://policies/terms-of-service"
+              "link": ""
             }
           }
         },
