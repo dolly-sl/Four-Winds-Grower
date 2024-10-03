@@ -1845,6 +1845,10 @@ footer .footer-nav {
     padding-right: 40px;
     /* width: calc(100% + 15px); */
   }
+  footer .m-footer_section {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
 }
 footer .m-footer_section.newsletter {
   max-width: 560px;
