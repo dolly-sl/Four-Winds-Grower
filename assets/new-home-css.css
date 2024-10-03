@@ -486,6 +486,7 @@
   padding-top: 15px;
   position: relative;
   z-index: 2;
+  overflow-x: hidden;
 }
 #home-products-slider .owl-dots .owl-dot {
   display: inline-flex;
@@ -498,7 +499,7 @@
   background-color: rgba(var(--nh-orange-rgb-color), 0.3);
 }
 #home-products-slider .owl-dots .owl-dot.active {
-  height: 2px;
+  height: 3px;
   transform: translateY(-50%);
   background-color: rgba(var(--nh-orange-rgb-color), 1);
   position: relative;
