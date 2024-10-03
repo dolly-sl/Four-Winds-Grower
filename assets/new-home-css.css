@@ -1820,6 +1820,11 @@ footer .m-footer_section + .m-footer_section {
   border-left: 1px solid var(--nh-border-color);
   margin-top: -20px;
 }
+@media (max-width: 980px) {
+  footer .m-footer_subsection.f-mobile-collapse {
+    width: 100%;
+  }
+}
 footer .m-footer_subsection + .m-footer_subsection {
   margin-top: 0;
 }
@@ -1830,7 +1835,7 @@ footer .m-footer_subsection.f-mobile-collapse {
 }
 footer .footer-nav {
   margin-left: -15px;
-  width: calc(100% + 15px);
+  /* width: calc(100% + 15px); */
 }
 footer .m-footer_section.newsletter {
   max-width: 560px;
