@@ -1842,6 +1842,7 @@ footer .footer-nav {
 @media (max-width: 1280px) {
   footer .footer-nav {
     padding-left: 40px;
+    padding-right: 40px;
     /* width: calc(100% + 15px); */
   }
 }
