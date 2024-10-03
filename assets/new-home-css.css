@@ -1834,6 +1834,9 @@ footer .m-footer_subsection.f-mobile-collapse {
   footer .m-footer_subsection.f-mobile-collapse {
     width: 100%;
   }
+  footer .m-footer_subsection.f-mobile-collapse {
+    margin-left: 0;
+  }
 }
 footer .footer-nav {
   margin-left: -20px;
