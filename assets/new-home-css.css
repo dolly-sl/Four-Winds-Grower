@@ -950,12 +950,12 @@
   width: unset !important;
   flex: 1 1 auto;
   margin: 0;
-  height: 2px;
+  height: 1px;
   border-radius: 0;
   background-color: rgba(var(--nh-orange-rgb-color), 0.3);
 }
 .tab-section-with-slider .owl-carousel .owl-dots .owl-dot.active {
-  height: 3px;
+  height: 2px;
   transform: translateY(-50%);
   background-color: rgba(var(--nh-orange-rgb-color), 1);
 }
