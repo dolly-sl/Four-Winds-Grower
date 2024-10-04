@@ -931,6 +931,7 @@
   margin-top: -15px;
   position: relative;
   z-index: 3;
+  overflow-x: hidden;
 }
 .tab-section-with-slider .owl-carousel .owl-dots .owl-dot {
   display: inline-flex;
