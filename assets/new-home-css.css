@@ -160,6 +160,7 @@
   left: 50% !important;
   transform: translateX(-50%);
   bottom: 0px;
+  overflow: hidden;
 }
 
 .home-hero-slider .owl-dots .owl-dot {
@@ -177,7 +178,18 @@
   transform: translateY(-50%);
   background-color: rgba(var(--nh-orange-rgb-color), 1);
 }
-
+.home-hero-slider .owl-dots .owl-dot.active:before {
+  content: "";
+  background-color: rgba(var(--nh-orange-rgb-color), 1);
+  position: relative;
+  left: -99vw;
+  top: 0;
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  width: 100vw;
+  z-index: 999;
+}
 .home-hero-slider * {
   color: var(--nh-white-color);
 }
