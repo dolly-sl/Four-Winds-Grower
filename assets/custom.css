@@ -764,3 +764,9 @@
 .yotpo .yotpo-icon-star:before {
   color: #e57634 !important;
 }
+
+@media all and (max-width: 768px) {
+.boost-sd__product-rating .yotpo-bottomline{
+  flex-direction:column;
+  align-items:center
+}
