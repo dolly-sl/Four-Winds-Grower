@@ -770,3 +770,7 @@
   flex-direction:column;
   align-items:center
 }
+  .boost-sd__product-rating .text-m{
+    margin-top:5px;
+  }
+}
