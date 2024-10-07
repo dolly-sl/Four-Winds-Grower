@@ -772,5 +772,6 @@
 }
   .boost-sd__product-rating .text-m{
     margin-top:5px;
+    display:block
   }
 }
