@@ -3259,6 +3259,7 @@
           "page_block_cTifRk": {
             "type": "page_block",
             "settings": {
+              "page_image": "shopify://shop_images/blueberries_closeup.jpg",
               "page_url": "shopify://pages/blueberries-dropdown",
               "page_title": "Blueberries"
             }
