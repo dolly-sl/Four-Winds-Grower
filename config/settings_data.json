@@ -3018,17 +3018,6 @@
       "home_hero_slider_FM9TU6": {
         "type": "home-hero-slider",
         "blocks": {
-          "image_FqxCLb": {
-            "type": "image",
-            "settings": {
-              "image": "shopify://shop_images/herobackground2.jpg",
-              "pretitle": "We have",
-              "title": "EVERYTHING YOU NEED TO GROW",
-              "text": "We have everything you need to get started on growing fruit trees. Find starter pots, potting soil, fertilizer and more in our plant care section.",
-              "button_text": "Shop Plant Care",
-              "link": ""
-            }
-          },
           "image_mJY3kT": {
             "type": "image",
             "settings": {
@@ -3039,11 +3028,22 @@
               "button_text": "Shop our Citrus",
               "link": ""
             }
+          },
+          "image_FqxCLb": {
+            "type": "image",
+            "settings": {
+              "image": "shopify://shop_images/herobackground2.jpg",
+              "pretitle": "We have",
+              "title": "EVERYTHING YOU NEED TO GROW",
+              "text": "We have everything you need to get started on growing fruit trees. Find starter pots, potting soil, fertilizer and more in our plant care section.",
+              "button_text": "Shop Plant Care",
+              "link": ""
+            }
           }
         },
         "block_order": [
-          "image_FqxCLb",
-          "image_mJY3kT"
+          "image_mJY3kT",
+          "image_FqxCLb"
         ],
         "settings": {
           "container_width": 680,
@@ -3071,8 +3071,8 @@
         "settings": {
           "section-sub-title": "Browse Our",
           "section-title": "Best Sellers",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur consequat dui et turpis mattis, et convallis augue tristique. Vestibulum elementum placerat orci sed placerat. Nullam laoreet pellentesque ante. Quisque finibus imperdiet augue sed luctus.",
-          "container_width": 680,
+          "text": "Our best sellers bring together the most popular citrus, avocado, olive, and fig trees. Create a backyard orchard or add a statement tree to your garden—these top picks will deliver  beautiful trees and delicious harvests.",
+          "container_width": 685,
           "collection": "our-best-selling-citrus-trees"
         }
       },
