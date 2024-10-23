@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
     "favicon": "shopify://shop_images/four-winds-favicon.png",
@@ -3032,7 +3032,7 @@
           "image_mJY3kT": {
             "type": "image",
             "settings": {
-              "image": "shopify://shop_images/lemon-rooted-cuttings.jpg",
+              "image": "shopify://shop_images/calamansitreehero.jpg",
               "pretitle": "60 Varieties Of",
               "title": "FINE CITRUS TREES ONLINE",
               "text": "<p>These include a selection of rare and unusual Citrus varieties, some of which are not yet available at retail nurseries in California.</p>",
