@@ -3061,7 +3061,7 @@
           "text": "Four Winds Growers specializes in dwarf and semi-dwarf citrus trees. Trees can be grown in a container, no yard needed! No matter how you grow you're going to get full size fruit with full size flavor!",
           "container_width": 640,
           "button": "Shop For Trees",
-          "button_url": "shopify://pages/about-us",
+          "button_url": "shopify://collections",
           "bottom_graphic": "shopify://shop_images/fruits.webp"
         }
       },
