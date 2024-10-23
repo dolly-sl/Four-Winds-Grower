@@ -3039,23 +3039,11 @@
               "button_text": "Shop our Citrus",
               "link": ""
             }
-          },
-          "image_z94mew": {
-            "type": "image",
-            "settings": {
-              "image": "shopify://shop_images/calamondin.jpg",
-              "pretitle": "60 Varieties Of",
-              "title": "FINE CITRUS TREES ONLINE",
-              "text": "<p>These include a selection of rare and unusual Citrus varieties, some of which are not yet available at retail nurseries in California.</p>",
-              "button_text": "Shop our Citrus",
-              "link": ""
-            }
           }
         },
         "block_order": [
           "image_FqxCLb",
-          "image_mJY3kT",
-          "image_z94mew"
+          "image_mJY3kT"
         ],
         "settings": {
           "container_width": 680,
