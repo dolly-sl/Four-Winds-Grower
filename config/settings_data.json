@@ -3028,17 +3028,6 @@
               "link": ""
             }
           },
-          "image_FqxCLb": {
-            "type": "image",
-            "settings": {
-              "image": "shopify://shop_images/herobackground2.jpg",
-              "pretitle": "We have",
-              "title": "EVERYTHING YOU NEED TO GROW",
-              "text": "We have everything you need to get started on growing fruit trees. Find starter pots, potting soil, fertilizer and more in our plant care section.",
-              "button_text": "Shop Plant Care",
-              "link": ""
-            }
-          },
           "image_mUYGdU": {
             "type": "image",
             "settings": {
@@ -3049,12 +3038,23 @@
               "button_text": "Shop Fruit Trees",
               "link": "shopify://collections/fruit-trees-1"
             }
+          },
+          "image_FqxCLb": {
+            "type": "image",
+            "settings": {
+              "image": "shopify://shop_images/herobackground2.jpg",
+              "pretitle": "We have",
+              "title": "EVERYTHING YOU NEED TO GROW",
+              "text": "We have everything you need to get started on growing fruit trees. Find starter pots, potting soil, fertilizer and more in our plant care section.",
+              "button_text": "Shop Plant Care",
+              "link": ""
+            }
           }
         },
         "block_order": [
           "image_mJY3kT",
-          "image_FqxCLb",
-          "image_mUYGdU"
+          "image_mUYGdU",
+          "image_FqxCLb"
         ],
         "settings": {
           "container_width": 680,
@@ -3219,7 +3219,7 @@
           "page_block_8zyEFq": {
             "type": "page_block",
             "settings": {
-              "page_image": "shopify://shop_images/fresh-citrus-satisfied-customers.jpg",
+              "page_image": "shopify://shop_images/citruspile.jpg",
               "page_url": "shopify://pages/citrus-variety-info-chart",
               "page_title": "Citrus"
             }
