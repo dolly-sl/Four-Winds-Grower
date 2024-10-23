@@ -3038,11 +3038,23 @@
               "button_text": "Shop Plant Care",
               "link": ""
             }
+          },
+          "image_mUYGdU": {
+            "type": "image",
+            "settings": {
+              "image": "shopify://shop_images/appletreehero.jpg",
+              "pretitle": "Pre-order now",
+              "title": "Bare Root Fruit Trees",
+              "text": "",
+              "button_text": "Shop Fruit Trees",
+              "link": "shopify://collections/fruit-trees-1"
+            }
           }
         },
         "block_order": [
           "image_mJY3kT",
-          "image_FqxCLb"
+          "image_FqxCLb",
+          "image_mUYGdU"
         ],
         "settings": {
           "container_width": 680,
