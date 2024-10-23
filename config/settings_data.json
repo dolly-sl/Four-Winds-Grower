@@ -3309,7 +3309,7 @@
           "pages_tab_title": "growing tips",
           "articles_tab_title": "our Blog",
           "videos_tab_title": "",
-          "all_pages_url": "",
+          "all_pages_url": "shopify://pages/growing-tips",
           "all_pages_text": "View All Tips",
           "all_blog": "View all blogs"
         }
